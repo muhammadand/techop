@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Techop.id - Jasa Web Developer Profesional</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    .gradient-bg {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .card-hover {
+      transition: all 0.3s ease;
+    }
+
+    .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .text-gradient {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-phone {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    .pulse-dot {
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+      }
+    }
+
+    @keyframes slideInLeft {
+      0% {
+        opacity: 0;
+        transform: translateX(-60px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideInRight {
+      0% {
+        opacity: 0;
+        transform: translateX(60px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .animate-slide-in-left {
+      animation: slideInLeft 0.8s ease-out forwards;
+    }
+
+    .animate-slide-in-right {
+      animation: slideInRight 0.8s ease-out forwards;
+    }
+  </style>
+  <script src="/script.js"></script>
+</head>
+
+<body class="bg-white">
+  <!-- Navbar -->
+  <nav class="flex items-center justify-between px-6 py-4 shadow-sm relative">
+    <!-- Kiri: Logo -->
+    <div class="flex items-center space-x-2">
+      <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="Logo" class="w-6 h-6">
+      <span class="text-blue-600 font-bold text-lg">techop.id</span>
+    </div>
+
+    <!-- Tengah: Menu -->
+    <ul id="navMenu" class="hidden md:flex space-x-6 text-sm font-semibold">
+      <li><a href="#" class="text-black bg-gray-200 px-4 py-2 rounded-full">Beranda</a></li>
+      <li><a href="#" class="hover:text-blue-600">Layanan</a></li>
+      <li><a href="#" class="hover:text-blue-600">Portofolio</a></li>
+      <li><a href="#" class="hover:text-blue-600">Tentang</a></li>
+      <li><a href="#" class="hover:text-blue-600">Wawasan</a></li>
+      <li><a href="#" class="hover:text-blue-600">Outsourcing</a></li>
+    </ul>
+
+    <!-- Kanan: Button Hubungi Kami -->
+    <a href="#" class="hidden md:block text-sm font-semibold hover:text-blue-600">Hubungi Kami</a>
+
+    <!-- Hamburger Menu di Mobile -->
+    <button id="navToggle" class="md:hidden text-gray-800 focus:outline-none">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="md:hidden hidden px-6 pb-4 text-sm font-semibold space-y-3">
+    <a href="#" class="block text-black bg-gray-200 px-4 py-2 rounded-full">Beranda</a>
+    <a href="#" class="block hover:text-blue-600">Layanan</a>
+    <a href="#" class="block hover:text-blue-600">Portofolio</a>
+    <a href="#" class="block hover:text-blue-600">Tentang</a>
+    <a href="#" class="block hover:text-blue-600">Wawasan</a>
+    <a href="#" class="block hover:text-blue-600">Outsourcing</a>
+    <a href="#" class="block hover:text-blue-600">Hubungi Kami</a>
+  </div>
+  <!-- Hero Section -->
+  <section class="flex flex-col md:flex-row items-center justify-between px-6 py-16 max-w-7xl mx-auto overflow-hidden">
+
+    <!-- Text Area -->
+    <div class="md:w-1/2 space-y-6 animate-slide-in-left">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900">techop.id</h1>
+      <p class="text-gray-600 leading-relaxed">
+        @techop.id adalah penyedia jasa <strong>"joki tugas"</strong> yang profesional dan cepat.
+        Mereka menawarkan bantuan untuk mengerjakan berbagai tugas dengan hasil yang rapi dan tepat waktu.
+      </p>
+      <button class="mt-4 px-6 py-2 bg-black text-white rounded-full hover:bg-gray-800 transition duration-300">
+        Personal
+      </button>
+    </div>
+
+    <!-- Placeholder Area -->
+    <div class="md:w-1/2 grid grid-cols-2 gap-4 mt-10 md:mt-0 animate-slide-in-right">
+      <!-- Kotak besar kiri -->
+      <div class="col-span-1 row-span-2 bg-gray-200 rounded-xl h-96 w-full shadow-md"></div>
+
+      <!-- Kotak kanan atas -->
+      <div class="bg-gray-200 rounded-xl h-40 w-full shadow-md"></div>
+
+      <!-- Kotak kanan bawah -->
+      <div class="bg-gray-200 rounded-xl h-40 w-full shadow-md"></div>
+    </div>
+
+  </section>
+
+
+  <section class="bg-white pt-20 pb-0 px-4 md:px-8 lg:px-16 border-b">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch min-h-[600px]">
+  
+      <!-- Kiri: Judul dan Fitur -->
+      <div>
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Getting Started with Evolta App</h2>
+        <p class="text-gray-600 mb-10">
+          Start your electric journey hassle-free with the Evolta app. Easy installation, user-friendly interface, and
+          seamless charging station navigation await!
+        </p>
+  
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+  
+          <!-- Fitur 1 -->
+          <div class="bg-blue-600 text-white p-6 rounded-xl shadow-md">
+            <div class="flex items-center gap-4 mb-2">
+              <div
+                class="text-lg font-bold w-8 h-8 flex items-center justify-center bg-white text-blue-600 rounded-full">1
+              </div>
+              <h4 class="text-lg font-semibold">Pembuatan Aplikasi</h4>
+            </div>
+            <p class="text-sm">
+              Start your electric journey hassle-free with the Evolta app. Easy installation, user-friendly interface,
+              and seamless charging station navigation await!
+            </p>
+          </div>
+  
+          <!-- Fitur 2 -->
+          <div class="bg-white text-gray-800 p-6 rounded-xl shadow-md">
+            <div class="flex items-center gap-4 mb-2">
+              <div
+                class="text-lg font-bold w-8 h-8 flex items-center justify-center bg-gray-200 text-black rounded-full">2
+              </div>
+              <h4 class="text-lg font-semibold">Pembuatan Website</h4>
+            </div>
+            <p class="text-sm text-gray-600">
+              Start your electric journey hassle-free with the Evolta app. Easy installation, user-friendly interface,
+              and seamless charging station navigation await!
+            </p>
+          </div>
+  
+          <!-- Fitur 3 -->
+          <div class="bg-white text-gray-800 p-6 rounded-xl shadow-md">
+            <div class="flex items-center gap-4 mb-2">
+              <div
+                class="text-lg font-bold w-8 h-8 flex items-center justify-center bg-gray-200 text-black rounded-full">3
+              </div>
+              <h4 class="text-lg font-semibold">Desain UI/UX</h4>
+            </div>
+            <p class="text-sm text-gray-600">
+              Start your electric journey hassle-free with the Evolta app. Easy installation, user-friendly interface,
+              and seamless charging station navigation await!
+            </p>
+          </div>
+  
+          <!-- Fitur 4 -->
+          <div class="bg-white text-gray-800 p-6 rounded-xl shadow-md">
+            <div class="flex items-center gap-4 mb-2">
+              <div
+                class="text-lg font-bold w-8 h-8 flex items-center justify-center bg-gray-200 text-black rounded-full">4
+              </div>
+              <h4 class="text-lg font-semibold">Getting Started</h4>
+            </div>
+            <p class="text-sm text-gray-600">
+              Start your electric journey hassle-free with the Evolta app. Easy installation, user-friendly interface,
+              and seamless charging station navigation await!
+            </p>
+          </div>
+  
+        </div>
+      </div>
+      <div class="flex items-end justify-center lg:justify-end h-full">
+        <img 
+          src="img/hp.png" 
+          alt="Mockup Evolta"
+          class="w-64 md:w-72 lg:w-80 xl:w-96 object-contain"
+        />
+      </div>
+      
+
+  
+    </div>
+    
+  </section>
+  
+
+
+  <section class="bg-white py-20 px-4 md:px-8 lg:px-16">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+
+      <!-- Kiri: Gambar -->
+      <div class="relative w-full flex justify-center items-center">
+        <!-- Gambar utama -->
+        <div class="w-64 h-80 rounded-2xl overflow-hidden shadow-lg z-10">
+          <img src="img/1.png" alt="Gambar Utama"
+            class="object-cover w-full h-full" />
+        </div>
+
+        <!-- Gambar kecil: digeser ke kanan dan atas agar overlap -->
+        <div
+          class="absolute bottom-4 left-4 w-60 h-40 rounded-2xl overflow-hidden shadow-md border-4 border-white z-20">
+          <img src="img/2.png" alt="Gambar Kecil"
+            class="object-cover w-full h-full" />
+        </div>
+      </div>
+
+
+      <!-- Kanan: Teks -->
+      <div>
+        <span class="inline-block bg-gray-800 text-white text-sm font-medium px-4 py-1 rounded-full mb-3">Tentang
+          Kami</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+          Kenapa harus <span class="text-blue-600">techop.id ?</span>
+        </h2>
+        <p class="text-gray-600 mb-6 leading-relaxed">
+          Kami menyediakan beragam layanan digital yang dirancang untuk membantu bisnis Anda tumbuh dan berkembang
+          secara efektif.
+        </p>
+
+        <!-- List fitur -->
+        <ul class="space-y-4 mb-6">
+          <li class="flex items-start gap-3">
+            <span class="mt-1 text-blue-600">✔️</span>
+            <div>
+              <p class="font-semibold">Profesional</p>
+              <p class="text-sm text-gray-600">Tim berpengalaman yang siap bekerja untuk memberi hasil yang terbaik.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-1 text-blue-600">✔️</span>
+            <div>
+              <p class="font-semibold">Solusi Berbagai Kebutuhan Digital</p>
+              <p class="text-sm text-gray-600">Kami menyesuaikan solusi yang kami kembangkan agar sesuai dengan
+                kebutuhan bisnis Anda.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-1 text-blue-600">✔️</span>
+            <div>
+              <p class="font-semibold">Konsultasi Praktis dan Cepat</p>
+              <p class="text-sm text-gray-600">Tim techop.id selalu siap membantu setiap kendala yang ada.</p>
+            </div>
+          </li>
+        </ul>
+
+        <!-- Tombol -->
+        <a href="#" class="inline-block bg-gray-800 text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-700">
+          Selengkapnya
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <section class="bg-white py-20 px-4 md:px-8 lg:px-16">
+    <div class="max-w-7xl mx-auto text-center">
+      <!-- Subheading -->
+      <span class="inline-block bg-gray-800 text-white text-sm font-semibold px-4 py-1 rounded-full mb-3">OUR RECENT
+        PORTFOLIO</span>
+
+      <!-- Judul -->
+      <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-2">Kualitas Hasil Terbaik</h2>
+      <p class="text-gray-600 max-w-2xl mx-auto mb-10">
+        Kami menyediakan beragam layanan digital yang dirancang untuk membantu bisnis Anda tumbuh dan berkembang secara
+        efektif.
+      </p>
+
+      <!-- Filter Menu -->
+      <div class="flex justify-center items-center gap-10 mb-12">
+        <div class="flex flex-col items-center gap-1 text-sm text-gray-700">
+          <div class="w-5 h-5 bg-gray-300 rounded-full"></div>
+          <span>Website</span>
+        </div>
+        <div class="flex flex-col items-center gap-1 text-sm text-gray-700">
+          <div class="w-5 h-5 bg-gray-300 rounded-full"></div>
+          <span>UI/UX Design</span>
+        </div>
+        <div class="flex flex-col items-center gap-1 text-sm text-gray-700">
+          <div class="w-5 h-5 bg-gray-300 rounded-full"></div>
+          <span>Aplikasi</span>
+        </div>
+      </div>
+
+      <!-- Grid Portofolio -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Card -->
+        <div class="bg-white rounded-xl shadow border p-6 text-left">
+          <div class="flex items-center gap-3 mb-2">
+            <div class="w-8 h-8 flex items-center justify-center rounded-full bg-black text-white font-bold text-sm">3
+            </div>
+            <h4 class="font-semibold text-gray-900">Desain UI/UX</h4>
+          </div>
+          <p class="text-sm text-gray-600">
+            Start your electric journey hassle-free with the Evolta app. Easy installation, user-friendly interface, and
+            seamless charging station navigation await!
+          </p>
+        </div>
+
+        <!-- Copy 5 more cards -->
+        <div class="bg-white rounded-xl shadow border p-6 text-left">
+          <div class="flex items-center gap-3 mb-2">
+            <div class="w-8 h-8 flex items-center justify-center rounded-full bg-black text-white font-bold text-sm">3
+            </div>
+            <h4 class="font-semibold text-gray-900">Desain UI/UX</h4>
+          </div>
+          <p class="text-sm text-gray-600">
+            Start your electric journey hassle-free with the Evolta app. Easy installation, user-friendly interface, and
+            seamless charging station navigation await!
+          </p>
+        </div>
+
+        <div class="bg-white rounded-xl shadow border p-6 text-left">
+          <div class="flex items-center gap-3 mb-2">
+            <div class="w-8 h-8 flex items-center justify-center rounded-full bg-black text-white font-bold text-sm">3
+            </div>
+            <h4 class="font-semibold text-gray-900">Desain UI/UX</h4>
+          </div>
+          <p class="text-sm text-gray-600">
+            Start your electric journey hassle-free with the Evolta app. Easy installation, user-friendly interface, and
+            seamless charging station navigation await!
+          </p>
+        </div>
+
+        <div class="bg-white rounded-xl shadow border p-6 text-left">
+          <div class="flex items-center gap-3 mb-2">
+            <div class="w-8 h-8 flex items-center justify-center rounded-full bg-black text-white font-bold text-sm">3
+            </div>
+            <h4 class="font-semibold text-gray-900">Desain UI/UX</h4>
+          </div>
+          <p class="text-sm text-gray-600">
+            Start your electric journey hassle-free with the Evolta app. Easy installation, user-friendly interface, and
+            seamless charging station navigation await!
+          </p>
+        </div>
+
+        <div class="bg-white rounded-xl shadow border p-6 text-left">
+          <div class="flex items-center gap-3 mb-2">
+            <div class="w-8 h-8 flex items-center justify-center rounded-full bg-black text-white font-bold text-sm">3
+            </div>
+            <h4 class="font-semibold text-gray-900">Desain UI/UX</h4>
+          </div>
+          <p class="text-sm text-gray-600">
+            Start your electric journey hassle-free with the Evolta app. Easy installation, user-friendly interface, and
+            seamless charging station navigation await!
+          </p>
+        </div>
+
+        <div class="bg-white rounded-xl shadow border p-6 text-left">
+          <div class="flex items-center gap-3 mb-2">
+            <div class="w-8 h-8 flex items-center justify-center rounded-full bg-black text-white font-bold text-sm">3
+            </div>
+            <h4 class="font-semibold text-gray-900">Desain UI/UX</h4>
+          </div>
+          <p class="text-sm text-gray-600">
+            Start your electric journey hassle-free with the Evolta app. Easy installation, user-friendly interface, and
+            seamless charging station navigation await!
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="bg-white py-20 px-4 md:px-8 lg:px-16">
+    <div class="max-w-7xl mx-auto text-center">
+      <!-- Subheading -->
+      <span class="inline-block bg-gray-800 text-white text-sm font-semibold px-4 py-1 rounded-full mb-4">Team
+        Member</span>
+
+      <!-- Judul -->
+      <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-12 leading-relaxed">
+        Kolaborasi dengan Tim Terbaik <br />
+        untuk Hasil Maksimal
+      </h2>
+
+      <!-- Grid Anggota Tim -->
+      <div class="flex flex-col md:flex-row items-center justify-center gap-20 mt-12">
+
+        <!-- Anggota 1 -->
+        <div class="text-center">
+          <div class="w-36 h-36 mx-auto rounded-full overflow-hidden border-4 border-gray-300 shadow-md">
+            <img src="https://via.placeholder.com/150?text=Wira" alt="Wira Sukma" class="object-cover w-full h-full" />
+          </div>
+          <h4 class="text-lg font-semibold text-gray-900 mt-4">Wira Sukma</h4>
+          <p class="text-sm text-gray-600">Chief Executive Officer</p>
+        </div>
+
+        <!-- Anggota 2 -->
+        <div class="text-center">
+          <div class="w-36 h-36 mx-auto rounded-full overflow-hidden border-4 border-gray-300 shadow-md">
+            <img src="https://via.placeholder.com/150?text=Andi" alt="Muhammad Andi"
+              class="object-cover w-full h-full" />
+          </div>
+          <h4 class="text-lg font-semibold text-gray-900 mt-4">Muhammad Andi</h4>
+          <p class="text-sm text-gray-600">Chief Executive Officer</p>
+        </div>
+
+        <!-- Anggota 3 -->
+        <div class="text-center">
+          <div class="w-36 h-36 mx-auto rounded-full overflow-hidden border-4 border-gray-300 shadow-md">
+            <img src="https://via.placeholder.com/150?text=Gilang" alt="Gilang" class="object-cover w-full h-full" />
+          </div>
+          <h4 class="text-lg font-semibold text-gray-900 mt-4">Gilang</h4>
+          <p class="text-sm text-gray-600">Chief Executive Officer</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-8">
+        <div class="md:col-span-2">
+          <div class="flex items-center space-x-2 mb-4">
+            <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+              <span class="text-white font-bold text-sm">T</span>
+            </div>
+            <span class="text-xl font-bold">techop.id</span>
+          </div>
+          <p class="text-gray-400 mb-6">
+            Penyedia jasa profesional untuk berbagai kebutuhan digital Anda.
+            Berpengalaman dalam pengembangan website, aplikasi, dan desain UI/UX.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-white">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Layanan</h3>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="#" class="hover:text-white">Pembuatan Website</a></li>
+            <li><a href="#" class="hover:text-white">Aplikasi Mobile</a></li>
+            <li><a href="#" class="hover:text-white">Desain UI/UX</a></li>
+            <li><a href="#" class="hover:text-white">Konsultasi IT</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Kontak</h3>
+          <ul class="space-y-2 text-gray-400">
+            <li class="flex items-center space-x-2">
+              <i class="fas fa-envelope"></i>
+              <span>info@techop.id</span>
+            </li>
+            <li class="flex items-center space-x-2">
+              <i class="fas fa-phone"></i>
+              <span>+62 123 4567 890</span>
+            </li>
+            <li class="flex items-center space-x-2">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Bandung, Indonesia</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-800 mt-8 pt-8">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <p class="text-gray-400 text-sm mb-4 md:mb-0">
+            © 2024 techop.id. All rights reserved.
+          </p>
+          <div class="flex space-x-6 text-sm text-gray-400">
+            <a href="#" class="hover:text-white">Privacy Policy</a>
+            <a href="#" class="hover:text-white">Terms of Service</a>
+            <a href="#" class="hover:text-white">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+</body>
+
+</html>
