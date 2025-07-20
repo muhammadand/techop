@@ -7,6 +7,9 @@
   <title>Techop.id - Jasa Web Developer Profesional</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
@@ -172,10 +175,153 @@
 
   </section>
 
+  <section class="py-12 bg-white">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 mb-2">
+        Teknologi yang kami gunakan <span class="text-blue-600 font-bold">techop.id</span> ?
+      </h2>
+      <p class="text-gray-600 mb-10 leading-relaxed">
+        Kami menyediakan layanan digital untuk membantu bisnis Anda tumbuh,<br class="hidden md:block">
+        menggunakan teknologi seperti Flutter, Kotlin, PHP, dan NodeJs dll
+      </p>
+
+      <!-- Baris 1: 5 kotak -->
+<!-- WRAPPER auto-scroll -->
+<div id="auto-scroll-container"
+  class="flex gap-4 scroll-smooth whitespace-nowrap mb-6 relative overflow-hidden">
+
+
+  <!-- Kotlin -->
+  <div class="w-[250px] h-[110px] bg-white rounded-md shadow-sm md:shadow-md lg:shadow-lg flex items-center px-4 gap-4 shrink-0">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/7/74/Kotlin_Icon.png" alt="Kotlin" class="w-12 h-12 object-contain" />
+    <div class="text-left">
+      <h3 class="font-bold text-gray-800 text-base">Kotlin</h3>
+      <p class="text-gray-600 text-sm">Android Development</p>
+    </div>
+  </div>
+
+  <!-- Laravel -->
+  <div class="w-[250px] h-[110px] bg-white rounded-md shadow-sm md:shadow-md lg:shadow-lg flex items-center px-4 gap-4 shrink-0">
+    <img src="https://laravel.com/img/logomark.min.svg" alt="Laravel" class="w-12 h-12 object-contain" />
+    <div class="text-left">
+      <h3 class="font-bold text-gray-800 text-base">Laravel</h3>
+      <p class="text-gray-600 text-sm">Backend Development</p>
+    </div>
+  </div>
+
+  <!-- Flutter -->
+  <div class="w-[250px] h-[110px] bg-white rounded-md shadow-sm md:shadow-md lg:shadow-lg flex items-center px-4 gap-4 shrink-0">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Google-flutter-logo.png" alt="Flutter" class="w-12 h-12 object-contain" />
+    <div class="text-left">
+      <h3 class="font-bold text-gray-800 text-base">Flutter</h3>
+      <p class="text-gray-600 text-sm">Mobile Development</p>
+    </div>
+  </div>
+
+  <!-- Python -->
+  <div class="w-[250px] h-[110px] bg-white rounded-md shadow-sm md:shadow-md lg:shadow-lg flex items-center px-4 gap-4 shrink-0">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python" class="w-12 h-12 object-contain" />
+    <div class="text-left">
+      <h3 class="font-bold text-gray-800 text-base">Python</h3>
+      <p class="text-gray-600 text-sm">Data Science</p>
+    </div>
+  </div>
+
+  <!-- ReactJS -->
+  <div class="w-[250px] h-[110px] bg-white rounded-md shadow-sm md:shadow-md lg:shadow-lg flex items-center px-4 gap-4 shrink-0">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="ReactJS" class="w-12 h-12 object-contain" />
+    <div class="text-left">
+      <h3 class="font-bold text-gray-800 text-base">ReactJS</h3>
+      <p class="text-gray-600 text-sm">Front-End Development</p>
+    </div>
+  </div>
+</div>
+
+<!-- AUTO SCROLL SCRIPT -->
+<script>
+  const container = document.getElementById('auto-scroll-container');
+  let scrollDirection = 1; // 1 untuk ke kanan, -1 untuk ke kiri
+  const scrollSpeed = 1; // semakin tinggi, semakin cepat
+
+  function autoScroll() {
+    container.scrollLeft += scrollDirection * scrollSpeed;
+
+    // Jika sudah mencapai ujung kanan
+    if (container.scrollLeft + container.clientWidth >= container.scrollWidth) {
+      scrollDirection = -1; // balik arah ke kiri
+    }
+
+    // Jika sudah mencapai ujung kiri
+    if (container.scrollLeft <= 0) {
+      scrollDirection = 1; // balik arah ke kanan
+    }
+
+    requestAnimationFrame(autoScroll); // jalankan terus
+  }
+
+  autoScroll();
+</script>
+
+
+<!-- CSS: Sembunyikan scrollbar -->
+<style>
+  #auto-scroll-container::-webkit-scrollbar {
+    display: none;
+  }
+  #auto-scroll-container {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+</style>
+
+
+
+      <!-- Baris 2: 4 kotak -->
+      <div class="flex flex-wrap justify-center gap-4">
+        <div class="w-[250px] h-[110px] bg-white rounded-md shadow flex items-center px-4 gap-4">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/c/c4/Unity_2021.svg" alt="Unity"
+            class="w-12 h-12 object-contain" />
+          <div class="text-left">
+            <h3 class="font-bold text-gray-800 text-base">Unity</h3>
+            <p class="text-gray-600 text-sm">Game Development</p>
+          </div>
+        </div>
+
+        <div class="w-[250px] h-[110px] bg-white rounded-md shadow flex items-center px-4 gap-4">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg" class="w-12 h-12 object-contain"
+            alt="Figma">
+          <div class="text-left">
+            <h3 class="font-bold text-gray-800 text-base">Figma</h3>
+            <p class="text-gray-600 text-sm">UI/UX Design</p>
+          </div>
+        </div>
+
+        <div class="w-[250px] h-[110px] bg-white rounded-md shadow flex items-center px-4 gap-4">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Vue.js_Logo_2.svg"
+            class="w-12 h-12 object-contain" alt="Vue JS">
+          <div class="text-left">
+            <h3 class="font-bold text-gray-800 text-base">Vue JS</h3>
+            <p class="text-gray-600 text-sm">Front-End Development</p>
+          </div>
+        </div>
+
+        <div class="w-[250px] h-[110px] bg-white rounded-md shadow flex items-center px-4 gap-4">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg"
+            class="w-12 h-12 object-contain" alt="Tailwind CSS">
+          <div class="text-left">
+            <h3 class="font-bold text-gray-800 text-base">Tailwind CSS</h3>
+            <p class="text-gray-600 text-sm">Front-End Development</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
 
   <section class="bg-white pt-20 pb-0 px-4 md:px-8 lg:px-16 border-b">
     <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch min-h-[600px]">
-  
+
       <!-- Kiri: Judul dan Fitur -->
       <div>
         <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Getting Started with Evolta App</h2>
@@ -183,9 +329,9 @@
           Start your electric journey hassle-free with the Evolta app. Easy installation, user-friendly interface, and
           seamless charging station navigation await!
         </p>
-  
+
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-  
+
           <!-- Fitur 1 -->
           <div class="bg-blue-600 text-white p-6 rounded-xl shadow-md">
             <div class="flex items-center gap-4 mb-2">
@@ -199,7 +345,7 @@
               and seamless charging station navigation await!
             </p>
           </div>
-  
+
           <!-- Fitur 2 -->
           <div class="bg-white text-gray-800 p-6 rounded-xl shadow-md">
             <div class="flex items-center gap-4 mb-2">
@@ -213,7 +359,7 @@
               and seamless charging station navigation await!
             </p>
           </div>
-  
+
           <!-- Fitur 3 -->
           <div class="bg-white text-gray-800 p-6 rounded-xl shadow-md">
             <div class="flex items-center gap-4 mb-2">
@@ -227,7 +373,7 @@
               and seamless charging station navigation await!
             </p>
           </div>
-  
+
           <!-- Fitur 4 -->
           <div class="bg-white text-gray-800 p-6 rounded-xl shadow-md">
             <div class="flex items-center gap-4 mb-2">
@@ -241,23 +387,20 @@
               and seamless charging station navigation await!
             </p>
           </div>
-  
+
         </div>
       </div>
       <div class="flex items-end justify-center lg:justify-end h-full">
-        <img 
-          src="img/hp.png" 
-          alt="Mockup Evolta"
-          class="w-64 md:w-72 lg:w-80 xl:w-96 object-contain"
-        />
+        <img src="img/hp.png" alt="Mockup Evolta" class="w-64 md:w-72 lg:w-80 xl:w-96 object-contain" />
       </div>
-      
 
-  
+
+
     </div>
-    
+
   </section>
-  
+
+
 
 
   <section class="bg-white py-20 px-4 md:px-8 lg:px-17">
@@ -267,15 +410,13 @@
       <div class="relative w-full flex justify-center items-center">
         <!-- Gambar utama -->
         <div class="w-64 h-80 rounded-2xl overflow-hidden shadow-lg z-10">
-          <img src="img/1.png" alt="Gambar Utama"
-            class="object-cover w-full h-full" />
+          <img src="img/1.png" alt="Gambar Utama" class="object-cover w-full h-full" />
         </div>
 
         <!-- Gambar kecil: digeser ke kanan dan atas agar overlap -->
         <div
           class="absolute bottom-4 left-4 w-60 h-40 rounded-2xl overflow-hidden shadow-md border-4 border-white z-20">
-          <img src="img/2.png" alt="Gambar Kecil"
-            class="object-cover w-full h-full" />
+          <img src="img/2.png" alt="Gambar Kecil" class="object-cover w-full h-full" />
         </div>
       </div>
 
@@ -562,6 +703,8 @@
     </div>
   </footer>
 
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
 </body>
 
