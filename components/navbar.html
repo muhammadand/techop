@@ -1,39 +1,323 @@
-<!-- Navbar -->
-<nav class="flex items-center justify-between px-6 py-4 shadow-sm relative">
-  <!-- Kiri: Logo -->
-  <div class="flex items-center space-x-2">
-    <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="Logo" class="w-6 h-6" />
-    <span class="text-blue-600 font-bold text-lg">techop.id</span>
-  </div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clean Navbar - techop.id</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
-  <!-- Tengah: Menu -->
-  <ul id="navMenu" class="hidden md:flex space-x-6 text-sm font-semibold">
-    <li><a href="#" class="text-black bg-gray-200 px-4 py-2 rounded-full">Beranda</a></li>
-    <li><a href="#" class="hover:text-blue-600">Layanan</a></li>
-    <li><a href="#" class="hover:text-blue-600">Portofolio</a></li>
-    <li><a href="#" class="hover:text-blue-600">Tentang</a></li>
-    <li><a href="#" class="hover:text-blue-600">Wawasan</a></li>
-    <li><a href="#" class="hover:text-blue-600">Outsourcing</a></li>
-  </ul>
+      * {
+        font-family: "Inter", sans-serif;
+      }
 
-  <!-- Kanan: Button Hubungi Kami -->
-  <a href="#" class="hidden md:block text-sm font-semibold hover:text-blue-600">Hubungi Kami</a>
+      .glass-effect {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
 
-  <!-- Hamburger Menu di Mobile -->
-  <button id="navToggle" class="md:hidden text-gray-800 focus:outline-none">
-    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-    </svg>
-  </button>
-</nav>
+      .nav-link {
+        position: relative;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
 
-<!-- Mobile Menu -->
-<div id="mobileMenu" class="md:hidden hidden px-6 pb-4 text-sm font-semibold space-y-3">
-  <a href="#" class="block text-black bg-gray-200 px-4 py-2 rounded-full">Beranda</a>
-  <a href="#" class="block hover:text-blue-600">Layanan</a>
-  <a href="#" class="block hover:text-blue-600">Portofolio</a>
-  <a href="#" class="block hover:text-blue-600">Tentang</a>
-  <a href="#" class="block hover:text-blue-600">Wawasan</a>
-  <a href="#" class="block hover:text-blue-600">Outsourcing</a>
-  <a href="#" class="block hover:text-blue-600">Hubungi Kami</a>
-</div>
+      .nav-link::before {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -4px;
+        left: 50%;
+        background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transform: translateX(-50%);
+      }
+
+      .nav-link:hover::before {
+        width: 100%;
+      }
+
+      .nav-link:hover {
+        color: #3b82f6;
+        transform: translateY(-1px);
+      }
+
+      .active-link {
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        color: white !important;
+        box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+      }
+
+      .logo-glow {
+        filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.3));
+        transition: all 0.3s ease;
+      }
+
+      .logo-glow:hover {
+        filter: drop-shadow(0 0 15px rgba(59, 130, 246, 0.5));
+        transform: scale(1.05);
+      }
+
+      .contact-btn {
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        color: white;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
+      }
+
+      .contact-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+        background: linear-gradient(135deg, #1d4ed8, #1e40af);
+      }
+
+      .hamburger-line {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transform-origin: center;
+      }
+
+      .hamburger-active .line1 {
+        transform: rotate(45deg) translate(6px, 6px);
+      }
+
+      .hamburger-active .line2 {
+        opacity: 0;
+        transform: scale(0);
+      }
+
+      .hamburger-active .line3 {
+        transform: rotate(-45deg) translate(6px, -6px);
+      }
+
+      .mobile-menu {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        transform: translateY(-20px);
+        opacity: 0;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .mobile-menu.show {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      .mobile-link {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        border-left: 3px solid transparent;
+      }
+
+      .mobile-link:hover {
+        background: rgba(59, 130, 246, 0.05);
+        border-left-color: #3b82f6;
+        transform: translateX(5px);
+      }
+
+      .mobile-active {
+        background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(29, 78, 216, 0.1));
+        border-left-color: #3b82f6;
+        color: #3b82f6;
+      }
+
+      .floating-nav {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% - 40px);
+        max-width: 1200px;
+        z-index: 9999;
+        border-radius: 16px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      @media (max-width: 768px) {
+        .floating-nav {
+          top: 10px;
+          width: calc(100% - 20px);
+          border-radius: 12px;
+        }
+      }
+
+      /* Clean background with padding for navbar */
+      body {
+        background: #f8fafc;
+        min-height: 100vh;
+        padding-top: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Floating Navbar -->
+    <nav class="floating-nav glass-effect shadow-xl">
+      <div class="flex items-center justify-between px-6 py-4">
+        <!-- Logo -->
+        <div class="flex items-center space-x-3">
+          <div class="logo-glow">
+            <img src="../assets/img/techop.png" alt="techop.id logo" class="w-8 h-8" />
+          </div>
+          <span class="text-blue-600 font-bold text-xl bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent"> techop.id </span>
+        </div>
+
+        <!-- Desktop Menu -->
+        <ul id="navMenu" class="hidden md:flex items-center space-x-1">
+          <li><a href="#" class="nav-link active-link px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300">Beranda</a></li>
+          <li><a href="#" class="nav-link px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700">Layanan</a></li>
+          <li><a href="#" class="nav-link px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700">Portofolio</a></li>
+          <li><a href="#" class="nav-link px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700">Tentang</a></li>
+          <li><a href="#" class="nav-link px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700">Wawasan</a></li>
+          <li><a href="#" class="nav-link px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700">Outsourcing</a></li>
+        </ul>
+
+        <!-- Contact Button -->
+        <a href="#" class="hidden md:block contact-btn px-6 py-2.5 rounded-full text-sm font-semibold"> Hubungi Kami </a>
+
+        <!-- Mobile Hamburger -->
+        <button id="navToggle" class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+          <div class="w-6 h-6 flex flex-col justify-center space-y-1">
+            <div class="hamburger-line line1 w-6 h-0.5 bg-gray-800 rounded-full"></div>
+            <div class="hamburger-line line2 w-6 h-0.5 bg-gray-800 rounded-full"></div>
+            <div class="hamburger-line line3 w-6 h-0.5 bg-gray-800 rounded-full"></div>
+          </div>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobileMenu" class="mobile-menu md:hidden hidden">
+        <div class="px-6 py-4 space-y-1">
+          <a href="#" class="mobile-link mobile-active block px-4 py-3 rounded-lg text-sm font-semibold transition-all duration-300">
+            <span class="flex items-center">
+              <svg class="w-4 h-4 mr-3 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+              </svg>
+              Beranda
+            </span>
+          </a>
+          <a href="#" class="mobile-link block px-4 py-3 rounded-lg text-sm font-semibold text-gray-700">
+            <span class="flex items-center">
+              <svg class="w-4 h-4 mr-3 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  fill-rule="evenodd"
+                  d="M3 4a1 1 0 011-1h4a1 1 0 010 2H6.414l2.293 2.293a1 1 0 11-1.414 1.414L5 6.414V8a1 1 0 01-2 0V4zm9 1a1 1 0 010-2h4a1 1 0 011 1v4a1 1 0 01-2 0V6.414l-2.293 2.293a1 1 0 11-1.414-1.414L13.586 5H12zm-9 7a1 1 0 012 0v1.586l2.293-2.293a1 1 0 111.414 1.414L6.414 15H8a1 1 0 010 2H4a1 1 0 01-1-1v-4zm13-1a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 010-2h1.586l-2.293-2.293a1 1 0 111.414-1.414L15 13.586V12a1 1 0 011-1z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              Layanan
+            </span>
+          </a>
+          <a href="#" class="mobile-link block px-4 py-3 rounded-lg text-sm font-semibold text-gray-700">
+            <span class="flex items-center">
+              <svg class="w-4 h-4 mr-3 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd" />
+              </svg>
+              Portofolio
+            </span>
+          </a>
+          <a href="#" class="mobile-link block px-4 py-3 rounded-lg text-sm font-semibold text-gray-700">
+            <span class="flex items-center">
+              <svg class="w-4 h-4 mr-3 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+              </svg>
+              Tentang
+            </span>
+          </a>
+          <a href="#" class="mobile-link block px-4 py-3 rounded-lg text-sm font-semibold text-gray-700">
+            <span class="flex items-center">
+              <svg class="w-4 h-4 mr-3 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              Wawasan
+            </span>
+          </a>
+          <a href="#" class="mobile-link block px-4 py-3 rounded-lg text-sm font-semibold text-gray-700">
+            <span class="flex items-center">
+              <svg class="w-4 h-4 mr-3 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z" />
+              </svg>
+              Outsourcing
+            </span>
+          </a>
+          <a href="#" class="mobile-link contact-btn block px-4 py-3 rounded-lg text-sm font-semibold text-center mt-4">
+            <span class="flex items-center justify-center">
+              <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+              </svg>
+              Hubungi Kami
+            </span>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <script>
+      // Mobile menu toggle
+      const navToggle = document.getElementById("navToggle");
+      const mobileMenu = document.getElementById("mobileMenu");
+      let isMenuOpen = false;
+
+      navToggle.addEventListener("click", () => {
+        isMenuOpen = !isMenuOpen;
+
+        if (isMenuOpen) {
+          mobileMenu.classList.remove("hidden");
+          setTimeout(() => {
+            mobileMenu.classList.add("show");
+          }, 10);
+          navToggle.classList.add("hamburger-active");
+        } else {
+          mobileMenu.classList.remove("show");
+          navToggle.classList.remove("hamburger-active");
+          setTimeout(() => {
+            mobileMenu.classList.add("hidden");
+          }, 400);
+        }
+      });
+
+      // Close mobile menu when clicking outside
+      document.addEventListener("click", (e) => {
+        if (isMenuOpen && !navToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
+          isMenuOpen = false;
+          mobileMenu.classList.remove("show");
+          navToggle.classList.remove("hamburger-active");
+          setTimeout(() => {
+            mobileMenu.classList.add("hidden");
+          }, 400);
+        }
+      });
+
+      // Active link switching for desktop
+      const navLinks = document.querySelectorAll(".nav-link");
+      navLinks.forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          navLinks.forEach((l) => l.classList.remove("active-link"));
+          link.classList.add("active-link");
+        });
+      });
+
+      // Active link switching for mobile
+      const mobileLinks = document.querySelectorAll(".mobile-link:not(.contact-btn)");
+      mobileLinks.forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          mobileLinks.forEach((l) => l.classList.remove("mobile-active"));
+          link.classList.add("mobile-active");
+
+          // Close mobile menu after selection
+          isMenuOpen = false;
+          mobileMenu.classList.remove("show");
+          navToggle.classList.remove("hamburger-active");
+          setTimeout(() => {
+            mobileMenu.classList.add("hidden");
+          }, 400);
+        });
+      });
+    </script>
+  </body>
+</html>
