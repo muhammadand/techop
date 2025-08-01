@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TechOp.id - Jasa UI/UX Design Professional</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Gradient text */
+      .gradient-text {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* Typing animation */
+      .typing-animation {
+        border-right: 2px solid #667eea;
+        white-space: nowrap;
+        overflow: hidden;
+        animation: typing 3s steps(40, end), blink 0.75s step-end infinite;
+      }
+
+      @keyframes typing {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      @keyframes blink {
+        from,
+        to {
+          border-color: transparent;
+        }
+        50% {
+          border-color: #667eea;
+        }
+      }
+
+      /* Slide animations */
+      .animate-slide-in-left {
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: all 0.8s ease-out;
+      }
+
+      .animate-slide-in-right {
+        opacity: 0;
+        transform: translateX(50px);
+        transition: all 0.8s ease-out;
+      }
+
+      /* Floating animations */
+      .float-animation {
+        animation: float 3s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .pulse-animation {
+        animation: pulse-custom 2s ease-in-out infinite;
+      }
+
+      @keyframes pulse-custom {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+      }
+
+      /* Auto-reveal animation on load */
+      .animate-slide-in-left,
+      .animate-slide-in-right {
+        animation: slideInReveal 1s ease-out forwards;
+      }
+
+      .animate-slide-in-right {
+        animation-delay: 0.3s;
+      }
+
+      @keyframes slideInReveal {
+        from {
+          opacity: 0;
+          transform: translateX(-50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      .animate-slide-in-right {
+        animation-name: slideInRevealRight;
+      }
+
+      @keyframes slideInRevealRight {
+        from {
+          opacity: 0;
+          transform: translateX(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      /* Design tools animation */
+      .design-tool {
+        transition: all 0.3s ease;
+      }
+
+      .design-tool:hover {
+        transform: scale(1.1) rotate(5deg);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Hero Section -->
+    <section class="flex flex-col md:flex-row items-center justify-between px-6 py-16 max-w-7xl mx-auto overflow-hidden">
+      <!-- Text Area -->
+      <div class="md:w-1/2 space-y-6 animate-slide-in-left">
+        <div class="space-y-2">
+          <h1 class="text-4xl md:text-5xl font-bold">
+            <span class="gradient-text">techop.id</span>
+          </h1>
+          <div class="text-lg text-gray-500 font-mono">
+            <span class="typing-animation">Jasa UI/UX Design Professional</span>
+          </div>
+        </div>
+
+        <p class="text-gray-600 leading-relaxed text-lg">Kami menciptakan <strong class="text-blue-600">pengalaman digital</strong> yang memukau melalui desain interface yang intuitif, user-friendly, dan mengutamakan kepuasan pengguna.</p>
+
+        <div class="flex flex-col sm:flex-row gap-4 pt-4">
+          <button class="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full hover:shadow-lg transition-all duration-300 transform hover:scale-105 font-semibold">🎨 Mulai Design</button>
+          <button class="px-8 py-3 border-2 border-gray-300 text-gray-700 rounded-full hover:border-blue-500 hover:text-blue-600 transition-all duration-300 font-semibold">📱 Lihat Portfolio</button>
+        </div>
+
+        <!-- Stats -->
+        <div class="flex gap-8 pt-6">
+          <div class="text-center">
+            <div class="text-2xl font-bold text-blue-600">150+</div>
+            <div class="text-sm text-gray-500">Design Selesai</div>
+          </div>
+          <div class="text-center">
+            <div class="text-2xl font-bold text-purple-600">5★</div>
+            <div class="text-sm text-gray-500">Rating Klien</div>
+          </div>
+          <div class="text-center">
+            <div class="text-2xl font-bold text-green-600">98%</div>
+            <div class="text-sm text-gray-500">User Satisfaction</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Visual Area - Design Workspace -->
+      <div class="w-full max-w-4xl mx-auto">
+        <div class="md:w-full flex items-center justify-center animate-slide-in-right relative">
+          <!-- Design Workspace Container -->
+          <div class="relative w-full max-w-2xl h-80 flex items-center justify-center">
+            <!-- Main Design Canvas - Center -->
+            <div class="relative z-20 float-animation">
+              <div class="bg-white rounded-2xl shadow-2xl w-64 h-72 p-4 border border-gray-200">
+                <!-- Browser Header -->
+                <div class="flex items-center gap-2 mb-4 pb-3 border-b border-gray-200">
+                  <div class="flex gap-1">
+                    <div class="w-3 h-3 bg-red-400 rounded-full"></div>
+                    <div class="w-3 h-3 bg-yellow-400 rounded-full"></div>
+                    <div class="w-3 h-3 bg-green-400 rounded-full"></div>
+                  </div>
+                  <div class="flex-1 bg-gray-100 rounded-md px-2 py-1 text-xs text-gray-500">www.design-project.com</div>
+                </div>
+
+                <!-- Design Content -->
+                <div class="space-y-3">
+                  <!-- Header Section -->
+                  <div class="bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg p-3 text-center">
+                    <div class="w-8 h-8 bg-white rounded-full mx-auto mb-2 flex items-center justify-center">
+                      <span class="text-blue-600 text-lg">🎨</span>
+                    </div>
+                    <div class="text-white font-bold text-sm">UI/UX Portfolio</div>
+                    <div class="text-blue-100 text-xs">Creative Design Solutions</div>
+                  </div>
+
+                  <!-- Design Cards -->
+                  <div class="grid grid-cols-2 gap-2">
+                    <div class="bg-gradient-to-br from-pink-50 to-rose-100 rounded-lg p-2 border border-pink-200">
+                      <div class="w-full h-6 bg-gradient-to-r from-pink-300 to-rose-400 rounded-md mb-1"></div>
+                      <div class="text-xs text-pink-800 font-medium">Mobile App</div>
+                      <div class="text-xs text-pink-600">UI Design</div>
+                    </div>
+                    <div class="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-lg p-2 border border-blue-200">
+                      <div class="w-full h-6 bg-gradient-to-r from-blue-300 to-indigo-400 rounded-md mb-1"></div>
+                      <div class="text-xs text-blue-800 font-medium">Web Design</div>
+                      <div class="text-xs text-blue-600">UX Flow</div>
+                    </div>
+                  </div>
+
+                  <!-- Action Buttons -->
+                  <div class="space-y-1">
+                    <button class="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2 rounded-lg font-semibold text-xs shadow-lg">📱 View Projects</button>
+                    <button class="w-full bg-gray-100 text-gray-700 py-1.5 rounded-lg font-medium text-xs">✉️ Contact Designer</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Design Tools - Left Side -->
+            <div class="absolute -left-12 top-8 space-y-4">
+              <div class="design-tool bg-white rounded-xl shadow-lg p-3 w-16 h-16 flex items-center justify-center">
+                <div class="text-2xl">🎨</div>
+              </div>
+              <div class="design-tool bg-white rounded-xl shadow-lg p-3 w-16 h-16 flex items-center justify-center" style="animation-delay: 0.5s">
+                <div class="text-2xl">✏️</div>
+              </div>
+              <div class="design-tool bg-white rounded-xl shadow-lg p-3 w-16 h-16 flex items-center justify-center" style="animation-delay: 1s">
+                <div class="text-2xl">📐</div>
+              </div>
+            </div>
+
+            <!-- Design Elements - Right Side -->
+            <div class="absolute -right-12 top-8 space-y-4">
+              <div class="design-tool bg-white rounded-xl shadow-lg p-3 w-16 h-16 flex items-center justify-center">
+                <div class="w-8 h-8 bg-gradient-to-br from-pink-400 to-purple-500 rounded-lg"></div>
+              </div>
+              <div class="design-tool bg-white rounded-xl shadow-lg p-3 w-16 h-16 flex items-center justify-center" style="animation-delay: 0.7s">
+                <div class="w-8 h-8 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-full"></div>
+              </div>
+              <div class="design-tool bg-white rounded-xl shadow-lg p-3 w-16 h-16 flex items-center justify-center" style="animation-delay: 1.2s">
+                <div class="w-8 h-2 bg-gradient-to-r from-green-400 to-blue-500 rounded-full"></div>
+              </div>
+            </div>
+
+            <!-- Color Palette - Bottom Left -->
+            <div class="absolute -bottom-8 -left-8 bg-white rounded-xl shadow-lg p-3 float-animation" style="animation-delay: 1.5s">
+              <div class="flex gap-1">
+                <div class="w-4 h-4 bg-red-400 rounded-full"></div>
+                <div class="w-4 h-4 bg-blue-400 rounded-full"></div>
+                <div class="w-4 h-4 bg-green-400 rounded-full"></div>
+                <div class="w-4 h-4 bg-purple-400 rounded-full"></div>
+              </div>
+            </div>
+
+            <!-- Wireframe - Bottom Right -->
+            <div class="absolute -bottom-8 -right-8 bg-white rounded-xl shadow-lg p-3 w-20 h-16 float-animation" style="animation-delay: 2s">
+              <div class="space-y-1">
+                <div class="w-full h-2 bg-gray-300 rounded"></div>
+                <div class="w-3/4 h-2 bg-gray-200 rounded"></div>
+                <div class="w-1/2 h-2 bg-gray-200 rounded"></div>
+                <div class="w-full h-1 bg-gray-100 rounded"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Floating Background -->
+          <div class="absolute -z-10 inset-0 flex items-center justify-center">
+            <div class="w-96 h-96 bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 rounded-full opacity-30 blur-3xl"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Floating Elements -->
+    <div class="fixed top-20 right-10 opacity-20 pointer-events-none">
+      <div class="w-32 h-32 bg-gradient-to-br from-blue-400 to-purple-600 rounded-full blur-xl animate-pulse"></div>
+    </div>
+
+    <div class="fixed bottom-20 left-10 opacity-20 pointer-events-none">
+      <div class="w-24 h-24 bg-gradient-to-br from-green-400 to-blue-500 rounded-full blur-xl animate-pulse" style="animation-delay: 2s"></div>
+    </div>
+
+    <script>
+      // Add scroll reveal animation
+      window.addEventListener("scroll", () => {
+        const elements = document.querySelectorAll(".animate-slide-in-left, .animate-slide-in-right");
+        elements.forEach((el) => {
+          const elementTop = el.getBoundingClientRect().top;
+          const elementVisible = 150;
+
+          if (elementTop < window.innerHeight - elementVisible) {
+            el.style.opacity = "1";
+            el.style.transform = "translateX(0)";
+          }
+        });
+      });
+
+      // Typing animation restart
+      setInterval(() => {
+        const typingElement = document.querySelector(".typing-animation");
+        typingElement.style.animation = "none";
+        setTimeout(() => {
+          typingElement.style.animation = "typing 3s steps(40, end), blink 0.75s step-end infinite";
+        }, 100);
+      }, 6000);
+
+      // Add floating animation to design tools
+      document.querySelectorAll(".design-tool").forEach((tool, index) => {
+        tool.style.animationDelay = `${index * 0.5}s`;
+        tool.classList.add("float-animation");
+      });
+    </script>
+  </body>
+</html>

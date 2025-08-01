@@ -27,6 +27,7 @@
     <div id="timeline-container"></div>
     <div id="team-container"></div>
     <div id="footer-container"></div>
+
     <script src="assets/js/script.js"></script>
 
     <script>
@@ -44,10 +45,10 @@
         { name: "footer", container: "footer-container" },
       ];
 
-      // Fungsi untuk load komponen
+      // Fungsi untuk load komponen dari folder 'mobileapps'
       async function loadComponent(componentName, containerId) {
         try {
-          const response = await fetch(`components/${componentName}.html`);
+          const response = await fetch(`mobileapps/${componentName}.html`);
           if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
           }
@@ -58,10 +59,10 @@
           console.error(`❌ Error loading ${componentName}:`, error);
           // Fallback content jika gagal load
           document.getElementById(containerId).innerHTML = `
-                    <div class="text-center text-red-500 p-4">
-                        Error loading ${componentName} component
-                    </div>
-                `;
+            <div class="text-center text-red-500 p-4">
+                Error loading ${componentName} component
+            </div>
+          `;
         }
       }
 
@@ -69,7 +70,6 @@
       async function loadAllComponents() {
         console.log("🚀 Starting to load components...");
 
-        // Load semua komponen secara parallel
         const loadPromises = components.map((comp) => loadComponent(comp.name, comp.container));
 
         try {
@@ -84,11 +84,11 @@
         } catch (error) {
           console.error("❌ Error loading components:", error);
           document.getElementById("loading").innerHTML = `
-                    <div class="text-red-500">
-                        <p>❌ Error loading components</p>
-                        <p class="text-sm">${error.message}</p>
-                    </div>
-                `;
+            <div class="text-red-500">
+              <p>❌ Error loading components</p>
+              <p class="text-sm">${error.message}</p>
+            </div>
+          `;
         }
       }
 
@@ -152,19 +152,18 @@
 
       // Fallback jika ada error pada window load
       window.addEventListener("load", function () {
-        // Jika setelah 5 detik masih loading, tampilkan error
         setTimeout(() => {
           const loading = document.getElementById("loading");
           if (loading && loading.style.display !== "none") {
             loading.innerHTML = `
-                        <div class="text-center text-amber-600 p-4">
-                            <p>⚠️ Components are taking longer to load</p>
-                            <p class="text-sm">Please check if components folder exists and contains HTML files</p>
-                            <button onclick="location.reload()" class="mt-2 px-4 py-2 bg-blue-600 text-white rounded">
-                                Retry
-                            </button>
-                        </div>
-                    `;
+              <div class="text-center text-amber-600 p-4">
+                  <p>⚠️ Components are taking longer to load</p>
+                  <p class="text-sm">Please check if mobileapps folder exists and contains HTML files</p>
+                  <button onclick="location.reload()" class="mt-2 px-4 py-2 bg-blue-600 text-white rounded">
+                      Retry
+                  </button>
+              </div>
+            `;
           }
         }, 5000);
       });

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pricing Section</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .card-hover {
+        transition: all 0.3s ease;
+      }
+
+      .card-hover:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .center-card {
+        transform: scale(1.05);
+      }
+
+      .center-card:hover {
+        transform: scale(1.08) translateY(-8px);
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+      }
+
+      .animate-pulse {
+        animation: pulse 2s infinite;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="py-16 bg-white px-4 md:px-12">
+      <!-- Header -->
+      <div class="text-center mb-12">
+        <button class="bg-gray-900 text-white px-4 py-1 rounded-full text-sm font-semibold">Pilihan Paket Complete</button>
+        <h2 class="text-3xl md:text-4xl font-bold mt-4">Harga Pembuatan Aplikasi</h2>
+        <p class="text-gray-600 mt-2 max-w-xl mx-auto text-sm">Kami menyediakan beragam layanan digital yang dirancang untuk membantu bisnis Anda tumbuh dan berkembang secara efektif.</p>
+      </div>
+
+      <!-- Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-7xl mx-auto items-center">
+        <!-- Left Card - Basic -->
+        <div class="bg-white rounded-2xl shadow-md p-8 text-gray-800 relative card-hover side-cards">
+          <div class="absolute -top-4 -left-4 w-8 h-8 text-white text-sm font-bold rounded-full flex items-center justify-center z-10" style="background-color: #2d2d2d">1</div>
+          <h3 class="text-xl font-semibold mb-2 mt-4">Paket Basic</h3>
+          <p class="text-sm text-gray-600 mb-4">Solusi dasar untuk memulai kehadiran digital bisnis Anda dengan fitur-fitur essential yang mudah digunakan dan terpercaya.</p>
+          <ul class="space-y-2 text-sm">
+            <li class="flex items-center gap-2"><span>✔️</span> Desain Website Standard</li>
+            <li class="flex items-center gap-2"><span>✔️</span> Interface Sederhana</li>
+            <li class="flex items-center gap-2"><span>✔️</span> Keamanan Basic</li>
+            <li class="flex items-center gap-2"><span>✔️</span> Responsive Mobile</li>
+            <li class="flex items-center gap-2"><span>✔️</span> Template Modern</li>
+            <li class="flex items-center gap-2"><span>✔️</span> Support Email</li>
+            <li class="flex items-center gap-2"><span>✔️</span> Hosting 1 Tahun</li>
+          </ul>
+          <button class="mt-6 text-white px-5 py-2 rounded-full text-sm font-semibold w-full" style="background-color: #2d2d2d">LIHAT PORTFOLIO</button>
+        </div>
+
+        <!-- Middle Card - Pro (highlighted & slightly enlarged) -->
+        <div class="text-white rounded-2xl shadow-xl p-8 relative card-hover center-card" style="background-color: #2d2d2d">
+          <div class="absolute -top-4 -left-4 w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 text-white text-sm font-bold rounded-full flex items-center justify-center z-10 shadow-lg">
+            <span class="animate-pulse">★</span>
+          </div>
+          <div class="text-center mb-3">
+            <span class="bg-gradient-to-r from-blue-400 to-purple-400 text-black px-3 py-1 rounded-full text-xs font-bold">MOST POPULAR</span>
+          </div>
+          <h3 class="text-xl font-bold mb-2 mt-4">Paket Pro</h3>
+          <p class="text-sm text-gray-300 mb-4">Solusi profesional dengan fitur advanced untuk bisnis yang berkembang pesat dan membutuhkan performa optimal serta dukungan lengkap.</p>
+          <ul class="space-y-2 text-sm text-white">
+            <li class="flex items-center gap-2"><span class="text-green-400">✔️</span> Desain Custom Premium</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✔️</span> Dashboard Advanced</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✔️</span> Security Enhanced</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✔️</span> Multi Platform Support</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✔️</span> UI/UX Professional</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✔️</span> Priority Support 24/7</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✔️</span> Payment Gateway Integration</li>
+          </ul>
+          <button
+            class="mt-6 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-5 py-2 rounded-full text-sm font-semibold w-full transform hover:scale-105 transition-all duration-300 shadow-lg"
+          >
+            LIHAT PORTFOLIO
+          </button>
+        </div>
+
+        <!-- Right Card - Pro Max -->
+        <div class="bg-white rounded-2xl shadow-md p-8 text-gray-800 relative card-hover side-cards">
+          <div class="absolute -top-4 -left-4 w-8 h-8 text-white text-sm font-bold rounded-full flex items-center justify-center z-10" style="background-color: #2d2d2d">3</div>
+          <h3 class="text-xl font-semibold mb-2 mt-4">Paket Ultimate</h3>
+          <p class="text-sm text-gray-600 mb-4">Solusi enterprise terlengkap dengan teknologi cutting-edge untuk perusahaan besar yang membutuhkan sistem kompleks dan performa maksimal.</p>
+          <ul class="space-y-2 text-sm">
+            <li class="flex items-center gap-2"><span>✔️</span> Full Custom Development</li>
+            <li class="flex items-center gap-2"><span>✔️</span> AI Integration Ready</li>
+            <li class="flex items-center gap-2"><span>✔️</span> Enterprise Security</li>
+            <li class="flex items-center gap-2"><span>✔️</span> Cloud Infrastructure</li>
+            <li class="flex items-center gap-2"><span>✔️</span> Advanced Analytics</li>
+            <li class="flex items-center gap-2"><span>✔️</span> Dedicated Support Team</li>
+            <li class="flex items-center gap-2"><span>✔️</span> Multi Payment Solutions</li>
+          </ul>
+          <button class="mt-6 text-white px-5 py-2 rounded-full text-sm font-semibold w-full" style="background-color: #2d2d2d">LIHAT PORTFOLIO</button>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
