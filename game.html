@@ -27,146 +27,441 @@
     <div id="timeline-container"></div>
     <div id="team-container"></div>
     <div id="footer-container"></div>
-
     <script src="assets/js/script.js"></script>
 
     <script>
-      // Data komponen yang akan di-load
+      // Configuration & Components Data
+      const CONFIG = { navbarHeight: 80, scrollOffset: 100, scrollSpeed: 1, autoScrollEnabled: true, debugMode: true };
+
       const components = [
         { name: "navbar", container: "navbar-container" },
-        { name: "hero", container: "hero-container" },
-        { name: "services", container: "services-container" },
-        { name: "about", container: "about-container" },
-        { name: "portfolio", container: "portfolio-container" },
-        { name: "technology", container: "technology-container" },
-        { name: "pricing", container: "pricing-container" },
-        { name: "timeline", container: "timeline-container" },
-        { name: "team", container: "team-container" },
-        { name: "footer", container: "footer-container" },
+        { name: "hero", container: "hero-container", sectionId: "beranda" },
+        { name: "services", container: "services-container", sectionId: "layanan" },
+        { name: "about", container: "about-container", sectionId: "tentang" },
+        { name: "portfolio", container: "portfolio-container", sectionId: "portofolio" },
+        { name: "technology", container: "technology-container", sectionId: "teknologi" },
+        { name: "pricing", container: "pricing-container", sectionId: "harga" },
+        { name: "timeline", container: "timeline-container", sectionId: "timeline" },
+        { name: "team", container: "team-container", sectionId: "team" },
+        { name: "footer", container: "footer-container", sectionId: "kontak" },
       ];
 
-      // Fungsi untuk load komponen dari folder 'game'
-      async function loadComponent(componentName, containerId) {
-        try {
-          const response = await fetch(`game/${componentName}.html`);
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+      // Utility Functions
+      const log = (msg, type = "info") => CONFIG.debugMode && console.log(`${{ info: "📘", success: "✅", warning: "⚠️", error: "❌", loading: "🔄" }[type]} ${msg}`);
+      const debounce = (func, wait) => {
+        let timeout;
+        return (...args) => {
+          clearTimeout(timeout);
+          timeout = setTimeout(() => func(...args), wait);
+        };
+      };
+
+      // Component Loader
+      const ComponentLoader = {
+        async loadComponent(name, containerId) {
+          try {
+            log(`Loading ${name}...`, "loading");
+            const response = await fetch(`game/${name}.html`);
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+
+            const html = await response.text();
+            const container = document.getElementById(containerId);
+            if (!container) throw new Error(`Container ${containerId} not found`);
+
+            container.innerHTML = html;
+            log(`${name} loaded successfully`, "success");
+            return true;
+          } catch (error) {
+            log(`Error loading ${name}: ${error.message}`, "error");
+            const container = document.getElementById(containerId);
+            if (container) {
+              container.innerHTML = `
+                <div class="text-center text-red-500 p-4 border border-red-200 rounded-lg">
+                  <i class="fas fa-exclamation-triangle mb-2"></i>
+                  <p class="font-semibold">Error loading ${name} component</p>
+                  <p class="text-sm">${error.message}</p>
+                  <button onclick="ComponentLoader.retryComponent('${name}', '${containerId}')" 
+                          class="mt-2 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors">
+                    Retry
+                  </button>
+                </div>`;
+            }
+            return false;
           }
-          const html = await response.text();
-          document.getElementById(containerId).innerHTML = html;
-          console.log(`✅ ${componentName} loaded successfully`);
-        } catch (error) {
-          console.error(`❌ Error loading ${componentName}:`, error);
-          // Fallback content jika gagal load
-          document.getElementById(containerId).innerHTML = `
-            <div class="text-center text-red-500 p-4">
-                Error loading ${componentName} component
-            </div>
-          `;
-        }
-      }
+        },
 
-      // Fungsi untuk load semua komponen
-      async function loadAllComponents() {
-        console.log("🚀 Starting to load components...");
+        async retryComponent(name, containerId) {
+          log(`Retrying ${name}...`, "loading");
+          const success = await this.loadComponent(name, containerId);
+          if (success)
+            setTimeout(() => {
+              SectionManager.ensureSectionIds();
+              NavigationManager.initializeNavigation();
+            }, 100);
+        },
 
-        const loadPromises = components.map((comp) => loadComponent(comp.name, comp.container));
+        async loadAllComponents() {
+          log("Starting to load all components...", "loading");
+          try {
+            const results = await Promise.all(components.map((comp) => this.loadComponent(comp.name, comp.container)));
+            const successCount = results.filter(Boolean).length;
+            log(`${successCount}/${components.length} components loaded successfully`, "success");
 
-        try {
-          await Promise.all(loadPromises);
-          console.log("✅ All components loaded!");
+            const loading = document.getElementById("loading");
+            if (loading) loading.style.display = "none";
 
-          // Hide loading indicator
-          document.getElementById("loading").style.display = "none";
+            setTimeout(() => {
+              SectionManager.ensureSectionIds();
+              NavigationManager.initializeNavigation();
+              AutoScrollManager.initialize();
+              LazyLoadManager.initialize();
+            }, 200);
+            return true;
+          } catch (error) {
+            log(`Error loading components: ${error.message}`, "error");
+            const loading = document.getElementById("loading");
+            if (loading) {
+              loading.innerHTML = `
+                <div class="text-center text-red-500 p-4">
+                  <i class="fas fa-exclamation-triangle text-2xl mb-2"></i>
+                  <p class="font-semibold">❌ Error loading components</p>
+                  <p class="text-sm mb-4">${error.message}</p>
+                  <button onclick="ComponentLoader.loadAllComponents()" 
+                          class="px-6 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors">
+                    Retry All
+                  </button>
+                </div>`;
+            }
+            return false;
+          }
+        },
+      };
 
-          // Initialize event listeners setelah semua komponen loaded
-          setTimeout(initializeEventListeners, 100);
-        } catch (error) {
-          console.error("❌ Error loading components:", error);
-          document.getElementById("loading").innerHTML = `
-            <div class="text-red-500">
-              <p>❌ Error loading components</p>
-              <p class="text-sm">${error.message}</p>
-            </div>
-          `;
-        }
-      }
+      // Section Manager
+      const SectionManager = {
+        ensureSectionIds() {
+          log("Ensuring section IDs...", "loading");
+          components.forEach((comp) => {
+            if (!comp.sectionId) return;
+            const container = document.getElementById(comp.container);
+            if (!container) return;
 
-      // Fungsi untuk inisialisasi event listeners
-      function initializeEventListeners() {
-        console.log("🎯 Initializing event listeners...");
-
-        // Mobile menu toggle
-        const navToggle = document.getElementById("navToggle");
-        const mobileMenu = document.getElementById("mobileMenu");
-
-        if (navToggle && mobileMenu) {
-          navToggle.addEventListener("click", function () {
-            mobileMenu.classList.toggle("hidden");
-            console.log("📱 Mobile menu toggled");
+            let section = document.getElementById(comp.sectionId);
+            if (!section) {
+              section = container.querySelector("section") || container.querySelector(".section") || container.querySelector("[data-section]") || container.firstElementChild;
+              if (section) {
+                section.setAttribute("id", comp.sectionId);
+                log(`Added ID "${comp.sectionId}" to section`, "success");
+              } else {
+                const wrapper = document.createElement("section");
+                wrapper.id = comp.sectionId;
+                wrapper.className = "section-wrapper";
+                while (container.firstChild) wrapper.appendChild(container.firstChild);
+                container.appendChild(wrapper);
+                log(`Created wrapper section for "${comp.sectionId}"`, "success");
+              }
+            }
           });
-        }
+        },
 
-        // Auto-scroll untuk technology section
-        const container = document.getElementById("auto-scroll-container");
-        if (container) {
-          let scrollDirection = 1;
-          const scrollSpeed = 1;
+        getAllSections() {
+          return components
+            .filter((comp) => comp.sectionId)
+            .map((comp) => ({ id: comp.sectionId, element: document.getElementById(comp.sectionId), container: comp.container }))
+            .filter((section) => section.element);
+        },
+      };
 
-          function autoScroll() {
-            container.scrollLeft += scrollDirection * scrollSpeed;
+      // Navigation Manager
+      const NavigationManager = {
+        activeLink: null,
+        sections: [],
 
-            if (container.scrollLeft + container.clientWidth >= container.scrollWidth) {
-              scrollDirection = -1;
-            }
-            if (container.scrollLeft <= 0) {
-              scrollDirection = 1;
-            }
-            requestAnimationFrame(autoScroll);
+        initializeNavigation() {
+          log("Initializing navigation system...", "loading");
+          this.sections = SectionManager.getAllSections();
+          this.initializeMobileMenu();
+          this.initializeSmoothScrolling();
+          this.initializeActiveHighlight();
+          this.initializeKeyboardNavigation();
+          log("Navigation system initialized", "success");
+        },
+
+        initializeMobileMenu() {
+          const navToggle = document.getElementById("navToggle") || document.querySelector("[data-nav-toggle]") || document.querySelector(".nav-toggle") || document.querySelector(".mobile-menu-btn");
+          const mobileMenu = document.getElementById("mobileMenu") || document.querySelector("[data-mobile-menu]") || document.querySelector(".mobile-menu") || document.querySelector(".nav-mobile");
+
+          if (navToggle && mobileMenu) {
+            navToggle.addEventListener("click", (e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              const isHidden = mobileMenu.classList.contains("hidden") || mobileMenu.style.display === "none";
+              if (isHidden) {
+                mobileMenu.classList.remove("hidden");
+                mobileMenu.style.display = "block";
+                navToggle.setAttribute("aria-expanded", "true");
+              } else {
+                mobileMenu.classList.add("hidden");
+                mobileMenu.style.display = "none";
+                navToggle.setAttribute("aria-expanded", "false");
+              }
+              log("Mobile menu toggled", "info");
+            });
+
+            document.addEventListener("click", (e) => {
+              if (!navToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
+                mobileMenu.classList.add("hidden");
+                mobileMenu.style.display = "none";
+                navToggle.setAttribute("aria-expanded", "false");
+              }
+            });
+            log("Mobile menu initialized", "success");
           }
-          autoScroll();
-          console.log("🔄 Auto-scroll initialized");
-        }
+        },
 
-        // Smooth scrolling untuk navigation links
-        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-          anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute("href"));
-            if (target) {
-              target.scrollIntoView({
-                behavior: "smooth",
+        initializeSmoothScrolling() {
+          const navLinks = document.querySelectorAll('a[href^="#"], [data-scroll-to]');
+          navLinks.forEach((link) => {
+            link.addEventListener("click", (e) => {
+              e.preventDefault();
+              const targetId = link.getAttribute("href") || link.getAttribute("data-scroll-to");
+              if (!targetId || targetId === "#") return;
+              const targetElement = document.querySelector(targetId);
+              if (targetElement) {
+                this.scrollToElement(targetElement, targetId);
+                this.closeMobileMenu();
+              } else {
+                log(`Target element ${targetId} not found`, "warning");
+              }
+            });
+          });
+          log(`Smooth scrolling initialized for ${navLinks.length} links`, "success");
+        },
+
+        scrollToElement(element, targetId) {
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - CONFIG.navbarHeight;
+          window.scrollTo({ top: Math.max(0, offsetPosition), behavior: "smooth" });
+          log(`Scrolling to ${targetId}`, "info");
+          if (history.pushState) history.pushState(null, null, targetId);
+        },
+
+        closeMobileMenu() {
+          const mobileMenu = document.getElementById("mobileMenu") || document.querySelector("[data-mobile-menu]") || document.querySelector(".mobile-menu");
+          const navToggle = document.getElementById("navToggle") || document.querySelector("[data-nav-toggle]");
+          if (mobileMenu && !mobileMenu.classList.contains("hidden")) {
+            mobileMenu.classList.add("hidden");
+            if (navToggle) navToggle.setAttribute("aria-expanded", "false");
+          }
+        },
+
+        initializeActiveHighlight() {
+          if (this.sections.length === 0) return;
+          const updateActiveNav = debounce(() => {
+            let current = "";
+            const scrollPosition = window.scrollY + CONFIG.scrollOffset;
+            for (let i = this.sections.length - 1; i >= 0; i--) {
+              const section = this.sections[i];
+              if (!section.element) continue;
+              const sectionTop = section.element.offsetTop;
+              if (scrollPosition >= sectionTop - 50) {
+                current = section.id;
+                break;
+              }
+            }
+            this.updateActiveLinks(current);
+          }, 10);
+          window.addEventListener("scroll", updateActiveNav, { passive: true });
+          updateActiveNav();
+          log("Active navigation highlighting initialized", "success");
+        },
+
+        updateActiveLinks(currentSectionId) {
+          if (this.activeLink === currentSectionId) return;
+          const navLinks = document.querySelectorAll('a[href^="#"], [data-scroll-to]');
+          navLinks.forEach((link) => {
+            const href = link.getAttribute("href") || link.getAttribute("data-scroll-to");
+            const isActive = href === `#${currentSectionId}`;
+            link.classList.remove("active", "nav-active", "text-blue-600", "text-blue-500", "border-b-2", "border-blue-600", "border-blue-500", "bg-blue-100", "font-semibold");
+            if (isActive) {
+              link.classList.add("active", "text-blue-600", "font-semibold");
+              if (!link.closest(".mobile-menu")) {
+                link.classList.add("border-b-2", "border-blue-600");
+              } else {
+                link.classList.add("bg-blue-100");
+              }
+            }
+          });
+          this.activeLink = currentSectionId;
+        },
+
+        initializeKeyboardNavigation() {
+          document.addEventListener("keydown", (e) => {
+            if (e.altKey && e.key >= "1" && e.key <= "9") {
+              e.preventDefault();
+              const index = parseInt(e.key) - 1;
+              if (this.sections[index]) this.scrollToElement(this.sections[index].element, this.sections[index].id);
+            }
+            if (e.key === "Escape") this.closeMobileMenu();
+          });
+        },
+      };
+
+      // Auto Scroll Manager
+      const AutoScrollManager = {
+        container: null,
+        isScrolling: false,
+        scrollDirection: 1,
+
+        initialize() {
+          if (!CONFIG.autoScrollEnabled) return;
+          this.container = document.getElementById("auto-scroll-container") || document.querySelector("[data-auto-scroll]") || document.querySelector(".auto-scroll");
+          if (this.container) {
+            this.startAutoScroll();
+            this.initializeScrollControls();
+            log("Auto-scroll initialized", "success");
+          }
+        },
+
+        startAutoScroll() {
+          if (!this.container) return;
+          const scroll = () => {
+            if (!this.isScrolling) return;
+            this.container.scrollLeft += this.scrollDirection * CONFIG.scrollSpeed;
+            if (this.container.scrollLeft + this.container.clientWidth >= this.container.scrollWidth) this.scrollDirection = -1;
+            if (this.container.scrollLeft <= 0) this.scrollDirection = 1;
+            requestAnimationFrame(scroll);
+          };
+          this.isScrolling = true;
+          scroll();
+        },
+
+        initializeScrollControls() {
+          if (!this.container) return;
+          this.container.addEventListener("mouseenter", () => (this.isScrolling = false));
+          this.container.addEventListener("mouseleave", () => {
+            this.isScrolling = true;
+            this.startAutoScroll();
+          });
+          this.container.addEventListener("touchstart", () => (this.isScrolling = false));
+          this.container.addEventListener("touchend", () =>
+            setTimeout(() => {
+              this.isScrolling = true;
+              this.startAutoScroll();
+            }, 2000)
+          );
+        },
+      };
+
+      // Lazy Load Manager
+      const LazyLoadManager = {
+        observer: null,
+
+        initialize() {
+          if (!("IntersectionObserver" in window)) return;
+          this.observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  this.loadElement(entry.target);
+                  this.observer.unobserve(entry.target);
+                }
               });
+            },
+            { threshold: 0.1, rootMargin: "50px" }
+          );
+
+          document.querySelectorAll("[data-lazy], .lazy").forEach((element) => this.observer.observe(element));
+          log("Lazy loading initialized", "success");
+        },
+
+        loadElement(element) {
+          if (element.dataset.src) {
+            element.src = element.dataset.src;
+            element.removeAttribute("data-src");
+          }
+          if (element.dataset.bg) {
+            element.style.backgroundImage = `url(${element.dataset.bg})`;
+            element.removeAttribute("data-bg");
+          }
+          element.classList.add("loaded");
+        },
+      };
+
+      // Error Handler
+      const ErrorHandler = {
+        initialize() {
+          window.addEventListener("error", (e) => log(`JavaScript error: ${e.message}`, "error"));
+          window.addEventListener("unhandledrejection", (e) => log(`Unhandled promise rejection: ${e.reason}`, "error"));
+        },
+
+        showUserError(message, action = null) {
+          const errorDiv = document.createElement("div");
+          errorDiv.className = "fixed top-4 right-4 bg-red-500 text-white p-4 rounded-lg shadow-lg z-50";
+          errorDiv.innerHTML = `
+            <div class="flex items-center gap-2">
+              <i class="fas fa-exclamation-triangle"></i>
+              <span>${message}</span>
+              ${action ? `<button onclick="${action}" class="ml-2 px-2 py-1 bg-red-700 rounded text-sm">Retry</button>` : ""}
+              <button onclick="this.parentElement.parentElement.remove()" class="ml-2 text-red-200 hover:text-white">×</button>
+            </div>`;
+          document.body.appendChild(errorDiv);
+          setTimeout(() => errorDiv.parentElement && errorDiv.remove(), 5000);
+        },
+      };
+
+      // Main Application
+      const App = {
+        async initialize() {
+          log("🚀 Initializing Techop.id Application...", "loading");
+          try {
+            ErrorHandler.initialize();
+            const success = await ComponentLoader.loadAllComponents();
+            if (success) {
+              log("🎉 Application initialized successfully!", "success");
+            } else {
+              throw new Error("Failed to load some components");
             }
-          });
-        });
+          } catch (error) {
+            log(`Failed to initialize application: ${error.message}`, "error");
+            ErrorHandler.showUserError("Gagal memuat halaman. Silakan coba lagi.", "App.initialize()");
+          }
+        },
+      };
 
-        console.log("✅ Event listeners initialized!");
-      }
-
-      // Load components ketika DOM ready
-      document.addEventListener("DOMContentLoaded", function () {
-        console.log("📄 DOM loaded, starting component loading...");
-        loadAllComponents();
+      // Event Listeners
+      document.addEventListener("DOMContentLoaded", () => {
+        log("📄 DOM loaded, starting application...", "info");
+        App.initialize();
       });
 
-      // Fallback jika ada error pada window load
-      window.addEventListener("load", function () {
+      window.addEventListener("load", () => {
         setTimeout(() => {
           const loading = document.getElementById("loading");
           if (loading && loading.style.display !== "none") {
             loading.innerHTML = `
-              <div class="text-center text-amber-600 p-4">
-                  <p>⚠️ Components are taking longer to load</p>
-                  <p class="text-sm">Please check if game folder exists and contains HTML files</p>
-                  <button onclick="location.reload()" class="mt-2 px-4 py-2 bg-blue-600 text-white rounded">
-                      Retry
-                  </button>
-              </div>
-            `;
+              <div class="text-center text-amber-600 p-6">
+                <i class="fas fa-clock text-3xl mb-4"></i>
+                <p class="text-lg font-semibold">⚠️ Komponen membutuhkan waktu lebih lama</p>
+                <p class="text-sm mb-4">Pastikan folder game tersedia dan berisi file HTML</p>
+                <button onclick="location.reload()" 
+                        class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                  <i class="fas fa-redo mr-2"></i>Muat Ulang
+                </button>
+              </div>`;
           }
         }, 5000);
       });
+
+      // Debug mode exposure
+      if (CONFIG.debugMode) {
+        window.TechopApp = { App, ComponentLoader, NavigationManager, SectionManager, AutoScrollManager, CONFIG };
+      }
+
+      // Module export support
+      if (typeof module !== "undefined" && module.exports) {
+        module.exports = { App, ComponentLoader, NavigationManager };
+      }
     </script>
   </body>
 </html>

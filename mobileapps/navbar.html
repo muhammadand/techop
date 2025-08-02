@@ -45,10 +45,16 @@
         transform: translateY(-1px);
       }
 
-      .active-link {
-        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+      .active-link,
+      .active {
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8) !important;
         color: white !important;
         box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+      }
+
+      .active-link::before,
+      .active::before {
+        width: 0 !important;
       }
 
       .logo-glow {
@@ -119,9 +125,9 @@
       }
 
       .mobile-active {
-        background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(29, 78, 216, 0.1));
-        border-left-color: #3b82f6;
-        color: #3b82f6;
+        background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(29, 78, 216, 0.1)) !important;
+        border-left-color: #3b82f6 !important;
+        color: #3b82f6 !important;
       }
 
       .floating-nav {
@@ -159,23 +165,23 @@
         <!-- Logo -->
         <div class="flex items-center space-x-3">
           <div class="logo-glow">
-            <img src="../assets/img/techop.png" alt="techop.id logo" class="w-8 h-8" />
+            <img src="assets/img/techop.png" alt="techop.id logo" class="w-8 h-8" />
           </div>
           <span class="text-blue-600 font-bold text-xl bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent"> techop.id </span>
         </div>
 
         <!-- Desktop Menu -->
         <ul id="navMenu" class="hidden md:flex items-center space-x-1">
-          <li><a href="#" class="nav-link active-link px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300">Beranda</a></li>
-          <li><a href="#" class="nav-link px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700">Layanan</a></li>
-          <li><a href="#" class="nav-link px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700">Portofolio</a></li>
-          <li><a href="#" class="nav-link px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700">Tentang</a></li>
-          <li><a href="#" class="nav-link px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700">Wawasan</a></li>
-          <li><a href="#" class="nav-link px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700">Outsourcing</a></li>
+          <li><a href="#beranda" class="nav-link active-link px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300">Beranda</a></li>
+          <li><a href="#layanan" class="nav-link px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700">Layanan</a></li>
+          <li><a href="#portofolio" class="nav-link px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700">Portofolio</a></li>
+          <li><a href="#tentang" class="nav-link px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700">Tentang</a></li>
+          <li><a href="#team" class="nav-link px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700">Team</a></li>
+          <li><a href="#kontak" class="nav-link px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700">Hubungi Kami</a></li>
         </ul>
 
         <!-- Contact Button -->
-        <a href="#" class="hidden md:block contact-btn px-6 py-2.5 rounded-full text-sm font-semibold"> Hubungi Kami </a>
+        <a href="#kontak" class="hidden md:block contact-btn px-6 py-2.5 rounded-full text-sm font-semibold"> Hubungi Kami </a>
 
         <!-- Mobile Hamburger -->
         <button id="navToggle" class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
@@ -190,7 +196,7 @@
       <!-- Mobile Menu -->
       <div id="mobileMenu" class="mobile-menu md:hidden hidden">
         <div class="px-6 py-4 space-y-1">
-          <a href="#" class="mobile-link mobile-active block px-4 py-3 rounded-lg text-sm font-semibold transition-all duration-300">
+          <a href="#beranda" class="mobile-link mobile-active block px-4 py-3 rounded-lg text-sm font-semibold transition-all duration-300">
             <span class="flex items-center">
               <svg class="w-4 h-4 mr-3 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
@@ -198,7 +204,7 @@
               Beranda
             </span>
           </a>
-          <a href="#" class="mobile-link block px-4 py-3 rounded-lg text-sm font-semibold text-gray-700">
+          <a href="#layanan" class="mobile-link block px-4 py-3 rounded-lg text-sm font-semibold text-gray-700">
             <span class="flex items-center">
               <svg class="w-4 h-4 mr-3 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
                 <path
@@ -210,7 +216,7 @@
               Layanan
             </span>
           </a>
-          <a href="#" class="mobile-link block px-4 py-3 rounded-lg text-sm font-semibold text-gray-700">
+          <a href="#portofolio" class="mobile-link block px-4 py-3 rounded-lg text-sm font-semibold text-gray-700">
             <span class="flex items-center">
               <svg class="w-4 h-4 mr-3 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd" />
@@ -218,7 +224,7 @@
               Portofolio
             </span>
           </a>
-          <a href="#" class="mobile-link block px-4 py-3 rounded-lg text-sm font-semibold text-gray-700">
+          <a href="#tentang" class="mobile-link block px-4 py-3 rounded-lg text-sm font-semibold text-gray-700">
             <span class="flex items-center">
               <svg class="w-4 h-4 mr-3 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
@@ -226,23 +232,15 @@
               Tentang
             </span>
           </a>
-          <a href="#" class="mobile-link block px-4 py-3 rounded-lg text-sm font-semibold text-gray-700">
-            <span class="flex items-center">
-              <svg class="w-4 h-4 mr-3 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              Wawasan
-            </span>
-          </a>
-          <a href="#" class="mobile-link block px-4 py-3 rounded-lg text-sm font-semibold text-gray-700">
+          <a href="#team" class="mobile-link block px-4 py-3 rounded-lg text-sm font-semibold text-gray-700">
             <span class="flex items-center">
               <svg class="w-4 h-4 mr-3 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z" />
               </svg>
-              Outsourcing
+              Team
             </span>
           </a>
-          <a href="#" class="mobile-link contact-btn block px-4 py-3 rounded-lg text-sm font-semibold text-center mt-4">
+          <a href="#kontak" class="mobile-link contact-btn block px-4 py-3 rounded-lg text-sm font-semibold text-center mt-4">
             <span class="flex items-center justify-center">
               <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
@@ -256,67 +254,242 @@
     </nav>
 
     <script>
-      // Mobile menu toggle
-      const navToggle = document.getElementById("navToggle");
-      const mobileMenu = document.getElementById("mobileMenu");
-      let isMenuOpen = false;
+      // Navigation System Configuration
+      const CONFIG = {
+        navbarHeight: 120,
+        scrollOffset: 150,
+        debugMode: true,
+      };
 
-      navToggle.addEventListener("click", () => {
-        isMenuOpen = !isMenuOpen;
+      // Utility Functions
+      const Utils = {
+        log: (message, type = "info") => {
+          if (!CONFIG.debugMode) return;
+          const emoji = { info: "📘", success: "✅", warning: "⚠️", error: "❌" };
+          console.log(`${emoji[type]} ${message}`);
+        },
 
-        if (isMenuOpen) {
-          mobileMenu.classList.remove("hidden");
+        debounce: (func, wait) => {
+          let timeout;
+          return function executedFunction(...args) {
+            const later = () => {
+              clearTimeout(timeout);
+              func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+          };
+        },
+      };
+
+      // Navigation Manager
+      const NavigationManager = {
+        activeLink: null,
+        sections: [],
+
+        initialize() {
+          Utils.log("Initializing navigation system...", "info");
+
+          this.sections = this.getAllSections();
+          this.initializeMobileMenu();
+          this.initializeSmoothScrolling();
+          this.initializeActiveHighlight();
+
+          Utils.log("Navigation system initialized", "success");
+        },
+
+        getAllSections() {
+          const sectionIds = ["beranda", "layanan", "portofolio", "tentang", "tim", "kontak"];
+          return sectionIds
+            .map((id) => ({
+              id: id,
+              element: document.getElementById(id),
+            }))
+            .filter((section) => section.element);
+        },
+
+        initializeMobileMenu() {
+          const navToggle = document.getElementById("navToggle");
+          const mobileMenu = document.getElementById("mobileMenu");
+          let isMenuOpen = false;
+
+          if (!navToggle || !mobileMenu) return;
+
+          navToggle.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+
+            isMenuOpen = !isMenuOpen;
+
+            if (isMenuOpen) {
+              mobileMenu.classList.remove("hidden");
+              setTimeout(() => {
+                mobileMenu.classList.add("show");
+              }, 10);
+              navToggle.classList.add("hamburger-active");
+            } else {
+              this.closeMobileMenu();
+            }
+
+            Utils.log("Mobile menu toggled", "info");
+          });
+
+          // Close mobile menu when clicking outside
+          document.addEventListener("click", (e) => {
+            if (isMenuOpen && !navToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
+              this.closeMobileMenu();
+            }
+          });
+
+          // Store menu state
+          this.mobileMenuState = { isMenuOpen, navToggle, mobileMenu };
+        },
+
+        closeMobileMenu() {
+          const { navToggle, mobileMenu } = this.mobileMenuState || {};
+          if (!navToggle || !mobileMenu) return;
+
+          this.mobileMenuState.isMenuOpen = false;
+          mobileMenu.classList.remove("show");
+          navToggle.classList.remove("hamburger-active");
           setTimeout(() => {
-            mobileMenu.classList.add("show");
+            mobileMenu.classList.add("hidden");
+          }, 400);
+        },
+
+        initializeSmoothScrolling() {
+          const navLinks = document.querySelectorAll('a[href^="#"]');
+
+          navLinks.forEach((link) => {
+            link.addEventListener("click", (e) => {
+              e.preventDefault();
+
+              const targetId = link.getAttribute("href");
+              if (!targetId || targetId === "#") return;
+
+              const targetElement = document.querySelector(targetId);
+
+              if (targetElement) {
+                this.scrollToElement(targetElement, targetId);
+                this.closeMobileMenu();
+              } else {
+                Utils.log(`Target element ${targetId} not found`, "warning");
+              }
+            });
+          });
+
+          Utils.log(`Smooth scrolling initialized for ${navLinks.length} links`, "success");
+        },
+
+        scrollToElement(element, targetId) {
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - CONFIG.navbarHeight;
+
+          window.scrollTo({
+            top: Math.max(0, offsetPosition),
+            behavior: "smooth",
+          });
+
+          Utils.log(`Scrolling to ${targetId}`, "info");
+
+          // Update URL without triggering scroll
+          if (history.pushState) {
+            history.pushState(null, null, targetId);
+          }
+        },
+
+        initializeActiveHighlight() {
+          if (this.sections.length === 0) return;
+
+          const updateActiveNav = Utils.debounce(() => {
+            let current = "";
+            const scrollPosition = window.scrollY + CONFIG.scrollOffset;
+
+            // Find current section
+            for (let i = this.sections.length - 1; i >= 0; i--) {
+              const section = this.sections[i];
+              if (!section.element) continue;
+
+              const sectionTop = section.element.offsetTop;
+
+              if (scrollPosition >= sectionTop - 50) {
+                current = section.id;
+                break;
+              }
+            }
+
+            // Update active states
+            this.updateActiveLinks(current);
           }, 10);
-          navToggle.classList.add("hamburger-active");
-        } else {
-          mobileMenu.classList.remove("show");
-          navToggle.classList.remove("hamburger-active");
-          setTimeout(() => {
-            mobileMenu.classList.add("hidden");
-          }, 400);
+
+          window.addEventListener("scroll", updateActiveNav, { passive: true });
+          updateActiveNav(); // Initial call
+
+          Utils.log("Active navigation highlighting initialized", "success");
+        },
+
+        updateActiveLinks(currentSectionId) {
+          if (this.activeLink === currentSectionId) return;
+
+          // Update desktop nav links
+          const navLinks = document.querySelectorAll(".nav-link");
+          navLinks.forEach((link) => {
+            const href = link.getAttribute("href");
+            const isActive = href === `#${currentSectionId}`;
+
+            if (isActive) {
+              link.classList.add("active-link");
+            } else {
+              link.classList.remove("active-link");
+            }
+          });
+
+          // Update mobile nav links
+          const mobileLinks = document.querySelectorAll(".mobile-link:not(.contact-btn)");
+          mobileLinks.forEach((link) => {
+            const href = link.getAttribute("href");
+            const isActive = href === `#${currentSectionId}`;
+
+            if (isActive) {
+              link.classList.add("mobile-active");
+            } else {
+              link.classList.remove("mobile-active");
+            }
+          });
+
+          this.activeLink = currentSectionId;
+          Utils.log(`Active section: ${currentSectionId}`, "info");
+        },
+      };
+
+      // Initialize when DOM is loaded
+      document.addEventListener("DOMContentLoaded", () => {
+        Utils.log("DOM loaded, initializing navigation...", "info");
+        NavigationManager.initialize();
+      });
+
+      // Handle hash changes (back/forward browser buttons)
+      window.addEventListener("hashchange", () => {
+        const hash = window.location.hash;
+        if (hash) {
+          const element = document.querySelector(hash);
+          if (element) {
+            NavigationManager.scrollToElement(element, hash);
+          }
         }
       });
 
-      // Close mobile menu when clicking outside
-      document.addEventListener("click", (e) => {
-        if (isMenuOpen && !navToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
-          isMenuOpen = false;
-          mobileMenu.classList.remove("show");
-          navToggle.classList.remove("hamburger-active");
+      // Initial hash navigation
+      window.addEventListener("load", () => {
+        const hash = window.location.hash;
+        if (hash) {
           setTimeout(() => {
-            mobileMenu.classList.add("hidden");
-          }, 400);
+            const element = document.querySelector(hash);
+            if (element) {
+              NavigationManager.scrollToElement(element, hash);
+            }
+          }, 100);
         }
-      });
-
-      // Active link switching for desktop
-      const navLinks = document.querySelectorAll(".nav-link");
-      navLinks.forEach((link) => {
-        link.addEventListener("click", (e) => {
-          e.preventDefault();
-          navLinks.forEach((l) => l.classList.remove("active-link"));
-          link.classList.add("active-link");
-        });
-      });
-
-      // Active link switching for mobile
-      const mobileLinks = document.querySelectorAll(".mobile-link:not(.contact-btn)");
-      mobileLinks.forEach((link) => {
-        link.addEventListener("click", (e) => {
-          e.preventDefault();
-          mobileLinks.forEach((l) => l.classList.remove("mobile-active"));
-          link.classList.add("mobile-active");
-
-          // Close mobile menu after selection
-          isMenuOpen = false;
-          mobileMenu.classList.remove("show");
-          navToggle.classList.remove("hamburger-active");
-          setTimeout(() => {
-            mobileMenu.classList.add("hidden");
-          }, 400);
-        });
       });
     </script>
   </body>
