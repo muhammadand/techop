@@ -1,174 +1,335 @@
-<!-- Hero Section -->
-<section class="flex flex-col md:flex-row items-center justify-between px-6 py-16 max-w-7xl mx-auto overflow-hidden">
-  <!-- Text Area -->
-  <div class="md:w-1/2 space-y-6 animate-slide-in-left">
-    <div class="space-y-2">
-      <h1 class="text-4xl md:text-5xl font-bold">
-        <span class="gradient-text">techop.id</span>
-      </h1>
-      <div class="text-lg text-gray-500 font-mono">
-        <span class="typing-animation">Solusi Digital Terpercaya</span>
-      </div>
-    </div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TechOp.id - Solusi Digital Terpercaya</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Custom Styles */
+      .gradient-text {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
 
-    <p class="text-gray-600 leading-relaxed text-lg">
-      @techop.id adalah penyedia jasa <strong class="text-blue-600">"digital solutions"</strong> yang profesional dan cepat. Kami menawarkan bantuan untuk mengerjakan berbagai proyek teknologi dengan hasil yang berkualitas dan tepat waktu.
-    </p>
+      .typing-animation {
+        border-right: 2px solid #667eea;
+        animation: typing 3s steps(40, end), blink 0.75s step-end infinite;
+        white-space: nowrap;
+        overflow: hidden;
+        width: fit-content;
+      }
 
-    <div class="flex flex-col sm:flex-row gap-4 pt-4">
-      <button class="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full hover:shadow-lg transition-all duration-300 transform hover:scale-105 font-semibold">🚀 Mulai Proyek</button>
-      <button class="px-8 py-3 border-2 border-gray-300 text-gray-700 rounded-full hover:border-blue-500 hover:text-blue-600 transition-all duration-300 font-semibold">📋 Lihat Portfolio</button>
-    </div>
+      @keyframes typing {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
 
-    <!-- Stats -->
-    <div class="flex gap-8 pt-6">
-      <div class="text-center">
-        <div class="text-2xl font-bold text-blue-600">100+</div>
-        <div class="text-sm text-gray-500">Proyek Selesai</div>
-      </div>
-      <div class="text-center">
-        <div class="text-2xl font-bold text-purple-600">24/7</div>
-        <div class="text-sm text-gray-500">Support</div>
-      </div>
-      <div class="text-center">
-        <div class="text-2xl font-bold text-green-600">99%</div>
-        <div class="text-sm text-gray-500">Satisfaction</div>
-      </div>
-    </div>
-  </div>
+      @keyframes blink {
+        0%,
+        50% {
+          border-color: #667eea;
+        }
+        51%,
+        100% {
+          border-color: transparent;
+        }
+      }
 
-  <!-- Visual Area -->
-  <div class="md:w-1/2 grid grid-cols-2 gap-4 mt-10 md:mt-0 animate-slide-in-right">
-    <!-- Code Editor - Kotak besar kiri -->
-    <div class="col-span-1 row-span-2 code-editor rounded-xl h-96 w-full shadow-xl relative overflow-hidden float-animation">
-      <!-- Window Controls -->
-      <div class="flex items-center gap-2 p-3 border-b border-gray-600">
-        <div class="w-3 h-3 bg-red-500 rounded-full"></div>
-        <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
-        <div class="w-3 h-3 bg-green-500 rounded-full"></div>
-        <span class="text-gray-300 text-xs ml-2">main.js</span>
-      </div>
+      /* Animation Classes */
+      .animate-slide-in-left {
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: all 0.8s ease-in-out;
+      }
 
-      <!-- Code Content -->
-      <div class="p-4 text-sm font-mono">
-        <div class="text-purple-300">// TechOp.id Solutions</div>
-        <div class="text-blue-300 mt-2">const <span class="text-yellow-300">project</span> = {</div>
-        <div class="text-green-300 ml-4">name: <span class="text-orange-300">'Digital App'</span>,</div>
-        <div class="text-green-300 ml-4">status: <span class="text-orange-300">'completed'</span>,</div>
-        <div class="text-green-300 ml-4">quality: <span class="text-orange-300">'premium'</span></div>
-        <div class="text-blue-300">};</div>
-        <div class="text-purple-300 mt-4">// Fast & Professional</div>
-        <div class="text-green-300 mt-2">console.log(<span class="text-orange-300">'Project Ready!'</span>);</div>
-      </div>
+      .animate-slide-in-right {
+        opacity: 0;
+        transform: translateX(50px);
+        transition: all 0.8s ease-in-out;
+      }
 
-      <!-- Terminal at bottom -->
-      <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-2">
-        <div class="text-green-400 text-xs font-mono"><span class="text-gray-400">$</span> npm run deploy --production ✓</div>
-      </div>
-    </div>
+      .float-animation {
+        animation: float 6s ease-in-out infinite;
+      }
 
-    <!-- Dashboard Analytics - Kotak kanan atas -->
-    <div class="dashboard-bg rounded-xl h-40 w-full shadow-xl relative overflow-hidden pulse-animation">
-      <!-- Glass overlay -->
-      <div class="glass-effect absolute inset-2 rounded-lg p-4">
-        <div class="flex items-center justify-between mb-2">
-          <h3 class="text-white font-semibold text-sm">Analytics</h3>
-          <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+      .pulse-animation {
+        animation: pulse-custom 4s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      @keyframes pulse-custom {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(1.05);
+          opacity: 0.9;
+        }
+      }
+
+      /* Code Editor Styling */
+      .code-editor {
+        background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+        border: 1px solid #475569;
+      }
+
+      /* Dashboard Background */
+      .dashboard-bg {
+        background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #06b6d4 100%);
+        position: relative;
+      }
+
+      /* Mobile App Background */
+      .mobile-app-bg {
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      }
+
+      /* Glass Effect */
+      .glass-effect {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      /* Chart Animation */
+      .chart-bar {
+        animation: chart-grow 2s ease-out forwards;
+        transform-origin: bottom;
+        transform: scaleY(0);
+      }
+
+      @keyframes chart-grow {
+        to {
+          transform: scaleY(1);
+        }
+      }
+
+      /* Initialize animations */
+      .animate-slide-in-left,
+      .animate-slide-in-right {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .animate-slide-in-left,
+        .animate-slide-in-right {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Hero Section -->
+    <section class="flex flex-col md:flex-row items-center justify-between px-6 py-16 max-w-7xl mx-auto overflow-hidden">
+      <!-- Text Area -->
+      <div class="md:w-1/2 space-y-6 animate-slide-in-left">
+        <div class="space-y-2">
+          <h1 class="text-4xl md:text-5xl font-bold">
+            <span class="gradient-text">techop.id</span>
+          </h1>
+          <div class="text-lg text-gray-500 font-mono">
+            <span class="typing-animation">Solusi Digital Terpercaya</span>
+          </div>
         </div>
 
-        <!-- Chart representation -->
-        <div class="flex items-end justify-between h-16 gap-1">
-          <div class="bg-white bg-opacity-60 rounded-sm w-3 h-8"></div>
-          <div class="bg-white bg-opacity-80 rounded-sm w-3 h-12"></div>
-          <div class="bg-white bg-opacity-60 rounded-sm w-3 h-6"></div>
-          <div class="bg-white bg-opacity-90 rounded-sm w-3 h-16"></div>
-          <div class="bg-white bg-opacity-70 rounded-sm w-3 h-10"></div>
-          <div class="bg-white bg-opacity-60 rounded-sm w-3 h-4"></div>
+        <p class="text-gray-600 leading-relaxed text-lg">
+          @techop.id adalah penyedia jasa <strong class="text-blue-600">"digital solutions"</strong> yang profesional dan cepat. Kami menawarkan bantuan untuk mengerjakan berbagai proyek teknologi dengan hasil yang berkualitas dan tepat
+          waktu.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 pt-4">
+          <button class="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full hover:shadow-lg transition-all duration-300 transform hover:scale-105 font-semibold">🚀 Mulai Proyek</button>
+          <button class="px-8 py-3 border-2 border-gray-300 text-gray-700 rounded-full hover:border-blue-500 hover:text-blue-600 transition-all duration-300 font-semibold">📋 Lihat Portfolio</button>
         </div>
 
         <!-- Stats -->
-        <div class="flex justify-between text-white text-xs mt-2">
-          <span>+25%</span>
-          <span>Growth</span>
+        <div class="flex gap-8 pt-6">
+          <div class="text-center">
+            <div class="text-2xl font-bold text-blue-600">100+</div>
+            <div class="text-sm text-gray-500">Proyek Selesai</div>
+          </div>
+          <div class="text-center">
+            <div class="text-2xl font-bold text-purple-600">24/7</div>
+            <div class="text-sm text-gray-500">Support</div>
+          </div>
+          <div class="text-center">
+            <div class="text-2xl font-bold text-green-600">99%</div>
+            <div class="text-sm text-gray-500">Satisfaction</div>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Mobile App UI - Kotak kanan bawah -->
-    <div class="mobile-app-bg rounded-xl h-40 w-full shadow-xl relative overflow-hidden float-animation" style="animation-delay: 1s">
-      <!-- Phone mockup -->
-      <div class="absolute inset-4">
-        <div class="bg-black rounded-lg h-full relative overflow-hidden">
-          <!-- Phone screen -->
-          <div class="bg-white m-1 rounded-md h-full flex flex-col">
-            <!-- Status bar -->
-            <div class="bg-gray-100 h-4 flex items-center justify-between px-2">
-              <div class="flex gap-1">
-                <div class="w-1 h-1 bg-gray-400 rounded-full"></div>
-                <div class="w-1 h-1 bg-gray-400 rounded-full"></div>
-                <div class="w-1 h-1 bg-green-500 rounded-full"></div>
-              </div>
-              <div class="text-xs text-gray-600">100%</div>
+      <!-- Visual Area -->
+      <div class="md:w-1/2 grid grid-cols-2 gap-4 mt-10 md:mt-0 animate-slide-in-right">
+        <!-- Code Editor - Kotak besar kiri -->
+        <div class="col-span-1 row-span-2 code-editor rounded-xl h-96 w-full shadow-xl relative overflow-hidden float-animation">
+          <!-- Window Controls -->
+          <div class="flex items-center gap-2 p-3 border-b border-gray-600">
+            <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+            <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+            <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+            <span class="text-gray-300 text-xs ml-2">main.js</span>
+          </div>
+
+          <!-- Code Content -->
+          <div class="p-4 text-sm font-mono">
+            <div class="text-purple-300">// TechOp.id Solutions</div>
+            <div class="text-blue-300 mt-2">const <span class="text-yellow-300">project</span> = {</div>
+            <div class="text-green-300 ml-4">name: <span class="text-orange-300">'Digital App'</span>,</div>
+            <div class="text-green-300 ml-4">status: <span class="text-orange-300">'completed'</span>,</div>
+            <div class="text-green-300 ml-4">quality: <span class="text-orange-300">'premium'</span></div>
+            <div class="text-blue-300">};</div>
+            <div class="text-purple-300 mt-4">// Fast & Professional</div>
+            <div class="text-green-300 mt-2">console.log(<span class="text-orange-300">'Project Ready!'</span>);</div>
+          </div>
+
+          <!-- Terminal at bottom -->
+          <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-2">
+            <div class="text-green-400 text-xs font-mono"><span class="text-gray-400">$</span> npm run deploy --production ✓</div>
+          </div>
+        </div>
+
+        <!-- Dashboard Analytics - Kotak kanan atas -->
+        <div class="dashboard-bg rounded-xl h-40 w-full shadow-xl relative overflow-hidden pulse-animation">
+          <!-- Glass overlay -->
+          <div class="glass-effect absolute inset-2 rounded-lg p-4">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-white font-semibold text-sm">Analytics</h3>
+              <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
             </div>
 
-            <!-- App content -->
-            <div class="flex-1 p-2">
-              <!-- Header -->
-              <div class="bg-gradient-to-r from-blue-500 to-purple-500 rounded h-8 mb-2 flex items-center justify-center">
-                <div class="text-white text-xs font-bold">TechOp App</div>
-              </div>
+            <!-- Enhanced Chart representation -->
+            <div class="flex items-end justify-between h-16 gap-1">
+              <div class="chart-bar bg-white bg-opacity-60 rounded-sm w-3 h-8" style="animation-delay: 0.1s"></div>
+              <div class="chart-bar bg-white bg-opacity-80 rounded-sm w-3 h-12" style="animation-delay: 0.2s"></div>
+              <div class="chart-bar bg-white bg-opacity-60 rounded-sm w-3 h-6" style="animation-delay: 0.3s"></div>
+              <div class="chart-bar bg-white bg-opacity-90 rounded-sm w-3 h-16" style="animation-delay: 0.4s"></div>
+              <div class="chart-bar bg-white bg-opacity-70 rounded-sm w-3 h-10" style="animation-delay: 0.5s"></div>
+              <div class="chart-bar bg-white bg-opacity-60 rounded-sm w-3 h-4" style="animation-delay: 0.6s"></div>
+            </div>
 
-              <!-- Content cards -->
-              <div class="space-y-1">
-                <div class="bg-gray-100 rounded h-4"></div>
-                <div class="bg-gray-200 rounded h-4"></div>
-                <div class="bg-blue-100 rounded h-4"></div>
-              </div>
+            <!-- Stats -->
+            <div class="flex justify-between text-white text-xs mt-2">
+              <span>+25%</span>
+              <span>Growth</span>
+            </div>
+          </div>
+        </div>
 
-              <!-- Bottom button -->
-              <div class="absolute bottom-2 left-2 right-2">
-                <div class="bg-green-500 rounded-full h-6 flex items-center justify-center">
-                  <div class="text-white text-xs">✓ Ready</div>
+        <!-- Mobile App UI - Kotak kanan bawah -->
+        <div class="mobile-app-bg rounded-xl h-40 w-full shadow-xl relative overflow-hidden float-animation" style="animation-delay: 1s">
+          <!-- Phone mockup -->
+          <div class="absolute inset-4">
+            <div class="bg-black rounded-lg h-full relative overflow-hidden shadow-lg">
+              <!-- Phone screen -->
+              <div class="bg-white m-1 rounded-md h-full flex flex-col">
+                <!-- Status bar -->
+                <div class="bg-gray-100 h-4 flex items-center justify-between px-2">
+                  <div class="flex gap-1">
+                    <div class="w-1 h-1 bg-gray-400 rounded-full"></div>
+                    <div class="w-1 h-1 bg-gray-400 rounded-full"></div>
+                    <div class="w-1 h-1 bg-green-500 rounded-full animate-pulse"></div>
+                  </div>
+                  <div class="text-xs text-gray-600">100%</div>
+                </div>
+
+                <!-- App content -->
+                <div class="flex-1 p-2">
+                  <!-- Header -->
+                  <div class="bg-gradient-to-r from-blue-500 to-purple-500 rounded h-8 mb-2 flex items-center justify-center shadow-sm">
+                    <div class="text-white text-xs font-bold">TechOp App</div>
+                  </div>
+
+                  <!-- Content cards -->
+                  <div class="space-y-1">
+                    <div class="bg-gray-100 rounded h-4 animate-pulse"></div>
+                    <div class="bg-gray-200 rounded h-4 animate-pulse" style="animation-delay: 0.2s"></div>
+                    <div class="bg-blue-100 rounded h-4 animate-pulse" style="animation-delay: 0.4s"></div>
+                  </div>
+
+                  <!-- Bottom button -->
+                  <div class="absolute bottom-2 left-2 right-2">
+                    <div class="bg-green-500 rounded-full h-6 flex items-center justify-center shadow-sm">
+                      <div class="text-white text-xs">✓ Ready</div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </section>
+
+    <!-- Enhanced Floating Elements -->
+    <div class="fixed top-20 right-10 opacity-20 pointer-events-none">
+      <div class="w-32 h-32 bg-gradient-to-br from-blue-400 to-purple-600 rounded-full blur-xl animate-pulse"></div>
     </div>
-  </div>
-</section>
 
-<!-- Floating Elements -->
-<div class="fixed top-20 right-10 opacity-20 pointer-events-none">
-  <div class="w-32 h-32 bg-gradient-to-br from-blue-400 to-purple-600 rounded-full blur-xl animate-pulse"></div>
-</div>
+    <div class="fixed bottom-20 left-10 opacity-20 pointer-events-none">
+      <div class="w-24 h-24 bg-gradient-to-br from-green-400 to-blue-500 rounded-full blur-xl animate-pulse" style="animation-delay: 2s"></div>
+    </div>
 
-<div class="fixed bottom-20 left-10 opacity-20 pointer-events-none">
-  <div class="w-24 h-24 bg-gradient-to-br from-green-400 to-blue-500 rounded-full blur-xl animate-pulse" style="animation-delay: 2s"></div>
-</div>
+    <!-- Additional floating elements for depth -->
+    <div class="fixed top-1/2 left-5 opacity-10 pointer-events-none">
+      <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full blur-lg animate-pulse" style="animation-delay: 3s"></div>
+    </div>
 
-<script>
-  // Add scroll reveal animation
-  window.addEventListener("scroll", () => {
-    const elements = document.querySelectorAll(".animate-slide-in-left, .animate-slide-in-right");
-    elements.forEach((el) => {
-      const elementTop = el.getBoundingClientRect().top;
-      const elementVisible = 150;
+    <script>
+      // Add scroll reveal animation
+      window.addEventListener("scroll", () => {
+        const elements = document.querySelectorAll(".animate-slide-in-left, .animate-slide-in-right");
+        elements.forEach((el) => {
+          const elementTop = el.getBoundingClientRect().top;
+          const elementVisible = 150;
 
-      if (elementTop < window.innerHeight - elementVisible) {
-        el.style.opacity = "1";
-        el.style.transform = "translateX(0)";
-      }
-    });
-  });
+          if (elementTop < window.innerHeight - elementVisible) {
+            el.style.opacity = "1";
+            el.style.transform = "translateX(0)";
+          }
+        });
+      });
 
-  // Typing animation restart
-  setInterval(() => {
-    const typingElement = document.querySelector(".typing-animation");
-    typingElement.style.animation = "none";
-    setTimeout(() => {
-      typingElement.style.animation = "typing 3s steps(40, end), blink 0.75s step-end infinite";
-    }, 100);
-  }, 6000);
-</script>
+      // Typing animation restart
+      setInterval(() => {
+        const typingElement = document.querySelector(".typing-animation");
+        typingElement.style.animation = "none";
+        setTimeout(() => {
+          typingElement.style.animation = "typing 3s steps(40, end), blink 0.75s step-end infinite";
+        }, 100);
+      }, 6000);
+
+      // Initialize animations on load
+      document.addEventListener("DOMContentLoaded", function () {
+        // Ensure elements are visible
+        setTimeout(() => {
+          document.querySelectorAll(".animate-slide-in-left, .animate-slide-in-right").forEach((el) => {
+            el.style.opacity = "1";
+            el.style.transform = "translateX(0)";
+          });
+        }, 100);
+      });
+    </script>
+  </body>
+</html>
