@@ -45,16 +45,19 @@
         transform: translateY(-1px);
       }
 
+      /* Modified active-link styles - completely invisible active state */
       .active-link,
       .active {
-        background: linear-gradient(135deg, #3b82f6, #1d4ed8) !important;
-        color: white !important;
-        box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        background: transparent !important; /* No background */
+        color: #374151 !important; /* Normal text color */
+        box-shadow: none !important; /* No shadow */
+        border: none !important; /* No border */
       }
 
       .active-link::before,
       .active::before {
-        width: 0 !important;
+        width: 0 !important; /* No underline indicator */
+        background: transparent !important; /* No underline */
       }
 
       .logo-glow {
@@ -124,10 +127,11 @@
         transform: translateX(5px);
       }
 
+      /* Modified mobile-active styles - completely invisible active state */
       .mobile-active {
-        background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(29, 78, 216, 0.1)) !important;
-        border-left-color: #3b82f6 !important;
-        color: #3b82f6 !important;
+        background: transparent !important; /* No background */
+        border-left-color: transparent !important; /* No left border */
+        color: #374151 !important; /* Normal text color */
       }
 
       .floating-nav {
@@ -163,16 +167,16 @@
     <nav class="floating-nav glass-effect shadow-xl">
       <div class="flex items-center justify-between px-6 py-4">
         <!-- Logo -->
-        <a href="../index.html" target="_blank" class="flex items-center space-x-3">
+        <div class="flex items-center space-x-3">
           <div class="logo-glow">
             <img src="assets/img/techop.png" alt="techop.id logo" class="w-8 h-8" />
           </div>
           <span class="text-blue-600 font-bold text-xl bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent"> techop.id </span>
-        </a>
+        </div>
 
         <!-- Desktop Menu -->
         <ul id="navMenu" class="hidden md:flex items-center space-x-1">
-          <li><a href="#beranda" class="nav-link active-link px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300">Beranda</a></li>
+          <li><a href="#beranda" class="nav-link px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700">Beranda</a></li>
           <li><a href="#layanan" class="nav-link px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700">Layanan</a></li>
           <li><a href="#portofolio" class="nav-link px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700">Portofolio</a></li>
           <li><a href="#tentang" class="nav-link px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700">Tentang</a></li>
@@ -186,7 +190,7 @@
         <!-- Mobile Hamburger -->
         <button id="navToggle" class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
           <div class="w-6 h-6 flex flex-col justify-center space-y-1">
-            <div class="hamburger-line line1 w-6 h-0.5 bg-gray-800 rounded-full"></div>
+            <div class="hamburger-line line1 w-6 h-6 bg-gray-800 rounded-full"></div>
             <div class="hamburger-line line2 w-6 h-0.5 bg-gray-800 rounded-full"></div>
             <div class="hamburger-line line3 w-6 h-0.5 bg-gray-800 rounded-full"></div>
           </div>
@@ -196,7 +200,7 @@
       <!-- Mobile Menu -->
       <div id="mobileMenu" class="mobile-menu md:hidden hidden">
         <div class="px-6 py-4 space-y-1">
-          <a href="#beranda" class="mobile-link mobile-active block px-4 py-3 rounded-lg text-sm font-semibold transition-all duration-300">
+          <a href="#beranda" class="mobile-link block px-4 py-3 rounded-lg text-sm font-semibold text-gray-700">
             <span class="flex items-center">
               <svg class="w-4 h-4 mr-3 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
