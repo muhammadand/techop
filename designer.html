@@ -32,7 +32,7 @@
 
     <script>
       // Configuration & Components Data
-      const CONFIG = { navbarHeight: 80, scrollOffset: 100, scrollSpeed: 1, autoScrollEnabled: true, debugMode: true };
+      const CONFIG = { navbarHeight: 80, scrollOffset: 100, scrollSpeed: 2, autoScrollEnabled: true, debugMode: true };
 
       const components = [
         { name: "navbar", container: "navbar-container" },
@@ -58,7 +58,7 @@
         };
       };
 
-      // Component Loader
+      // Component Loader - Optimized
       const ComponentLoader = {
         async loadComponent(name, containerId) {
           try {
@@ -71,6 +71,10 @@
             if (!container) throw new Error(`Container ${containerId} not found`);
 
             container.innerHTML = html;
+
+            // Initialize component-specific functionality immediately
+            this.initializeComponentScript(name, container);
+
             log(`${name} loaded successfully`, "success");
             return true;
           } catch (error) {
@@ -92,19 +96,125 @@
           }
         },
 
+        initializeComponentScript(name, container) {
+          // Execute scripts immediately
+          const scripts = container.querySelectorAll("script");
+          for (const script of scripts) {
+            try {
+              if (script.src) {
+                this.loadExternalScript(script.src);
+              } else {
+                const scriptContent = script.innerHTML;
+                if (scriptContent.trim()) {
+                  const newScript = document.createElement("script");
+                  newScript.innerHTML = scriptContent;
+                  document.head.appendChild(newScript);
+                  document.head.removeChild(newScript);
+                }
+              }
+            } catch (error) {
+              log(`Error executing script in ${name}: ${error.message}`, "warning");
+            }
+          }
+
+          // Special handling for portfolio component - immediate initialization
+          if (name === "portfolio") {
+            this.initializePortfolioComponent(container);
+          }
+        },
+
+        async loadExternalScript(src) {
+          return new Promise((resolve, reject) => {
+            const script = document.createElement("script");
+            script.src = src;
+            script.onload = resolve;
+            script.onerror = reject;
+            document.head.appendChild(script);
+          });
+        },
+
+        initializePortfolioComponent(container) {
+          // Immediate initialization without timeout
+          if (typeof initializePortfolioComponent === "function") {
+            try {
+              initializePortfolioComponent();
+              log("Portfolio component initialized", "success");
+            } catch (error) {
+              log(`Error initializing portfolio: ${error.message}`, "error");
+            }
+          } else {
+            this.fallbackPortfolioInit(container);
+          }
+        },
+
+        fallbackPortfolioInit(container) {
+          log("Using fallback portfolio initialization", "warning");
+
+          const filterBtns = container.querySelectorAll(".filter-btn");
+          const portfolioItems = container.querySelectorAll(".portfolio-item");
+
+          if (filterBtns.length === 0 || portfolioItems.length === 0) {
+            log("Portfolio elements not found for fallback init", "warning");
+            return;
+          }
+
+          filterBtns.forEach((btn) => {
+            btn.addEventListener("click", () => {
+              // Remove active class from all buttons
+              filterBtns.forEach((b) => {
+                b.classList.remove("active");
+                const dot = b.querySelector(".filter-dot");
+                const text = b.querySelector("span");
+                if (dot && text) {
+                  dot.style.backgroundColor = "#d1d5db";
+                  text.style.color = "#374151";
+                  text.style.fontWeight = "normal";
+                }
+              });
+
+              // Add active class to clicked button
+              btn.classList.add("active");
+              const activeDot = btn.querySelector(".filter-dot");
+              const activeText = btn.querySelector("span");
+              if (activeDot && activeText) {
+                activeDot.style.backgroundColor = "#2563eb";
+                activeText.style.color = "#2563eb";
+                activeText.style.fontWeight = "600";
+              }
+
+              const filter = btn.getAttribute("data-filter");
+
+              // Filter items immediately without delay
+              portfolioItems.forEach((item) => {
+                const category = item.getAttribute("data-category");
+                if (filter === "all" || category === filter) {
+                  item.style.display = "block";
+                  item.classList.add("fade-in");
+                } else {
+                  item.classList.remove("fade-in");
+                  item.style.display = "none";
+                }
+              });
+            });
+          });
+
+          log("Fallback portfolio initialization complete", "success");
+        },
+
         async retryComponent(name, containerId) {
           log(`Retrying ${name}...`, "loading");
           const success = await this.loadComponent(name, containerId);
-          if (success)
-            setTimeout(() => {
-              SectionManager.ensureSectionIds();
-              NavigationManager.initializeNavigation();
-            }, 100);
+          if (success) {
+            // Initialize immediately
+            SectionManager.ensureSectionIds();
+            NavigationManager.initializeNavigation();
+          }
         },
 
         async loadAllComponents() {
           log("Starting to load all components...", "loading");
           try {
+            // Load components in parallel for faster loading
             const results = await Promise.all(components.map((comp) => this.loadComponent(comp.name, comp.container)));
             const successCount = results.filter(Boolean).length;
             log(`${successCount}/${components.length} components loaded successfully`, "success");
@@ -112,12 +222,12 @@
             const loading = document.getElementById("loading");
             if (loading) loading.style.display = "none";
 
-            setTimeout(() => {
-              SectionManager.ensureSectionIds();
-              NavigationManager.initializeNavigation();
-              AutoScrollManager.initialize();
-              LazyLoadManager.initialize();
-            }, 200);
+            // Initialize all systems immediately
+            SectionManager.ensureSectionIds();
+            NavigationManager.initializeNavigation();
+            AutoScrollManager.initialize();
+            LazyLoadManager.initialize();
+
             return true;
           } catch (error) {
             log(`Error loading components: ${error.message}`, "error");
@@ -174,7 +284,7 @@
         },
       };
 
-      // Navigation Manager
+      // Navigation Manager - Optimized
       const NavigationManager = {
         activeLink: null,
         sections: [],
@@ -272,7 +382,7 @@
               }
             }
             this.updateActiveLinks(current);
-          }, 10);
+          }, 5); // Reduced debounce time for responsiveness
           window.addEventListener("scroll", updateActiveNav, { passive: true });
           updateActiveNav();
           log("Active navigation highlighting initialized", "success");
@@ -309,11 +419,12 @@
         },
       };
 
-      // Auto Scroll Manager
+      // Auto Scroll Manager - Optimized
       const AutoScrollManager = {
         container: null,
         isScrolling: false,
         scrollDirection: 1,
+        animationFrame: null,
 
         initialize() {
           if (!CONFIG.autoScrollEnabled) return;
@@ -332,30 +443,29 @@
             this.container.scrollLeft += this.scrollDirection * CONFIG.scrollSpeed;
             if (this.container.scrollLeft + this.container.clientWidth >= this.container.scrollWidth) this.scrollDirection = -1;
             if (this.container.scrollLeft <= 0) this.scrollDirection = 1;
-            requestAnimationFrame(scroll);
+            this.animationFrame = requestAnimationFrame(scroll);
           };
           this.isScrolling = true;
-          scroll();
+          this.animationFrame = requestAnimationFrame(scroll);
+        },
+
+        stopAutoScroll() {
+          this.isScrolling = false;
+          if (this.animationFrame) {
+            cancelAnimationFrame(this.animationFrame);
+          }
         },
 
         initializeScrollControls() {
           if (!this.container) return;
-          this.container.addEventListener("mouseenter", () => (this.isScrolling = false));
-          this.container.addEventListener("mouseleave", () => {
-            this.isScrolling = true;
-            this.startAutoScroll();
-          });
-          this.container.addEventListener("touchstart", () => (this.isScrolling = false));
-          this.container.addEventListener("touchend", () =>
-            setTimeout(() => {
-              this.isScrolling = true;
-              this.startAutoScroll();
-            }, 2000)
-          );
+          this.container.addEventListener("mouseenter", () => this.stopAutoScroll());
+          this.container.addEventListener("mouseleave", () => this.startAutoScroll());
+          this.container.addEventListener("touchstart", () => this.stopAutoScroll());
+          this.container.addEventListener("touchend", () => this.startAutoScroll()); // Immediate restart
         },
       };
 
-      // Lazy Load Manager
+      // Lazy Load Manager - Enhanced
       const LazyLoadManager = {
         observer: null,
 
@@ -370,7 +480,7 @@
                 }
               });
             },
-            { threshold: 0.1, rootMargin: "50px" }
+            { threshold: 0.1, rootMargin: "100px" } // Increased preload distance
           );
 
           document.querySelectorAll("[data-lazy], .lazy").forEach((element) => this.observer.observe(element));
@@ -452,7 +562,7 @@
                 </button>
               </div>`;
           }
-        }, 5000);
+        }, 3000); // Reduced timeout
       });
 
       // Debug mode exposure

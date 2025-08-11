@@ -1,284 +1,837 @@
-<section class="bg-white py-20 px-4 md:px-8 lg:px-16">
-  <div class="max-w-7xl mx-auto text-center">
-    <!-- Subheading -->
-    <span class="inline-block bg-gray-800 text-white text-sm font-semibold px-4 py-1 rounded-full mb-3">OUR RECENT PORTFOLIO</span>
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Slider</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <section class="bg-white py-20 px-4 md:px-8 lg:px-16">
+      <div class="max-w-7xl mx-auto text-center">
+        <!-- Subheading -->
+        <span class="inline-block bg-gray-800 text-white text-sm font-semibold px-4 py-1 rounded-full mb-3">OUR RECENT PORTFOLIO</span>
 
-    <!-- Judul -->
-    <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-2">Kualitas Hasil Terbaik</h2>
-    <p class="text-gray-600 max-w-2xl mx-auto mb-10">Kami menyediakan beragam layanan digital yang dirancang untuk membantu bisnis Anda tumbuh dan berkembang secara efektif.</p>
+        <!-- Judul -->
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-2">Kualitas Hasil Terbaik</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto mb-10">Kami menyediakan beragam layanan digital yang dirancang untuk membantu bisnis Anda tumbuh dan berkembang secara efektif.</p>
 
-    <!-- Filter Menu -->
-    <div class="flex justify-center items-center gap-10 mb-12">
-      <div class="filter-btn active" data-filter="all">
-        <div class="flex flex-col items-center gap-1 text-sm text-gray-700">
-          <div class="filter-dot w-5 h-5 bg-gray-300 rounded-full transition-all duration-300"></div>
-          <span>Semua</span>
+        <!-- Filter Menu -->
+        <div class="flex justify-center items-center gap-10 mb-12">
+          <div class="filter-btn active cursor-pointer" data-filter="all">
+            <div class="flex flex-col items-center gap-1 text-sm text-gray-700 hover:text-blue-600 transition-colors duration-300">
+              <div class="filter-dot w-5 h-5 bg-blue-600 rounded-full transition-all duration-300"></div>
+              <span>Semua</span>
+            </div>
+          </div>
+          <div class="filter-btn cursor-pointer" data-filter="website">
+            <div class="flex flex-col items-center gap-1 text-sm text-gray-700 hover:text-blue-600 transition-colors duration-300">
+              <div class="filter-dot w-5 h-5 bg-gray-300 rounded-full transition-all duration-300"></div>
+              <span>Website</span>
+            </div>
+          </div>
+          <div class="filter-btn cursor-pointer" data-filter="uiux">
+            <div class="flex flex-col items-center gap-1 text-sm text-gray-700 hover:text-blue-600 transition-colors duration-300">
+              <div class="filter-dot w-5 h-5 bg-gray-300 rounded-full transition-all duration-300"></div>
+              <span>UI/UX Design</span>
+            </div>
+          </div>
+          <div class="filter-btn cursor-pointer" data-filter="aplikasi">
+            <div class="flex flex-col items-center gap-1 text-sm text-gray-700 hover:text-blue-600 transition-colors duration-300">
+              <div class="filter-dot w-5 h-5 bg-gray-300 rounded-full transition-all duration-300"></div>
+              <span>Aplikasi</span>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="filter-btn" data-filter="website">
-        <div class="flex flex-col items-center gap-1 text-sm text-gray-700">
-          <div class="filter-dot w-5 h-5 bg-gray-300 rounded-full transition-all duration-300"></div>
-          <span>Website</span>
-        </div>
-      </div>
-      <div class="filter-btn" data-filter="uiux">
-        <div class="flex flex-col items-center gap-1 text-sm text-gray-700">
-          <div class="filter-dot w-5 h-5 bg-gray-300 rounded-full transition-all duration-300"></div>
-          <span>UI/UX Design</span>
-        </div>
-      </div>
-      <div class="filter-btn" data-filter="aplikasi">
-        <div class="flex flex-col items-center gap-1 text-sm text-gray-700">
-          <div class="filter-dot w-5 h-5 bg-gray-300 rounded-full transition-all duration-300"></div>
-          <span>Aplikasi</span>
-        </div>
-      </div>
-    </div>
 
-    <!-- Grid Portfolio -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="portfolioGrid">
-      <!-- Website Project 1 -->
-      <div class="portfolio-item fade-in" data-category="website">
-        <div class="bg-white rounded-xl shadow-lg border overflow-hidden group hover:shadow-xl transition-all duration-300">
-          <!-- Project Image -->
-          <div class="portfolio-image mockup-desktop h-48 flex items-center justify-center relative">
-            <!-- Desktop Mockup -->
-            <div class="bg-white rounded-lg p-2 shadow-xl w-40 h-24 relative">
-              <div class="bg-gray-100 rounded h-full flex flex-col">
-                <div class="flex items-center gap-1 p-1">
-                  <div class="w-1 h-1 bg-red-400 rounded-full"></div>
-                  <div class="w-1 h-1 bg-yellow-400 rounded-full"></div>
-                  <div class="w-1 h-1 bg-green-400 rounded-full"></div>
-                </div>
-                <div class="flex-1 bg-white rounded-sm m-1 p-1">
-                  <div class="grid grid-cols-3 gap-1 h-full">
-                    <div class="bg-blue-100 rounded-sm"></div>
-                    <div class="bg-purple-100 rounded-sm"></div>
-                    <div class="bg-green-100 rounded-sm"></div>
+        <!-- Grid Portfolio untuk mode "Semua" -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="portfolioGrid">
+          <!-- Website Project 1 -->
+          <div class="portfolio-item fade-in h-full" data-category="website">
+            <div class="bg-white rounded-xl shadow-lg border overflow-hidden group hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+              <!-- Project Image -->
+              <div class="portfolio-image mockup-desktop h-48 flex items-center justify-center relative flex-shrink-0">
+                <!-- Desktop Mockup -->
+                <div class="bg-white rounded-lg p-2 shadow-xl w-40 h-24 relative">
+                  <div class="bg-gray-100 rounded h-full flex flex-col">
+                    <div class="flex items-center gap-1 p-1">
+                      <div class="w-1 h-1 bg-red-400 rounded-full"></div>
+                      <div class="w-1 h-1 bg-yellow-400 rounded-full"></div>
+                      <div class="w-1 h-1 bg-green-400 rounded-full"></div>
+                    </div>
+                    <div class="flex-1 bg-white rounded-sm m-1 p-1">
+                      <div class="grid grid-cols-3 gap-1 h-full">
+                        <div class="bg-blue-100 rounded-sm"></div>
+                        <div class="bg-purple-100 rounded-sm"></div>
+                        <div class="bg-green-100 rounded-sm"></div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
 
-          <!-- Project Info -->
-          <div class="p-6 text-left">
-            <div class="flex items-center gap-3 mb-3">
-              <div class="w-8 h-8 flex items-center justify-center rounded-full bg-blue-500 text-white font-bold text-sm">W</div>
-              <div>
-                <h4 class="font-semibold text-gray-900">Website Korporat</h4>
-                <span class="project-category text-xs px-2 py-1 rounded-full">Website</span>
-              </div>
-            </div>
-            <p class="text-sm text-gray-600">Platform website korporat yang elegan dengan desain modern dan responsif untuk meningkatkan brand awareness perusahaan</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- UI/UX Project 1 -->
-      <div class="portfolio-item fade-in" data-category="uiux">
-        <div class="bg-white rounded-xl shadow-lg border overflow-hidden group hover:shadow-xl transition-all duration-300">
-          <!-- Project Image -->
-          <div class="portfolio-image mockup-phone h-48 flex items-center justify-center relative">
-            <!-- Phone Mockup -->
-            <div class="bg-black rounded-xl p-1 shadow-xl">
-              <div class="bg-white rounded-lg w-24 h-36 p-2">
-                <div class="bg-gradient-to-br from-purple-400 to-blue-500 rounded h-full flex flex-col items-center justify-center">
-                  <div class="w-8 h-8 bg-white rounded-full mb-2 opacity-80"></div>
-                  <div class="w-12 h-1 bg-white rounded opacity-60 mb-1"></div>
-                  <div class="w-8 h-1 bg-white rounded opacity-40"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project Info -->
-          <div class="p-6 text-left">
-            <div class="flex items-center gap-3 mb-3">
-              <div class="w-8 h-8 flex items-center justify-center rounded-full bg-purple-500 text-white font-bold text-sm">U</div>
-              <div>
-                <h4 class="font-semibold text-gray-900">Desain UI/UX Mobile</h4>
-                <span class="project-category text-xs px-2 py-1 rounded-full">UI/UX Design</span>
-              </div>
-            </div>
-            <p class="text-sm text-gray-600">Desain antarmuka yang user-friendly dengan pengalaman pengguna yang optimal untuk aplikasi mobile modern</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Aplikasi Project 1 -->
-      <div class="portfolio-item fade-in" data-category="aplikasi">
-        <div class="bg-white rounded-xl shadow-lg border overflow-hidden group hover:shadow-xl transition-all duration-300">
-          <!-- Project Image -->
-          <div class="portfolio-image mockup-tablet h-48 flex items-center justify-center relative">
-            <!-- Tablet Mockup -->
-            <div class="bg-gray-800 rounded-xl p-2 shadow-xl">
-              <div class="bg-white rounded-lg w-32 h-24 p-2">
-                <div class="bg-gradient-to-br from-green-400 to-blue-500 rounded h-full grid grid-cols-2 gap-1 p-1">
-                  <div class="bg-white bg-opacity-20 rounded-sm"></div>
-                  <div class="bg-white bg-opacity-20 rounded-sm"></div>
-                  <div class="bg-white bg-opacity-30 rounded-sm col-span-2"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project Info -->
-          <div class="p-6 text-left">
-            <div class="flex items-center gap-3 mb-3">
-              <div class="w-8 h-8 flex items-center justify-center rounded-full bg-green-500 text-white font-bold text-sm">A</div>
-              <div>
-                <h4 class="font-semibold text-gray-900">Aplikasi E-Commerce</h4>
-                <span class="project-category text-xs px-2 py-1 rounded-full">Aplikasi</span>
-              </div>
-            </div>
-            <p class="text-sm text-gray-600">Aplikasi e-commerce lengkap dengan sistem pembayaran terintegrasi dan dashboard admin yang powerful</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Website Project 2 -->
-      <div class="portfolio-item fade-in" data-category="website">
-        <div class="bg-white rounded-xl shadow-lg border overflow-hidden group hover:shadow-xl transition-all duration-300">
-          <div class="portfolio-image mockup-desktop h-48 flex items-center justify-center relative">
-            <div class="bg-white rounded-lg p-2 shadow-xl w-40 h-24 relative">
-              <div class="bg-gray-100 rounded h-full flex flex-col">
-                <div class="flex items-center gap-1 p-1">
-                  <div class="w-1 h-1 bg-red-400 rounded-full"></div>
-                  <div class="w-1 h-1 bg-yellow-400 rounded-full"></div>
-                  <div class="w-1 h-1 bg-green-400 rounded-full"></div>
-                </div>
-                <div class="flex-1 bg-white rounded-sm m-1 p-1">
-                  <div class="bg-orange-200 rounded-sm h-full"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="p-6 text-left">
-            <div class="flex items-center gap-3 mb-3">
-              <div class="w-8 h-8 flex items-center justify-center rounded-full bg-orange-500 text-white font-bold text-sm">L</div>
-              <div>
-                <h4 class="font-semibold text-gray-900">Landing Page</h4>
-                <span class="project-category text-xs px-2 py-1 rounded-full">Website</span>
-              </div>
-            </div>
-            <p class="text-sm text-gray-600">Landing page yang convert tinggi dengan desain yang menarik dan optimasi SEO untuk bisnis startup</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- UI/UX Project 2 -->
-      <div class="portfolio-item fade-in" data-category="uiux">
-        <div class="bg-white rounded-xl shadow-lg border overflow-hidden group hover:shadow-xl transition-all duration-300">
-          <div class="portfolio-image mockup-phone h-48 flex items-center justify-center relative">
-            <div class="bg-black rounded-xl p-1 shadow-xl">
-              <div class="bg-white rounded-lg w-24 h-36 p-2">
-                <div class="bg-gradient-to-br from-pink-400 to-red-500 rounded h-full flex flex-col">
-                  <div class="flex justify-between items-center p-1">
-                    <div class="w-2 h-2 bg-white rounded opacity-60"></div>
-                    <div class="w-4 h-1 bg-white rounded opacity-40"></div>
+              <!-- Project Info -->
+              <div class="p-6 text-left flex-1 flex flex-col">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-8 h-8 flex items-center justify-center rounded-full bg-blue-500 text-white font-bold text-sm">W</div>
+                  <div>
+                    <h4 class="font-semibold text-gray-900">Website Korporat</h4>
+                    <span class="project-category text-xs px-2 py-1 rounded-full bg-blue-100 text-blue-600">Website</span>
                   </div>
-                  <div class="flex-1 flex items-center justify-center">
-                    <div class="w-6 h-6 border-2 border-white rounded-full"></div>
+                </div>
+                <p class="text-sm text-gray-600 flex-1">Platform website korporat yang elegan dengan desain modern dan responsif untuk meningkatkan brand awareness perusahaan</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- UI/UX Project 1 -->
+          <div class="portfolio-item fade-in h-full" data-category="uiux">
+            <div class="bg-white rounded-xl shadow-lg border overflow-hidden group hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+              <!-- Project Image -->
+              <div class="portfolio-image mockup-phone h-48 flex items-center justify-center relative flex-shrink-0">
+                <!-- Phone Mockup -->
+                <div class="bg-black rounded-xl p-1 shadow-xl">
+                  <div class="bg-white rounded-lg w-24 h-36 p-2">
+                    <div class="bg-gradient-to-br from-purple-400 to-blue-500 rounded h-full flex flex-col items-center justify-center">
+                      <div class="w-8 h-8 bg-white rounded-full mb-2 opacity-80"></div>
+                      <div class="w-12 h-1 bg-white rounded opacity-60 mb-1"></div>
+                      <div class="w-8 h-1 bg-white rounded opacity-40"></div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="p-6 text-left">
-            <div class="flex items-center gap-3 mb-3">
-              <div class="w-8 h-8 flex items-center justify-center rounded-full bg-pink-500 text-white font-bold text-sm">F</div>
-              <div>
-                <h4 class="font-semibold text-gray-900">Fitness App Design</h4>
-                <span class="project-category text-xs px-2 py-1 rounded-full">UI/UX Design</span>
+
+              <!-- Project Info -->
+              <div class="p-6 text-left flex-1 flex flex-col">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-8 h-8 flex items-center justify-center rounded-full bg-purple-500 text-white font-bold text-sm">U</div>
+                  <div>
+                    <h4 class="font-semibold text-gray-900">Desain UI/UX Mobile</h4>
+                    <span class="project-category text-xs px-2 py-1 rounded-full bg-purple-100 text-purple-600">UI/UX Design</span>
+                  </div>
+                </div>
+                <p class="text-sm text-gray-600 flex-1">Desain antarmuka yang user-friendly dengan pengalaman pengguna yang optimal untuk aplikasi mobile modern</p>
               </div>
             </div>
-            <p class="text-sm text-gray-600">Desain aplikasi fitness dengan interface yang intuitif dan motivational untuk mendukung gaya hidup sehat</p>
           </div>
-        </div>
-      </div>
 
-      <!-- Aplikasi Project 2 -->
-      <div class="portfolio-item fade-in" data-category="aplikasi">
-        <div class="bg-white rounded-xl shadow-lg border overflow-hidden group hover:shadow-xl transition-all duration-300">
-          <div class="portfolio-image mockup-tablet h-48 flex items-center justify-center relative">
-            <div class="bg-gray-800 rounded-xl p-2 shadow-xl">
-              <div class="bg-white rounded-lg w-32 h-24 p-2">
-                <div class="bg-gradient-to-br from-yellow-400 to-red-500 rounded h-full flex items-center justify-center">
-                  <div class="w-8 h-8 bg-white bg-opacity-30 rounded-full"></div>
+          <!-- Aplikasi Project 1 -->
+          <div class="portfolio-item fade-in h-full" data-category="aplikasi">
+            <div class="bg-white rounded-xl shadow-lg border overflow-hidden group hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+              <!-- Project Image -->
+              <div class="portfolio-image mockup-tablet h-48 flex items-center justify-center relative flex-shrink-0">
+                <!-- Tablet Mockup -->
+                <div class="bg-gray-800 rounded-xl p-2 shadow-xl">
+                  <div class="bg-white rounded-lg w-32 h-24 p-2">
+                    <div class="bg-gradient-to-br from-green-400 to-blue-500 rounded h-full grid grid-cols-2 gap-1 p-1">
+                      <div class="bg-white bg-opacity-20 rounded-sm"></div>
+                      <div class="bg-white bg-opacity-20 rounded-sm"></div>
+                      <div class="bg-white bg-opacity-30 rounded-sm col-span-2"></div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="p-6 text-left">
-            <div class="flex items-center gap-3 mb-3">
-              <div class="w-8 h-8 flex items-center justify-center rounded-full bg-yellow-500 text-white font-bold text-sm">D</div>
-              <div>
-                <h4 class="font-semibold text-gray-900">Dashboard Analytics</h4>
-                <span class="project-category text-xs px-2 py-1 rounded-full">Aplikasi</span>
+
+              <!-- Project Info -->
+              <div class="p-6 text-left flex-1 flex flex-col">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-8 h-8 flex items-center justify-center rounded-full bg-green-500 text-white font-bold text-sm">A</div>
+                  <div>
+                    <h4 class="font-semibold text-gray-900">Aplikasi E-Commerce</h4>
+                    <span class="project-category text-xs px-2 py-1 rounded-full bg-green-100 text-green-600">Aplikasi</span>
+                  </div>
+                </div>
+                <p class="text-sm text-gray-600 flex-1">Aplikasi e-commerce lengkap dengan sistem pembayaran terintegrasi dan dashboard admin yang powerful</p>
               </div>
             </div>
-            <p class="text-sm text-gray-600">Dashboard analytics yang comprehensive dengan real-time data visualization</p>
+          </div>
+
+          <!-- Website Project 2 -->
+          <div class="portfolio-item fade-in h-full" data-category="website">
+            <div class="bg-white rounded-xl shadow-lg border overflow-hidden group hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+              <div class="portfolio-image mockup-desktop h-48 flex items-center justify-center relative flex-shrink-0">
+                <div class="bg-white rounded-lg p-2 shadow-xl w-40 h-24 relative">
+                  <div class="bg-gray-100 rounded h-full flex flex-col">
+                    <div class="flex items-center gap-1 p-1">
+                      <div class="w-1 h-1 bg-red-400 rounded-full"></div>
+                      <div class="w-1 h-1 bg-yellow-400 rounded-full"></div>
+                      <div class="w-1 h-1 bg-green-400 rounded-full"></div>
+                    </div>
+                    <div class="flex-1 bg-white rounded-sm m-1 p-1">
+                      <div class="bg-orange-200 rounded-sm h-full"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="p-6 text-left flex-1 flex flex-col">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-8 h-8 flex items-center justify-center rounded-full bg-orange-500 text-white font-bold text-sm">L</div>
+                  <div>
+                    <h4 class="font-semibold text-gray-900">Landing Page</h4>
+                    <span class="project-category text-xs px-2 py-1 rounded-full bg-orange-100 text-orange-600">Website</span>
+                  </div>
+                </div>
+                <p class="text-sm text-gray-600 flex-1">Landing page yang convert tinggi dengan desain yang menarik dan optimasi SEO untuk bisnis startup</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- UI/UX Project 2 -->
+          <div class="portfolio-item fade-in h-full" data-category="uiux">
+            <div class="bg-white rounded-xl shadow-lg border overflow-hidden group hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+              <div class="portfolio-image mockup-phone h-48 flex items-center justify-center relative flex-shrink-0">
+                <div class="bg-black rounded-xl p-1 shadow-xl">
+                  <div class="bg-white rounded-lg w-24 h-36 p-2">
+                    <div class="bg-gradient-to-br from-pink-400 to-red-500 rounded h-full flex flex-col">
+                      <div class="flex justify-between items-center p-1">
+                        <div class="w-2 h-2 bg-white rounded opacity-60"></div>
+                        <div class="w-4 h-1 bg-white rounded opacity-40"></div>
+                      </div>
+                      <div class="flex-1 flex items-center justify-center">
+                        <div class="w-6 h-6 border-2 border-white rounded-full"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="p-6 text-left flex-1 flex flex-col">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-8 h-8 flex items-center justify-center rounded-full bg-pink-500 text-white font-bold text-sm">F</div>
+                  <div>
+                    <h4 class="font-semibold text-gray-900">Fitness App Design</h4>
+                    <span class="project-category text-xs px-2 py-1 rounded-full bg-pink-100 text-pink-600">UI/UX Design</span>
+                  </div>
+                </div>
+                <p class="text-sm text-gray-600 flex-1">Desain aplikasi fitness dengan interface yang intuitif dan motivational untuk mendukung gaya hidup sehat</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Aplikasi Project 2 -->
+          <div class="portfolio-item fade-in h-full" data-category="aplikasi">
+            <div class="bg-white rounded-xl shadow-lg border overflow-hidden group hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+              <div class="portfolio-image mockup-tablet h-48 flex items-center justify-center relative flex-shrink-0">
+                <div class="bg-gray-800 rounded-xl p-2 shadow-xl">
+                  <div class="bg-white rounded-lg w-32 h-24 p-2">
+                    <div class="bg-gradient-to-br from-yellow-400 to-red-500 rounded h-full flex items-center justify-center">
+                      <div class="w-8 h-8 bg-white bg-opacity-30 rounded-full"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="p-6 text-left flex-1 flex flex-col">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-8 h-8 flex items-center justify-center rounded-full bg-yellow-500 text-white font-bold text-sm">D</div>
+                  <div>
+                    <h4 class="font-semibold text-gray-900">Dashboard Analytics</h4>
+                    <span class="project-category text-xs px-2 py-1 rounded-full bg-yellow-100 text-yellow-600">Aplikasi</span>
+                  </div>
+                </div>
+                <p class="text-sm text-gray-600 flex-1">Dashboard analytics yang comprehensive dengan real-time data visualization untuk mengelola data bisnis</p>
+              </div>
+            </div>
           </div>
         </div>
+
+        <!-- Slider Container untuk mode kategori tertentu -->
+        <div class="relative overflow-hidden hidden" id="portfolioSlider">
+          <div class="flex transition-transform duration-500 ease-in-out" id="sliderTrack">
+            <!-- Slides akan diisi secara dinamis oleh JavaScript -->
+          </div>
+
+          <!-- Navigation buttons -->
+          <button class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white shadow-lg rounded-full p-3 hover:bg-gray-50 transition-colors duration-200" id="prevBtn">
+            <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+          </button>
+          <button class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white shadow-lg rounded-full p-3 hover:bg-gray-50 transition-colors duration-200" id="nextBtn">
+            <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Dots indicator -->
+        <div class="flex justify-center mt-8 space-x-2 hidden" id="dotsContainer">
+          <!-- Dots akan diisi secara dinamis oleh JavaScript -->
+        </div>
+
+        <!-- Load More Button -->
+        <div class="mt-12">
+          <button class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105">Lihat Portfolio Lengkap</button>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <!-- Load More Button -->
-    <div class="mt-12">
-      <button class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105">Lihat Portfolio Lengkap</button>
-    </div>
-  </div>
-</section>
+    <style>
+      .filter-btn.active .filter-dot {
+        background-color: #2563eb !important;
+      }
 
-<script>
-  // Filter functionality
-  const filterBtns = document.querySelectorAll(".filter-btn");
-  const portfolioItems = document.querySelectorAll(".portfolio-item");
+      .filter-btn.active span {
+        color: #2563eb !important;
+        font-weight: 600;
+      }
 
-  filterBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      // Remove active class from all buttons
-      filterBtns.forEach((b) => b.classList.remove("active"));
-      // Add active class to clicked button
-      btn.classList.add("active");
+      .portfolio-item {
+        transition: all 0.3s ease;
+      }
 
-      const filter = btn.getAttribute("data-filter");
+      .fade-in {
+        opacity: 1;
+        transform: translateY(0);
+      }
 
-      portfolioItems.forEach((item) => {
-        const category = item.getAttribute("data-category");
+      .slider-item {
+        min-width: 100%;
+        flex-shrink: 0;
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+        padding: 0 20px;
+      }
 
-        if (filter === "all" || category === filter) {
-          item.style.display = "block";
-          item.classList.add("fade-in");
-        } else {
-          item.style.display = "none";
-          item.classList.remove("fade-in");
+      .slider-item .portfolio-card {
+        max-width: 400px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+
+      .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: #d1d5db;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .dot.active {
+        background-color: #2563eb;
+        transform: scale(1.2);
+      }
+
+      @media (min-width: 768px) {
+        .slider-item {
+          min-width: 50%;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .slider-item {
+          min-width: 33.333333%;
+        }
+      }
+    </style>
+
+    <script>
+      // Portfolio data dengan lebih banyak item untuk demonstrasi slider
+      const portfolioData = {
+        website: [
+          {
+            title: "Website Korporat",
+            category: "Website",
+            description: "Platform website korporat yang elegan dengan desain modern dan responsif untuk meningkatkan brand awareness perusahaan",
+            icon: "W",
+            color: "blue",
+            mockup: "desktop",
+          },
+          {
+            title: "Landing Page",
+            category: "Website",
+            description: "Landing page yang convert tinggi dengan desain yang menarik dan optimasi SEO untuk bisnis startup",
+            icon: "L",
+            color: "orange",
+            mockup: "desktop",
+          },
+          {
+            title: "E-Commerce Website",
+            category: "Website",
+            description: "Toko online modern dengan sistem pembayaran lengkap dan manajemen inventory yang terintegrasi",
+            icon: "E",
+            color: "green",
+            mockup: "desktop",
+          },
+          {
+            title: "Portfolio Website",
+            category: "Website",
+            description: "Website portfolio profesional untuk menampilkan karya dan meningkatkan personal branding",
+            icon: "P",
+            color: "purple",
+            mockup: "desktop",
+          },
+        ],
+        uiux: [
+          {
+            title: "Desain UI/UX Mobile",
+            category: "UI/UX Design",
+            description: "Desain antarmuka yang user-friendly dengan pengalaman pengguna yang optimal untuk aplikasi mobile modern",
+            icon: "U",
+            color: "purple",
+            mockup: "phone",
+          },
+          {
+            title: "Fitness App Design",
+            category: "UI/UX Design",
+            description: "Desain aplikasi fitness dengan interface yang intuitif dan motivational untuk mendukung gaya hidup sehat",
+            icon: "F",
+            color: "pink",
+            mockup: "phone",
+          },
+          {
+            title: "Banking App UI",
+            category: "UI/UX Design",
+            description: "Desain aplikasi perbankan yang aman dan mudah digunakan dengan fokus pada user experience",
+            icon: "B",
+            color: "indigo",
+            mockup: "phone",
+          },
+          {
+            title: "Food Delivery Design",
+            category: "UI/UX Design",
+            description: "Interface aplikasi food delivery yang menarik dengan sistem ordering yang efisien",
+            icon: "D",
+            color: "red",
+            mockup: "phone",
+          },
+        ],
+        aplikasi: [
+          {
+            title: "Aplikasi E-Commerce",
+            category: "Aplikasi",
+            description: "Aplikasi e-commerce lengkap dengan sistem pembayaran terintegrasi dan dashboard admin yang powerful",
+            icon: "A",
+            color: "green",
+            mockup: "tablet",
+          },
+          {
+            title: "Dashboard Analytics",
+            category: "Aplikasi",
+            description: "Dashboard analytics yang comprehensive dengan real-time data visualization untuk mengelola data bisnis",
+            icon: "D",
+            color: "yellow",
+            mockup: "tablet",
+          },
+          {
+            title: "Learning Management System",
+            category: "Aplikasi",
+            description: "Platform pembelajaran online dengan fitur lengkap untuk pendidikan digital modern",
+            icon: "L",
+            color: "blue",
+            mockup: "tablet",
+          },
+          {
+            title: "Project Management Tool",
+            category: "Aplikasi",
+            description: "Aplikasi manajemen proyek dengan kolaborasi tim dan tracking progress real-time",
+            icon: "P",
+            color: "teal",
+            mockup: "tablet",
+          },
+        ],
+      };
+
+      // Variables
+      let currentSlide = 0;
+      let currentCategory = "all";
+      let isSliderMode = false;
+
+      // Original filter functionality
+      const filterBtns = document.querySelectorAll(".filter-btn");
+      const portfolioItems = document.querySelectorAll(".portfolio-item");
+      const portfolioGrid = document.getElementById("portfolioGrid");
+      const portfolioSlider = document.getElementById("portfolioSlider");
+      const sliderTrack = document.getElementById("sliderTrack");
+      const dotsContainer = document.getElementById("dotsContainer");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
+
+      // Color mappings
+      const colorMappings = {
+        blue: { bg: "bg-blue-500", text: "text-blue-600", light: "bg-blue-100" },
+        orange: { bg: "bg-orange-500", text: "text-orange-600", light: "bg-orange-100" },
+        green: { bg: "bg-green-500", text: "text-green-600", light: "bg-green-100" },
+        purple: { bg: "bg-purple-500", text: "text-purple-600", light: "bg-purple-100" },
+        pink: { bg: "bg-pink-500", text: "text-pink-600", light: "bg-pink-100" },
+        indigo: { bg: "bg-indigo-500", text: "text-indigo-600", light: "bg-indigo-100" },
+        red: { bg: "bg-red-500", text: "text-red-600", light: "bg-red-100" },
+        yellow: { bg: "bg-yellow-500", text: "text-yellow-600", light: "bg-yellow-100" },
+        teal: { bg: "bg-teal-500", text: "text-teal-600", light: "bg-teal-100" },
+      };
+
+      // Create portfolio card HTML
+      function createPortfolioCard(item) {
+        const colors = colorMappings[item.color];
+        const mockupContent = getMockupContent(item.mockup, item.color);
+
+        return `
+      <div class="bg-white rounded-xl shadow-lg border overflow-hidden group hover:shadow-xl transition-all duration-300 portfolio-card h-full flex flex-col">
+        <div class="portfolio-image mockup-${item.mockup} h-48 flex items-center justify-center relative flex-shrink-0">
+          ${mockupContent}
+        </div>
+        <div class="p-6 text-left flex-1 flex flex-col">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-8 h-8 flex items-center justify-center rounded-full ${colors.bg} text-white font-bold text-sm">${item.icon}</div>
+            <div>
+              <h4 class="font-semibold text-gray-900">${item.title}</h4>
+              <span class="project-category text-xs px-2 py-1 rounded-full ${colors.light} ${colors.text}">${item.category}</span>
+            </div>
+          </div>
+          <p class="text-sm text-gray-600 flex-1">${item.description}</p>
+        </div>
+      </div>
+    `;
+      }
+
+      // Get mockup content based on type
+      function getMockupContent(mockupType, color) {
+        const gradients = {
+          blue: "from-blue-400 to-purple-500",
+          orange: "from-orange-400 to-red-500",
+          green: "from-green-400 to-blue-500",
+          purple: "from-purple-400 to-blue-500",
+          pink: "from-pink-400 to-red-500",
+          indigo: "from-indigo-400 to-purple-500",
+          red: "from-red-400 to-pink-500",
+          yellow: "from-yellow-400 to-red-500",
+          teal: "from-teal-400 to-blue-500",
+        };
+
+        if (mockupType === "desktop") {
+          return `
+        <div class="bg-white rounded-lg p-2 shadow-xl w-40 h-24 relative">
+          <div class="bg-gray-100 rounded h-full flex flex-col">
+            <div class="flex items-center gap-1 p-1">
+              <div class="w-1 h-1 bg-red-400 rounded-full"></div>
+              <div class="w-1 h-1 bg-yellow-400 rounded-full"></div>
+              <div class="w-1 h-1 bg-green-400 rounded-full"></div>
+            </div>
+            <div class="flex-1 bg-gradient-to-br ${gradients[color]} rounded-sm m-1 p-1 opacity-80"></div>
+          </div>
+        </div>
+      `;
+        } else if (mockupType === "phone") {
+          return `
+        <div class="bg-black rounded-xl p-1 shadow-xl">
+          <div class="bg-white rounded-lg w-24 h-36 p-2">
+            <div class="bg-gradient-to-br ${gradients[color]} rounded h-full flex flex-col items-center justify-center">
+              <div class="w-8 h-8 bg-white rounded-full mb-2 opacity-80"></div>
+              <div class="w-12 h-1 bg-white rounded opacity-60 mb-1"></div>
+              <div class="w-8 h-1 bg-white rounded opacity-40"></div>
+            </div>
+          </div>
+        </div>
+      `;
+        } else if (mockupType === "tablet") {
+          return `
+        <div class="bg-gray-800 rounded-xl p-2 shadow-xl">
+          <div class="bg-white rounded-lg w-32 h-24 p-2">
+            <div class="bg-gradient-to-br ${gradients[color]} rounded h-full flex items-center justify-center">
+              <div class="w-8 h-8 bg-white bg-opacity-30 rounded-full"></div>
+            </div>
+          </div>
+        </div>
+      `;
+        }
+      }
+
+      // Create slider
+      function createSlider(category) {
+        const items = portfolioData[category] || [];
+        sliderTrack.innerHTML = "";
+        dotsContainer.innerHTML = "";
+
+        items.forEach((item, index) => {
+          // Create slide
+          const slide = document.createElement("div");
+          slide.className = "slider-item";
+          slide.innerHTML = createPortfolioCard(item);
+          sliderTrack.appendChild(slide);
+
+          // Create dot
+          const dot = document.createElement("div");
+          dot.className = `dot ${index === 0 ? "active" : ""}`;
+          dot.addEventListener("click", () => goToSlide(index));
+          dotsContainer.appendChild(dot);
+        });
+
+        currentSlide = 0;
+        updateSlider();
+      }
+
+      // Update slider position
+      function updateSlider() {
+        const slideWidth = sliderTrack.children[0]?.offsetWidth || 0;
+        sliderTrack.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+
+        // Update dots
+        document.querySelectorAll(".dot").forEach((dot, index) => {
+          dot.classList.toggle("active", index === currentSlide);
+        });
+      }
+
+      // Go to specific slide
+      function goToSlide(slideIndex) {
+        const totalSlides = sliderTrack.children.length;
+        currentSlide = Math.max(0, Math.min(slideIndex, totalSlides - 1));
+        updateSlider();
+      }
+
+      // Next slide
+      function nextSlide() {
+        const totalSlides = sliderTrack.children.length;
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateSlider();
+      }
+
+      // Previous slide
+      function prevSlide() {
+        const totalSlides = sliderTrack.children.length;
+        currentSlide = currentSlide === 0 ? totalSlides - 1 : currentSlide - 1;
+        updateSlider();
+      }
+
+      // Event listeners for navigation
+      nextBtn.addEventListener("click", nextSlide);
+      prevBtn.addEventListener("click", prevSlide);
+
+      // Auto-slide functionality
+      let autoSlideInterval;
+
+      function startAutoSlide() {
+        stopAutoSlide();
+        autoSlideInterval = setInterval(nextSlide, 4000);
+      }
+
+      function stopAutoSlide() {
+        if (autoSlideInterval) {
+          clearInterval(autoSlideInterval);
+          autoSlideInterval = null;
+        }
+      }
+
+      // Filter functionality with slider integration
+      filterBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          // Stop auto-slide when user interacts
+          stopAutoSlide();
+
+          // Remove active class from all buttons and reset their dots
+          filterBtns.forEach((b) => {
+            b.classList.remove("active");
+            const dot = b.querySelector(".filter-dot");
+            const text = b.querySelector("span");
+            dot.style.backgroundColor = "#d1d5db"; // gray-300
+            text.style.color = "#374151"; // gray-700
+            text.style.fontWeight = "normal";
+          });
+
+          // Add active class to clicked button
+          btn.classList.add("active");
+          const activeDot = btn.querySelector(".filter-dot");
+          const activeText = btn.querySelector("span");
+          activeDot.style.backgroundColor = "#2563eb"; // blue-600
+          activeText.style.color = "#2563eb"; // blue-600
+          activeText.style.fontWeight = "600";
+
+          const filter = btn.getAttribute("data-filter");
+          currentCategory = filter;
+
+          if (filter === "all") {
+            // Show grid mode
+            isSliderMode = false;
+            portfolioGrid.classList.remove("hidden");
+            portfolioSlider.classList.add("hidden");
+            dotsContainer.classList.add("hidden");
+
+            // Show all portfolio items with original animation
+            portfolioItems.forEach((item, index) => {
+              item.style.display = "block";
+              setTimeout(() => {
+                item.classList.add("fade-in");
+              }, index * 100);
+            });
+          } else {
+            // Show slider mode
+            isSliderMode = true;
+            portfolioGrid.classList.add("hidden");
+            portfolioSlider.classList.remove("hidden");
+            dotsContainer.classList.remove("hidden");
+
+            // Create and show slider
+            createSlider(filter);
+            startAutoSlide();
+          }
+        });
+      });
+
+      // Handle window resize for slider
+      window.addEventListener("resize", () => {
+        if (isSliderMode) {
+          updateSlider();
         }
       });
-    });
-  });
 
-  // Smooth scroll animations
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: "0px 0px -100px 0px",
-  };
+      // Keyboard navigation
+      document.addEventListener("keydown", (e) => {
+        if (!isSliderMode) return;
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = "1";
-        entry.target.style.transform = "translateY(0)";
+        if (e.key === "ArrowLeft") {
+          stopAutoSlide();
+          prevSlide();
+          startAutoSlide();
+        } else if (e.key === "ArrowRight") {
+          stopAutoSlide();
+          nextSlide();
+          startAutoSlide();
+        }
+      });
+
+      // Pause auto-slide on hover
+      portfolioSlider.addEventListener("mouseenter", stopAutoSlide);
+      portfolioSlider.addEventListener("mouseleave", () => {
+        if (isSliderMode) startAutoSlide();
+      });
+
+      // Touch/swipe support for mobile
+      let startX = 0;
+      let endX = 0;
+
+      portfolioSlider.addEventListener("touchstart", (e) => {
+        startX = e.touches[0].clientX;
+        stopAutoSlide();
+      });
+
+      portfolioSlider.addEventListener("touchmove", (e) => {
+        endX = e.touches[0].clientX;
+      });
+
+      portfolioSlider.addEventListener("touchend", () => {
+        if (!isSliderMode) return;
+
+        const diffX = startX - endX;
+        const minSwipeDistance = 50;
+
+        if (Math.abs(diffX) > minSwipeDistance) {
+          if (diffX > 0) {
+            nextSlide();
+          } else {
+            prevSlide();
+          }
+        }
+
+        startAutoSlide();
+      });
+
+      // Smooth scroll animations for original grid
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -100px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, observerOptions);
+
+      // Observe all portfolio items
+      portfolioItems.forEach((item) => {
+        item.style.opacity = "0";
+        item.style.transform = "translateY(30px)";
+        item.style.transition = "all 0.6s ease";
+        observer.observe(item);
+      });
+
+      // Initialize - show all items on page load
+      document.addEventListener("DOMContentLoaded", function () {
+        currentCategory = "all";
+        isSliderMode = false;
+
+        portfolioItems.forEach((item, index) => {
+          setTimeout(() => {
+            item.classList.add("fade-in");
+          }, index * 150);
+        });
+      });
+
+      // Add loading animation for slider transitions
+      function showLoadingState() {
+        sliderTrack.style.opacity = "0.5";
+        sliderTrack.style.transform = "scale(0.95)";
       }
-    });
-  }, observerOptions);
 
-  // Observe all portfolio items
-  portfolioItems.forEach((item) => {
-    item.style.opacity = "0";
-    item.style.transform = "translateY(30px)";
-    item.style.transition = "all 0.6s ease";
-    observer.observe(item);
-  });
-</script>
+      function hideLoadingState() {
+        sliderTrack.style.opacity = "1";
+        sliderTrack.style.transform = "scale(1)";
+      }
+
+      // Enhanced slider creation with loading animation
+      function createSliderWithAnimation(category) {
+        showLoadingState();
+
+        setTimeout(() => {
+          createSlider(category);
+          hideLoadingState();
+        }, 200);
+      }
+
+      // Update the filter button click handler to use animated slider creation
+      filterBtns.forEach((btn) => {
+        const originalClickHandler = btn.onclick;
+        btn.onclick = null;
+
+        btn.addEventListener("click", () => {
+          stopAutoSlide();
+
+          filterBtns.forEach((b) => {
+            b.classList.remove("active");
+            const dot = b.querySelector(".filter-dot");
+            const text = b.querySelector("span");
+            dot.style.backgroundColor = "#d1d5db";
+            text.style.color = "#374151";
+            text.style.fontWeight = "normal";
+          });
+
+          btn.classList.add("active");
+          const activeDot = btn.querySelector(".filter-dot");
+          const activeText = btn.querySelector("span");
+          activeDot.style.backgroundColor = "#2563eb";
+          activeText.style.color = "#2563eb";
+          activeText.style.fontWeight = "600";
+
+          const filter = btn.getAttribute("data-filter");
+          currentCategory = filter;
+
+          if (filter === "all") {
+            isSliderMode = false;
+            portfolioGrid.classList.remove("hidden");
+            portfolioSlider.classList.add("hidden");
+            dotsContainer.classList.add("hidden");
+
+            portfolioItems.forEach((item, index) => {
+              item.style.display = "block";
+              setTimeout(() => {
+                item.classList.add("fade-in");
+              }, index * 100);
+            });
+          } else {
+            isSliderMode = true;
+            portfolioGrid.classList.add("hidden");
+            portfolioSlider.classList.remove("hidden");
+            dotsContainer.classList.remove("hidden");
+
+            createSliderWithAnimation(filter);
+            setTimeout(() => startAutoSlide(), 500);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
