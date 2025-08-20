@@ -89,7 +89,7 @@
       }
 
       .hamburger-active .line1 {
-        transform: rotate(45deg) translate(6px, 6px);
+        transform: rotate(45deg) translate(3px, 3px);
       }
 
       .hamburger-active .line2 {
@@ -98,7 +98,7 @@
       }
 
       .hamburger-active .line3 {
-        transform: rotate(-45deg) translate(6px, -6px);
+        transform: rotate(-45deg) translate(3px, -3px);
       }
 
       .mobile-menu {
@@ -188,11 +188,11 @@
         <a href="#kontak" class="hidden md:block contact-btn px-6 py-2.5 rounded-full text-sm font-semibold"> Hubungi Kami </a>
 
         <!-- Mobile Hamburger -->
-        <button id="navToggle" class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
-          <div class="w-6 h-6 flex flex-col justify-center space-y-1">
-            <div class="hamburger-line line1 w-6 h-6 bg-gray-800 rounded-full"></div>
-            <div class="hamburger-line line2 w-6 h-0.5 bg-gray-800 rounded-full"></div>
-            <div class="hamburger-line line3 w-6 h-0.5 bg-gray-800 rounded-full"></div>
+        <button id="navToggle" class="md:hidden p-3 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+          <div class="w-5 h-4 flex flex-col justify-between">
+            <div class="hamburger-line line1 w-full h-0.5 bg-gray-700 rounded-sm"></div>
+            <div class="hamburger-line line2 w-full h-0.5 bg-gray-700 rounded-sm"></div>
+            <div class="hamburger-line line3 w-full h-0.5 bg-gray-700 rounded-sm"></div>
           </div>
         </button>
       </div>
@@ -200,7 +200,7 @@
       <!-- Mobile Menu -->
       <div id="mobileMenu" class="mobile-menu md:hidden hidden">
         <div class="px-6 py-4 space-y-1">
-          <a href="../index.html" class="mobile-link block px-4 py-3 rounded-lg text-sm font-semibold text-gray-700">
+          <a href="#beranda" class="mobile-link block px-4 py-3 rounded-lg text-sm font-semibold text-gray-700">
             <span class="flex items-center">
               <svg class="w-4 h-4 mr-3 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
@@ -261,7 +261,7 @@
       const CONFIG = {
         navbarHeight: 120,
         scrollOffset: 150,
-        debugMode: true,
+        debugMode: false,
       };
 
       // Utility Functions
@@ -344,6 +344,14 @@
             }
           });
 
+          // Close mobile menu when clicking on a link
+          const mobileLinks = mobileMenu.querySelectorAll("a");
+          mobileLinks.forEach((link) => {
+            link.addEventListener("click", () => {
+              this.closeMobileMenu();
+            });
+          });
+
           // Store menu state
           this.mobileMenuState = { isMenuOpen, navToggle, mobileMenu };
         },
@@ -374,7 +382,6 @@
 
               if (targetElement) {
                 this.scrollToElement(targetElement, targetId);
-                this.closeMobileMenu();
               } else {
                 Utils.log(`Target element ${targetId} not found`, "warning");
               }

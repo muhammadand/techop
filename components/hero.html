@@ -66,10 +66,10 @@
       @keyframes float {
         0%,
         100% {
-          transform: translateY(0px);
+          transform: translateY(0px) rotate(0deg);
         }
         50% {
-          transform: translateY(-10px);
+          transform: translateY(-15px) rotate(2deg);
         }
       }
 
@@ -85,40 +85,170 @@
         }
       }
 
-      /* Code Editor Styling */
-      .code-editor {
-        background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-        border: 1px solid #475569;
-      }
-
-      /* Dashboard Background */
-      .dashboard-bg {
-        background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #06b6d4 100%);
+      /* Code Editor Styling - Dark theme like VS Code */
+      .uiux-design {
+        background: linear-gradient(135deg, #1e1e1e 0%, #252526 50%, #2d2d30 100%);
+        border: 1px solid #3e3e42;
         position: relative;
+        overflow: hidden;
       }
 
-      /* Mobile App Background */
-      .mobile-app-bg {
-        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      .uiux-design::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(100, 200, 255, 0.1), transparent);
+        animation: shimmer 4s infinite;
       }
 
-      /* Glass Effect */
+      @keyframes shimmer {
+        0% {
+          left: -100%;
+        }
+        100% {
+          left: 100%;
+        }
+      }
+
+      /* Game Development Background with enhanced effects */
+      .game-dev-bg {
+        background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 30%, #06b6d4 60%, #10b981 100%);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .game-dev-bg::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at 30% 40%, rgba(255, 255, 255, 0.3) 0%, transparent 50%);
+        animation: glow 4s ease-in-out infinite alternate;
+      }
+
+      @keyframes glow {
+        0% {
+          opacity: 0.3;
+        }
+        100% {
+          opacity: 0.7;
+        }
+      }
+
+      /* Website Development Background with modern gradient */
+      .web-dev-bg {
+        background: linear-gradient(135deg, #00c9ff 0%, #92fe9d 50%, #00c9ff 100%);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .web-dev-bg::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: conic-gradient(from 0deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+        animation: rotate 8s linear infinite;
+      }
+
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Glass Effect Enhanced */
       .glass-effect {
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
       }
 
-      /* Chart Animation */
+      /* Enhanced Chart Animation */
       .chart-bar {
         animation: chart-grow 2s ease-out forwards;
         transform-origin: bottom;
         transform: scaleY(0);
+        border-radius: 2px 2px 0 0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       }
 
       @keyframes chart-grow {
         to {
           transform: scaleY(1);
+        }
+      }
+
+      /* Mobile App Animation */
+      .mobile-mockup {
+        animation: phone-float 4s ease-in-out infinite;
+      }
+
+      @keyframes phone-float {
+        0%,
+        100% {
+          transform: translateY(0px) rotateY(0deg);
+        }
+        50% {
+          transform: translateY(-8px) rotateY(5deg);
+        }
+      }
+
+      /* Design Tool Animation */
+      .design-element {
+        animation: design-pulse 3s ease-in-out infinite;
+      }
+
+      @keyframes design-pulse {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(1.1);
+          opacity: 0.8;
+        }
+      }
+
+      /* Game Character Animation */
+      .game-character {
+        animation: character-jump 2s ease-in-out infinite;
+      }
+
+      @keyframes character-jump {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-4px);
+        }
+      }
+
+      /* Website Elements Animation */
+      .web-element {
+        animation: web-slide 3s ease-in-out infinite;
+      }
+
+      @keyframes web-slide {
+        0%,
+        100% {
+          transform: translateX(0px);
+        }
+        50% {
+          transform: translateX(2px);
         }
       }
 
@@ -129,12 +259,55 @@
         transform: translateX(0);
       }
 
-      /* Responsive adjustments */
+      /* Enhanced Responsive adjustments */
       @media (max-width: 768px) {
         .animate-slide-in-left,
         .animate-slide-in-right {
           opacity: 1;
           transform: translateX(0);
+        }
+
+        .float-animation {
+          animation: float-mobile 4s ease-in-out infinite;
+        }
+
+        @keyframes float-mobile {
+          0%,
+          100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-8px);
+          }
+        }
+      }
+
+      /* Color Palette Animation */
+      .color-dot {
+        animation: color-pulse 2s ease-in-out infinite;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      }
+
+      .color-dot:nth-child(1) {
+        animation-delay: 0s;
+      }
+      .color-dot:nth-child(2) {
+        animation-delay: 0.5s;
+      }
+      .color-dot:nth-child(3) {
+        animation-delay: 1s;
+      }
+      .color-dot:nth-child(4) {
+        animation-delay: 1.5s;
+      }
+
+      @keyframes color-pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.2);
         }
       }
     </style>
@@ -182,97 +355,180 @@
 
       <!-- Visual Area -->
       <div class="md:w-1/2 grid grid-cols-2 gap-4 mt-10 md:mt-0 animate-slide-in-right">
-        <!-- Code Editor - Kotak besar kiri -->
-        <div class="col-span-1 row-span-2 code-editor rounded-xl h-96 w-full shadow-xl relative overflow-hidden float-animation">
-          <!-- Window Controls -->
-          <div class="flex items-center gap-2 p-3 border-b border-gray-600">
+        <!-- Code Editor dengan Git - Kotak besar kiri -->
+        <div class="col-span-1 row-span-2 uiux-design rounded-2xl h-96 w-full shadow-2xl relative overflow-hidden float-animation">
+          <!-- VS Code Header -->
+          <div class="flex items-center gap-2 p-2 border-b border-gray-600 bg-gray-800">
             <div class="w-3 h-3 bg-red-500 rounded-full"></div>
             <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
             <div class="w-3 h-3 bg-green-500 rounded-full"></div>
             <span class="text-gray-300 text-xs ml-2">main.js</span>
+            <div class="w-3 h-3 bg-blue-500 rounded-sm ml-auto opacity-80"></div>
           </div>
 
           <!-- Code Content -->
-          <div class="p-4 text-sm font-mono">
-            <div class="text-purple-300">// TechOp.id Solutions</div>
-            <div class="text-blue-300 mt-2">const <span class="text-yellow-300">project</span> = {</div>
-            <div class="text-green-300 ml-4">name: <span class="text-orange-300">'Digital App'</span>,</div>
-            <div class="text-green-300 ml-4">status: <span class="text-orange-300">'completed'</span>,</div>
-            <div class="text-green-300 ml-4">quality: <span class="text-orange-300">'premium'</span></div>
-            <div class="text-blue-300">};</div>
-            <div class="text-purple-300 mt-4">// Fast & Professional</div>
-            <div class="text-green-300 mt-2">console.log(<span class="text-orange-300">'Project Ready!'</span>);</div>
+          <div class="p-3 text-xs font-mono bg-gray-900 text-gray-100 h-72 relative">
+            <!-- Line numbers -->
+            <div class="absolute left-0 top-0 bottom-0 w-8 bg-gray-800 border-r border-gray-700 flex flex-col text-gray-500 text-xs p-1">
+              <div>1</div>
+              <div>2</div>
+              <div>3</div>
+              <div>4</div>
+              <div>5</div>
+              <div>6</div>
+              <div>7</div>
+              <div>8</div>
+              <div>9</div>
+              <div>10</div>
+              <div>11</div>
+              <div>12</div>
+              <div>13</div>
+              <div>14</div>
+              <div>15</div>
+            </div>
+
+            <!-- Code with proper indentation -->
+            <div class="ml-10 pt-1">
+              <div class="text-gray-500">// TechOp.id Digital Solutions</div>
+              <div class="text-blue-400 mt-1">const <span class="text-yellow-300">techopProject</span> = {</div>
+              <div class="text-green-400 ml-4">name: <span class="text-orange-300">'Premium App'</span>,</div>
+              <div class="text-green-400 ml-4">technology: <span class="text-orange-300">'React Native'</span>,</div>
+              <div class="text-green-400 ml-4">status: <span class="text-orange-300">'deployed'</span>,</div>
+              <div class="text-green-400 ml-4">quality: <span class="text-orange-300">'enterprise'</span>,</div>
+              <div class="text-green-400 ml-4">performance: <span class="text-orange-300">'optimized'</span></div>
+              <div class="text-blue-400">};</div>
+              <div class="text-gray-500 mt-2">// Professional Development</div>
+              <div class="text-purple-400 mt-1">export default <span class="text-yellow-300">techopProject</span>;</div>
+              <div class="text-green-400 mt-1">console.log(<span class="text-orange-300">'Ready for Production! 🚀'</span>);</div>
+
+              <!-- Git Status -->
+              <div class="mt-3 text-gray-500 text-xs flex items-center gap-2">
+                <div class="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></div>
+                <span>main • 12 commits ahead</span>
+              </div>
+            </div>
           </div>
 
-          <!-- Terminal at bottom -->
-          <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-2">
-            <div class="text-green-400 text-xs font-mono"><span class="text-gray-400">$</span> npm run deploy --production ✓</div>
+          <!-- Terminal -->
+          <div class="absolute bottom-0 left-0 right-0 bg-black p-2 h-16">
+            <div class="text-green-400 text-xs font-mono"><span class="text-gray-400">techop@server:</span><span class="text-white">~$</span> npm run build --production</div>
+            <div class="text-emerald-400 text-xs font-mono mt-1 flex items-center gap-1"><span>✓</span> Build completed successfully! Ready to deploy 🎉</div>
           </div>
         </div>
 
-        <!-- Dashboard Analytics - Kotak kanan atas -->
-        <div class="dashboard-bg rounded-xl h-40 w-full shadow-xl relative overflow-hidden pulse-animation">
+        <!-- Game Development - Kotak kanan atas -->
+        <div class="game-dev-bg rounded-2xl h-40 w-full shadow-2xl relative overflow-hidden pulse-animation">
           <!-- Glass overlay -->
-          <div class="glass-effect absolute inset-2 rounded-lg p-4">
-            <div class="flex items-center justify-between mb-2">
-              <h3 class="text-white font-semibold text-sm">Analytics</h3>
-              <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+          <div class="glass-effect absolute inset-2 rounded-xl p-4 relative z-10">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-white font-bold text-sm drop-shadow-lg">Unity Engine</h3>
+              <div class="flex items-center gap-1">
+                <div class="w-2 h-2 bg-red-400 rounded-full animate-pulse shadow-lg"></div>
+                <span class="text-white text-xs font-medium">LIVE</span>
+              </div>
             </div>
 
-            <!-- Enhanced Chart representation -->
-            <div class="flex items-end justify-between h-16 gap-1">
-              <div class="chart-bar bg-white bg-opacity-60 rounded-sm w-3 h-8" style="animation-delay: 0.1s"></div>
-              <div class="chart-bar bg-white bg-opacity-80 rounded-sm w-3 h-12" style="animation-delay: 0.2s"></div>
-              <div class="chart-bar bg-white bg-opacity-60 rounded-sm w-3 h-6" style="animation-delay: 0.3s"></div>
-              <div class="chart-bar bg-white bg-opacity-90 rounded-sm w-3 h-16" style="animation-delay: 0.4s"></div>
-              <div class="chart-bar bg-white bg-opacity-70 rounded-sm w-3 h-10" style="animation-delay: 0.5s"></div>
-              <div class="chart-bar bg-white bg-opacity-60 rounded-sm w-3 h-4" style="animation-delay: 0.6s"></div>
+            <!-- Enhanced Game Scene -->
+            <div class="relative h-16 bg-gradient-to-b from-blue-400 via-blue-500 to-green-500 rounded-lg overflow-hidden shadow-inner">
+              <!-- Animated Background Elements -->
+              <div class="absolute inset-0">
+                <!-- Clouds -->
+                <div class="absolute top-1 left-2 w-3 h-2 bg-white bg-opacity-60 rounded-full animate-pulse"></div>
+                <div class="absolute top-2 right-4 w-2 h-1 bg-white bg-opacity-40 rounded-full animate-pulse" style="animation-delay: 1s"></div>
+              </div>
+
+              <!-- Game Objects -->
+              <div class="absolute bottom-2 left-3">
+                <!-- Enhanced Player Character -->
+                <div class="game-character relative">
+                  <div class="w-4 h-7 bg-gradient-to-b from-yellow-300 to-yellow-500 rounded-sm relative shadow-lg">
+                    <div class="w-3 h-3 bg-gradient-to-b from-pink-200 to-pink-400 rounded-full absolute -top-1 left-0.5 shadow-sm"></div>
+                    <!-- Arms -->
+                    <div class="w-1 h-2 bg-yellow-400 absolute -left-0.5 top-2 rounded-full"></div>
+                    <div class="w-1 h-2 bg-yellow-400 absolute -right-0.5 top-2 rounded-full"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Animated Enemies -->
+              <div class="absolute bottom-2 right-4 w-3 h-3 bg-gradient-to-br from-red-400 to-red-600 rounded-full animate-bounce shadow-lg"></div>
+              <div class="absolute bottom-2 right-8 w-2 h-2 bg-gradient-to-br from-orange-400 to-red-500 rounded-full animate-bounce shadow-md" style="animation-delay: 0.5s"></div>
+
+              <!-- Power-ups -->
+              <div class="absolute bottom-3 right-12 w-2 h-2 bg-gradient-to-br from-yellow-300 to-yellow-500 rounded-sm animate-pulse shadow-sm" style="animation-delay: 2s"></div>
+
+              <!-- Enhanced UI Elements -->
+              <div class="absolute top-1 left-1">
+                <div class="bg-black bg-opacity-50 rounded px-1 py-0.5">
+                  <div class="text-white text-xs font-bold">HP:</div>
+                  <div class="flex gap-0.5 mt-0.5">
+                    <div class="w-2 h-1 bg-red-500 rounded-full"></div>
+                    <div class="w-2 h-1 bg-red-500 rounded-full"></div>
+                    <div class="w-2 h-1 bg-red-500 rounded-full"></div>
+                    <div class="w-2 h-1 bg-gray-400 rounded-full"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="absolute top-1 right-1">
+                <div class="bg-black bg-opacity-50 rounded px-1 py-0.5">
+                  <div class="text-white text-xs font-bold">2,450</div>
+                </div>
+              </div>
             </div>
 
-            <!-- Stats -->
-            <div class="flex justify-between text-white text-xs mt-2">
-              <span>+25%</span>
-              <span>Growth</span>
+            <!-- Enhanced Game Controls -->
+            <div class="flex justify-between items-center text-white text-xs mt-2">
+              <div class="flex items-center gap-1">
+                <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                <span class="font-medium">Playing</span>
+              </div>
+              <span class="font-mono bg-black bg-opacity-30 px-2 py-1 rounded">FPS: 60</span>
             </div>
           </div>
         </div>
 
-        <!-- Mobile App UI - Kotak kanan bawah -->
-        <div class="mobile-app-bg rounded-xl h-40 w-full shadow-xl relative overflow-hidden float-animation" style="animation-delay: 1s">
-          <!-- Phone mockup -->
-          <div class="absolute inset-4">
-            <div class="bg-black rounded-lg h-full relative overflow-hidden shadow-lg">
-              <!-- Phone screen -->
-              <div class="bg-white m-1 rounded-md h-full flex flex-col">
-                <!-- Status bar -->
-                <div class="bg-gray-100 h-4 flex items-center justify-between px-2">
-                  <div class="flex gap-1">
-                    <div class="w-1 h-1 bg-gray-400 rounded-full"></div>
-                    <div class="w-1 h-1 bg-gray-400 rounded-full"></div>
-                    <div class="w-1 h-1 bg-green-500 rounded-full animate-pulse"></div>
-                  </div>
-                  <div class="text-xs text-gray-600">100%</div>
+        <!-- Website Development - Kotak kanan bawah -->
+        <div class="web-dev-bg rounded-2xl h-40 w-full shadow-2xl relative overflow-hidden float-animation" style="animation-delay: 1s">
+          <!-- Browser mockup -->
+          <div class="absolute inset-4 relative z-10">
+            <div class="bg-white rounded-xl h-full relative overflow-hidden shadow-2xl mobile-mockup">
+              <!-- Enhanced Browser Header -->
+              <div class="bg-gradient-to-r from-gray-100 to-gray-200 h-7 flex items-center px-3 border-b border-gray-300">
+                <div class="flex gap-1.5 mr-3">
+                  <div class="w-2.5 h-2.5 bg-red-500 rounded-full shadow-sm"></div>
+                  <div class="w-2.5 h-2.5 bg-yellow-500 rounded-full shadow-sm"></div>
+                  <div class="w-2.5 h-2.5 bg-green-500 rounded-full shadow-sm"></div>
+                </div>
+                <div class="bg-white rounded-full flex-1 h-4 flex items-center px-3 shadow-inner">
+                  <div class="text-xs text-gray-600 font-mono">🔒 techop.id</div>
+                </div>
+              </div>
+
+              <!-- Enhanced Website content -->
+              <div class="flex-1 p-3">
+                <!-- Header with gradient -->
+                <div class="bg-gradient-to-r from-blue-500 via-purple-500 to-teal-500 rounded-lg h-7 mb-2 flex items-center justify-center shadow-lg">
+                  <div class="text-white text-xs font-bold drop-shadow">TechOp Solutions</div>
                 </div>
 
-                <!-- App content -->
-                <div class="flex-1 p-2">
-                  <!-- Header -->
-                  <div class="bg-gradient-to-r from-blue-500 to-purple-500 rounded h-8 mb-2 flex items-center justify-center shadow-sm">
-                    <div class="text-white text-xs font-bold">TechOp App</div>
-                  </div>
+                <!-- Enhanced Navigation -->
+                <div class="flex gap-1 mb-2">
+                  <div class="bg-gradient-to-r from-blue-100 to-blue-200 rounded-lg px-2 py-1 text-xs font-semibold text-blue-800 shadow-sm web-element">Home</div>
+                  <div class="bg-gray-100 rounded-lg px-2 py-1 text-xs text-gray-600 web-element" style="animation-delay: 0.5s">Services</div>
+                  <div class="bg-gray-100 rounded-lg px-2 py-1 text-xs text-gray-600 web-element" style="animation-delay: 1s">About</div>
+                </div>
 
-                  <!-- Content cards -->
-                  <div class="space-y-1">
-                    <div class="bg-gray-100 rounded h-4 animate-pulse"></div>
-                    <div class="bg-gray-200 rounded h-4 animate-pulse" style="animation-delay: 0.2s"></div>
-                    <div class="bg-blue-100 rounded h-4 animate-pulse" style="animation-delay: 0.4s"></div>
-                  </div>
+                <!-- Enhanced Content sections -->
+                <div class="space-y-1.5">
+                  <div class="bg-gradient-to-r from-gray-100 to-gray-200 rounded-lg h-3 animate-pulse"></div>
+                  <div class="bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg h-3 w-4/5 animate-pulse" style="animation-delay: 0.3s"></div>
+                  <div class="bg-gradient-to-r from-purple-50 to-purple-100 rounded-lg h-3 w-3/4 animate-pulse" style="animation-delay: 0.6s"></div>
+                </div>
 
-                  <!-- Bottom button -->
-                  <div class="absolute bottom-2 left-2 right-2">
-                    <div class="bg-green-500 rounded-full h-6 flex items-center justify-center shadow-sm">
-                      <div class="text-white text-xs">✓ Ready</div>
-                    </div>
+                <!-- Enhanced CTA Button -->
+                <div class="absolute bottom-2 left-2 right-2">
+                  <div class="bg-gradient-to-r from-green-400 to-green-600 rounded-lg h-5 flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow">
+                    <div class="text-white text-xs font-bold">🚀 Get Started</div>
                   </div>
                 </div>
               </div>
@@ -283,17 +539,21 @@
     </section>
 
     <!-- Enhanced Floating Elements -->
-    <div class="fixed top-20 right-10 opacity-20 pointer-events-none">
-      <div class="w-32 h-32 bg-gradient-to-br from-blue-400 to-purple-600 rounded-full blur-xl animate-pulse"></div>
+    <div class="fixed top-20 right-10 opacity-30 pointer-events-none">
+      <div class="w-40 h-40 bg-gradient-to-br from-blue-400 via-purple-500 to-pink-500 rounded-full blur-2xl animate-pulse"></div>
     </div>
 
-    <div class="fixed bottom-20 left-10 opacity-20 pointer-events-none">
-      <div class="w-24 h-24 bg-gradient-to-br from-green-400 to-blue-500 rounded-full blur-xl animate-pulse" style="animation-delay: 2s"></div>
+    <div class="fixed bottom-20 left-10 opacity-25 pointer-events-none">
+      <div class="w-32 h-32 bg-gradient-to-br from-green-400 via-teal-500 to-blue-500 rounded-full blur-2xl animate-pulse" style="animation-delay: 2s"></div>
     </div>
 
-    <!-- Additional floating elements for depth -->
-    <div class="fixed top-1/2 left-5 opacity-10 pointer-events-none">
-      <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full blur-lg animate-pulse" style="animation-delay: 3s"></div>
+    <!-- Additional enhanced floating elements -->
+    <div class="fixed top-1/2 left-5 opacity-15 pointer-events-none">
+      <div class="w-24 h-24 bg-gradient-to-br from-purple-400 via-pink-500 to-yellow-400 rounded-full blur-xl animate-pulse" style="animation-delay: 3s"></div>
+    </div>
+
+    <div class="fixed top-1/3 right-5 opacity-20 pointer-events-none">
+      <div class="w-20 h-20 bg-gradient-to-br from-indigo-400 via-blue-500 to-cyan-400 rounded-full blur-lg animate-pulse" style="animation-delay: 4s"></div>
     </div>
 
     <script>
@@ -311,7 +571,7 @@
         });
       });
 
-      // Typing animation restart
+      // Enhanced typing animation restart
       setInterval(() => {
         const typingElement = document.querySelector(".typing-animation");
         typingElement.style.animation = "none";
@@ -329,6 +589,19 @@
             el.style.transform = "translateX(0)";
           });
         }, 100);
+
+        // Add interactive hover effects
+        const cards = document.querySelectorAll(".uiux-design, .game-dev-bg, .web-dev-bg");
+        cards.forEach((card) => {
+          card.addEventListener("mouseenter", function () {
+            this.style.transform = "translateY(-5px) scale(1.02)";
+            this.style.transition = "all 0.3s ease";
+          });
+
+          card.addEventListener("mouseleave", function () {
+            this.style.transform = "translateY(0) scale(1)";
+          });
+        });
       });
     </script>
   </body>
