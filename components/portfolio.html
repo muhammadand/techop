@@ -17,7 +17,7 @@
         <p class="text-gray-600 max-w-2xl mx-auto mb-10">Kami menyediakan beragam layanan digital yang dirancang untuk membantu bisnis Anda tumbuh dan berkembang secara efektif.</p>
 
         <!-- Filter Menu -->
-        <div class="flex justify-center items-center gap-10 mb-12">
+        <div class="flex flex-wrap justify-center items-center gap-6 mb-12">
           <div class="filter-btn active cursor-pointer" data-filter="all">
             <div class="flex flex-col items-center gap-1 text-sm text-gray-700 hover:text-blue-600 transition-colors duration-300">
               <div class="filter-dot w-5 h-5 bg-blue-600 rounded-full transition-all duration-300"></div>
@@ -30,47 +30,34 @@
               <span>Website</span>
             </div>
           </div>
+          <div class="filter-btn cursor-pointer" data-filter="mobile">
+            <div class="flex flex-col items-center gap-1 text-sm text-gray-700 hover:text-blue-600 transition-colors duration-300">
+              <div class="filter-dot w-5 h-5 bg-gray-300 rounded-full transition-all duration-300"></div>
+              <span>Mobile App</span>
+            </div>
+          </div>
           <div class="filter-btn cursor-pointer" data-filter="uiux">
             <div class="flex flex-col items-center gap-1 text-sm text-gray-700 hover:text-blue-600 transition-colors duration-300">
               <div class="filter-dot w-5 h-5 bg-gray-300 rounded-full transition-all duration-300"></div>
               <span>UI/UX Design</span>
             </div>
           </div>
-          <div class="filter-btn cursor-pointer" data-filter="aplikasi">
+          <div class="filter-btn cursor-pointer" data-filter="games">
             <div class="flex flex-col items-center gap-1 text-sm text-gray-700 hover:text-blue-600 transition-colors duration-300">
               <div class="filter-dot w-5 h-5 bg-gray-300 rounded-full transition-all duration-300"></div>
-              <span>Aplikasi</span>
+              <span>Games</span>
             </div>
           </div>
         </div>
 
         <!-- Grid Portfolio untuk mode "Semua" -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="portfolioGrid">
-          <!-- Website Project 1 -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolioGrid">
+          <!-- Website Projects -->
           <div class="portfolio-item fade-in h-full" data-category="website">
             <div class="bg-white rounded-xl shadow-lg border overflow-hidden group hover:shadow-xl transition-all duration-300 h-full flex flex-col">
-              <!-- Project Image -->
-              <div class="portfolio-image mockup-desktop h-48 flex items-center justify-center relative flex-shrink-0">
-                <!-- Desktop Mockup -->
-                <div class="bg-white rounded-lg p-2 shadow-xl w-40 h-24 relative">
-                  <div class="bg-gray-100 rounded h-full flex flex-col">
-                    <div class="flex items-center gap-1 p-1">
-                      <div class="w-1 h-1 bg-red-400 rounded-full"></div>
-                      <div class="w-1 h-1 bg-yellow-400 rounded-full"></div>
-                      <div class="w-1 h-1 bg-green-400 rounded-full"></div>
-                    </div>
-                    <div class="flex-1 bg-white rounded-sm m-1 p-1">
-                      <div class="grid grid-cols-3 gap-1 h-full">
-                        <div class="bg-blue-100 rounded-sm"></div>
-                        <div class="bg-purple-100 rounded-sm"></div>
-                        <div class="bg-green-100 rounded-sm"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <div class="portfolio-image h-64 flex items-center justify-center relative flex-shrink-0 overflow-hidden bg-gray-50">
+                <img src="../assets/img/web 6.png" alt="Bougainville App" class="w-full h-full object-cover transition-transform duration-300" />
               </div>
-
-              <!-- Project Info -->
               <div class="p-6 text-left flex-1 flex flex-col">
                 <div class="flex items-center gap-3 mb-3">
                   <div class="w-8 h-8 flex items-center justify-center rounded-full bg-blue-500 text-white font-bold text-sm">W</div>
@@ -84,24 +71,89 @@
             </div>
           </div>
 
-          <!-- UI/UX Project 1 -->
-          <div class="portfolio-item fade-in h-full" data-category="uiux">
+          <!-- Mobile App Projects -->
+          <div class="portfolio-item fade-in h-full" data-category="mobile">
             <div class="bg-white rounded-xl shadow-lg border overflow-hidden group hover:shadow-xl transition-all duration-300 h-full flex flex-col">
-              <!-- Project Image -->
-              <div class="portfolio-image mockup-phone h-48 flex items-center justify-center relative flex-shrink-0">
-                <!-- Phone Mockup -->
-                <div class="bg-black rounded-xl p-1 shadow-xl">
-                  <div class="bg-white rounded-lg w-24 h-36 p-2">
-                    <div class="bg-gradient-to-br from-purple-400 to-blue-500 rounded h-full flex flex-col items-center justify-center">
-                      <div class="w-8 h-8 bg-white rounded-full mb-2 opacity-80"></div>
-                      <div class="w-12 h-1 bg-white rounded opacity-60 mb-1"></div>
-                      <div class="w-8 h-1 bg-white rounded opacity-40"></div>
-                    </div>
+              <div class="portfolio-image h-64 flex items-center justify-center relative flex-shrink-0 overflow-hidden bg-gray-50">
+                <img src="../assets/img/klasifikasi_bougenville.png" alt="Bougainville App" class="w-full h-full object-cover transition-transform duration-300" />
+              </div>
+              <div class="p-6 text-left flex-1 flex flex-col">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-8 h-8 flex items-center justify-center rounded-full bg-green-500 text-white font-bold text-sm">B</div>
+                  <div>
+                    <h4 class="font-semibold text-gray-900">Bougainville (Plant Recognition App)</h4>
+                    <span class="project-category text-xs px-2 py-1 rounded-full bg-green-100 text-green-600">Mobile App</span>
                   </div>
                 </div>
+                <p class="text-sm text-gray-600 flex-1">Aplikasi ini membantu pengguna mengidentifikasi tanaman dengan mengambil foto tanaman untuk analisis otomatis, serta menawarkan akses cepat ke galeri dan riwayat pemindaian.</p>
               </div>
+            </div>
+          </div>
 
-              <!-- Project Info -->
+          <div class="portfolio-item fade-in h-full" data-category="mobile">
+            <div class="bg-white rounded-xl shadow-lg border overflow-hidden group hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+              <div class="portfolio-image h-64 flex items-center justify-center relative flex-shrink-0 overflow-hidden bg-gray-50">
+                <img src="../assets/img/klasifikasi_tomat.png" alt="Klasifikasi Tomat" class="w-full h-full object-cover transition-transform duration-300" />
+              </div>
+              <div class="p-6 text-left flex-1 flex flex-col">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-8 h-8 flex items-center justify-center rounded-full bg-orange-500 text-white font-bold text-sm">T</div>
+                  <div>
+                    <h4 class="font-semibold text-gray-900">Klasifikasi Tomat</h4>
+                    <span class="project-category text-xs px-2 py-1 rounded-full bg-orange-100 text-orange-600">CNN App</span>
+                  </div>
+                </div>
+                <p class="text-sm text-gray-600 flex-1">Aplikasi ini memungkinkan pengguna untuk mengklasifikasikan tingkat kematangan tomat dengan cepat menggunakan fitur pemindaian, serta memberikan informasi gizi tomat yang lengkap.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item fade-in h-full" data-category="mobile">
+            <div class="bg-white rounded-xl shadow-lg border overflow-hidden group hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+              <div class="portfolio-image h-64 flex items-center justify-center relative flex-shrink-0 overflow-hidden bg-gray-50">
+                <img src="../assets/img/prediksi_waktu_tanam.png" alt="Prediksi Waktu Tanam" class="w-full h-full object-cover transition-transform duration-300" />
+              </div>
+              <div class="p-6 text-left flex-1 flex flex-col">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-8 h-8 flex items-center justify-center rounded-full bg-emerald-500 text-white font-bold text-sm">P</div>
+                  <div>
+                    <h4 class="font-semibold text-gray-900">Prediksi Waktu Tanam</h4>
+                    <span class="project-category text-xs px-2 py-1 rounded-full bg-emerald-100 text-emerald-600">Mobile App</span>
+                  </div>
+                </div>
+                <p class="text-sm text-gray-600 flex-1">Aplikasi ini memberikan prediksi waktu tanam berdasarkan data cuaca, memberikan informasi cuaca harian dan mingguan serta status ideal untuk menanam berbagai jenis tanaman.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item fade-in h-full" data-category="mobile">
+            <div class="bg-white rounded-xl shadow-lg border overflow-hidden group hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+              <div class="portfolio-image h-64 flex items-center justify-center relative flex-shrink-0 overflow-hidden bg-gray-50">
+                <img src="../assets/img/rumah_sakit.png" alt="Prima Medika" class="w-full h-full object-cover transition-transform duration-300" />
+              </div>
+              <div class="p-6 text-left flex-1 flex flex-col">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-8 h-8 flex items-center justify-center rounded-full bg-red-500 text-white font-bold text-sm">M</div>
+                  <div>
+                    <h4 class="font-semibold text-gray-900">Prima Medika</h4>
+                    <span class="project-category text-xs px-2 py-1 rounded-full bg-red-100 text-red-600">Hospital App</span>
+                  </div>
+                </div>
+                <p class="text-sm text-gray-600 flex-1">Platform layanan rumah sakit yang menawarkan berbagai layanan medis komprehensif, dengan tampilan dashboard untuk data pasien, dokter, jadwal, dan janji temu.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- UI/UX Projects -->
+          <div class="portfolio-item fade-in h-full" data-category="uiux">
+            <div class="bg-white rounded-xl shadow-lg border overflow-hidden group hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+              <div class="portfolio-image h-64 flex items-center justify-center relative flex-shrink-0 overflow-hidden bg-gray-50">
+                <img
+                  src="https://cdn.dribbble.com/userupload/9100861/file/original-05a9bcafa6dba4850134af029f912f69.png?resize=1200x900&vertical=center"
+                  alt="Prima Medika"
+                  class="w-full h-full object-cover transition-transform duration-300"
+                />
+              </div>
               <div class="p-6 text-left flex-1 flex flex-col">
                 <div class="flex items-center gap-3 mb-3">
                   <div class="w-8 h-8 flex items-center justify-center rounded-full bg-purple-500 text-white font-bold text-sm">U</div>
@@ -115,84 +167,10 @@
             </div>
           </div>
 
-          <!-- Aplikasi Project 1 -->
-          <div class="portfolio-item fade-in h-full" data-category="aplikasi">
-            <div class="bg-white rounded-xl shadow-lg border overflow-hidden group hover:shadow-xl transition-all duration-300 h-full flex flex-col">
-              <!-- Project Image -->
-              <div class="portfolio-image mockup-tablet h-48 flex items-center justify-center relative flex-shrink-0">
-                <!-- Tablet Mockup -->
-                <div class="bg-gray-800 rounded-xl p-2 shadow-xl">
-                  <div class="bg-white rounded-lg w-32 h-24 p-2">
-                    <div class="bg-gradient-to-br from-green-400 to-blue-500 rounded h-full grid grid-cols-2 gap-1 p-1">
-                      <div class="bg-white bg-opacity-20 rounded-sm"></div>
-                      <div class="bg-white bg-opacity-20 rounded-sm"></div>
-                      <div class="bg-white bg-opacity-30 rounded-sm col-span-2"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Project Info -->
-              <div class="p-6 text-left flex-1 flex flex-col">
-                <div class="flex items-center gap-3 mb-3">
-                  <div class="w-8 h-8 flex items-center justify-center rounded-full bg-green-500 text-white font-bold text-sm">A</div>
-                  <div>
-                    <h4 class="font-semibold text-gray-900">Aplikasi E-Commerce</h4>
-                    <span class="project-category text-xs px-2 py-1 rounded-full bg-green-100 text-green-600">Aplikasi</span>
-                  </div>
-                </div>
-                <p class="text-sm text-gray-600 flex-1">Aplikasi e-commerce lengkap dengan sistem pembayaran terintegrasi dan dashboard admin yang powerful</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Website Project 2 -->
-          <div class="portfolio-item fade-in h-full" data-category="website">
-            <div class="bg-white rounded-xl shadow-lg border overflow-hidden group hover:shadow-xl transition-all duration-300 h-full flex flex-col">
-              <div class="portfolio-image mockup-desktop h-48 flex items-center justify-center relative flex-shrink-0">
-                <div class="bg-white rounded-lg p-2 shadow-xl w-40 h-24 relative">
-                  <div class="bg-gray-100 rounded h-full flex flex-col">
-                    <div class="flex items-center gap-1 p-1">
-                      <div class="w-1 h-1 bg-red-400 rounded-full"></div>
-                      <div class="w-1 h-1 bg-yellow-400 rounded-full"></div>
-                      <div class="w-1 h-1 bg-green-400 rounded-full"></div>
-                    </div>
-                    <div class="flex-1 bg-white rounded-sm m-1 p-1">
-                      <div class="bg-orange-200 rounded-sm h-full"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="p-6 text-left flex-1 flex flex-col">
-                <div class="flex items-center gap-3 mb-3">
-                  <div class="w-8 h-8 flex items-center justify-center rounded-full bg-orange-500 text-white font-bold text-sm">L</div>
-                  <div>
-                    <h4 class="font-semibold text-gray-900">Landing Page</h4>
-                    <span class="project-category text-xs px-2 py-1 rounded-full bg-orange-100 text-orange-600">Website</span>
-                  </div>
-                </div>
-                <p class="text-sm text-gray-600 flex-1">Landing page yang convert tinggi dengan desain yang menarik dan optimasi SEO untuk bisnis startup</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- UI/UX Project 2 -->
           <div class="portfolio-item fade-in h-full" data-category="uiux">
             <div class="bg-white rounded-xl shadow-lg border overflow-hidden group hover:shadow-xl transition-all duration-300 h-full flex flex-col">
-              <div class="portfolio-image mockup-phone h-48 flex items-center justify-center relative flex-shrink-0">
-                <div class="bg-black rounded-xl p-1 shadow-xl">
-                  <div class="bg-white rounded-lg w-24 h-36 p-2">
-                    <div class="bg-gradient-to-br from-pink-400 to-red-500 rounded h-full flex flex-col">
-                      <div class="flex justify-between items-center p-1">
-                        <div class="w-2 h-2 bg-white rounded opacity-60"></div>
-                        <div class="w-4 h-1 bg-white rounded opacity-40"></div>
-                      </div>
-                      <div class="flex-1 flex items-center justify-center">
-                        <div class="w-6 h-6 border-2 border-white rounded-full"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <div class="portfolio-image h-64 flex items-center justify-center relative flex-shrink-0 overflow-hidden bg-gray-50">
+                <img src="https://cdn.dribbble.com/userupload/11234539/file/original-05977eb9d932b48de754f76734989892.png?resize=400x300" alt="Fitness App Design" class="w-full h-full object-cover transition-transform duration-300" />
               </div>
               <div class="p-6 text-left flex-1 flex flex-col">
                 <div class="flex items-center gap-3 mb-3">
@@ -207,24 +185,98 @@
             </div>
           </div>
 
-          <!-- Aplikasi Project 2 -->
-          <div class="portfolio-item fade-in h-full" data-category="aplikasi">
+          <!-- Games Projects -->
+          <div class="portfolio-item fade-in h-full" data-category="games">
             <div class="bg-white rounded-xl shadow-lg border overflow-hidden group hover:shadow-xl transition-all duration-300 h-full flex flex-col">
-              <div class="portfolio-image mockup-tablet h-48 flex items-center justify-center relative flex-shrink-0">
-                <div class="bg-gray-800 rounded-xl p-2 shadow-xl">
-                  <div class="bg-white rounded-lg w-32 h-24 p-2">
-                    <div class="bg-gradient-to-br from-yellow-400 to-red-500 rounded h-full flex items-center justify-center">
-                      <div class="w-8 h-8 bg-white bg-opacity-30 rounded-full"></div>
-                    </div>
+              <div class="portfolio-image h-64 flex items-center justify-center relative flex-shrink-0 overflow-hidden bg-gray-50">
+                <img src="../assets/img/Mindshield.png" alt="Mindshield Game" class="w-full h-full object-cover transition-transform duration-300" />
+              </div>
+              <div class="p-6 text-left flex-1 flex flex-col">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-8 h-8 flex items-center justify-center rounded-full bg-blue-500 text-white font-bold text-sm">M</div>
+                  <div>
+                    <h4 class="font-semibold text-gray-900">Mindshield</h4>
+                    <span class="project-category text-xs px-2 py-1 rounded-full bg-blue-100 text-blue-600">Game 2D</span>
                   </div>
                 </div>
+                <p class="text-sm text-gray-600 flex-1">Permainan yang melatih otak, mendorong pemain untuk terus terlibat dalam tantangan untuk meningkatkan ketajaman mental, dengan elemen seperti bar kemajuan dan sistem penghargaan</p>
               </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item fade-in h-full" data-category="games">
+            <div class="bg-white rounded-xl shadow-lg border overflow-hidden group hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+              <div class="portfolio-image h-64 flex items-center justify-center relative flex-shrink-0 overflow-hidden bg-gray-50">
+                <img src="../assets/img/Mengenal Huruf Hijaiyah.png" alt="Mengenal Huruf Hijaiyah" class="w-full h-full object-cover transition-transform duration-300" />
+              </div>
+              <div class="p-6 text-left flex-1 flex flex-col">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-8 h-8 flex items-center justify-center rounded-full bg-purple-500 text-white font-bold text-sm">H</div>
+                  <div>
+                    <h4 class="font-semibold text-gray-900">Mengenal Huruf Hijaiyah</h4>
+                    <span class="project-category text-xs px-2 py-1 rounded-full bg-purple-100 text-purple-600">Educational Game</span>
+                  </div>
+                </div>
+                <p class="text-sm text-gray-600 flex-1">Game ini mengenalkan pengguna pada huruf-huruf Hijaiyah (alfabet Arab), mengajarkan mereka untuk mengenali dan membedakan karakter melalui aktivitas yang menarik secara visual</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item fade-in h-full" data-category="games">
+            <div class="bg-white rounded-xl shadow-lg border overflow-hidden group hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+              <div class="portfolio-image h-64 flex items-center justify-center relative flex-shrink-0 overflow-hidden bg-gray-50">
+                <img src="../assets/img/Belajar Alfabet.png" alt="Belajar Alfabet" class="w-full h-full object-cover transition-transform duration-300" />
+              </div>
+              <div class="p-6 text-left flex-1 flex flex-col">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-8 h-8 flex items-center justify-center rounded-full bg-green-500 text-white font-bold text-sm">A</div>
+                  <div>
+                    <h4 class="font-semibold text-gray-900">Belajar Alfabet</h4>
+                    <span class="project-category text-xs px-2 py-1 rounded-full bg-green-100 text-green-600">Educational Game</span>
+                  </div>
+                </div>
+                <p class="text-sm text-gray-600 flex-1">
+                  Aplikasi yang dirancang untuk anak-anak atau pemula, membantu mereka belajar alfabet dengan cara yang menyenangkan dan interaktif, menggunakan grafik warna-warni dan elemen yang menarik untuk mengenali huruf
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Additional Website Projects -->
+          <div class="portfolio-item fade-in h-full" data-category="website">
+            <div class="bg-white rounded-xl shadow-lg border overflow-hidden group hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+              <div class="portfolio-image h-64 flex items-center justify-center relative flex-shrink-0 overflow-hidden bg-gray-50">
+                <img src="../assets/img/web 8.png" alt="Website Korporat" class="w-full h-full object-cover transition-transform duration-300" />
+              </div>
+              <div class="p-6 text-left flex-1 flex flex-col">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-8 h-8 flex items-center justify-center rounded-full bg-orange-500 text-white font-bold text-sm">L</div>
+                  <div>
+                    <h4 class="font-semibold text-gray-900">Landing Page</h4>
+                    <span class="project-category text-xs px-2 py-1 rounded-full bg-orange-100 text-orange-600">Website</span>
+                  </div>
+                </div>
+                <p class="text-sm text-gray-600 flex-1">Landing page yang convert tinggi dengan desain yang menarik dan optimasi SEO untuk bisnis startup</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Additional Dashboard/Analytics Project -->
+          <div class="portfolio-item fade-in h-full" data-category="website">
+            <div class="bg-white rounded-xl shadow-lg border overflow-hidden group hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+              <div class="portfolio-image h-64 flex items-center justify-center relative flex-shrink-0 overflow-hidden bg-gray-50">
+                <img
+                  src="https://cdn.dribbble.com/userupload/13358760/file/original-f53de9b9a87a16898d4424ab89378420.png?resize=1024x762&vertical=center"
+                  alt="Website Korporat"
+                  class="w-full h-full object-cover transition-transform duration-300"
+                />
+              </div>  
               <div class="p-6 text-left flex-1 flex flex-col">
                 <div class="flex items-center gap-3 mb-3">
                   <div class="w-8 h-8 flex items-center justify-center rounded-full bg-yellow-500 text-white font-bold text-sm">D</div>
                   <div>
                     <h4 class="font-semibold text-gray-900">Dashboard Analytics</h4>
-                    <span class="project-category text-xs px-2 py-1 rounded-full bg-yellow-100 text-yellow-600">Aplikasi</span>
+                    <span class="project-category text-xs px-2 py-1 rounded-full bg-yellow-100 text-yellow-600">Web App</span>
                   </div>
                 </div>
                 <p class="text-sm text-gray-600 flex-1">Dashboard analytics yang comprehensive dengan real-time data visualization untuk mengelola data bisnis</p>
@@ -240,12 +292,12 @@
           </div>
 
           <!-- Navigation buttons -->
-          <button class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white shadow-lg rounded-full p-3 hover:bg-gray-50 transition-colors duration-200" id="prevBtn">
+          <button class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white shadow-lg rounded-full p-3 hover:bg-gray-50 transition-colors duration-200 z-10" id="prevBtn">
             <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
             </svg>
           </button>
-          <button class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white shadow-lg rounded-full p-3 hover:bg-gray-50 transition-colors duration-200" id="nextBtn">
+          <button class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white shadow-lg rounded-full p-3 hover:bg-gray-50 transition-colors duration-200 z-10" id="nextBtn">
             <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
             </svg>
@@ -289,11 +341,11 @@
         display: flex;
         justify-content: center;
         align-items: stretch;
-        padding: 0 20px;
+        padding: 0 30px;
       }
 
       .slider-item .portfolio-card {
-        max-width: 400px;
+        max-width: 500px;
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -314,21 +366,49 @@
         transform: scale(1.2);
       }
 
+      .portfolio-image img {
+        image-rendering: auto;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        will-change: transform;
+        transition: transform 0.3s ease;
+      }
+
+      .group:hover .portfolio-image img {
+        transform: scale(1.05);
+      }
+
       @media (min-width: 768px) {
         .slider-item {
           min-width: 50%;
+          padding: 0 25px;
+        }
+
+        .slider-item .portfolio-card {
+          max-width: 450px;
         }
       }
 
       @media (min-width: 1024px) {
         .slider-item {
           min-width: 33.333333%;
+          padding: 0 20px;
+        }
+
+        .slider-item .portfolio-card {
+          max-width: 400px;
+        }
+      }
+
+      @media (min-width: 1280px) {
+        .slider-item .portfolio-card {
+          max-width: 450px;
         }
       }
     </style>
 
     <script>
-      // Portfolio data dengan lebih banyak item untuk demonstrasi slider
+      // Portfolio data kombinasi dari semua sumber
       const portfolioData = {
         website: [
           {
@@ -356,12 +436,46 @@
             mockup: "desktop",
           },
           {
-            title: "Portfolio Website",
-            category: "Website",
-            description: "Website portfolio profesional untuk menampilkan karya dan meningkatkan personal branding",
+            title: "Dashboard Analytics",
+            category: "Web App",
+            description: "Dashboard analytics yang comprehensive dengan real-time data visualization untuk mengelola data bisnis",
+            icon: "D",
+            color: "yellow",
+            mockup: "tablet",
+          },
+        ],
+        mobile: [
+          {
+            title: "Bougainville (Plant Recognition App)",
+            category: "Mobile App",
+            description: "Aplikasi ini membantu pengguna mengidentifikasi tanaman dengan mengambil foto tanaman untuk analisis otomatis, serta menawarkan akses cepat ke galeri dan riwayat pemindaian.",
+            icon: "B",
+            color: "green",
+            image: "../assets/img/klasifikasi_bougenville.png",
+          },
+          {
+            title: "Klasifikasi Tomat",
+            category: "CNN App",
+            description: "Aplikasi ini memungkinkan pengguna untuk mengklasifikasikan tingkat kematangan tomat dengan cepat menggunakan fitur pemindaian, serta memberikan informasi gizi tomat yang lengkap.",
+            icon: "T",
+            color: "orange",
+            image: "../assets/img/tomat_classification.png",
+          },
+          {
+            title: "Prediksi Waktu Tanam",
+            category: "Mobile App",
+            description: "Aplikasi ini memberikan prediksi waktu tanam berdasarkan data cuaca, memberikan informasi cuaca harian dan mingguan serta status ideal untuk menanam berbagai jenis tanaman.",
             icon: "P",
-            color: "purple",
-            mockup: "desktop",
+            color: "emerald",
+            image: "../assets/img/prediksi_waktu_tanam.png",
+          },
+          {
+            title: "Prima Medika",
+            category: "Hospital App",
+            description: "Platform layanan rumah sakit yang menawarkan berbagai layanan medis komprehensif, dengan tampilan dashboard untuk data pasien, dokter, jadwal, dan janji temu.",
+            icon: "M",
+            color: "red",
+            image: "../assets/img/rumah_sakit.png",
           },
         ],
         uiux: [
@@ -398,38 +512,46 @@
             mockup: "phone",
           },
         ],
-        aplikasi: [
+        games: [
           {
-            title: "Aplikasi E-Commerce",
-            category: "Aplikasi",
-            description: "Aplikasi e-commerce lengkap dengan sistem pembayaran terintegrasi dan dashboard admin yang powerful",
+            title: "Mindshield",
+            category: "Game 2D",
+            description: "Permainan yang melatih otak, mendorong pemain untuk terus terlibat dalam tantangan untuk meningkatkan ketajaman mental, dengan elemen seperti bar kemajuan dan sistem penghargaan",
+            icon: "M",
+            color: "blue",
+            image: "https://cdn.dribbble.com/userupload/12103318/file/original-364ca7cd05e57ca0d207fdef1d4d2bf5.png?resize=400x300",
+          },
+          {
+            title: "Mindshield Plus",
+            category: "Game 2D",
+            description: "Versi lengkap dari Mindshield dengan fitur tambahan seperti level yang lebih beragam dan sistem reward yang lebih komprehensif untuk pelatihan otak",
+            icon: "M",
+            color: "orange",
+            image: "https://cdn.dribbble.com/userupload/12266858/file/original-51f404be392aed1fc4a7268f17da4a58.png?resize=400x300",
+          },
+          {
+            title: "Mengenal Huruf Hijaiyah",
+            category: "Educational Game",
+            description: "Game ini mengenalkan pengguna pada huruf-huruf Hijaiyah (alfabet Arab), mengajarkan mereka untuk mengenali dan membedakan karakter melalui aktivitas yang menarik secara visual",
+            icon: "H",
+            color: "purple",
+            image: "../assets/img/Mengenal Huruf Hijaiyah.png",
+          },
+          {
+            title: "Belajar Alfabet",
+            category: "Educational Game",
+            description: "Aplikasi yang dirancang untuk anak-anak atau pemula, membantu mereka belajar alfabet dengan cara yang menyenangkan dan interaktif, menggunakan grafik warna-warni dan elemen yang menarik untuk mengenali huruf",
             icon: "A",
             color: "green",
-            mockup: "tablet",
+            image: "https://cdn.dribbble.com/userupload/11528072/file/original-dfc7a02d84ed7f54a63b25dd56e7fedf.png?resize=400x300",
           },
           {
-            title: "Dashboard Analytics",
-            category: "Aplikasi",
-            description: "Dashboard analytics yang comprehensive dengan real-time data visualization untuk mengelola data bisnis",
-            icon: "D",
+            title: "Belajar Alfabet Plus",
+            category: "Educational Game",
+            description: "Versi lengkap dengan suara, animasi, dan mini games untuk pembelajaran alfabet yang lebih komprehensif",
+            icon: "A",
             color: "yellow",
-            mockup: "tablet",
-          },
-          {
-            title: "Learning Management System",
-            category: "Aplikasi",
-            description: "Platform pembelajaran online dengan fitur lengkap untuk pendidikan digital modern",
-            icon: "L",
-            color: "blue",
-            mockup: "tablet",
-          },
-          {
-            title: "Project Management Tool",
-            category: "Aplikasi",
-            description: "Aplikasi manajemen proyek dengan kolaborasi tim dan tracking progress real-time",
-            icon: "P",
-            color: "teal",
-            mockup: "tablet",
+            image: "https://cdn.dribbble.com/userupload/14000223/file/original-4e49b1f783128b0b5d96c15f9ae3d6d9.png?resize=400x300",
           },
         ],
       };
@@ -439,7 +561,7 @@
       let currentCategory = "all";
       let isSliderMode = false;
 
-      // Original filter functionality
+      // DOM Elements
       const filterBtns = document.querySelectorAll(".filter-btn");
       const portfolioItems = document.querySelectorAll(".portfolio-item");
       const portfolioGrid = document.getElementById("portfolioGrid");
@@ -460,31 +582,8 @@
         red: { bg: "bg-red-500", text: "text-red-600", light: "bg-red-100" },
         yellow: { bg: "bg-yellow-500", text: "text-yellow-600", light: "bg-yellow-100" },
         teal: { bg: "bg-teal-500", text: "text-teal-600", light: "bg-teal-100" },
+        emerald: { bg: "bg-emerald-500", text: "text-emerald-600", light: "bg-emerald-100" },
       };
-
-      // Create portfolio card HTML
-      function createPortfolioCard(item) {
-        const colors = colorMappings[item.color];
-        const mockupContent = getMockupContent(item.mockup, item.color);
-
-        return `
-      <div class="bg-white rounded-xl shadow-lg border overflow-hidden group hover:shadow-xl transition-all duration-300 portfolio-card h-full flex flex-col">
-        <div class="portfolio-image mockup-${item.mockup} h-48 flex items-center justify-center relative flex-shrink-0">
-          ${mockupContent}
-        </div>
-        <div class="p-6 text-left flex-1 flex flex-col">
-          <div class="flex items-center gap-3 mb-3">
-            <div class="w-8 h-8 flex items-center justify-center rounded-full ${colors.bg} text-white font-bold text-sm">${item.icon}</div>
-            <div>
-              <h4 class="font-semibold text-gray-900">${item.title}</h4>
-              <span class="project-category text-xs px-2 py-1 rounded-full ${colors.light} ${colors.text}">${item.category}</span>
-            </div>
-          </div>
-          <p class="text-sm text-gray-600 flex-1">${item.description}</p>
-        </div>
-      </div>
-    `;
-      }
 
       // Get mockup content based on type
       function getMockupContent(mockupType, color) {
@@ -536,6 +635,39 @@
         </div>
       `;
         }
+      }
+
+      // Create portfolio card HTML
+      function createPortfolioCard(item) {
+        const colors = colorMappings[item.color];
+
+        // Determine image content
+        let imageContent;
+        if (item.image) {
+          imageContent = `<img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover transition-transform duration-300" loading="lazy" onload="this.style.opacity='1'" style="opacity:0" />`;
+        } else if (item.mockup) {
+          imageContent = getMockupContent(item.mockup, item.color);
+        } else {
+          imageContent = `<div class="w-16 h-16 ${colors.bg} rounded-full flex items-center justify-center text-white text-2xl font-bold">${item.icon}</div>`;
+        }
+
+        return `
+      <div class="bg-white rounded-xl shadow-lg border overflow-hidden group hover:shadow-xl transition-all duration-300 portfolio-card h-full flex flex-col">
+        <div class="portfolio-image h-72 flex items-center justify-center relative flex-shrink-0 overflow-hidden bg-gray-50">
+          ${imageContent}
+        </div>
+        <div class="p-6 text-left flex-1 flex flex-col">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-8 h-8 flex items-center justify-center rounded-full ${colors.bg} text-white font-bold text-sm">${item.icon}</div>
+            <div>
+              <h4 class="font-semibold text-gray-900">${item.title}</h4>
+              <span class="project-category text-xs px-2 py-1 rounded-full ${colors.light} ${colors.text}">${item.category}</span>
+            </div>
+          </div>
+          <p class="text-sm text-gray-600 flex-1">${item.description}</p>
+        </div>
+      </div>
+    `;
       }
 
       // Create slider
@@ -619,13 +751,13 @@
           // Stop auto-slide when user interacts
           stopAutoSlide();
 
-          // Remove active class from all buttons and reset their dots
+          // Remove active class from all buttons
           filterBtns.forEach((b) => {
             b.classList.remove("active");
             const dot = b.querySelector(".filter-dot");
             const text = b.querySelector("span");
-            dot.style.backgroundColor = "#d1d5db"; // gray-300
-            text.style.color = "#374151"; // gray-700
+            dot.style.backgroundColor = "#d1d5db";
+            text.style.color = "#374151";
             text.style.fontWeight = "normal";
           });
 
@@ -633,8 +765,8 @@
           btn.classList.add("active");
           const activeDot = btn.querySelector(".filter-dot");
           const activeText = btn.querySelector("span");
-          activeDot.style.backgroundColor = "#2563eb"; // blue-600
-          activeText.style.color = "#2563eb"; // blue-600
+          activeDot.style.backgroundColor = "#2563eb";
+          activeText.style.color = "#2563eb";
           activeText.style.fontWeight = "600";
 
           const filter = btn.getAttribute("data-filter");
@@ -647,7 +779,7 @@
             portfolioSlider.classList.add("hidden");
             dotsContainer.classList.add("hidden");
 
-            // Show all portfolio items with original animation
+            // Show all portfolio items
             portfolioItems.forEach((item, index) => {
               item.style.display = "block";
               setTimeout(() => {
@@ -726,7 +858,7 @@
         startAutoSlide();
       });
 
-      // Smooth scroll animations for original grid
+      // Smooth scroll animations for grid
       const observerOptions = {
         threshold: 0.1,
         rootMargin: "0px 0px -100px 0px",
@@ -761,77 +893,20 @@
         });
       });
 
-      // Add loading animation for slider transitions
-      function showLoadingState() {
-        sliderTrack.style.opacity = "0.5";
-        sliderTrack.style.transform = "scale(0.95)";
-      }
-
-      function hideLoadingState() {
-        sliderTrack.style.opacity = "1";
-        sliderTrack.style.transform = "scale(1)";
-      }
-
-      // Enhanced slider creation with loading animation
-      function createSliderWithAnimation(category) {
-        showLoadingState();
-
-        setTimeout(() => {
-          createSlider(category);
-          hideLoadingState();
-        }, 200);
-      }
-
-      // Update the filter button click handler to use animated slider creation
-      filterBtns.forEach((btn) => {
-        const originalClickHandler = btn.onclick;
-        btn.onclick = null;
-
-        btn.addEventListener("click", () => {
-          stopAutoSlide();
-
-          filterBtns.forEach((b) => {
-            b.classList.remove("active");
-            const dot = b.querySelector(".filter-dot");
-            const text = b.querySelector("span");
-            dot.style.backgroundColor = "#d1d5db";
-            text.style.color = "#374151";
-            text.style.fontWeight = "normal";
+      // Image preloading for better performance
+      function preloadImages() {
+        Object.values(portfolioData).forEach((category) => {
+          category.forEach((item) => {
+            if (item.image) {
+              const img = new Image();
+              img.src = item.image;
+            }
           });
-
-          btn.classList.add("active");
-          const activeDot = btn.querySelector(".filter-dot");
-          const activeText = btn.querySelector("span");
-          activeDot.style.backgroundColor = "#2563eb";
-          activeText.style.color = "#2563eb";
-          activeText.style.fontWeight = "600";
-
-          const filter = btn.getAttribute("data-filter");
-          currentCategory = filter;
-
-          if (filter === "all") {
-            isSliderMode = false;
-            portfolioGrid.classList.remove("hidden");
-            portfolioSlider.classList.add("hidden");
-            dotsContainer.classList.add("hidden");
-
-            portfolioItems.forEach((item, index) => {
-              item.style.display = "block";
-              setTimeout(() => {
-                item.classList.add("fade-in");
-              }, index * 100);
-            });
-          } else {
-            isSliderMode = true;
-            portfolioGrid.classList.add("hidden");
-            portfolioSlider.classList.remove("hidden");
-            dotsContainer.classList.remove("hidden");
-
-            createSliderWithAnimation(filter);
-            setTimeout(() => startAutoSlide(), 500);
-          }
         });
-      });
+      }
+
+      // Call preload on page load
+      document.addEventListener("DOMContentLoaded", preloadImages);
     </script>
   </body>
 </html>
