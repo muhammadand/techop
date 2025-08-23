@@ -111,6 +111,98 @@
         cursor: pointer;
       }
 
+      /* Image Container with Hover Overlay */
+      .image-container {
+        position: relative;
+        overflow: hidden;
+        border-radius: 50%;
+      }
+
+      .hover-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(180deg, transparent 0%, transparent 45%, rgba(59, 130, 246, 0.75) 50%, rgba(139, 92, 246, 0.85) 70%, rgba(236, 72, 153, 0.9) 85%, rgba(168, 85, 247, 0.95) 100%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        opacity: 0;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        backdrop-filter: blur(1px);
+        border-radius: 50%;
+        transform: scale(0.9);
+        padding-bottom: 1.5rem;
+      }
+
+      .team-card:hover .hover-overlay {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .overlay-icon {
+        font-size: 1.5rem;
+        margin-bottom: 0.2rem;
+        animation: gentlePulse 2s ease-in-out infinite;
+        color: white;
+        filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
+      }
+
+      .overlay-text {
+        color: white;
+        font-weight: 700;
+        font-size: 0.7rem;
+        text-align: center;
+        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+        letter-spacing: 0.05em;
+        line-height: 1.2;
+        text-transform: uppercase;
+      }
+
+      @keyframes gentlePulse {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(1.1);
+          opacity: 0.8;
+        }
+      }
+
+      @keyframes bounce {
+        0%,
+        20%,
+        53%,
+        80%,
+        100% {
+          transform: translate3d(0, 0, 0);
+        }
+        40%,
+        43% {
+          transform: translate3d(0, -5px, 0);
+        }
+        70% {
+          transform: translate3d(0, -3px, 0);
+        }
+        90% {
+          transform: translate3d(0, -1px, 0);
+        }
+      }
+
+      /* Enhanced hover effects for the entire card */
+      .team-card:hover {
+        transform: translateY(-8px);
+      }
+
+      .team-card:hover .gradient-border {
+        transform: scale(1.05);
+        box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3);
+      }
+
       /* Modal Styling - Fixed for scrolling */
       .modal-backdrop {
         backdrop-filter: blur(12px);
@@ -269,6 +361,14 @@
         .modal-content {
           border-radius: 12px;
         }
+
+        .overlay-text {
+          font-size: 0.75rem;
+        }
+
+        .overlay-icon {
+          font-size: 1.5rem;
+        }
       }
 
       @media (min-width: 1200px) {
@@ -331,11 +431,15 @@
         <!-- Grid Anggota Tim -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 mt-8 justify-items-center max-w-5xl mx-auto">
           <!-- Anggota 1 -->
-          <div class="text-center team-card floating-animation group" onclick="openModal('wira')">
-            <div class="gradient-border mx-auto mb-4">
+          <div class="text-center team-card floating-animation group transition-all duration-500" onclick="openModal('wira')">
+            <div class="gradient-border mx-auto mb-4 transition-all duration-500">
               <div class="gradient-border-inner">
-                <div class="w-32 h-32 rounded-full overflow-hidden shadow-xl">
+                <div class="w-32 h-32 image-container shadow-xl">
                   <img src="../assets/img/wira.jpg" alt="Wira Sukma" class="object-cover w-full h-full team-image" />
+                  <div class="hover-overlay">
+                    <div class="overlay-icon">✨</div>
+                    <div class="overlay-text">Lihat<br />Selengkapnya</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -352,11 +456,15 @@
           </div>
 
           <!-- Anggota 2 -->
-          <div class="text-center team-card floating-animation group" onclick="openModal('andi')">
-            <div class="gradient-border mx-auto mb-4">
+          <div class="text-center team-card floating-animation group transition-all duration-500" onclick="openModal('andi')">
+            <div class="gradient-border mx-auto mb-4 transition-all duration-500">
               <div class="gradient-border-inner">
-                <div class="w-32 h-32 rounded-full overflow-hidden shadow-xl">
+                <div class="w-32 h-32 image-container shadow-xl">
                   <img src="../assets/img/andi.jpg" alt="Muhammad Andi" class="object-cover w-full h-full team-image" />
+                  <div class="hover-overlay">
+                    <div class="overlay-icon">✨</div>
+                    <div class="overlay-text">Lihat<br />Selengkapnya</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -373,11 +481,15 @@
           </div>
 
           <!-- Anggota 3 -->
-          <div class="text-center team-card floating-animation group" onclick="openModal('gilang')">
-            <div class="gradient-border mx-auto mb-4">
+          <div class="text-center team-card floating-animation group transition-all duration-500" onclick="openModal('gilang')">
+            <div class="gradient-border mx-auto mb-4 transition-all duration-500">
               <div class="gradient-border-inner">
-                <div class="w-32 h-32 rounded-full overflow-hidden shadow-xl">
+                <div class="w-32 h-32 image-container shadow-xl">
                   <img src="../assets/img/gilang.jpg" alt="Gilang" class="object-cover w-full h-full team-image" />
+                  <div class="hover-overlay">
+                    <div class="overlay-icon">✨</div>
+                    <div class="overlay-text">Lihat<br />Selengkapnya</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -394,11 +506,15 @@
           </div>
 
           <!-- Anggota 4 -->
-          <div class="text-center team-card floating-animation group" onclick="openModal('alya')">
-            <div class="gradient-border mx-auto mb-4">
+          <div class="text-center team-card floating-animation group transition-all duration-500" onclick="openModal('alya')">
+            <div class="gradient-border mx-auto mb-4 transition-all duration-500">
               <div class="gradient-border-inner">
-                <div class="w-32 h-32 rounded-full overflow-hidden shadow-xl">
+                <div class="w-32 h-32 image-container shadow-xl">
                   <img src="../assets/img/alya.jpg" alt="Alya" class="object-cover w-full h-full team-image" />
+                  <div class="hover-overlay">
+                    <div class="overlay-icon">✨</div>
+                    <div class="overlay-text">Lihat<br />Selengkapnya</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -514,7 +630,19 @@
             "Kontributor aktif pada 20+ open source projects dengan 5000+ GitHub stars",
           ],
           education: ["Bachelor of Computer Science - Universitas Kuningan (2025)", "Full Stack Web Development Certificate - FreeCodeCamp (2018)"],
-          certifications: ["AWS Certified Solutions Architect", "Google Cloud Professional Developer", "MongoDB Certified Developer", "Certified Kubernetes Administrator"],
+          certifications: [
+            "AWS Certified Solutions Architect",
+            "Google Cloud Professional Developer",
+            "MongoDB Certified Developer",
+            "Certified Kubernetes Administrator",
+            "React.js Certified Developer",
+            "Node.js Certified Developer",
+            "Python for Data Science and AI - Coursera",
+            "Agile Project Management - PMI",
+            "Fullstack Web Development - Udacity",
+            "DevOps Fundamentals - Linux Foundation",
+            "GraphQL Certified Developer",
+          ],
           quote: "Code is poetry written in logic. Setiap baris yang saya tulis adalah cerminan dari solusi yang elegant dan efisien untuk masalah yang kompleks.",
           testimonials: [
             {
@@ -557,7 +685,7 @@
             "Flutter Certified Developer",
             "React Native Certified Developer",
             "Android Security Best Practices",
-            "Android Performance Optimizationx",
+            "Android Performance Optimization",
           ],
           quote: "Mobile apps are the gateway to the digital world. Setiap aplikasi yang saya buat adalah jembatan yang menghubungkan teknologi dengan kehidupan sehari-hari pengguna.",
           testimonials: [
