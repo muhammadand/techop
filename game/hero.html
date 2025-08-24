@@ -1,146 +1,41 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TechOp.id - Jasa Game Development Unity Professional</title>
+    <title>TechOp.id - Solusi Game Development Terpercaya</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-      /* Gradient text */
-      .gradient-text {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-
-      /* Typing animation */
-      .typing-animation {
-        border-right: 2px solid #667eea;
-        white-space: nowrap;
-        overflow: hidden;
-        animation: typing 3s steps(40, end), blink 0.75s step-end infinite;
-      }
-
-      @keyframes typing {
-        from {
-          width: 0;
-        }
-        to {
-          width: 100%;
-        }
-      }
-
-      @keyframes blink {
-        from,
-        to {
-          border-color: transparent;
-        }
-        50% {
-          border-color: #667eea;
-        }
-      }
-
-      /* Slide animations */
-      .animate-slide-in-left {
-        opacity: 0;
-        transform: translateX(-50px);
-        transition: all 0.8s ease-out;
-      }
-
-      .animate-slide-in-right {
-        opacity: 0;
-        transform: translateX(50px);
-        transition: all 0.8s ease-out;
-      }
-
-      /* Floating animations */
-      .float-animation {
-        animation: float 3s ease-in-out infinite;
-      }
-
+      /* Custom animations */
       @keyframes float {
         0%,
         100% {
           transform: translateY(0px);
         }
         50% {
-          transform: translateY(-10px);
+          transform: translateY(-15px);
         }
       }
 
-      .pulse-animation {
-        animation: pulse-custom 2s ease-in-out infinite;
-      }
-
-      @keyframes pulse-custom {
+      @keyframes pulse-glow {
         0%,
         100% {
-          transform: scale(1);
+          box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
         }
         50% {
-          transform: scale(1.05);
+          box-shadow: 0 0 30px rgba(102, 126, 234, 0.6);
         }
       }
 
-      /* Auto-reveal animation on load */
-      .animate-slide-in-left,
-      .animate-slide-in-right {
-        animation: slideInReveal 1s ease-out forwards;
-      }
-
-      .animate-slide-in-right {
-        animation-delay: 0.3s;
-      }
-
-      @keyframes slideInReveal {
+      @keyframes slide-up {
         from {
           opacity: 0;
-          transform: translateX(-50px);
+          transform: translateY(30px);
         }
         to {
           opacity: 1;
-          transform: translateX(0);
+          transform: translateY(0);
         }
-      }
-
-      .animate-slide-in-right {
-        animation-name: slideInRevealRight;
-      }
-
-      @keyframes slideInRevealRight {
-        from {
-          opacity: 0;
-          transform: translateX(50px);
-        }
-        to {
-          opacity: 1;
-          transform: translateX(0);
-        }
-      }
-
-      /* Game elements animation */
-      .game-element {
-        transition: all 0.3s ease;
-      }
-
-      .game-element:hover {
-        transform: scale(1.1) rotate(5deg);
-      }
-
-      /* Unity Editor styling */
-      .unity-editor {
-        background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
-      }
-
-      /* Game screen glow */
-      .game-glow {
-        box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
-      }
-
-      /* Rotating animation */
-      .rotate-animation {
-        animation: rotate 4s linear infinite;
       }
 
       @keyframes rotate {
@@ -152,250 +47,471 @@
         }
       }
 
-      /* Bounce animation */
-      .bounce-animation {
-        animation: bounce 2s ease-in-out infinite;
+      @keyframes blink {
+        0%,
+        50% {
+          opacity: 1;
+        }
+        51%,
+        100% {
+          opacity: 0;
+        }
       }
 
-      @keyframes bounce {
+      @keyframes wave {
         0%,
-        20%,
-        53%,
-        80%,
         100% {
+          transform: translateX(0) translateY(0) scale(1);
+        }
+        25% {
+          transform: translateX(5px) translateY(-5px) scale(1.05);
+        }
+        50% {
+          transform: translateX(-5px) translateY(5px) scale(1.02);
+        }
+        75% {
+          transform: translateX(3px) translateY(-3px) scale(1.03);
+        }
+      }
+
+      @keyframes code-scroll {
+        0% {
           transform: translateY(0);
         }
-        40%,
-        43% {
-          transform: translateY(-15px);
+        100% {
+          transform: translateY(-20px);
         }
-        70% {
-          transform: translateY(-7px);
+      }
+
+      @keyframes game-bounce {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg);
         }
-        90% {
-          transform: translateY(-3px);
+        25% {
+          transform: translateY(-8px) rotate(1deg);
         }
+        75% {
+          transform: translateY(-4px) rotate(-0.5deg);
+        }
+      }
+
+      .float-animation {
+        animation: float 6s ease-in-out infinite;
+      }
+      .pulse-glow {
+        animation: pulse-glow 3s ease-in-out infinite;
+      }
+      .slide-up {
+        animation: slide-up 0.8s ease-out forwards;
+      }
+      .rotate-slow {
+        animation: rotate 20s linear infinite;
+      }
+      .wave-animation {
+        animation: wave 4s ease-in-out infinite;
+      }
+      .code-scroll {
+        animation: code-scroll 3s ease-in-out infinite alternate;
+      }
+      .game-bounce {
+        animation: game-bounce 2.5s ease-in-out infinite;
+      }
+      .typing-cursor::after {
+        content: "|";
+        animation: blink 1s infinite;
+        color: #3b82f6;
+      }
+
+      /* Gradient backgrounds */
+      .gradient-bg {
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      }
+
+      .card-gradient {
+        background: linear-gradient(145deg, #1e293b, #334155);
+      }
+
+      /* Glass effect */
+      .glass-effect {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      /* Custom button hover effects */
+      .btn-primary {
+        background: linear-gradient(135deg, #3b82f6, #667eea);
+        transition: all 0.3s ease;
+      }
+
+      .btn-primary:hover {
+        background: linear-gradient(135deg, #2563eb, #5b21b6);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+      }
+
+      .btn-secondary {
+        transition: all 0.3s ease;
+      }
+
+      .btn-secondary:hover {
+        background: #f1f5f9;
+        transform: translateX(5px);
+      }
+
+      /* Testimonial card styling */
+      .testimonial-card {
+        background: linear-gradient(145deg, #ffffff, #f8fafc);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      }
+
+      /* Gradient text */
+      .gradient-text {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* Game development window styling */
+      .game-window {
+        background: linear-gradient(145deg, #ffffff, #f8fafc);
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        overflow: hidden;
+      }
+
+      .game-header {
+        background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+        padding: 12px 16px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .game-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+      }
+
+      .game-content {
+        background: #ffffff;
+        min-height: 200px;
       }
     </style>
   </head>
-  <body class="bg-gray-50">
-    <!-- Hero Section -->
-    <section class="flex flex-col md:flex-row items-center justify-between px-6 py-16 max-w-7xl mx-auto overflow-hidden">
-      <!-- Text Area -->
-      <div class="md:w-1/2 space-y-6 animate-slide-in-left">
-        <div class="space-y-2">
-          <h1 class="text-4xl md:text-5xl font-bold">
-            <span class="gradient-text">techop.id</span>
-          </h1>
-          <div class="text-lg text-gray-500 font-mono">
-            <span class="typing-animation">Jasa Game Development Unity Professional</span>
+  <body class="gradient-bg min-h-screen">
+    <div class="container mx-auto px-6 py-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+        <!-- Left Content Section -->
+        <div class="space-y-8 slide-up">
+          <!-- Main Heading -->
+          <div class="space-y-4">
+            <div class="space-y-2">
+              <h1 class="text-5xl lg:text-6xl font-bold leading-tight">
+                <span class="gradient-text">techop.id</span>
+              </h1>
+              <div class="text-xl text-gray-500 font-mono">
+                <span class="typing-cursor">Solusi Game Development Terpercaya</span>
+              </div>
+            </div>
+            <p class="text-gray-600 leading-relaxed text-xl">
+              @techop.id adalah penyedia jasa <strong class="text-blue-600">"game development"</strong> yang profesional dan berpengalaman. Kami menciptakan game mobile, PC, dan web yang engaging dan berkualitas tinggi untuk berbagai
+              platform sesuai kebutuhan bisnis Anda dengan teknologi modern dan gameplay yang adictive.
+            </p>
           </div>
-        </div>
 
-        <p class="text-gray-600 leading-relaxed text-lg">
-          Kami menciptakan <strong class="text-blue-600">game berkualitas tinggi</strong> menggunakan Unity Engine dengan gameplay yang menarik, visual yang memukau, dan performa yang optimal.
-        </p>
+          <!-- CTA Buttons -->
+          <div class="flex flex-col sm:flex-row gap-3">
+            <button class="btn-primary text-white px-4 py-2 rounded-full font-medium flex items-center justify-center gap-2 shadow-lg text-sm">
+              🎮 Mulai Proyek Game
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </button>
 
-        <div class="flex flex-col sm:flex-row gap-4 pt-4">
-          <button class="px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full hover:shadow-lg transition-all duration-300 transform hover:scale-105 font-semibold text-xs whitespace-nowrap">🎮 Mulai Game</button>
-          <button class="px-4 py-3 border-2 border-gray-300 text-gray-700 rounded-full hover:border-blue-500 hover:text-blue-600 transition-all duration-300 font-semibold text-xs whitespace-nowrap">🏆 Portfolio</button>
-        </div>
-
-        <!-- Stats -->
-        <div class="flex gap-8 pt-6">
-          <div class="text-center">
-            <div class="text-2xl font-bold text-blue-600">50+</div>
-            <div class="text-sm text-gray-500">Game Released</div>
+            <button class="btn-secondary text-gray-600 px-4 py-2 rounded-full font-medium flex items-center justify-center gap-2 border border-gray-300 text-sm">🕹️ Lihat Portfolio Games</button>
           </div>
-          <div class="text-center">
-            <div class="text-2xl font-bold text-purple-600">Unity</div>
-            <div class="text-sm text-gray-500">Expert Level</div>
-          </div>
-          <div class="text-center">
-            <div class="text-2xl font-bold text-green-600">100K+</div>
-            <div class="text-sm text-gray-500">Downloads</div>
-          </div>
-        </div>
-      </div>
 
-      <!-- Visual Area - Unity Game Development -->
-      <div class="w-full max-w-4xl mx-auto">
-        <div class="md:w-full flex items-center justify-center animate-slide-in-right relative">
-          <!-- Game Development Workspace Container -->
-          <div class="relative w-full max-w-2xl h-80 flex items-center justify-center">
-            <!-- Main Unity Editor - Center -->
-            <div class="relative z-20 float-animation game-glow">
-              <div class="unity-editor rounded-2xl shadow-2xl w-72 h-80 p-4 border border-gray-600">
-                <!-- Unity Editor Header -->
-                <div class="flex items-center gap-2 mb-3 pb-2 border-b border-gray-600">
-                  <div class="flex items-center gap-2">
-                    <div class="w-6 h-6 bg-gradient-to-br from-orange-400 to-red-500 rounded flex items-center justify-center text-white text-xs font-bold">U</div>
-                    <div class="text-white text-sm font-semibold">Unity Editor</div>
+          <!-- Stats -->
+          <div class="flex gap-8 pt-6">
+            <div class="text-center">
+              <div class="text-3xl font-bold text-blue-600">100+</div>
+              <div class="text-lg text-gray-500">Games Released</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-bold text-purple-600">24/7</div>
+              <div class="text-lg text-gray-500">Dev Support</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-bold text-green-600">5M+</div>
+              <div class="text-lg text-gray-500">Downloads</div>
+            </div>
+          </div>
+
+          <!-- Auto-sliding Testimonial Section -->
+          <div class="pt-6 border-t border-gray-200">
+            <div class="relative overflow-hidden h-20">
+              <div id="testimonial-slider" class="flex transition-transform duration-500 ease-in-out">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-slide min-w-full">
+                  <div class="testimonial-card p-4 rounded-xl flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-r from-blue-400 to-purple-500 flex-shrink-0 flex items-center justify-center text-white font-bold">MG</div>
+                    <div>
+                      <p class="text-gray-700 italic text-sm">"Game mobile kami mencapai 1M+ downloads!"</p>
+                      <p class="text-gray-900 font-semibold text-sm">Mobile Game</p>
+                    </div>
                   </div>
-                  <div class="flex gap-1 ml-auto">
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-slide min-w-full">
+                  <div class="testimonial-card p-4 rounded-xl flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-r from-green-400 to-blue-500 flex-shrink-0 flex items-center justify-center text-white font-bold">PG</div>
+                    <div>
+                      <p class="text-gray-700 italic text-sm">"Game PC kami masuk Steam Top 100!"</p>
+                      <p class="text-gray-900 font-semibold text-sm">PC Game</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-slide min-w-full">
+                  <div class="testimonial-card p-4 rounded-xl flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-r from-purple-400 to-pink-500 flex-shrink-0 flex items-center justify-center text-white font-bold">WG</div>
+                    <div>
+                      <p class="text-gray-700 italic text-sm">"Web game HTML5 kami viral dengan 10M+ plays!"</p>
+                      <p class="text-gray-900 font-semibold text-sm">Web Game</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide indicators -->
+              <div class="flex justify-center gap-2 mt-3">
+                <div class="indicator w-2 h-2 rounded-full bg-blue-500 transition-opacity"></div>
+                <div class="indicator w-2 h-2 rounded-full bg-gray-300 transition-opacity"></div>
+                <div class="indicator w-2 h-2 rounded-full bg-gray-300 transition-opacity"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Visual Section - Game Development Showcase -->
+        <div class="relative float-animation">
+          <div class="h-[500px] flex items-center justify-center relative p-8">
+            <!-- Central Game Development Showcase -->
+            <div class="relative z-10">
+              <!-- Main Game Engine - Unity Style -->
+              <div class="bg-gray-800 w-80 h-56 mx-auto relative mb-6 rounded-lg shadow-2xl">
+                <!-- Unity-style Header -->
+                <div class="bg-gray-700 px-4 py-3 rounded-t-lg flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <div class="w-5 h-5 bg-gradient-to-r from-blue-400 to-purple-500 rounded flex items-center justify-center">
+                      <div class="w-2 h-2 bg-white rounded"></div>
+                    </div>
+                    <div class="text-white text-xs font-medium">ActionGame.unity</div>
+                  </div>
+                  <div class="flex gap-2">
                     <div class="w-2 h-2 bg-red-400 rounded-full"></div>
                     <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
                     <div class="w-2 h-2 bg-green-400 rounded-full"></div>
                   </div>
                 </div>
 
-                <!-- Game Scene View -->
-                <div class="bg-gray-800 rounded-lg p-3 mb-3 h-32 relative overflow-hidden">
-                  <div class="text-gray-400 text-xs mb-2">Scene View - Game Level 1</div>
+                <!-- Game Scene -->
+                <div class="bg-gradient-to-b from-blue-200 to-green-200 h-48 p-4 rounded-b-lg relative overflow-hidden">
+                  <!-- Game Background -->
+                  <div class="absolute inset-0 bg-gradient-to-b from-sky-300 to-green-300"></div>
 
-                  <!-- Game Environment -->
-                  <div class="relative h-full">
-                    <!-- Background -->
-                    <div class="absolute inset-0 bg-gradient-to-b from-blue-400 via-green-300 to-green-600 rounded opacity-80"></div>
+                  <!-- Clouds -->
+                  <div class="absolute top-2 left-8 w-8 h-4 bg-white rounded-full opacity-80"></div>
+                  <div class="absolute top-4 right-12 w-6 h-3 bg-white rounded-full opacity-80"></div>
+                  <div class="absolute top-1 right-20 w-10 h-5 bg-white rounded-full opacity-80"></div>
 
-                    <!-- Clouds -->
-                    <div class="absolute top-2 left-4 w-8 h-4 bg-white rounded-full opacity-60"></div>
-                    <div class="absolute top-3 right-6 w-6 h-3 bg-white rounded-full opacity-60"></div>
-
-                    <!-- Ground/Platforms -->
-                    <div class="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-r from-green-600 to-green-700 rounded-b"></div>
-                    <div class="absolute bottom-8 left-8 w-12 h-3 bg-gradient-to-r from-orange-500 to-red-500 rounded"></div>
-                    <div class="absolute bottom-12 right-8 w-10 h-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded"></div>
-
-                    <!-- Player Character -->
-                    <div class="absolute bottom-8 left-12 w-4 h-6 bg-gradient-to-b from-blue-500 to-blue-600 rounded bounce-animation"></div>
-
-                    <!-- Coins/Collectibles -->
-                    <div class="absolute bottom-16 left-20 w-3 h-3 bg-yellow-400 rounded-full rotate-animation"></div>
-                    <div class="absolute bottom-20 right-12 w-3 h-3 bg-yellow-400 rounded-full rotate-animation" style="animation-delay: 1s"></div>
-
-                    <!-- Enemy -->
-                    <div class="absolute bottom-8 right-16 w-4 h-4 bg-gradient-to-br from-red-500 to-red-600 rounded float-animation" style="animation-delay: 0.5s"></div>
-                  </div>
-                </div>
-
-                <!-- Unity Panels -->
-                <div class="grid grid-cols-2 gap-2 mb-3">
-                  <div class="bg-gray-700 rounded p-2">
-                    <div class="text-gray-300 text-xs font-semibold mb-1">Hierarchy</div>
-                    <div class="space-y-1">
-                      <div class="text-xs text-gray-400">📁 Player</div>
-                      <div class="text-xs text-gray-400">📁 Environment</div>
-                      <div class="text-xs text-gray-400">📁 UI Canvas</div>
+                  <!-- Game Character (Player) -->
+                  <div class="absolute left-8 bottom-12 w-8 h-12 game-bounce">
+                    <!-- Character Body -->
+                    <div class="w-full h-8 bg-gradient-to-b from-red-400 to-red-600 rounded-sm relative">
+                      <!-- Head -->
+                      <div class="absolute -top-3 left-1 w-6 h-6 bg-yellow-300 rounded-full border-2 border-yellow-400"></div>
+                      <!-- Arms -->
+                      <div class="absolute top-1 -left-1 w-2 h-4 bg-yellow-300 rounded"></div>
+                      <div class="absolute top-1 -right-1 w-2 h-4 bg-yellow-300 rounded"></div>
+                      <!-- Legs -->
+                      <div class="absolute -bottom-4 left-1 w-2 h-4 bg-blue-500 rounded"></div>
+                      <div class="absolute -bottom-4 right-1 w-2 h-4 bg-blue-500 rounded"></div>
                     </div>
                   </div>
-                  <div class="bg-gray-700 rounded p-2">
-                    <div class="text-gray-300 text-xs font-semibold mb-1">Inspector</div>
+
+                  <!-- Enemy -->
+                  <div class="absolute right-16 bottom-12 w-6 h-8" style="animation: game-bounce 2s ease-in-out infinite reverse">
+                    <div class="w-full h-full bg-gradient-to-b from-purple-500 to-purple-700 rounded relative">
+                      <!-- Enemy Head -->
+                      <div class="absolute -top-2 left-1 w-4 h-4 bg-purple-300 rounded-full"></div>
+                      <!-- Eyes -->
+                      <div class="absolute -top-1 left-1.5 w-1 h-1 bg-red-600 rounded-full"></div>
+                      <div class="absolute -top-1 right-1.5 w-1 h-1 bg-red-600 rounded-full"></div>
+                    </div>
+                  </div>
+
+                  <!-- Platforms -->
+                  <div class="absolute bottom-0 left-0 right-0 h-6 bg-gradient-to-r from-green-500 to-green-600"></div>
+                  <div class="absolute bottom-12 left-24 w-16 h-3 bg-gradient-to-r from-brown-500 to-brown-600 rounded-sm"></div>
+                  <div class="absolute bottom-20 right-24 w-12 h-3 bg-gradient-to-r from-gray-500 to-gray-600 rounded-sm"></div>
+
+                  <!-- Coins/Power-ups -->
+                  <div class="absolute top-12 left-16 w-3 h-3 bg-yellow-400 rounded-full animate-pulse border-2 border-yellow-500"></div>
+                  <div class="absolute top-8 right-20 w-3 h-3 bg-yellow-400 rounded-full animate-pulse border-2 border-yellow-500" style="animation-delay: 0.5s"></div>
+                  <div class="absolute top-16 left-32 w-3 h-3 bg-red-400 rounded-full animate-pulse border-2 border-red-500" style="animation-delay: 1s"></div>
+
+                  <!-- UI Elements -->
+                  <div class="absolute top-2 left-2 flex gap-1">
+                    <!-- Health bar -->
+                    <div class="w-12 h-2 bg-gray-300 rounded-full overflow-hidden">
+                      <div class="w-3/4 h-full bg-red-500 rounded-full"></div>
+                    </div>
+                  </div>
+
+                  <!-- Score -->
+                  <div class="absolute top-2 right-2 bg-white bg-opacity-80 px-2 py-1 rounded text-xs font-bold text-gray-800">9999</div>
+                </div>
+              </div>
+
+              <!-- Bottom Row - Development Tools -->
+              <div class="flex gap-8 justify-center">
+                <!-- Code Editor -->
+                <div class="bg-white w-56 h-48 wave-animation rounded-lg shadow-lg border border-gray-200">
+                  <div class="bg-gray-50 px-3 py-2 rounded-t-lg border-b border-gray-200 flex items-center gap-2">
+                    <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                    <div class="text-xs text-gray-600 font-medium">PlayerController.cs</div>
+                  </div>
+
+                  <div class="p-4 font-mono text-xs bg-gray-900 text-green-400 rounded-b-lg h-40 overflow-hidden">
+                    <!-- Code Lines -->
                     <div class="space-y-1">
-                      <div class="text-xs text-blue-400">Transform</div>
-                      <div class="text-xs text-green-400">Rigidbody</div>
-                      <div class="text-xs text-purple-400">Script</div>
+                      <div class="text-purple-300">public class <span class="text-yellow-300">Player</span> : MonoBehaviour</div>
+                      <div class="text-gray-400">{</div>
+                      <div class="ml-4 text-blue-300">public <span class="text-green-300">float</span> speed = <span class="text-orange-300">5f</span>;</div>
+                      <div class="ml-4 text-blue-300">public <span class="text-green-300">int</span> health = <span class="text-orange-300">100</span>;</div>
+                      <div class="text-gray-400 ml-4">//</div>
+                      <div class="ml-4 text-purple-300">void <span class="text-yellow-300">Update</span>()</div>
+                      <div class="text-gray-400 ml-4">{</div>
+                      <div class="ml-8 text-blue-300">if (<span class="text-yellow-300">Input</span>.GetKey("space"))</div>
+                      <div class="ml-12 text-yellow-300">Jump();</div>
+                      <div class="text-gray-400 ml-4">}</div>
+                      <div class="text-gray-400">}</div>
                     </div>
                   </div>
                 </div>
 
-                <!-- Play Controls -->
-                <div class="flex items-center justify-center gap-2 bg-gray-700 rounded p-2">
-                  <button class="w-6 h-6 bg-green-500 rounded flex items-center justify-center text-white text-xs">▶</button>
-                  <button class="w-6 h-6 bg-gray-600 rounded flex items-center justify-center text-white text-xs">⏸</button>
-                  <button class="w-6 h-6 bg-red-500 rounded flex items-center justify-center text-white text-xs">⏹</button>
-                  <div class="text-gray-300 text-xs ml-2">Playing</div>
+                <!-- Game Assets Manager -->
+                <div class="bg-gradient-to-br from-blue-50 to-purple-50 w-56 h-48 rounded-lg shadow-lg border border-blue-200">
+                  <div class="bg-gradient-to-r from-blue-500 to-purple-600 px-3 py-2 rounded-t-lg flex items-center gap-2">
+                    <div class="w-2 h-2 bg-white rounded-full opacity-80"></div>
+                    <div class="text-xs text-white font-medium">Assets Manager</div>
+                  </div>
+
+                  <div class="p-4">
+                    <!-- Asset Categories -->
+                    <div class="space-y-2">
+                      <div class="flex items-center gap-2 p-2 bg-white rounded border border-blue-200 shadow-sm">
+                        <div class="w-4 h-4 bg-gradient-to-br from-red-400 to-red-600 rounded"></div>
+                        <span class="text-xs text-gray-700">Sprites</span>
+                        <span class="text-xs text-gray-500 ml-auto">48</span>
+                      </div>
+
+                      <div class="flex items-center gap-2 p-2 bg-white rounded border border-green-200 shadow-sm">
+                        <div class="w-4 h-4 bg-gradient-to-br from-green-400 to-green-600 rounded"></div>
+                        <span class="text-xs text-gray-700">Audio</span>
+                        <span class="text-xs text-gray-500 ml-auto">24</span>
+                      </div>
+
+                      <div class="flex items-center gap-2 p-2 bg-white rounded border border-purple-200 shadow-sm">
+                        <div class="w-4 h-4 bg-gradient-to-br from-purple-400 to-purple-600 rounded"></div>
+                        <span class="text-xs text-gray-700">Scripts</span>
+                        <span class="text-xs text-gray-500 ml-auto">16</span>
+                      </div>
+
+                      <div class="flex items-center gap-2 p-2 bg-white rounded border border-orange-200 shadow-sm">
+                        <div class="w-4 h-4 bg-gradient-to-br from-orange-400 to-orange-600 rounded"></div>
+                        <span class="text-xs text-gray-700">Animations</span>
+                        <span class="text-xs text-gray-500 ml-auto">32</span>
+                      </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="mt-3 pt-3 border-t border-gray-200">
+                      <div class="grid grid-cols-2 gap-2">
+                        <button class="bg-blue-500 hover:bg-blue-600 text-white text-xs py-1 px-2 rounded transition-colors">Build</button>
+                        <button class="bg-green-500 hover:bg-green-600 text-white text-xs py-1 px-2 rounded transition-colors">Play</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Floating Tech Elements -->
+              <div class="absolute -top-6 left-16 code-scroll">
+                <div class="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-3 py-2 rounded-lg text-xs font-medium shadow-lg">
+                  <div>🎮 Unity</div>
+                </div>
+              </div>
+
+              <div class="absolute -bottom-12 right-12 code-scroll" style="animation-delay: -1.5s">
+                <div class="bg-gradient-to-r from-green-500 to-cyan-600 text-white px-3 py-2 rounded-lg text-xs font-medium shadow-lg">
+                  <div>🎯 C#</div>
+                </div>
+              </div>
+
+              <div class="absolute top-4 -right-12 code-scroll" style="animation-delay: -0.8s">
+                <div class="bg-gradient-to-r from-orange-500 to-red-600 text-white px-3 py-2 rounded-lg text-xs font-medium shadow-lg">
+                  <div>🚀 Deploy</div>
                 </div>
               </div>
             </div>
-
-            <!-- Game Assets - Left Side -->
-            <div class="absolute -left-16 top-8 space-y-4">
-              <div class="game-element bg-white rounded-xl shadow-lg p-3 w-16 h-16 flex items-center justify-center">
-                <div class="text-2xl">🎮</div>
-              </div>
-              <div class="game-element bg-white rounded-xl shadow-lg p-3 w-16 h-16 flex items-center justify-center" style="animation-delay: 0.5s">
-                <div class="text-2xl">🏆</div>
-              </div>
-              <div class="game-element bg-white rounded-xl shadow-lg p-3 w-16 h-16 flex items-center justify-center" style="animation-delay: 1s">
-                <div class="text-2xl">⚔️</div>
-              </div>
-            </div>
-
-            <!-- Code Scripts - Right Side -->
-            <div class="absolute -right-16 top-8 space-y-4">
-              <div class="game-element bg-gray-800 text-white rounded-xl shadow-lg p-2 w-20 h-16 text-xs">
-                <div class="text-green-400 mb-1">Player.cs</div>
-                <div class="text-gray-300">void Jump()</div>
-                <div class="text-blue-400">{ }</div>
-              </div>
-              <div class="game-element bg-gray-800 text-white rounded-xl shadow-lg p-2 w-20 h-16 text-xs" style="animation-delay: 0.7s">
-                <div class="text-yellow-400 mb-1">Enemy.cs</div>
-                <div class="text-gray-300">void Move()</div>
-                <div class="text-blue-400">{ }</div>
-              </div>
-              <div class="game-element bg-gray-800 text-white rounded-xl shadow-lg p-2 w-20 h-16 text-xs" style="animation-delay: 1.2s">
-                <div class="text-purple-400 mb-1">UI.cs</div>
-                <div class="text-gray-300">UpdateScore()</div>
-                <div class="text-blue-400">{ }</div>
-              </div>
-            </div>
-
-            <!-- Game Controllers - Bottom Left -->
-            <div class="absolute -bottom-8 -left-8 bg-white rounded-xl shadow-lg p-3 float-animation" style="animation-delay: 1.5s">
-              <div class="grid grid-cols-3 gap-1">
-                <div class="w-4 h-4 bg-gray-300 rounded"></div>
-                <div class="w-4 h-4 bg-blue-500 rounded"></div>
-                <div class="w-4 h-4 bg-gray-300 rounded"></div>
-                <div class="w-4 h-4 bg-green-500 rounded"></div>
-                <div class="w-4 h-4 bg-gray-300 rounded"></div>
-                <div class="w-4 h-4 bg-red-500 rounded"></div>
-              </div>
-            </div>
-
-            <!-- Performance Stats - Bottom Right -->
-            <div class="absolute -bottom-8 -right-8 bg-gray-800 text-white rounded-xl shadow-lg p-2 w-20 h-16 float-animation text-xs" style="animation-delay: 2s">
-              <div class="text-green-400">FPS: 60</div>
-              <div class="text-blue-400">RAM: 512MB</div>
-              <div class="text-yellow-400">GPU: 45%</div>
-            </div>
-          </div>
-
-          <!-- Floating Background -->
-          <div class="absolute -z-10 inset-0 flex items-center justify-center">
-            <div class="w-96 h-96 bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 rounded-full opacity-30 blur-3xl"></div>
           </div>
         </div>
       </div>
-    </section>
-
-    <!-- Floating Elements -->
-    <div class="fixed top-20 right-10 opacity-20 pointer-events-none">
-      <div class="w-32 h-32 bg-gradient-to-br from-blue-400 to-purple-600 rounded-full blur-xl animate-pulse"></div>
-    </div>
-
-    <div class="fixed bottom-20 left-10 opacity-20 pointer-events-none">
-      <div class="w-24 h-24 bg-gradient-to-br from-green-400 to-blue-500 rounded-full blur-xl animate-pulse" style="animation-delay: 2s"></div>
     </div>
 
     <script>
-      // Add scroll reveal animation
-      window.addEventListener("scroll", () => {
-        const elements = document.querySelectorAll(".animate-slide-in-left, .animate-slide-in-right");
-        elements.forEach((el) => {
-          const elementTop = el.getBoundingClientRect().top;
-          const elementVisible = 150;
+      // Auto-sliding testimonial slider
+      const slider = document.getElementById("testimonial-slider");
+      const slides = document.querySelectorAll(".testimonial-slide");
+      const indicators = document.querySelectorAll(".indicator");
+      let currentIndex = 0;
 
-          if (elementTop < window.innerHeight - elementVisible) {
-            el.style.opacity = "1";
-            el.style.transform = "translateX(0)";
-          }
+      function showSlide(index) {
+        slider.style.transform = `translateX(-${index * 100}%)`;
+        indicators.forEach((ind, i) => {
+          ind.classList.toggle("bg-blue-500", i === index);
+          ind.classList.toggle("bg-gray-300", i !== index);
         });
-      });
+      }
 
-      // Typing animation restart
-      setInterval(() => {
-        const typingElement = document.querySelector(".typing-animation");
-        typingElement.style.animation = "none";
-        setTimeout(() => {
-          typingElement.style.animation = "typing 3s steps(40, end), blink 0.75s step-end infinite";
-        }, 100);
-      }, 6000);
+      function nextSlide() {
+        currentIndex = (currentIndex + 1) % slides.length;
+        showSlide(currentIndex);
+      }
 
-      // Add floating animation to game elements
-      document.querySelectorAll(".game-element").forEach((element, index) => {
-        element.style.animationDelay = `${index * 0.5}s`;
-        element.classList.add("float-animation");
+      setInterval(nextSlide, 4000); // Change slide every 4 seconds
+      showSlide(currentIndex);
+
+      // Add interactive hover effects for development tools
+      document.querySelectorAll(".bg-gray-800, .bg-white, .bg-gradient-to-br").forEach((element) => {
+        if (element.classList.contains("w-56") || element.classList.contains("w-80")) {
+          element.addEventListener("mouseenter", function () {
+            this.style.transform = "scale(1.02) translateY(-3px)";
+            this.style.transition = "all 0.3s ease";
+          });
+
+          element.addEventListener("mouseleave", function () {
+            this.style.transform = "scale(1) translateY(0)";
+          });
+        }
       });
     </script>
   </body>

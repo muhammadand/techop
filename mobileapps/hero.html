@@ -1,25 +1,50 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TechOp.id - Penyedia Jasa Aplikasi Sesuai Kebutuhan</title>
+    <title>TechOp.id - Solusi Mobile App Terpercaya</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-      /* Gradient text */
-      .gradient-text {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+      /* Custom animations */
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-15px);
+        }
       }
 
-      /* Typing animation */
-      .typing-animation {
-        border-right: 2px solid #667eea;
-        white-space: nowrap;
-        overflow: hidden;
-        animation: typing 3s steps(40, end), blink 0.75s step-end infinite;
+      @keyframes pulse-glow {
+        0%,
+        100% {
+          box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+        }
+        50% {
+          box-shadow: 0 0 30px rgba(102, 126, 234, 0.6);
+        }
+      }
+
+      @keyframes slide-up {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
       }
 
       @keyframes typing {
@@ -32,383 +57,423 @@
       }
 
       @keyframes blink {
-        from,
-        to {
-          border-color: transparent;
-        }
+        0%,
         50% {
-          border-color: #667eea;
+          opacity: 1;
+        }
+        51%,
+        100% {
+          opacity: 0;
         }
       }
 
-      /* Slide animations */
-      .animate-slide-in-left {
-        opacity: 0;
-        transform: translateX(-50px);
-        transition: all 0.8s ease-out;
-      }
-
-      .animate-slide-in-right {
-        opacity: 0;
-        transform: translateX(50px);
-        transition: all 0.8s ease-out;
-      }
-
-      /* Floating animations */
       .float-animation {
-        animation: float 3s ease-in-out infinite;
+        animation: float 6s ease-in-out infinite;
+      }
+      .pulse-glow {
+        animation: pulse-glow 3s ease-in-out infinite;
+      }
+      .slide-up {
+        animation: slide-up 0.8s ease-out forwards;
+      }
+      .rotate-slow {
+        animation: rotate 20s linear infinite;
+      }
+      .typing-cursor::after {
+        content: "|";
+        animation: blink 1s infinite;
+        color: #3b82f6;
       }
 
-      @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0px);
-        }
-        50% {
-          transform: translateY(-10px);
-        }
+      /* Gradient backgrounds */
+      .gradient-bg {
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
       }
 
-      .pulse-animation {
-        animation: pulse-custom 2s ease-in-out infinite;
+      .card-gradient {
+        background: linear-gradient(145deg, #1e293b, #334155);
       }
 
-      @keyframes pulse-custom {
-        0%,
-        100% {
-          transform: scale(1);
-        }
-        50% {
-          transform: scale(1.05);
-        }
-      }
-
-      /* Code editor styling */
-      .code-editor {
-        background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-        border: 1px solid #475569;
-      }
-
-      /* Dashboard styling */
-      .dashboard-bg {
-        background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-      }
-
+      /* Glass effect */
       .glass-effect {
         background: rgba(255, 255, 255, 0.1);
         backdrop-filter: blur(10px);
         border: 1px solid rgba(255, 255, 255, 0.2);
       }
 
-      /* Mobile app styling */
-      .mobile-app-bg {
-        background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+      /* Custom button hover effects */
+      .btn-primary {
+        background: linear-gradient(135deg, #3b82f6, #667eea);
+        transition: all 0.3s ease;
       }
 
-      /* Auto-reveal animation on load */
-      .animate-slide-in-left,
-      .animate-slide-in-right {
-        animation: slideInReveal 1s ease-out forwards;
+      .btn-primary:hover {
+        background: linear-gradient(135deg, #2563eb, #5b21b6);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
       }
 
-      .animate-slide-in-right {
-        animation-delay: 0.3s;
+      .btn-secondary {
+        transition: all 0.3s ease;
       }
 
-      @keyframes slideInReveal {
-        from {
-          opacity: 0;
-          transform: translateX(-50px);
-        }
-        to {
-          opacity: 1;
-          transform: translateX(0);
-        }
+      .btn-secondary:hover {
+        background: #f1f5f9;
+        transform: translateX(5px);
       }
 
-      .animate-slide-in-right {
-        animation-name: slideInRevealRight;
+      /* Service card animations */
+      .service-card {
+        transition: all 0.3s ease;
       }
 
-      @keyframes slideInRevealRight {
-        from {
-          opacity: 0;
-          transform: translateX(50px);
-        }
-        to {
-          opacity: 1;
-          transform: translateX(0);
-        }
+      .service-card:hover {
+        transform: translateY(-5px) scale(1.05);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Play button pulse */
+      .play-button {
+        animation: pulse-glow 2s ease-in-out infinite;
+      }
+
+      /* Testimonial card styling */
+      .testimonial-card {
+        background: linear-gradient(145deg, #ffffff, #f8fafc);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      }
+
+      /* Gradient text */
+      .gradient-text {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* Technology icons pulse */
+      .tech-pulse {
+        animation: pulse-glow 3s ease-in-out infinite;
       }
     </style>
   </head>
-  <body class="bg-gray-50">
-    <!-- Hero Section -->
-    <section class="flex flex-col md:flex-row items-center justify-between px-6 py-16 max-w-7xl mx-auto overflow-hidden">
-      <!-- Text Area -->
-      <div class="md:w-1/2 space-y-6 animate-slide-in-left">
-        <div class="space-y-2">
-          <h1 class="text-4xl md:text-5xl font-bold">
-            <span class="gradient-text">techop.id</span>
-          </h1>
-          <div class="text-lg text-gray-500 font-mono">
-            <span class="typing-animation">Penyedia Jasa Aplikasi Sesuai Kebutuhan</span>
+  <body class="gradient-bg min-h-screen">
+    <div class="container mx-auto px-6 py-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+        <!-- Left Content Section -->
+        <div class="space-y-8 slide-up">
+          <!-- Main Heading -->
+          <div class="space-y-4">
+            <div class="space-y-2">
+              <h1 class="text-5xl lg:text-6xl font-bold leading-tight">
+                <span class="gradient-text">techop.id</span>
+              </h1>
+              <div class="text-xl text-gray-500 font-mono">
+                <span class="typing-cursor">Solusi Mobile App Terpercaya</span>
+              </div>
+            </div>
+            <p class="text-gray-600 leading-relaxed text-xl">
+              @techop.id adalah penyedia jasa <strong class="text-blue-600">"pembuatan aplikasi mobile"</strong> yang profesional dan berpengalaman. Kami mengembangkan aplikasi iOS dan Android custom sesuai kebutuhan bisnis Anda dengan
+              teknologi terdepan dan kualitas terjamin.
+            </p>
+          </div>
+
+          <!-- CTA Buttons -->
+          <div class="flex flex-col sm:flex-row gap-4">
+            <button class="btn-primary text-white px-6 py-3 rounded-full font-medium flex items-center justify-center gap-2 shadow-lg text-base">
+              📱 Mulai Proyek Mobile
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </button>
+
+            <button class="btn-secondary text-gray-600 px-6 py-3 rounded-full font-medium flex items-center justify-center gap-2 border border-gray-300 text-base">💼 Lihat Portfolio Mobile</button>
+          </div>
+
+          <!-- Stats -->
+          <div class="flex gap-8 pt-6">
+            <div class="text-center">
+              <div class="text-3xl font-bold text-blue-600">150+</div>
+              <div class="text-lg text-gray-500">Aplikasi Mobile</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-bold text-purple-600">24/7</div>
+              <div class="text-lg text-gray-500">Support</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-bold text-green-600">99%</div>
+              <div class="text-lg text-gray-500">Satisfaction</div>
+            </div>
+          </div>
+
+          <!-- Auto-sliding Testimonial Section -->
+          <div class="pt-6 border-t border-gray-200">
+            <div class="relative overflow-hidden h-20">
+              <div id="testimonial-slider" class="flex transition-transform duration-500 ease-in-out">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-slide min-w-full">
+                  <div class="testimonial-card p-4 rounded-xl flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-r from-blue-400 to-purple-500 flex-shrink-0 flex items-center justify-center text-white font-bold">EM</div>
+                    <div>
+                      <p class="text-gray-700 italic text-sm">"App e-commerce kami downloads naik 400%!"</p>
+                      <p class="text-gray-900 font-semibold text-sm">E-commerce Mobile</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-slide min-w-full">
+                  <div class="testimonial-card p-4 rounded-xl flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-r from-green-400 to-blue-500 flex-shrink-0 flex items-center justify-center text-white font-bold">SA</div>
+                    <div>
+                      <p class="text-gray-700 italic text-sm">"App mobile kami trending #1 di App Store!"</p>
+                      <p class="text-gray-900 font-semibold text-sm">Social App</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-slide min-w-full">
+                  <div class="testimonial-card p-4 rounded-xl flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-r from-purple-400 to-pink-500 flex-shrink-0 flex items-center justify-center text-white font-bold">FB</div>
+                    <div>
+                      <p class="text-gray-700 italic text-sm">"App fintech kami sangat aman dan user-friendly!"</p>
+                      <p class="text-gray-900 font-semibold text-sm">Fintech Business</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide indicators -->
+              <div class="flex justify-center gap-2 mt-3">
+                <div class="indicator w-2 h-2 rounded-full bg-blue-500 transition-opacity"></div>
+                <div class="indicator w-2 h-2 rounded-full bg-gray-300 transition-opacity"></div>
+                <div class="indicator w-2 h-2 rounded-full bg-gray-300 transition-opacity"></div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <p class="text-gray-600 leading-relaxed text-lg">Kami menyediakan layanan pembuatan <strong class="text-blue-600">aplikasi kustom</strong> yang efisien, mudah digunakan, dan dapat berkembang sesuai kebutuhan bisnis Anda.</p>
+        <!-- Right Visual Section - Clean Mobile Phones Only -->
+        <div class="relative float-animation">
+          <div class="relative">
+            <div class="h-[500px] flex items-center justify-center relative p-8">
+                <!-- Central Mobile Development Setup -->
+                <div class="relative z-10">
+                  <!-- Main Smartphone - Center Focus - Made Larger -->
+                  <div class="w-48 h-80 bg-gradient-to-b from-slate-900 to-slate-800 rounded-3xl shadow-2xl relative mx-auto">
+                    <!-- Screen with Mobile App -->
+                    <div class="w-44 h-76 bg-gradient-to-br from-slate-900 to-blue-900 rounded-2xl absolute top-2 left-1/2 transform -translate-x-1/2 overflow-hidden">
+                      <!-- Status Bar -->
+                      <div class="flex justify-between items-center p-3 text-white">
+                        <div class="text-sm">9:41</div>
+                        <div class="flex gap-1">
+                          <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                          <div class="w-4 h-2 bg-white rounded-full"></div>
+                        </div>
+                      </div>
 
-        <div class="flex flex-col sm:flex-row gap-4 pt-4">
-          <button class="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full hover:shadow-lg transition-all duration-300 transform hover:scale-105 font-semibold">🚀 Mulai Proyek</button>
-          <button class="px-8 py-3 border-2 border-gray-300 text-gray-700 rounded-full hover:border-blue-500 hover:text-blue-600 transition-all duration-300 font-semibold">📋 Lihat Portfolio</button>
-        </div>
+                      <!-- App Interface -->
+                      <div class="p-4 space-y-3">
+                        <!-- Header -->
+                        <div class="flex items-center gap-3">
+                          <div class="w-8 h-8 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full flex items-center justify-center">
+                            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                              <path d="M10 12l-4-4 1.41-1.41L10 9.17l2.59-2.58L14 8l-4 4z" />
+                            </svg>
+                          </div>
+                          <div>
+                            <div class="w-16 h-2 bg-white rounded"></div>
+                            <div class="w-12 h-1 bg-gray-300 rounded mt-1"></div>
+                          </div>
+                        </div>
 
-        <!-- Stats -->
-        <div class="flex gap-8 pt-6">
-          <div class="text-center">
-            <div class="text-2xl font-bold text-blue-600">100+</div>
-            <div class="text-sm text-gray-500">Proyek Selesai</div>
-          </div>
-          <div class="text-center">
-            <div class="text-2xl font-bold text-purple-600">24/7</div>
-            <div class="text-sm text-gray-500">Support</div>
-          </div>
-          <div class="text-center">
-            <div class="text-2xl font-bold text-green-600">99%</div>
-            <div class="text-sm text-gray-500">Satisfaction</div>
+                        <!-- Feature Cards -->
+                        <div class="grid grid-cols-2 gap-2">
+                          <div class="h-12 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                              <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z" />
+                            </svg>
+                          </div>
+                          <div class="h-12 bg-gradient-to-br from-green-400 to-emerald-500 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                          </div>
+                          <div class="h-12 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                              <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z" />
+                            </svg>
+                          </div>
+                          <div class="h-12 bg-gradient-to-br from-purple-400 to-pink-500 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                              <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                              <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                            </svg>
+                          </div>
+                        </div>
+
+                        <!-- List Items -->
+                        <div class="space-y-2">
+                          <div class="flex items-center gap-3 bg-white/10 rounded-lg p-2">
+                            <div class="w-4 h-4 bg-red-400 rounded-full"></div>
+                            <div class="flex-1 space-y-1">
+                              <div class="w-20 h-1 bg-white rounded"></div>
+                              <div class="w-16 h-1 bg-gray-300 rounded"></div>
+                            </div>
+                          </div>
+                          <div class="flex items-center gap-3 bg-white/10 rounded-lg p-2">
+                            <div class="w-4 h-4 bg-blue-400 rounded-full"></div>
+                            <div class="flex-1 space-y-1">
+                              <div class="w-24 h-1 bg-white rounded"></div>
+                              <div class="w-14 h-1 bg-gray-300 rounded"></div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Bottom Navigation -->
+                        <div class="absolute bottom-3 left-3 right-3 bg-white/20 rounded-full p-2 flex justify-between">
+                          <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+                            <div class="w-4 h-4 bg-white rounded"></div>
+                          </div>
+                          <div class="w-8 h-8 rounded-full flex items-center justify-center">
+                            <div class="w-4 h-4 bg-gray-400 rounded"></div>
+                          </div>
+                          <div class="w-8 h-8 rounded-full flex items-center justify-center">
+                            <div class="w-4 h-4 bg-gray-400 rounded"></div>
+                          </div>
+                          <div class="w-8 h-8 rounded-full flex items-center justify-center">
+                            <div class="w-4 h-4 bg-gray-400 rounded"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Home indicator -->
+                    <div class="w-12 h-1 bg-slate-600 absolute bottom-2 left-1/2 transform -translate-x-1/2 rounded-full"></div>
+                  </div>
+
+                  <!-- Second Phone - E-commerce App - Made Larger -->
+                  <div class="absolute -left-28 top-16 w-36 h-64 bg-gradient-to-b from-slate-800 to-slate-900 rounded-3xl shadow-xl">
+                    <div class="w-32 h-60 bg-gradient-to-br from-pink-50 to-purple-50 rounded-2xl absolute top-2 left-2 overflow-hidden">
+                      <!-- E-commerce app interface -->
+                      <div class="p-3">
+                        <!-- Header with search -->
+                        <div class="flex items-center gap-2 mb-3">
+                          <div class="flex-1 h-2 bg-gray-200 rounded-full"></div>
+                          <div class="w-4 h-4 bg-gradient-to-r from-pink-400 to-red-500 rounded-full"></div>
+                        </div>
+
+                        <!-- Product grid -->
+                        <div class="grid grid-cols-2 gap-2">
+                          <div class="space-y-1">
+                            <div class="h-8 bg-gradient-to-br from-blue-200 to-blue-300 rounded border"></div>
+                            <div class="w-12 h-1 bg-gray-400 rounded"></div>
+                            <div class="w-8 h-1 bg-green-500 rounded"></div>
+                          </div>
+                          <div class="space-y-1">
+                            <div class="h-8 bg-gradient-to-br from-purple-200 to-purple-300 rounded border"></div>
+                            <div class="w-10 h-1 bg-gray-400 rounded"></div>
+                            <div class="w-6 h-1 bg-green-500 rounded"></div>
+                          </div>
+                          <div class="space-y-1">
+                            <div class="h-8 bg-gradient-to-br from-yellow-200 to-yellow-300 rounded border"></div>
+                            <div class="w-14 h-1 bg-gray-400 rounded"></div>
+                            <div class="w-5 h-1 bg-green-500 rounded"></div>
+                          </div>
+                          <div class="space-y-1">
+                            <div class="h-8 bg-gradient-to-br from-green-200 to-green-300 rounded border"></div>
+                            <div class="w-9 h-1 bg-gray-400 rounded"></div>
+                            <div class="w-11 h-1 bg-green-500 rounded"></div>
+                          </div>
+                        </div>
+
+                        <!-- Shopping cart -->
+                        <div class="absolute bottom-3 right-3 w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
+                          <div class="w-2 h-2 bg-white rounded-full"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Third Phone - Social Media App - Made Larger -->
+                  <div class="absolute -right-24 top-24 w-32 h-56 bg-gradient-to-b from-slate-900 to-slate-700 rounded-3xl shadow-xl">
+                    <div class="w-28 h-52 bg-gradient-to-br from-indigo-50 to-blue-50 rounded-2xl absolute top-2 left-2 overflow-hidden">
+                      <!-- Social media interface -->
+                      <div class="p-2 space-y-2">
+                        <!-- Stories -->
+                        <div class="flex gap-1">
+                          <div class="w-6 h-6 bg-gradient-to-r from-pink-400 to-purple-500 rounded-full border-2 border-white"></div>
+                          <div class="w-6 h-6 bg-gradient-to-r from-blue-400 to-green-400 rounded-full border-2 border-white"></div>
+                          <div class="w-6 h-6 bg-gradient-to-r from-yellow-400 to-red-400 rounded-full border-2 border-white"></div>
+                        </div>
+
+                        <!-- Post 1 -->
+                        <div class="bg-white rounded border border-gray-200">
+                          <div class="p-2">
+                            <!-- Post header -->
+                            <div class="flex items-center gap-2 mb-1">
+                              <div class="w-3 h-3 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full"></div>
+                              <div class="flex-1 space-y-1">
+                                <div class="w-8 h-1 bg-gray-600 rounded"></div>
+                                <div class="w-6 h-1 bg-gray-400 rounded"></div>
+                              </div>
+                            </div>
+                            <!-- Post image -->
+                            <div class="w-full h-8 bg-gradient-to-br from-blue-300 to-purple-400 rounded mb-1"></div>
+                            <!-- Post actions -->
+                            <div class="flex gap-1">
+                              <div class="w-3 h-3 bg-red-400 rounded"></div>
+                              <div class="w-3 h-3 bg-blue-400 rounded"></div>
+                              <div class="w-3 h-3 bg-green-400 rounded"></div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Post 2 -->
+                        <div class="bg-white rounded border border-gray-200">
+                          <div class="p-2">
+                            <div class="flex items-center gap-2 mb-1">
+                              <div class="w-3 h-3 bg-gradient-to-r from-green-400 to-blue-500 rounded-full"></div>
+                              <div class="flex-1 space-y-1">
+                                <div class="w-10 h-1 bg-gray-600 rounded"></div>
+                                <div class="w-4 h-1 bg-gray-400 rounded"></div>
+                              </div>
+                            </div>
+                            <div class="w-full h-6 bg-gradient-to-br from-green-300 to-teal-400 rounded"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
-      <!-- Visual Area -->
-      <div class="w-full max-w-4xl mx-auto">
-        <div class="md:w-full flex items-center justify-center animate-slide-in-right relative phone-container">
-          <!-- Phone Group Container -->
-          <div class="relative w-full max-w-2xl h-80 flex items-center justify-center">
-            <!-- Phone 1 - Back Left (E-commerce App) -->
-            <div class="absolute -left-8 top-6 transform rotate-6 scale-75 opacity-70 hover:opacity-90 transition-all duration-300">
-              <div class="relative">
-                <!-- Phone Frame -->
-                <div class="bg-gray-900 rounded-[2rem] w-40 h-72 p-2 shadow-2xl">
-                  <!-- Screen -->
-                  <div class="bg-white rounded-[1.5rem] h-full w-full overflow-hidden relative">
-                    <!-- Notch -->
-                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 bg-gray-900 rounded-b-lg w-20 h-4 z-10"></div>
-
-                    <!-- Status Bar -->
-                    <div class="pt-6 px-3 pb-2 bg-gradient-to-b from-gray-50 to-white">
-                      <div class="flex justify-between items-center text-xs">
-                        <span class="font-medium">9:41</span>
-                        <div class="flex items-center space-x-1">
-                          <div class="w-3 h-1.5 border border-gray-400 rounded-sm">
-                            <div class="w-2 h-0.5 bg-green-500 rounded-sm m-0.5"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <!-- App Content -->
-                    <div class="px-3 pb-3 h-full">
-                      <!-- Header -->
-                      <div class="bg-gradient-to-r from-pink-500 to-red-500 rounded-xl p-3 mb-3 text-center shadow-lg">
-                        <h2 class="text-white font-bold text-sm">ShopApp</h2>
-                        <p class="text-pink-100 text-xs">Your Shopping</p>
-                      </div>
-
-                      <!-- Product Grid -->
-                      <div class="grid grid-cols-2 gap-2 mb-3">
-                        <div class="bg-pink-50 rounded-lg p-2 border border-pink-100">
-                          <div class="w-full h-8 bg-pink-200 rounded-md mb-1"></div>
-                          <div class="text-xs text-pink-800 font-medium">Product 1</div>
-                          <div class="text-xs text-pink-600">$29.99</div>
-                        </div>
-                        <div class="bg-rose-50 rounded-lg p-2 border border-rose-100">
-                          <div class="w-full h-8 bg-rose-200 rounded-md mb-1"></div>
-                          <div class="text-xs text-rose-800 font-medium">Product 2</div>
-                          <div class="text-xs text-rose-600">$39.99</div>
-                        </div>
-                      </div>
-
-                      <!-- Action Button -->
-                      <button class="w-full bg-gradient-to-r from-pink-500 to-red-500 text-white py-2 rounded-lg font-semibold text-xs shadow-lg">🛒 Add to Cart</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Phone 2 - Center Front (Main TechOp App) -->
-            <div class="relative z-20 float-animation">
-              <div class="relative">
-                <!-- Phone Frame -->
-                <div class="bg-gray-900 rounded-[2.5rem] w-48 h-80 p-2.5 shadow-2xl">
-                  <!-- Screen -->
-                  <div class="bg-white rounded-[2rem] h-full w-full overflow-hidden relative">
-                    <!-- Notch -->
-                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 bg-gray-900 rounded-b-xl w-24 h-5 z-10"></div>
-
-                    <!-- Status Bar -->
-                    <div class="pt-7 px-4 pb-2 bg-gradient-to-b from-gray-50 to-white">
-                      <div class="flex justify-between items-center text-sm">
-                        <span class="font-semibold">9:41</span>
-                        <div class="flex items-center space-x-1">
-                          <div class="w-4 h-2 border-2 border-gray-400 rounded-sm">
-                            <div class="w-3 h-1 bg-green-500 rounded-sm m-0.5"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <!-- App Content -->
-                    <div class="px-4 pb-4 h-full">
-                      <!-- Header -->
-                      <div class="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-4 mb-4 text-center shadow-xl">
-                        <h1 class="text-white font-bold text-lg mb-1">TechOp</h1>
-                        <p class="text-blue-100 text-xs">Custom App Solutions</p>
-                      </div>
-
-                      <!-- Services Grid -->
-                      <div class="space-y-2 mb-4">
-                        <div class="bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl p-2.5 border border-blue-200">
-                          <div class="flex items-center">
-                            <div class="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
-                            <span class="text-blue-800 font-medium text-xs">Custom Development</span>
-                          </div>
-                        </div>
-
-                        <div class="bg-gradient-to-r from-purple-50 to-purple-100 rounded-xl p-2.5 border border-purple-200">
-                          <div class="flex items-center">
-                            <div class="w-2 h-2 bg-purple-500 rounded-full mr-2"></div>
-                            <span class="text-purple-800 font-medium text-xs">Scalable Solutions</span>
-                          </div>
-                        </div>
-
-                        <div class="bg-gradient-to-r from-green-50 to-green-100 rounded-xl p-2.5 border border-green-200">
-                          <div class="flex items-center">
-                            <div class="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
-                            <span class="text-green-800 font-medium text-xs">Fast Delivery</span>
-                          </div>
-                        </div>
-                      </div>
-
-                      <!-- Stats -->
-                      <div class="bg-gray-50 rounded-xl p-3 mb-4">
-                        <div class="grid grid-cols-2 gap-3 text-center">
-                          <div>
-                            <div class="text-lg font-bold text-blue-600">100+</div>
-                            <div class="text-xs text-gray-600">Projects</div>
-                          </div>
-                          <div>
-                            <div class="text-lg font-bold text-green-600">99%</div>
-                            <div class="text-xs text-gray-600">Success</div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <!-- CTA Button -->
-                      <button class="w-full bg-gradient-to-r from-green-500 to-blue-500 text-white py-2.5 rounded-xl font-bold text-xs shadow-xl">🚀 Start Project</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Phone 3 - Back Right (Finance App) -->
-            <div class="absolute -right-8 top-6 transform -rotate-6 scale-75 opacity-70 hover:opacity-90 transition-all duration-300 float-animation" style="animation-delay: 1.5s">
-              <div class="relative">
-                <!-- Phone Frame -->
-                <div class="bg-gray-900 rounded-[2rem] w-40 h-72 p-2 shadow-2xl">
-                  <!-- Screen -->
-                  <div class="bg-white rounded-[1.5rem] h-full w-full overflow-hidden relative">
-                    <!-- Notch -->
-                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 bg-gray-900 rounded-b-lg w-20 h-4 z-10"></div>
-
-                    <!-- Status Bar -->
-                    <div class="pt-6 px-3 pb-2 bg-gradient-to-b from-gray-50 to-white">
-                      <div class="flex justify-between items-center text-xs">
-                        <span class="font-medium">9:41</span>
-                        <div class="flex items-center space-x-1">
-                          <div class="w-3 h-1.5 border border-gray-400 rounded-sm">
-                            <div class="w-2 h-0.5 bg-green-500 rounded-sm m-0.5"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <!-- App Content -->
-                    <div class="px-3 pb-3 h-full">
-                      <!-- Header -->
-                      <div class="bg-gradient-to-r from-emerald-500 to-teal-500 rounded-xl p-3 mb-3 text-center shadow-lg">
-                        <h2 class="text-white font-bold text-sm">FinanceApp</h2>
-                        <p class="text-emerald-100 text-xs">Manage Money</p>
-                      </div>
-
-                      <!-- Balance Card -->
-                      <div class="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-lg p-3 mb-3 border border-emerald-200">
-                        <div class="text-emerald-600 text-xs mb-1">Balance</div>
-                        <div class="text-emerald-800 text-sm font-bold">$12,450</div>
-                      </div>
-
-                      <!-- Chart -->
-                      <div class="bg-white rounded-lg p-2 mb-3 border border-gray-200">
-                        <div class="flex items-end justify-between h-8 gap-1">
-                          <div class="bg-emerald-400 rounded-sm w-2 h-4"></div>
-                          <div class="bg-teal-400 rounded-sm w-2 h-6"></div>
-                          <div class="bg-emerald-400 rounded-sm w-2 h-3"></div>
-                          <div class="bg-teal-400 rounded-sm w-2 h-7"></div>
-                          <div class="bg-emerald-400 rounded-sm w-2 h-5"></div>
-                        </div>
-                      </div>
-
-                      <!-- Action Button -->
-                      <button class="w-full bg-gradient-to-r from-emerald-500 to-teal-500 text-white py-2 rounded-lg font-semibold text-xs shadow-lg">💰 Transfer</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Floating Background -->
-          <div class="absolute -z-10 inset-0 flex items-center justify-center">
-            <div class="w-96 h-96 bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 rounded-full opacity-30 blur-3xl"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Floating Elements -->
-    <div class="fixed top-20 right-10 opacity-20 pointer-events-none">
-      <div class="w-32 h-32 bg-gradient-to-br from-blue-400 to-purple-600 rounded-full blur-xl animate-pulse"></div>
     </div>
-
-    <div class="fixed bottom-20 left-10 opacity-20 pointer-events-none">
-      <div class="w-24 h-24 bg-gradient-to-br from-green-400 to-blue-500 rounded-full blur-xl animate-pulse" style="animation-delay: 2s"></div>
-    </div>
-
     <script>
-      // Add scroll reveal animation
-      window.addEventListener("scroll", () => {
-        const elements = document.querySelectorAll(".animate-slide-in-left, .animate-slide-in-right");
-        elements.forEach((el) => {
-          const elementTop = el.getBoundingClientRect().top;
-          const elementVisible = 150;
+      // Auto-sliding testimonial slider
+      const slider = document.getElementById("testimonial-slider");
+      const slides = document.querySelectorAll(".testimonial-slide");
+      const indicators = document.querySelectorAll(".indicator");
+      let currentIndex = 0;
 
-          if (elementTop < window.innerHeight - elementVisible) {
-            el.style.opacity = "1";
-            el.style.transform = "translateX(0)";
-          }
+      function showSlide(index) {
+        slider.style.transform = `translateX(-${index * 100}%)`;
+        indicators.forEach((ind, i) => {
+          ind.classList.toggle("bg-blue-500", i === index);
+          ind.classList.toggle("bg-gray-300", i !== index);
         });
-      });
+      }
 
-      // Typing animation restart
-      setInterval(() => {
-        const typingElement = document.querySelector(".typing-animation");
-        typingElement.style.animation = "none";
-        setTimeout(() => {
-          typingElement.style.animation = "typing 3s steps(40, end), blink 0.75s step-end infinite";
-        }, 100);
-      }, 6000);
+      function nextSlide() {
+        currentIndex = (currentIndex + 1) % slides.length;
+        showSlide(currentIndex);
+      }
+
+      setInterval(nextSlide, 4000); // Change slide every 4 seconds
+      showSlide(currentIndex);
     </script>
   </body>
 </html>
