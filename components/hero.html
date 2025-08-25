@@ -113,242 +113,266 @@
         -webkit-text-fill-color: transparent;
         background-clip: text;
       }
+
+      /* Mobile responsive fixes */
+      @media (max-width: 768px) {
+        .service-cards-mobile {
+          position: relative;
+          left: 0;
+          top: 0;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: 0.75rem;
+        }
+
+        .visual-section-mobile {
+          order: -1;
+          margin-bottom: 2rem;
+        }
+
+        .play-button-mobile {
+          position: relative;
+          right: 0;
+          top: 0;
+          margin: 1rem auto;
+        }
+      }
     </style>
   </head>
   <body class="gradient-bg min-h-screen">
-    <div class="container mx-auto px-6 py-8">
-      <div class="grid lg:grid-cols-2 gap-8 items-center max-w-6xl mx-auto">
+    <div class="container mx-auto px-4 sm:px-6 py-4 sm:py-8">
+      <div class="flex flex-col lg:grid lg:grid-cols-2 gap-6 lg:gap-8 items-center max-w-6xl mx-auto">
         <!-- Left Content Section -->
-        <div class="space-y-6 slide-up">
+        <div class="w-full space-y-6 slide-up order-2 lg:order-1">
           <!-- Main Heading -->
-          <div class="space-y-3">
-            <div class="space-y-1">
-              <h1 class="text-4xl lg:text-5xl font-bold leading-tight">
+          <div class="space-y-4">
+            <div class="space-y-2">
+              <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
                 <span class="gradient-text">techop.id</span>
               </h1>
-              <div class="text-lg text-gray-500 font-mono">
+              <div class="text-base sm:text-lg text-gray-500 font-mono">
                 <span class="typing-animation">Solusi Digital Terpercaya</span>
               </div>
             </div>
-            <p class="text-gray-600 leading-relaxed text-lg">
+            <p class="text-gray-600 leading-relaxed text-base sm:text-lg">
               @techop.id adalah penyedia jasa <strong class="text-blue-600">"digital solutions"</strong> yang profesional dan cepat. Kami menawarkan bantuan untuk mengerjakan berbagai proyek teknologi dengan hasil yang berkualitas dan tepat
               waktu.
             </p>
           </div>
 
           <!-- CTA Buttons -->
-          <div class="flex flex-col sm:flex-row gap-3">
-            <button class="btn-primary text-white px-6 py-3 rounded-full font-semibold flex items-center justify-center gap-2 shadow-lg text-sm">
+          <div class="flex flex-col sm:flex-row gap-3 w-full">
+            <button class="btn-primary text-white px-6 py-3 rounded-full font-semibold flex items-center justify-center gap-2 shadow-lg text-sm w-full sm:w-auto">
               🚀 Mulai Proyek
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
               </svg>
             </button>
 
-            <button class="btn-secondary text-gray-600 px-6 py-3 rounded-full font-semibold flex items-center justify-center gap-2 border border-gray-300 text-sm">📋 Lihat Portfolio</button>
+            <button class="btn-secondary text-gray-600 px-6 py-3 rounded-full font-semibold flex items-center justify-center gap-2 border border-gray-300 text-sm w-full sm:w-auto">📋 Lihat Portfolio</button>
           </div>
 
           <!-- Stats -->
-          <div class="flex gap-6 pt-4">
+          <div class="grid grid-cols-3 gap-4 pt-4">
             <div class="text-center">
-              <div class="text-2xl font-bold text-blue-600">100+</div>
-              <div class="text-sm text-gray-500">Proyek Selesai</div>
+              <div class="text-xl sm:text-2xl font-bold text-blue-600">100+</div>
+              <div class="text-xs sm:text-sm text-gray-500">Proyek Selesai</div>
             </div>
             <div class="text-center">
-              <div class="text-2xl font-bold text-purple-600">24/7</div>
-              <div class="text-sm text-gray-500">Support</div>
+              <div class="text-xl sm:text-2xl font-bold text-purple-600">24/7</div>
+              <div class="text-xs sm:text-sm text-gray-500">Support</div>
             </div>
             <div class="text-center">
-              <div class="text-2xl font-bold text-green-600">99%</div>
-              <div class="text-sm text-gray-500">Satisfaction</div>
+              <div class="text-xl sm:text-2xl font-bold text-green-600">99%</div>
+              <div class="text-xs sm:text-sm text-gray-500">Satisfaction</div>
             </div>
           </div>
 
           <!-- Auto-sliding Testimonial Section -->
           <div class="pt-4 border-t border-gray-200">
-            <div class="relative overflow-hidden h-16">
+            <div class="relative overflow-hidden">
               <div id="testimonial-slider" class="flex transition-transform duration-500 ease-in-out">
                 <!-- Testimonial 1 -->
                 <div class="testimonial-slide min-w-full">
-                  <div class="testimonial-card p-3 rounded-xl flex items-center gap-3">
-                    <div class="w-8 h-8 rounded-full bg-gradient-to-r from-blue-400 to-purple-500 flex-shrink-0 flex items-center justify-center text-white font-bold text-xs">TO</div>
-                    <div>
-                      <p class="text-gray-700 italic text-sm">"Aplikasi yang dibuat sangat sesuai kebutuhan bisnis kami!"</p>
-                      <p class="text-gray-900 font-semibold text-xs">Tech Startup</p>
+                  <div class="testimonial-card p-3 sm:p-4 rounded-xl flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-r from-blue-400 to-purple-500 flex-shrink-0 flex items-center justify-center text-white font-bold text-xs">TO</div>
+                    <div class="min-w-0 flex-1">
+                      <p class="text-gray-700 italic text-sm leading-relaxed">"Aplikasi yang dibuat sangat sesuai kebutuhan bisnis kami!"</p>
+                      <p class="text-gray-900 font-semibold text-xs mt-1">Tech Startup</p>
                     </div>
                   </div>
                 </div>
 
                 <!-- Testimonial 2 -->
                 <div class="testimonial-slide min-w-full">
-                  <div class="testimonial-card p-3 rounded-xl flex items-center gap-3">
-                    <div class="w-8 h-8 rounded-full bg-gradient-to-r from-green-400 to-blue-500 flex-shrink-0 flex items-center justify-center text-white font-bold text-xs">SM</div>
-                    <div>
-                      <p class="text-gray-700 italic text-sm">"Tim yang responsif dan hasil berkualitas tinggi."</p>
-                      <p class="text-gray-900 font-semibold text-xs">Small Business</p>
+                  <div class="testimonial-card p-3 sm:p-4 rounded-xl flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-r from-green-400 to-blue-500 flex-shrink-0 flex items-center justify-center text-white font-bold text-xs">SM</div>
+                    <div class="min-w-0 flex-1">
+                      <p class="text-gray-700 italic text-sm leading-relaxed">"Tim yang responsif dan hasil berkualitas tinggi."</p>
+                      <p class="text-gray-900 font-semibold text-xs mt-1">Small Business</p>
                     </div>
                   </div>
                 </div>
 
                 <!-- Testimonial 3 -->
                 <div class="testimonial-slide min-w-full">
-                  <div class="testimonial-card p-3 rounded-xl flex items-center gap-3">
-                    <div class="w-8 h-8 rounded-full bg-gradient-to-r from-purple-400 to-pink-500 flex-shrink-0 flex items-center justify-center text-white font-bold text-xs">EC</div>
-                    <div>
-                      <p class="text-gray-700 italic text-sm">"Proses development cepat dan komunikasi lancar."</p>
-                      <p class="text-gray-900 font-semibold text-xs">E-commerce</p>
+                  <div class="testimonial-card p-3 sm:p-4 rounded-xl flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-r from-purple-400 to-pink-500 flex-shrink-0 flex items-center justify-center text-white font-bold text-xs">EC</div>
+                    <div class="min-w-0 flex-1">
+                      <p class="text-gray-700 italic text-sm leading-relaxed">"Proses development cepat dan komunikasi lancar."</p>
+                      <p class="text-gray-900 font-semibold text-xs mt-1">E-commerce</p>
                     </div>
                   </div>
                 </div>
               </div>
 
               <!-- Slide indicators -->
-              <div class="flex justify-center gap-1 mt-2">
-                <div class="indicator w-1.5 h-1.5 rounded-full bg-blue-500 transition-opacity"></div>
-                <div class="indicator w-1.5 h-1.5 rounded-full bg-gray-300 transition-opacity"></div>
-                <div class="indicator w-1.5 h-1.5 rounded-full bg-gray-300 transition-opacity"></div>
+              <div class="flex justify-center gap-1.5 mt-3">
+                <div class="indicator w-2 h-2 rounded-full bg-blue-500 transition-opacity"></div>
+                <div class="indicator w-2 h-2 rounded-full bg-gray-300 transition-opacity"></div>
+                <div class="indicator w-2 h-2 rounded-full bg-gray-300 transition-opacity"></div>
               </div>
             </div>
           </div>
         </div>
 
         <!-- Right Visual Section -->
-        <div class="relative float-animation">
-          <div class="relative">
+        <div class="w-full order-1 lg:order-2 visual-section-mobile">
+          <div class="relative float-animation">
             <!-- Main Image Container -->
-            <div class="relative bg-white rounded-3xl shadow-2xl overflow-hidden">
+            <div class="relative bg-white rounded-3xl shadow-2xl overflow-hidden mx-auto max-w-md lg:max-w-none">
               <!-- Tech Services Illustration -->
-              <div class="h-96 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center relative">
+              <div class="h-64 sm:h-80 lg:h-96 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center relative">
                 <!-- Central Monitor/Screen -->
-                <div class="w-48 h-64 bg-gradient-to-b from-slate-800 to-slate-900 rounded-2xl shadow-2xl relative">
+                <div class="w-32 sm:w-40 lg:w-48 h-40 sm:h-52 lg:h-64 bg-gradient-to-b from-slate-800 to-slate-900 rounded-xl lg:rounded-2xl shadow-2xl relative">
                   <!-- Screen -->
-                  <div class="w-40 h-48 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg absolute top-4 left-1/2 transform -translate-x-1/2 shadow-inner">
+                  <div class="w-28 sm:w-32 lg:w-40 h-32 sm:h-40 lg:h-48 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg absolute top-2 sm:top-3 lg:top-4 left-1/2 transform -translate-x-1/2 shadow-inner">
                     <!-- Website Layout on Screen -->
-                    <div class="p-2 space-y-1">
+                    <div class="p-1.5 sm:p-2 space-y-1">
                       <!-- Header -->
-                      <div class="w-full h-3 bg-blue-400 rounded-sm"></div>
+                      <div class="w-full h-2 sm:h-3 bg-blue-400 rounded-sm"></div>
                       <!-- Navigation -->
-                      <div class="flex gap-1">
-                        <div class="w-6 h-1 bg-gray-300 rounded"></div>
-                        <div class="w-8 h-1 bg-gray-300 rounded"></div>
-                        <div class="w-6 h-1 bg-gray-300 rounded"></div>
+                      <div class="flex gap-0.5 sm:gap-1">
+                        <div class="w-4 sm:w-6 h-0.5 sm:h-1 bg-gray-300 rounded"></div>
+                        <div class="w-6 sm:w-8 h-0.5 sm:h-1 bg-gray-300 rounded"></div>
+                        <div class="w-4 sm:w-6 h-0.5 sm:h-1 bg-gray-300 rounded"></div>
                       </div>
                       <!-- Content Area -->
-                      <div class="flex gap-1">
-                        <div class="w-16 h-16 bg-purple-300 rounded"></div>
+                      <div class="flex gap-0.5 sm:gap-1">
+                        <div class="w-12 sm:w-16 h-10 sm:h-16 bg-purple-300 rounded"></div>
                         <div class="space-y-0.5">
-                          <div class="w-12 h-1 bg-gray-400 rounded"></div>
-                          <div class="w-16 h-1 bg-gray-400 rounded"></div>
-                          <div class="w-10 h-1 bg-gray-400 rounded"></div>
+                          <div class="w-8 sm:w-12 h-0.5 sm:h-1 bg-gray-400 rounded"></div>
+                          <div class="w-12 sm:w-16 h-0.5 sm:h-1 bg-gray-400 rounded"></div>
+                          <div class="w-6 sm:w-10 h-0.5 sm:h-1 bg-gray-400 rounded"></div>
                         </div>
                       </div>
                       <!-- UI Elements -->
                       <div class="flex gap-0.5">
-                        <div class="w-8 h-2 bg-pink-400 rounded"></div>
-                        <div class="w-6 h-2 bg-green-400 rounded"></div>
+                        <div class="w-6 sm:w-8 h-1.5 sm:h-2 bg-pink-400 rounded"></div>
+                        <div class="w-4 sm:w-6 h-1.5 sm:h-2 bg-green-400 rounded"></div>
                       </div>
                     </div>
                   </div>
                   <!-- Monitor Stand -->
-                  <div class="w-8 h-6 bg-slate-700 absolute bottom-0 left-1/2 transform -translate-x-1/2"></div>
+                  <div class="w-6 sm:w-8 h-4 sm:h-6 bg-slate-700 absolute bottom-0 left-1/2 transform -translate-x-1/2"></div>
                 </div>
 
                 <!-- Mobile Phone (Mobile App Dev) -->
-                <div class="absolute right-6 top-8 w-12 h-20 bg-slate-900 rounded-xl shadow-lg">
-                  <div class="w-10 h-16 bg-gradient-to-br from-purple-100 to-purple-200 rounded-lg absolute top-1 left-1">
+                <div class="absolute right-2 sm:right-4 lg:right-6 top-4 sm:top-6 lg:top-8 w-8 sm:w-10 lg:w-12 h-14 sm:h-16 lg:h-20 bg-slate-900 rounded-lg lg:rounded-xl shadow-lg">
+                  <div class="w-6 sm:w-8 lg:w-10 h-12 sm:h-14 lg:h-16 bg-gradient-to-br from-purple-100 to-purple-200 rounded-md lg:rounded-lg absolute top-0.5 sm:top-1 left-1">
                     <!-- App Interface -->
-                    <div class="p-1 space-y-0.5">
-                      <div class="w-8 h-1 bg-purple-400 rounded-full"></div>
+                    <div class="p-0.5 sm:p-1 space-y-0.5">
+                      <div class="w-5 sm:w-6 lg:w-8 h-0.5 sm:h-1 bg-purple-400 rounded-full"></div>
                       <div class="grid grid-cols-3 gap-0.5">
-                        <div class="w-2 h-2 bg-blue-400 rounded"></div>
-                        <div class="w-2 h-2 bg-pink-400 rounded"></div>
-                        <div class="w-2 h-2 bg-green-400 rounded"></div>
-                        <div class="w-2 h-2 bg-yellow-400 rounded"></div>
-                        <div class="w-2 h-2 bg-red-400 rounded"></div>
-                        <div class="w-2 h-2 bg-cyan-400 rounded"></div>
+                        <div class="w-1 sm:w-1.5 lg:w-2 h-1 sm:h-1.5 lg:h-2 bg-blue-400 rounded"></div>
+                        <div class="w-1 sm:w-1.5 lg:w-2 h-1 sm:h-1.5 lg:h-2 bg-pink-400 rounded"></div>
+                        <div class="w-1 sm:w-1.5 lg:w-2 h-1 sm:h-1.5 lg:h-2 bg-green-400 rounded"></div>
+                        <div class="w-1 sm:w-1.5 lg:w-2 h-1 sm:h-1.5 lg:h-2 bg-yellow-400 rounded"></div>
+                        <div class="w-1 sm:w-1.5 lg:w-2 h-1 sm:h-1.5 lg:h-2 bg-red-400 rounded"></div>
+                        <div class="w-1 sm:w-1.5 lg:w-2 h-1 sm:h-1.5 lg:h-2 bg-cyan-400 rounded"></div>
                       </div>
                     </div>
                   </div>
                 </div>
 
                 <!-- Game Controller (Game Development) -->
-                <div class="absolute left-4 bottom-12 w-16 h-10 bg-slate-800 rounded-xl shadow-lg">
+                <div class="absolute left-1 sm:left-2 lg:left-4 bottom-8 sm:bottom-10 lg:bottom-12 w-12 sm:w-14 lg:w-16 h-7 sm:h-8 lg:h-10 bg-slate-800 rounded-lg lg:rounded-xl shadow-lg">
                   <!-- D-pad -->
-                  <div class="w-4 h-4 bg-slate-600 rounded absolute top-2 left-2">
-                    <div class="w-0.5 h-4 bg-slate-400 absolute left-1.5"></div>
-                    <div class="w-4 h-0.5 bg-slate-400 absolute top-1.5"></div>
+                  <div class="w-3 sm:w-3.5 lg:w-4 h-3 sm:h-3.5 lg:h-4 bg-slate-600 rounded absolute top-1 sm:top-1.5 lg:top-2 left-1 sm:left-1.5 lg:left-2">
+                    <div class="w-0.5 h-3 sm:h-3.5 lg:h-4 bg-slate-400 absolute left-1 sm:left-1.5"></div>
+                    <div class="w-3 sm:w-3.5 lg:w-4 h-0.5 bg-slate-400 absolute top-1 sm:top-1.5"></div>
                   </div>
                   <!-- Action buttons -->
-                  <div class="absolute top-1.5 right-2 grid grid-cols-2 gap-0.5">
-                    <div class="w-2 h-2 bg-green-500 rounded-full"></div>
-                    <div class="w-2 h-2 bg-red-500 rounded-full"></div>
-                    <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
-                    <div class="w-2 h-2 bg-yellow-500 rounded-full"></div>
+                  <div class="absolute top-0.5 sm:top-1 lg:top-1.5 right-1 sm:right-1.5 lg:right-2 grid grid-cols-2 gap-0.5">
+                    <div class="w-1 sm:w-1.5 lg:w-2 h-1 sm:h-1.5 lg:h-2 bg-green-500 rounded-full"></div>
+                    <div class="w-1 sm:w-1.5 lg:w-2 h-1 sm:h-1.5 lg:h-2 bg-red-500 rounded-full"></div>
+                    <div class="w-1 sm:w-1.5 lg:w-2 h-1 sm:h-1.5 lg:h-2 bg-blue-500 rounded-full"></div>
+                    <div class="w-1 sm:w-1.5 lg:w-2 h-1 sm:h-1.5 lg:h-2 bg-yellow-500 rounded-full"></div>
                   </div>
                 </div>
 
                 <!-- Design Tools (UI/UX) -->
-                <div class="absolute right-2 bottom-8 w-14 h-18 bg-white rounded-lg shadow-lg border">
+                <div class="absolute right-1 sm:right-1.5 lg:right-2 bottom-6 sm:bottom-7 lg:bottom-8 w-10 sm:w-12 lg:w-14 h-12 sm:h-14 lg:h-18 bg-white rounded-lg shadow-lg border">
                   <!-- Color Palette -->
-                  <div class="p-1 space-y-0.5">
+                  <div class="p-0.5 sm:p-1 space-y-0.5">
                     <div class="flex gap-0.5">
-                      <div class="w-2 h-2 bg-pink-400 rounded-full"></div>
-                      <div class="w-2 h-2 bg-blue-400 rounded-full"></div>
-                      <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                      <div class="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-pink-400 rounded-full"></div>
+                      <div class="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-blue-400 rounded-full"></div>
+                      <div class="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-green-400 rounded-full"></div>
                     </div>
                     <!-- Design wireframe -->
                     <div class="space-y-0.5">
-                      <div class="w-10 h-1 bg-gray-300 rounded"></div>
-                      <div class="w-8 h-1 bg-gray-300 rounded"></div>
-                      <div class="w-12 h-3 bg-gray-200 border border-gray-300 rounded"></div>
+                      <div class="w-8 sm:w-10 h-0.5 sm:h-1 bg-gray-300 rounded"></div>
+                      <div class="w-6 sm:w-8 h-0.5 sm:h-1 bg-gray-300 rounded"></div>
+                      <div class="w-8 sm:w-10 lg:w-12 h-2 sm:h-3 bg-gray-200 border border-gray-300 rounded"></div>
                     </div>
                   </div>
                 </div>
 
                 <!-- Code Editor Window -->
-                <div class="absolute left-2 top-16 w-20 h-16 bg-slate-900 rounded-lg shadow-lg">
-                  <div class="p-1">
+                <div class="absolute left-1 sm:left-1.5 lg:left-2 top-12 sm:top-14 lg:top-16 w-14 sm:w-16 lg:w-20 h-10 sm:h-12 lg:h-16 bg-slate-900 rounded-lg shadow-lg">
+                  <div class="p-0.5 sm:p-1">
                     <!-- Code lines -->
                     <div class="space-y-0.5">
                       <div class="flex gap-0.5">
-                        <div class="w-2 h-0.5 bg-blue-400 rounded"></div>
-                        <div class="w-4 h-0.5 bg-green-400 rounded"></div>
+                        <div class="w-1.5 sm:w-2 h-0.5 bg-blue-400 rounded"></div>
+                        <div class="w-3 sm:w-4 h-0.5 bg-green-400 rounded"></div>
                       </div>
                       <div class="flex gap-0.5">
                         <div class="w-1 h-0.5 bg-yellow-400 rounded"></div>
-                        <div class="w-6 h-0.5 bg-white rounded"></div>
+                        <div class="w-4 sm:w-6 h-0.5 bg-white rounded"></div>
                       </div>
                       <div class="flex gap-0.5">
-                        <div class="w-3 h-0.5 bg-purple-400 rounded"></div>
-                        <div class="w-2 h-0.5 bg-pink-400 rounded"></div>
+                        <div class="w-2 sm:w-3 h-0.5 bg-purple-400 rounded"></div>
+                        <div class="w-1.5 sm:w-2 h-0.5 bg-pink-400 rounded"></div>
                       </div>
-                      <div class="w-8 h-0.5 bg-cyan-400 rounded"></div>
+                      <div class="w-6 sm:w-8 h-0.5 bg-cyan-400 rounded"></div>
                     </div>
                   </div>
                 </div>
 
                 <!-- Floating Tech Icons -->
-                <div class="absolute top-4 left-8 w-4 h-4 bg-blue-500 rounded-lg flex items-center justify-center animate-bounce" style="animation-delay: 0.5s">
-                  <div class="w-2 h-2 bg-white rounded-sm"></div>
+                <div class="absolute top-2 sm:top-3 lg:top-4 left-4 sm:left-6 lg:left-8 w-3 sm:w-3.5 lg:w-4 h-3 sm:h-3.5 lg:h-4 bg-blue-500 rounded-lg flex items-center justify-center animate-bounce" style="animation-delay: 0.5s">
+                  <div class="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-white rounded-sm"></div>
                 </div>
-                <div class="absolute bottom-4 right-8 w-3 h-3 bg-pink-500 rounded-full animate-pulse" style="animation-delay: 1s"></div>
-                <div class="absolute top-12 right-12 w-3 h-3 bg-green-500 rounded animate-bounce" style="animation-delay: 1.5s"></div>
+                <div class="absolute bottom-2 sm:bottom-3 lg:bottom-4 right-4 sm:right-6 lg:right-8 w-2.5 sm:w-3 h-2.5 sm:h-3 bg-pink-500 rounded-full animate-pulse" style="animation-delay: 1s"></div>
+                <div class="absolute top-8 sm:top-10 lg:top-12 right-8 sm:right-10 lg:right-12 w-2.5 sm:w-3 h-2.5 sm:h-3 bg-green-500 rounded animate-bounce" style="animation-delay: 1.5s"></div>
               </div>
             </div>
 
-            <!-- Floating Service Cards -->
-            <div class="absolute -left-6 top-1/4 space-y-3">
+            <!-- Service Cards - Desktop Layout -->
+            <div class="hidden lg:block absolute -left-6 top-1/4 space-y-3">
               <!-- Web Development Card -->
               <div class="service-card card-gradient p-3 rounded-2xl shadow-2xl w-40">
                 <div class="flex items-center gap-2">
-                  <div class="w-6 h-6 bg-blue-500 rounded-lg flex items-center justify-center">
+                  <div class="w-6 h-6 bg-blue-500 rounded-lg flex items-center justify-center flex-shrink-0">
                     <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M2 5a2 2 0 012-2h12a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2V5zM4 7a1 1 0 000 2h12a1 1 0 100-2H4z"></path>
                     </svg>
                   </div>
-                  <div>
-                    <h3 class="text-white font-semibold text-xs">Website</h3>
-                    <h3 class="text-white font-semibold text-xs">Development</h3>
+                  <div class="min-w-0">
+                    <h3 class="text-white font-semibold text-xs leading-tight">Website Development</h3>
                   </div>
                 </div>
               </div>
@@ -356,14 +380,13 @@
               <!-- UI/UX Design Card -->
               <div class="service-card card-gradient p-3 rounded-2xl shadow-2xl w-40">
                 <div class="flex items-center gap-2">
-                  <div class="w-6 h-6 bg-pink-500 rounded-lg flex items-center justify-center">
+                  <div class="w-6 h-6 bg-pink-500 rounded-lg flex items-center justify-center flex-shrink-0">
                     <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1V7zM9 9a1 1 0 012 0v6a1 1 0 11-2 0V9z"></path>
                     </svg>
                   </div>
-                  <div>
-                    <h3 class="text-white font-semibold text-xs">UI/UX</h3>
-                    <h3 class="text-white font-semibold text-xs">Designer</h3>
+                  <div class="min-w-0">
+                    <h3 class="text-white font-semibold text-xs leading-tight">UI/UX Designer</h3>
                   </div>
                 </div>
               </div>
@@ -371,14 +394,13 @@
               <!-- Mobile App Development Card -->
               <div class="service-card card-gradient p-3 rounded-2xl shadow-2xl w-40">
                 <div class="flex items-center gap-2">
-                  <div class="w-6 h-6 bg-purple-500 rounded-lg flex items-center justify-center">
+                  <div class="w-6 h-6 bg-purple-500 rounded-lg flex items-center justify-center flex-shrink-0">
                     <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1V7zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 000-2H9z"></path>
                     </svg>
                   </div>
-                  <div>
-                    <h3 class="text-white font-semibold text-xs">Mobile App</h3>
-                    <h3 class="text-white font-semibold text-xs">Development</h3>
+                  <div class="min-w-0">
+                    <h3 class="text-white font-semibold text-xs leading-tight">Mobile App Development</h3>
                   </div>
                 </div>
               </div>
@@ -386,21 +408,20 @@
               <!-- Game Development Card -->
               <div class="service-card card-gradient p-3 rounded-2xl shadow-2xl w-40">
                 <div class="flex items-center gap-2">
-                  <div class="w-6 h-6 bg-green-500 rounded-lg flex items-center justify-center">
+                  <div class="w-6 h-6 bg-green-500 rounded-lg flex items-center justify-center flex-shrink-0">
                     <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
                   </div>
-                  <div>
-                    <h3 class="text-white font-semibold text-xs">Game</h3>
-                    <h3 class="text-white font-semibold text-xs">Development</h3>
+                  <div class="min-w-0">
+                    <h3 class="text-white font-semibold text-xs leading-tight">Game Development</h3>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- Floating Play Button -->
-            <div class="absolute -right-6 top-1/3">
+            <!-- Floating Play Button - Desktop -->
+            <div class="hidden lg:block absolute -right-6 top-1/3">
               <div class="play-button w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center shadow-2xl cursor-pointer">
                 <svg class="w-6 h-6 text-white ml-1" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"></path>
@@ -409,6 +430,73 @@
               <div class="text-center mt-2">
                 <div class="text-xs font-semibold text-gray-700 bg-white px-2 py-1 rounded-full shadow-lg">DEMO</div>
                 <div class="text-xs text-gray-600 mt-0.5">VIDEO</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service Cards - Mobile Layout -->
+      <div class="lg:hidden mt-8 space-y-4">
+        <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Our Services</h3>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <!-- Web Development Card -->
+          <div class="service-card card-gradient p-4 rounded-2xl shadow-2xl">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M2 5a2 2 0 012-2h12a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2V5zM4 7a1 1 0 000 2h12a1 1 0 100-2H4z"></path>
+                </svg>
+              </div>
+              <div class="min-w-0 flex-1">
+                <h3 class="text-white font-semibold text-sm">Website Development</h3>
+                <p class="text-gray-300 text-xs mt-1">Modern & responsive websites</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- UI/UX Design Card -->
+          <div class="service-card card-gradient p-4 rounded-2xl shadow-2xl">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 bg-pink-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1V7zM9 9a1 1 0 012 0v6a1 1 0 11-2 0V9z"></path>
+                </svg>
+              </div>
+              <div class="min-w-0 flex-1">
+                <h3 class="text-white font-semibold text-sm">UI/UX Design</h3>
+                <p class="text-gray-300 text-xs mt-1">Beautiful & user-friendly designs</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mobile App Development Card -->
+          <div class="service-card card-gradient p-4 rounded-2xl shadow-2xl">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 bg-purple-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1V7zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 000-2H9z"></path>
+                </svg>
+              </div>
+              <div class="min-w-0 flex-1">
+                <h3 class="text-white font-semibold text-sm">Mobile App</h3>
+                <p class="text-gray-300 text-xs mt-1">Cross-platform mobile solutions</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Game Development Card -->
+          <div class="service-card card-gradient p-4 rounded-2xl shadow-2xl">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+              <div class="min-w-0 flex-1">
+                <h3 class="text-white font-semibold text-sm">Game Development</h3>
+                <p class="text-gray-300 text-xs mt-1">Interactive gaming experiences</p>
               </div>
             </div>
           </div>
@@ -465,37 +553,58 @@
         });
 
         // Play button interaction
-        const playButton = document.querySelector(".play-button");
-        playButton.addEventListener("click", function () {
-          this.style.transform = "scale(0.95)";
-          setTimeout(() => {
-            this.style.transform = "scale(1)";
-          }, 150);
+        const playButtons = document.querySelectorAll(".play-button");
+        playButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            this.style.transform = "scale(0.95)";
+            setTimeout(() => {
+              this.style.transform = "scale(1)";
+            }, 150);
+          });
         });
       });
 
-      // Parallax effect for floating elements
-      document.addEventListener("mousemove", function (e) {
-        const cards = document.querySelectorAll(".service-card");
-        const playButton = document.querySelector(".play-button");
+      // Parallax effect for floating elements (desktop only)
+      if (window.innerWidth >= 1024) {
+        document.addEventListener("mousemove", function (e) {
+          const cards = document.querySelectorAll(".service-card");
+          const playButton = document.querySelector(".play-button:not(.play-button-mobile)");
 
-        const mouseX = e.clientX / window.innerWidth;
-        const mouseY = e.clientY / window.innerHeight;
+          const mouseX = e.clientX / window.innerWidth;
+          const mouseY = e.clientY / window.innerHeight;
 
-        cards.forEach((card, index) => {
-          const speed = (index + 1) * 0.5;
-          const x = (mouseX - 0.5) * speed;
-          const y = (mouseY - 0.5) * speed;
+          cards.forEach((card, index) => {
+            if (!card.closest(".lg\\:hidden")) {
+              const speed = (index + 1) * 0.5;
+              const x = (mouseX - 0.5) * speed;
+              const y = (mouseY - 0.5) * speed;
 
-          card.style.transform = `translate(${x}px, ${y}px)`;
+              card.style.transform = `translate(${x}px, ${y}px)`;
+            }
+          });
+
+          if (playButton) {
+            const x = (mouseX - 0.5) * 2;
+            const y = (mouseY - 0.5) * 2;
+            playButton.style.transform = `translate(${x}px, ${y}px)`;
+          }
         });
+      }
 
-        if (playButton) {
-          const x = (mouseX - 0.5) * 2;
-          const y = (mouseY - 0.5) * 2;
-          playButton.style.transform = `translate(${x}px, ${y}px)`;
+      // Handle responsive behavior
+      function handleResize() {
+        const isMobile = window.innerWidth < 1024;
+        const floatingCards = document.querySelectorAll(".service-card");
+
+        if (isMobile) {
+          floatingCards.forEach((card) => {
+            card.style.transform = "none";
+          });
         }
-      });
+      }
+
+      window.addEventListener("resize", handleResize);
+      handleResize();
     </script>
   </body>
 </html>
