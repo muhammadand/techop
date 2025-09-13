@@ -24,6 +24,10 @@
     <div id="about-container"></div>
     <div id="portfolio-container"></div>
     <div id="pricing-container"></div>
+    <div id="clients-container"></div>
+    <div id="testimonials-container"></div>
+    <div id="blog-container"></div>
+    <div id="faq-container"></div>
     <div id="timeline-container"></div>
     <div id="outsourcing-container"></div>
     <div id="team-container"></div>
@@ -32,7 +36,13 @@
 
     <script>
       // Configuration & Components Data
-      const CONFIG = { navbarHeight: 80, scrollOffset: 100, scrollSpeed: 2, autoScrollEnabled: true, debugMode: true };
+      const CONFIG = {
+        debugMode: false, // Set to true for development
+        navbarHeight: 80,
+        scrollOffset: 100,
+        autoScrollEnabled: true,
+        scrollSpeed: 1
+      };
 
       const components = [
         { name: "navbar", container: "navbar-container" },
@@ -42,6 +52,10 @@
         { name: "portfolio", container: "portfolio-container", sectionId: "portofolio" },
         { name: "technology", container: "technology-container", sectionId: "teknologi" },
         { name: "pricing", container: "pricing-container", sectionId: "harga" },
+        { name: "clients", container: "clients-container", sectionId: "clients" },
+        { name: "testimonials", container: "testimonials-container", sectionId: "testimonials" },
+        { name: "blog", container: "blog-container", sectionId: "blog" },
+        { name: "faq", container: "faq-container", sectionId: "faq" },
         { name: "timeline", container: "timeline-container", sectionId: "timeline" },
         { name: "team", container: "team-container", sectionId: "team" },
         { name: "outsourcing", container: "outsourcing-container", sectionId: "outsourcing" },
@@ -86,7 +100,7 @@
                   <i class="fas fa-exclamation-triangle mb-2"></i>
                   <p class="font-semibold">Error loading ${name} component</p>
                   <p class="text-sm">${error.message}</p>
-                  <button onclick="ComponentLoader.retryComponent('${name}', '${containerId}')" 
+                  <button onclick="ComponentLoader.retryComponent('${name}', '${containerId}')"
                           class="mt-2 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors">
                     Retry
                   </button>
@@ -117,9 +131,21 @@
             }
           }
 
-          // Special handling for portfolio component - immediate initialization
+          // Special handling for components
           if (name === "portfolio") {
             this.initializePortfolioComponent(container);
+          } else if (name === "faq") {
+            // Special handling for FAQ component
+            setTimeout(() => {
+              if (typeof window.initializeFAQComponent === "function") {
+                try {
+                  window.initializeFAQComponent();
+                  log("FAQ component initialized", "success");
+                } catch (error) {
+                  log(`Error initializing FAQ: ${error.message}`, "error");
+                }
+              }
+            }, 200);
           }
         },
 
@@ -222,11 +248,18 @@
             const loading = document.getElementById("loading");
             if (loading) loading.style.display = "none";
 
-            // Initialize all systems immediately
+            // Initialize all systems with proper timing
             SectionManager.ensureSectionIds();
+
+            // Initialize navigation immediately for fast response
             NavigationManager.initializeNavigation();
             AutoScrollManager.initialize();
             LazyLoadManager.initialize();
+
+            // Just one backup re-initialization to catch any missed elements
+            setTimeout(() => {
+              NavigationManager.reinitializeNavigation();
+            }, 100);
 
             return true;
           } catch (error) {
@@ -238,7 +271,7 @@
                   <i class="fas fa-exclamation-triangle text-2xl mb-2"></i>
                   <p class="font-semibold">❌ Error loading components</p>
                   <p class="text-sm mb-4">${error.message}</p>
-                  <button onclick="ComponentLoader.loadAllComponents()" 
+                  <button onclick="ComponentLoader.loadAllComponents()"
                           class="px-6 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors">
                     Retry All
                   </button>
@@ -256,24 +289,75 @@
           components.forEach((comp) => {
             if (!comp.sectionId) return;
             const container = document.getElementById(comp.container);
-            if (!container) return;
+            if (!container) {
+              log(`Container ${comp.container} not found for ${comp.name}`, "warning");
+              return;
+            }
 
             let section = document.getElementById(comp.sectionId);
             if (!section) {
-              section = container.querySelector("section") || container.querySelector(".section") || container.querySelector("[data-section]") || container.firstElementChild;
+              // Look for section element more thoroughly in the loaded HTML
+              section = container.querySelector("section") ||
+                       container.querySelector(".section") ||
+                       container.querySelector("[data-section]") ||
+                       container.querySelector("div") ||
+                       container.firstElementChild;
+
               if (section) {
                 section.setAttribute("id", comp.sectionId);
-                log(`Added ID "${comp.sectionId}" to section`, "success");
+                log(`Added ID "${comp.sectionId}" to ${section.tagName} in ${comp.name}`, "success");
               } else {
-                const wrapper = document.createElement("section");
+                // If no suitable element found, wrap the entire container content
+                const wrapper = document.createElement("div");
                 wrapper.id = comp.sectionId;
                 wrapper.className = "section-wrapper";
-                while (container.firstChild) wrapper.appendChild(container.firstChild);
+
+                // Move all container children to wrapper
+                while (container.firstChild) {
+                  wrapper.appendChild(container.firstChild);
+                }
                 container.appendChild(wrapper);
                 log(`Created wrapper section for "${comp.sectionId}"`, "success");
               }
+            } else {
+              log(`Section "${comp.sectionId}" already exists`, "info");
             }
           });
+
+          // Force re-scan sections after ensuring IDs and verify FAQ specifically
+          this.sections = this.getAllSections();
+          log(`Total sections available: ${this.sections.length}`, "info");
+
+          // Special verification for FAQ
+          const faqSection = document.getElementById("faq");
+          if (faqSection) {
+            log("✅ FAQ section successfully detected!", "success");
+          } else {
+            log("⚠️ FAQ section missing - attempting emergency fix...", "warning");
+            this.emergencyFixFAQ();
+          }
+          this.sections = this.getAllSections();
+          log(`Total sections available: ${this.sections.length}`, "info");
+        },
+
+        emergencyFixFAQ() {
+          const faqContainer = document.getElementById("faq-container");
+          if (faqContainer && !document.getElementById("faq")) {
+            // Try to find and fix any element in FAQ container
+            const firstElement = faqContainer.firstElementChild;
+            if (firstElement) {
+              firstElement.setAttribute("id", "faq");
+              log("🚨 Emergency FAQ fix applied to first element!", "success");
+            } else {
+              // Last resort: create a wrapper
+              const wrapper = document.createElement("div");
+              wrapper.id = "faq";
+              wrapper.innerHTML = faqContainer.innerHTML;
+              faqContainer.innerHTML = "";
+              faqContainer.appendChild(wrapper);
+              log("🚨 Emergency FAQ wrapper created!", "success");
+            }
+          }
         },
 
         getAllSections() {
@@ -291,12 +375,31 @@
 
         initializeNavigation() {
           log("Initializing navigation system...", "loading");
+
           this.sections = SectionManager.getAllSections();
+          log(`Found ${this.sections.length} sections for navigation`, "info");
+
+          // Debug: List all found sections
+          this.sections.forEach(section => {
+            log(`Section available: ${section.id}`, "success");
+          });
+
           this.initializeMobileMenu();
           this.initializeSmoothScrolling();
           this.initializeActiveHighlight();
           this.initializeKeyboardNavigation();
           log("Navigation system initialized", "success");
+        },
+
+        reinitializeNavigation() {
+          log("Re-initializing navigation system...", "loading");
+          // Update sections list immediately
+          this.sections = SectionManager.getAllSections();
+          log(`Re-scan found ${this.sections.length} sections`, "info");
+
+          // Re-initialize smooth scrolling to catch any new elements (no delay)
+          this.initializeSmoothScrolling();
+          log("Navigation system re-initialized", "success");
         },
 
         initializeMobileMenu() {
@@ -333,17 +436,40 @@
 
         initializeSmoothScrolling() {
           const navLinks = document.querySelectorAll('a[href^="#"], [data-scroll-to]');
+          log(`Found ${navLinks.length} navigation links`, "info");
+
           navLinks.forEach((link) => {
             link.addEventListener("click", (e) => {
               e.preventDefault();
               const targetId = link.getAttribute("href") || link.getAttribute("data-scroll-to");
               if (!targetId || targetId === "#") return;
-              const targetElement = document.querySelector(targetId);
+
+              // Remove # from targetId if present
+              const cleanTargetId = targetId.replace("#", "");
+              const targetElement = document.getElementById(cleanTargetId);
+
               if (targetElement) {
                 this.scrollToElement(targetElement, targetId);
                 this.closeMobileMenu();
+                log(`Successfully scrolling to ${targetId}`, "success");
               } else {
-                log(`Target element ${targetId} not found`, "warning");
+                log(`Target element ${targetId} not found`, "error");
+                // Try alternative search methods - more aggressive for FAQ
+                const altElement = document.querySelector(`[data-section="${cleanTargetId}"]`) ||
+                                 document.querySelector(`.${cleanTargetId}-section`) ||
+                                 document.querySelector(`#${cleanTargetId}-container section`) ||
+                                 document.querySelector(`#${cleanTargetId}-container > *:first-child`);
+                if (altElement) {
+                  // Give it the correct ID if missing
+                  if (!altElement.id) {
+                    altElement.setAttribute("id", cleanTargetId);
+                  }
+                  this.scrollToElement(altElement, targetId);
+                  this.closeMobileMenu();
+                  log(`Found alternative element for ${targetId}`, "success");
+                } else {
+                  log(`No alternative found for ${targetId} - may need manual check`, "warning");
+                }
               }
             });
           });
@@ -550,19 +676,10 @@
       window.addEventListener("load", () => {
         setTimeout(() => {
           const loading = document.getElementById("loading");
-          if (loading && loading.style.display !== "none") {
-            loading.innerHTML = `
-              <div class="text-center text-amber-600 p-6">
-                <i class="fas fa-clock text-3xl mb-4"></i>
-                <p class="text-lg font-semibold">⚠️ Komponen membutuhkan waktu lebih lama</p>
-                <p class="text-sm mb-4">Pastikan folder components tersedia dan berisi file HTML</p>
-                <button onclick="location.reload()" 
-                        class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
-                  <i class="fas fa-redo mr-2"></i>Muat Ulang
-                </button>
-              </div>`;
+          if (loading && loading.style.display !== "none" && loading.innerHTML.includes("loading")) {
+            loading.style.display = "none"; // Just hide it, don't show error
           }
-        }, 3000); // Reduced timeout
+        }, 2000); // Shorter timeout
       });
 
       // Debug mode exposure

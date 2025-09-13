@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <section id="faq" class="bg-gray-50 py-20 px-4 md:px-8 lg:px-16">
+      <div class="max-w-6xl mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-16">
+          <span class="inline-block bg-gray-800 text-white text-sm font-semibold px-4 py-1 rounded-full mb-3"> FAQ </span>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Pertanyaan yang <span class="text-gradient">Sering Ditanyakan</span></h2>
+          <p class="text-gray-600 max-w-2xl mx-auto text-lg">Temukan jawaban atas pertanyaan umum tentang layanan kami. Tidak menemukan jawaban yang Anda cari? Jangan ragu untuk menghubungi kami.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          <!-- Left Side - FAQ Categories -->
+          <div class="lg:col-span-1">
+            <div class="bg-white rounded-2xl shadow-lg border p-6 sticky top-8">
+              <h3 class="text-xl font-bold text-gray-900 mb-6">Kategori FAQ</h3>
+              <div class="space-y-3">
+                <button class="faq-category-btn active w-full text-left px-4 py-3 rounded-lg transition-all duration-300" data-category="all">
+                  <div class="flex items-center justify-between">
+                    <span class="font-medium">Semua Pertanyaan</span>
+                    <span class="bg-blue-100 text-blue-600 text-sm px-2 py-1 rounded-full">12</span>
+                  </div>
+                </button>
+                <button class="faq-category-btn w-full text-left px-4 py-3 rounded-lg transition-all duration-300" data-category="layanan">
+                  <div class="flex items-center justify-between">
+                    <span class="font-medium">Layanan</span>
+                    <span class="bg-gray-100 text-gray-600 text-sm px-2 py-1 rounded-full">4</span>
+                  </div>
+                </button>
+                <button class="faq-category-btn w-full text-left px-4 py-3 rounded-lg transition-all duration-300" data-category="harga">
+                  <div class="flex items-center justify-between">
+                    <span class="font-medium">Harga & Paket</span>
+                    <span class="bg-gray-100 text-gray-600 text-sm px-2 py-1 rounded-full">3</span>
+                  </div>
+                </button>
+                <button class="faq-category-btn w-full text-left px-4 py-3 rounded-lg transition-all duration-300" data-category="proses">
+                  <div class="flex items-center justify-between">
+                    <span class="font-medium">Proses Kerja</span>
+                    <span class="bg-gray-100 text-gray-600 text-sm px-2 py-1 rounded-full">3</span>
+                  </div>
+                </button>
+                <button class="faq-category-btn w-full text-left px-4 py-3 rounded-lg transition-all duration-300" data-category="teknis">
+                  <div class="flex items-center justify-between">
+                    <span class="font-medium">Teknis</span>
+                    <span class="bg-gray-100 text-gray-600 text-sm px-2 py-1 rounded-full">2</span>
+                  </div>
+                </button>
+              </div>
+
+              <!-- Search Box -->
+              <div class="mt-8">
+                <div class="relative">
+                  <input type="text" placeholder="Cari FAQ..." class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" id="faqSearch" />
+                  <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                </div>
+              </div>
+
+              <!-- Quick Stats -->
+              <div class="mt-8 p-4 bg-blue-50 rounded-lg">
+                <h4 class="font-semibold text-blue-900 mb-2">Masih ada pertanyaan?</h4>
+                <p class="text-blue-700 text-sm mb-3">Tim support kami siap membantu Anda 24/7</p>
+                <button class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors">
+                  <i class="fas fa-headset mr-2"></i>
+                  Hubungi Support
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Side - FAQ Content -->
+          <div class="lg:col-span-2">
+            <div class="space-y-4" id="faqContainer">
+              <!-- Layanan FAQs -->
+              <div class="faq-item bg-white rounded-xl shadow-lg border" data-category="layanan">
+                <button class="faq-question w-full text-left p-6 hover:bg-gray-50 transition-colors rounded-xl">
+                  <div class="flex items-center justify-between">
+                    <h3 class="font-semibold text-gray-900 text-lg pr-4">Apa saja layanan yang disediakan oleh TechOp?</h3>
+                    <div class="faq-icon text-2xl text-gray-400 transform transition-transform duration-300">
+                      <i class="fas fa-plus"></i>
+                    </div>
+                  </div>
+                </button>
+                <div class="faq-answer overflow-hidden transition-all duration-500 max-h-0">
+                  <div class="p-6 pt-0 text-gray-600 leading-relaxed">
+                    <p class="mb-4">TechOp menyediakan berbagai layanan pengembangan digital:</p>
+                    <ul class="list-disc list-inside space-y-2 ml-4">
+                      <li><strong>Pengembangan Website:</strong> Landing page, website korporat, e-commerce</li>
+                      <li><strong>Aplikasi Mobile:</strong> iOS, Android, Cross-platform (Flutter, React Native)</li>
+                      <li><strong>UI/UX Design:</strong> Desain antarmuka dan pengalaman pengguna</li>
+                      <li><strong>Game Development:</strong> Game 2D, educational games, mobile games</li>
+                      <li><strong>Konsultasi IT:</strong> Solusi teknologi untuk bisnis Anda</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="faq-item bg-white rounded-xl shadow-lg border" data-category="layanan">
+                <button class="faq-question w-full text-left p-6 hover:bg-gray-50 transition-colors rounded-xl">
+                  <div class="flex items-center justify-between">
+                    <h3 class="font-semibold text-gray-900 text-lg pr-4">Apakah TechOp melayani klien dari luar kota?</h3>
+                    <div class="faq-icon text-2xl text-gray-400 transform transition-transform duration-300">
+                      <i class="fas fa-plus"></i>
+                    </div>
+                  </div>
+                </button>
+                <div class="faq-answer overflow-hidden transition-all duration-500 max-h-0">
+                  <div class="p-6 pt-0 text-gray-600 leading-relaxed">
+                    Ya, tentu saja! TechOp melayani klien dari seluruh Indonesia bahkan internasional. Kami menggunakan sistem kerja remote dan tools kolaborasi online yang memungkinkan komunikasi lancar dengan klien di mana pun. Meeting
+                    dapat dilakukan via video call, dan semua dokumentasi proyek dikelola secara digital.
+                  </div>
+                </div>
+              </div>
+
+              <div class="faq-item bg-white rounded-xl shadow-lg border" data-category="layanan">
+                <button class="faq-question w-full text-left p-6 hover:bg-gray-50 transition-colors rounded-xl">
+                  <div class="flex items-center justify-between">
+                    <h3 class="font-semibold text-gray-900 text-lg pr-4">Bagaimana cara memulai proyek dengan TechOp?</h3>
+                    <div class="faq-icon text-2xl text-gray-400 transform transition-transform duration-300">
+                      <i class="fas fa-plus"></i>
+                    </div>
+                  </div>
+                </button>
+                <div class="faq-answer overflow-hidden transition-all duration-500 max-h-0">
+                  <div class="p-6 pt-0 text-gray-600 leading-relaxed">
+                    <p class="mb-4">Prosesnya sangat mudah:</p>
+                    <ol class="list-decimal list-inside space-y-2 ml-4">
+                      <li>Hubungi kami melalui website atau WhatsApp untuk konsultasi gratis</li>
+                      <li>Diskusikan kebutuhan dan requirements proyek Anda</li>
+                      <li>Tim kami akan memberikan proposal dan estimasi timeline</li>
+                      <li>Setelah deal, kami mulai tahap planning dan development</li>
+                      <li>Regular update progress sampai proyek selesai</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+
+              <div class="faq-item bg-white rounded-xl shadow-lg border" data-category="layanan">
+                <button class="faq-question w-full text-left p-6 hover:bg-gray-50 transition-colors rounded-xl">
+                  <div class="flex items-center justify-between">
+                    <h3 class="font-semibold text-gray-900 text-lg pr-4">Apakah ada layanan maintenance setelah proyek selesai?</h3>
+                    <div class="faq-icon text-2xl text-gray-400 transform transition-transform duration-300">
+                      <i class="fas fa-plus"></i>
+                    </div>
+                  </div>
+                </button>
+                <div class="faq-answer overflow-hidden transition-all duration-500 max-h-0">
+                  <div class="p-6 pt-0 text-gray-600 leading-relaxed">
+                    Ya! Kami menyediakan layanan maintenance dan support berkelanjutan. Paket maintenance mencakup backup rutin, update security, bug fixes, dan technical support. Kami juga menawarkan paket pengembangan fitur tambahan untuk
+                    kebutuhan bisnis yang berkembang.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Harga FAQs -->
+              <div class="faq-item bg-white rounded-xl shadow-lg border" data-category="harga">
+                <button class="faq-question w-full text-left p-6 hover:bg-gray-50 transition-colors rounded-xl">
+                  <div class="flex items-center justify-between">
+                    <h3 class="font-semibold text-gray-900 text-lg pr-4">Bagaimana sistem pembayaran di TechOp?</h3>
+                    <div class="faq-icon text-2xl text-gray-400 transform transition-transform duration-300">
+                      <i class="fas fa-plus"></i>
+                    </div>
+                  </div>
+                </button>
+                <div class="faq-answer overflow-hidden transition-all duration-500 max-h-0">
+                  <div class="p-6 pt-0 text-gray-600 leading-relaxed">
+                    <p class="mb-4">Kami menawarkan sistem pembayaran yang fleksibel:</p>
+                    <ul class="list-disc list-inside space-y-2 ml-4">
+                      <li><strong>Down Payment:</strong> 50% di awal setelah kontrak ditandatangani</li>
+                      <li><strong>Progress Payment:</strong> 30% saat milestone 70% tercapai</li>
+                      <li><strong>Final Payment:</strong> 20% setelah proyek selesai dan deliver</li>
+                    </ul>
+                    <p class="mt-4">Untuk proyek kecil, pembayaran dapat dilakukan 50% di awal dan 50% setelah selesai.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="faq-item bg-white rounded-xl shadow-lg border" data-category="harga">
+                <button class="faq-question w-full text-left p-6 hover:bg-gray-50 transition-colors rounded-xl">
+                  <div class="flex items-center justify-between">
+                    <h3 class="font-semibold text-gray-900 text-lg pr-4">Berapa range harga untuk website dan aplikasi mobile?</h3>
+                    <div class="faq-icon text-2xl text-gray-400 transform transition-transform duration-300">
+                      <i class="fas fa-plus"></i>
+                    </div>
+                  </div>
+                </button>
+                <div class="faq-answer overflow-hidden transition-all duration-500 max-h-0">
+                  <div class="p-6 pt-0 text-gray-600 leading-relaxed">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div class="p-4 bg-blue-50 rounded-lg">
+                        <h4 class="font-semibold text-blue-900 mb-2">Website</h4>
+                        <ul class="text-blue-700 text-sm space-y-1">
+                          <li>Landing Page: 5-15 juta</li>
+                          <li>Company Profile: 10-25 juta</li>
+                          <li>E-commerce: 20-50 juta</li>
+                        </ul>
+                      </div>
+                      <div class="p-4 bg-green-50 rounded-lg">
+                        <h4 class="font-semibold text-green-900 mb-2">Mobile App</h4>
+                        <ul class="text-green-700 text-sm space-y-1">
+                          <li>Simple App: 15-30 juta</li>
+                          <li>Business App: 30-60 juta</li>
+                          <li>Complex App: 60-100+ juta</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-4">*Harga dapat bervariasi tergantung kompleksitas dan fitur yang dibutuhkan</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="faq-item bg-white rounded-xl shadow-lg border" data-category="harga">
+                <button class="faq-question w-full text-left p-6 hover:bg-gray-50 transition-colors rounded-xl">
+                  <div class="flex items-center justify-between">
+                    <h3 class="font-semibold text-gray-900 text-lg pr-4">Apakah ada diskon untuk startup atau UMKM?</h3>
+                    <div class="faq-icon text-2xl text-gray-400 transform transition-transform duration-300">
+                      <i class="fas fa-plus"></i>
+                    </div>
+                  </div>
+                </button>
+                <div class="faq-answer overflow-hidden transition-all duration-500 max-h-0">
+                  <div class="p-6 pt-0 text-gray-600 leading-relaxed">
+                    Ya! Kami memiliki program khusus untuk startup dan UMKM dengan diskon hingga 20%. Kami juga menawarkan paket pembayaran yang lebih fleksibel dan konsultasi bisnis gratis untuk membantu startup berkembang. Syarat dan
+                    ketentuan berlaku, silakan hubungi tim kami untuk informasi lebih detail.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Proses FAQs -->
+              <div class="faq-item bg-white rounded-xl shadow-lg border" data-category="proses">
+                <button class="faq-question w-full text-left p-6 hover:bg-gray-50 transition-colors rounded-xl">
+                  <div class="flex items-center justify-between">
+                    <h3 class="font-semibold text-gray-900 text-lg pr-4">Berapa lama waktu pengerjaan proyek?</h3>
+                    <div class="faq-icon text-2xl text-gray-400 transform transition-transform duration-300">
+                      <i class="fas fa-plus"></i>
+                    </div>
+                  </div>
+                </button>
+                <div class="faq-answer overflow-hidden transition-all duration-500 max-h-0">
+                  <div class="p-6 pt-0 text-gray-600 leading-relaxed">
+                    <p class="mb-4">Timeline pengerjaan bervariasi sesuai jenis dan kompleksitas proyek:</p>
+                    <div class="space-y-3">
+                      <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                        <span class="font-medium">Landing Page</span>
+                        <span class="text-blue-600 font-semibold">1-2 minggu</span>
+                      </div>
+                      <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                        <span class="font-medium">Website Corporate</span>
+                        <span class="text-blue-600 font-semibold">3-6 minggu</span>
+                      </div>
+                      <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                        <span class="font-medium">Mobile App</span>
+                        <span class="text-blue-600 font-semibold">6-12 minggu</span>
+                      </div>
+                      <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                        <span class="font-medium">E-commerce</span>
+                        <span class="text-blue-600 font-semibold">8-16 minggu</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="faq-item bg-white rounded-xl shadow-lg border" data-category="proses">
+                <button class="faq-question w-full text-left p-6 hover:bg-gray-50 transition-colors rounded-xl">
+                  <div class="flex items-center justify-between">
+                    <h3 class="font-semibold text-gray-900 text-lg pr-4">Bagaimana proses komunikasi selama pengerjaan?</h3>
+                    <div class="faq-icon text-2xl text-gray-400 transform transition-transform duration-300">
+                      <i class="fas fa-plus"></i>
+                    </div>
+                  </div>
+                </button>
+                <div class="faq-answer overflow-hidden transition-all duration-500 max-h-0">
+                  <div class="p-6 pt-0 text-gray-600 leading-relaxed">
+                    <p class="mb-4">Kami menggunakan sistem komunikasi yang transparan dan terstruktur:</p>
+                    <ul class="list-disc list-inside space-y-2 ml-4">
+                      <li>Project Manager dedicated untuk setiap proyek</li>
+                      <li>Update progress mingguan melalui WhatsApp/Email</li>
+                      <li>Meeting online bi-weekly untuk review milestone</li>
+                      <li>Access ke project management tool untuk tracking real-time</li>
+                      <li>Grup WhatsApp khusus untuk komunikasi cepat</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="faq-item bg-white rounded-xl shadow-lg border" data-category="proses">
+                <button class="faq-question w-full text-left p-6 hover:bg-gray-50 transition-colors rounded-xl">
+                  <div class="flex items-center justify-between">
+                    <h3 class="font-semibold text-gray-900 text-lg pr-4">Bagaimana jika ada perubahan requirements di tengah proyek?</h3>
+                    <div class="faq-icon text-2xl text-gray-400 transform transition-transform duration-300">
+                      <i class="fas fa-plus"></i>
+                    </div>
+                  </div>
+                </button>
+                <div class="faq-answer overflow-hidden transition-all duration-500 max-h-0">
+                  <div class="p-6 pt-0 text-gray-600 leading-relaxed">
+                    Kami memahami bahwa requirements dapat berubah selama pengembangan. Untuk itu, kami menerapkan metodologi Agile yang fleksibel. Perubahan kecil biasanya dapat diakomodasi tanpa biaya tambahan. Untuk perubahan besar, kami
+                    akan berdiskusi mengenai impact terhadap timeline dan budget, serta memberikan opsi terbaik untuk klien.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Teknis FAQs -->
+              <div class="faq-item bg-white rounded-xl shadow-lg border" data-category="teknis">
+                <button class="faq-question w-full text-left p-6 hover:bg-gray-50 transition-colors rounded-xl">
+                  <div class="flex items-center justify-between">
+                    <h3 class="font-semibold text-gray-900 text-lg pr-4">Teknologi apa saja yang digunakan TechOp?</h3>
+                    <div class="faq-icon text-2xl text-gray-400 transform transition-transform duration-300">
+                      <i class="fas fa-plus"></i>
+                    </div>
+                  </div>
+                </button>
+                <div class="faq-answer overflow-hidden transition-all duration-500 max-h-0">
+                  <div class="p-6 pt-0 text-gray-600 leading-relaxed">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div>
+                        <h4 class="font-semibold text-gray-900 mb-3">Frontend</h4>
+                        <div class="flex flex-wrap gap-2">
+                          <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">React</span>
+                          <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">Vue.js</span>
+                          <span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm">JavaScript</span>
+                          <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">TypeScript</span>
+                        </div>
+                      </div>
+                      <div>
+                        <h4 class="font-semibold text-gray-900 mb-3">Backend</h4>
+                        <div class="flex flex-wrap gap-2">
+                          <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">Node.js</span>
+                          <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">Python</span>
+                          <span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm">PHP</span>
+                          <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm">Laravel</span>
+                        </div>
+                      </div>
+                      <div>
+                        <h4 class="font-semibold text-gray-900 mb-3">Mobile</h4>
+                        <div class="flex flex-wrap gap-2">
+                          <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">Flutter</span>
+                          <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">React Native</span>
+                          <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">Native iOS</span>
+                          <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm">Native Android</span>
+                        </div>
+                      </div>
+                      <div>
+                        <h4 class="font-semibold text-gray-900 mb-3">Database</h4>
+                        <div class="flex flex-wrap gap-2">
+                          <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">MySQL</span>
+                          <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">PostgreSQL</span>
+                          <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm">MongoDB</span>
+                          <span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm">Firebase</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="faq-item bg-white rounded-xl shadow-lg border" data-category="teknis">
+                <button class="faq-question w-full text-left p-6 hover:bg-gray-50 transition-colors rounded-xl">
+                  <div class="flex items-center justify-between">
+                    <h3 class="font-semibold text-gray-900 text-lg pr-4">Apakah source code akan diberikan kepada klien?</h3>
+                    <div class="faq-icon text-2xl text-gray-400 transform transition-transform duration-300">
+                      <i class="fas fa-plus"></i>
+                    </div>
+                  </div>
+                </button>
+                <div class="faq-answer overflow-hidden transition-all duration-500 max-h-0">
+                  <div class="p-6 pt-0 text-gray-600 leading-relaxed">
+                    Ya! Setelah pembayaran penuh selesai, seluruh source code akan diserahkan kepada klien melalui repository Git. Kami juga menyediakan dokumentasi teknis lengkap dan panduan deployment. Klien memiliki hak penuh atas kode
+                    yang telah dibayar dan dapat mengembangkannya lebih lanjut sendiri atau dengan developer lain.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Still Have Questions Section -->
+            <div class="mt-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-center text-white">
+              <div class="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i class="fas fa-question text-2xl"></i>
+              </div>
+              <h3 class="text-2xl font-bold mb-4">Masih Ada Pertanyaan?</h3>
+              <p class="text-blue-100 mb-8 max-w-2xl mx-auto">Tim ahli kami siap membantu menjawab pertanyaan spesifik tentang proyek Anda. Dapatkan konsultasi gratis dan solusi terbaik untuk kebutuhan digital Anda.</p>
+              <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-blue-50 transition-colors inline-flex items-center justify-center">
+                  <i class="fab fa-whatsapp mr-2"></i>
+                  WhatsApp Kami
+                </button>
+                <button class="border-2 border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-colors inline-flex items-center justify-center">
+                  <i class="fas fa-envelope mr-2"></i>
+                  Email Support
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      .faq-category-btn.active {
+        background-color: #eff6ff;
+        border: 1px solid #3b82f6;
+        color: #1d4ed8;
+      }
+
+      .faq-category-btn.active span:first-child {
+        font-weight: 600;
+        color: #1d4ed8;
+      }
+
+      .faq-category-btn.active span:last-child {
+        background-color: #3b82f6;
+        color: white;
+      }
+
+      .faq-category-btn:hover:not(.active) {
+        background-color: #f9fafb;
+        border: 1px solid #e5e7eb;
+      }
+
+      .faq-item.active .faq-answer {
+        max-height: 1000px;
+        padding-bottom: 24px;
+      }
+
+      .faq-item.active .faq-icon i {
+        transform: rotate(45deg);
+        color: #3b82f6;
+      }
+
+      .faq-item.active .faq-question {
+        background-color: #f8fafc;
+        border-bottom: 1px solid #e2e8f0;
+      }
+
+      .faq-item.active .faq-question h3 {
+        color: #1e40af;
+      }
+
+      .faq-item.hidden-item {
+        display: none;
+      }
+
+      .highlight-search {
+        background-color: #fef3c7;
+        padding: 2px 4px;
+        border-radius: 4px;
+        font-weight: 600;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .fade-in-up {
+        animation: fadeInUp 0.5s ease-out forwards;
+      }
+    </style>
+
+    <script>
+      // FAQ Functionality - Menggunakan fungsi yang dapat dipanggil ulang
+      function initializeFAQComponent() {
+        console.log('🔧 Initializing FAQ Component...');
+
+        // Selectors dengan fallback
+        const faqItems = document.querySelectorAll('.faq-item');
+        const categoryBtns = document.querySelectorAll('.faq-category-btn');
+        const searchInput = document.getElementById('faqSearch');
+
+        if (faqItems.length === 0) {
+          console.warn('⚠️ FAQ items not found');
+          return false;
+        }
+
+        let currentCategory = 'all';
+
+        // Clear existing event listeners to prevent duplicates
+        faqItems.forEach(item => {
+          const question = item.querySelector('.faq-question');
+          if (question) {
+            // Clone node to remove all event listeners
+            const newQuestion = question.cloneNode(true);
+            question.parentNode.replaceChild(newQuestion, question);
+          }
+        });
+
+        // Toggle FAQ Item
+        function toggleFAQ(faqItem) {
+          if (!faqItem) return;
+
+          const isActive = faqItem.classList.contains('active');
+
+          // Close all other FAQs
+          faqItems.forEach(item => {
+            if (item !== faqItem) {
+              item.classList.remove('active');
+            }
+          });
+
+          // Toggle current FAQ
+          if (isActive) {
+            faqItem.classList.remove('active');
+          } else {
+            faqItem.classList.add('active');
+          }
+
+          console.log(`FAQ toggled: ${isActive ? 'closed' : 'opened'}`);
+        }
+
+        // Filter FAQs by category
+        function filterFAQs(category) {
+          currentCategory = category;
+
+          // Update category buttons
+          categoryBtns.forEach(btn => {
+            if (btn.getAttribute('data-category') === category) {
+              btn.classList.add('active');
+            } else {
+              btn.classList.remove('active');
+            }
+          });
+
+          let visibleCount = 0;
+          faqItems.forEach((item, index) => {
+            const itemCategory = item.getAttribute('data-category');
+            const shouldShow = category === 'all' || itemCategory === category;
+
+            if (shouldShow) {
+              item.classList.remove('hidden-item');
+              visibleCount++;
+              // Staggered animation
+              setTimeout(() => {
+                item.classList.add('fade-in-up');
+              }, index * 50);
+            } else {
+              item.classList.add('hidden-item');
+              item.classList.remove('fade-in-up');
+              item.classList.remove('active'); // Close if hidden
+            }
+          });
+
+          console.log(`Filtered FAQs: ${visibleCount} items shown for category "${category}"`);
+        }
+
+        // Search FAQs
+        function searchFAQs(query) {
+          if (!query) {
+            // Show all items in current category
+            filterFAQs(currentCategory);
+            showNoResultsMessage(false);
+            return;
+          }
+
+          const searchTerm = query.toLowerCase().trim();
+          let hasResults = false;
+
+          faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question h3');
+            const answer = item.querySelector('.faq-answer');
+
+            if (question && answer) {
+              const questionText = question.textContent.toLowerCase();
+              const answerText = answer.textContent.toLowerCase();
+
+              if (questionText.includes(searchTerm) || answerText.includes(searchTerm)) {
+                item.classList.remove('hidden-item');
+                hasResults = true;
+
+                // Highlight search terms
+                highlightSearchTerm(question, searchTerm);
+              } else {
+                item.classList.add('hidden-item');
+                item.classList.remove('active');
+              }
+            }
+          });
+
+          showNoResultsMessage(!hasResults);
+          console.log(`Search completed: ${hasResults ? 'results found' : 'no results'} for "${query}"`);
+        }
+
+        // Highlight search terms
+        function highlightSearchTerm(element, term) {
+          const originalText = element.getAttribute('data-original') || element.textContent;
+          if (!element.getAttribute('data-original')) {
+            element.setAttribute('data-original', originalText);
+          }
+
+          const regex = new RegExp(`(${term})`, 'gi');
+          const highlightedText = originalText.replace(regex, '<span class="highlight-search">$1</span>');
+          element.innerHTML = highlightedText;
+        }
+
+        // Clear search highlights
+        function clearHighlights() {
+          faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question h3');
+            if (question && question.getAttribute('data-original')) {
+              question.textContent = question.getAttribute('data-original');
+            }
+          });
+        }
+
+        // Show/hide no results message
+        function showNoResultsMessage(show) {
+          let noResultsMsg = document.getElementById('noResultsMessage');
+
+          if (show && !noResultsMsg) {
+            noResultsMsg = document.createElement('div');
+            noResultsMsg.id = 'noResultsMessage';
+            noResultsMsg.className = 'text-center py-12';
+            noResultsMsg.innerHTML = `
+              <div class="text-6xl text-gray-300 mb-4">
+                <i class="fas fa-search"></i>
+              </div>
+              <h3 class="text-xl font-semibold text-gray-700 mb-2">Tidak ada hasil ditemukan</h3>
+              <p class="text-gray-500">Coba gunakan kata kunci lain atau hubungi support kami untuk bantuan</p>
+            `;
+            const container = document.getElementById('faqContainer');
+            if (container) {
+              container.appendChild(noResultsMsg);
+            }
+          } else if (!show && noResultsMsg) {
+            noResultsMsg.remove();
+          }
+        }
+
+        // Event Listeners - Re-attach
+        console.log(`📎 Attaching event listeners to ${faqItems.length} FAQ items`);
+        faqItems.forEach((item, index) => {
+          const question = item.querySelector('.faq-question');
+          if (question) {
+            question.addEventListener('click', (e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              toggleFAQ(item);
+              console.log(`FAQ ${index + 1} clicked`);
+            });
+          }
+        });
+
+        categoryBtns.forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const category = btn.getAttribute('data-category');
+            filterFAQs(category);
+            if (searchInput) searchInput.value = '';
+            clearHighlights();
+          });
+        });
+
+        // Search functionality with debouncing
+        if (searchInput) {
+          let searchTimeout;
+          searchInput.addEventListener('input', (e) => {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => {
+              const query = e.target.value;
+              if (query) {
+                searchFAQs(query);
+              } else {
+                clearHighlights();
+                filterFAQs(currentCategory);
+              }
+            }, 300);
+          });
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') {
+            // Close all open FAQs
+            faqItems.forEach(item => item.classList.remove('active'));
+          }
+        });
+
+        // Initialize - Show all FAQs
+        filterFAQs('all');
+
+        console.log('✅ FAQ Component initialized successfully!');
+        return true;
+      }
+
+      // Auto-initialize when DOM is ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializeFAQComponent);
+      } else {
+        // DOM already loaded, initialize immediately
+        setTimeout(initializeFAQComponent, 100);
+      }
+
+      // Make function globally available for re-initialization
+      window.initializeFAQComponent = initializeFAQComponent;
+    </script>
+  </body>
+</html>
