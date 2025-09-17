@@ -41,7 +41,7 @@
         navbarHeight: 80,
         scrollOffset: 100,
         autoScrollEnabled: true,
-        scrollSpeed: 1
+        scrollSpeed: 1,
       };
 
       const components = [
@@ -297,11 +297,7 @@
             let section = document.getElementById(comp.sectionId);
             if (!section) {
               // Look for section element more thoroughly in the loaded HTML
-              section = container.querySelector("section") ||
-                       container.querySelector(".section") ||
-                       container.querySelector("[data-section]") ||
-                       container.querySelector("div") ||
-                       container.firstElementChild;
+              section = container.querySelector("section") || container.querySelector(".section") || container.querySelector("[data-section]") || container.querySelector("div") || container.firstElementChild;
 
               if (section) {
                 section.setAttribute("id", comp.sectionId);
@@ -380,7 +376,7 @@
           log(`Found ${this.sections.length} sections for navigation`, "info");
 
           // Debug: List all found sections
-          this.sections.forEach(section => {
+          this.sections.forEach((section) => {
             log(`Section available: ${section.id}`, "success");
           });
 
@@ -455,10 +451,11 @@
               } else {
                 log(`Target element ${targetId} not found`, "error");
                 // Try alternative search methods - more aggressive for FAQ
-                const altElement = document.querySelector(`[data-section="${cleanTargetId}"]`) ||
-                                 document.querySelector(`.${cleanTargetId}-section`) ||
-                                 document.querySelector(`#${cleanTargetId}-container section`) ||
-                                 document.querySelector(`#${cleanTargetId}-container > *:first-child`);
+                const altElement =
+                  document.querySelector(`[data-section="${cleanTargetId}"]`) ||
+                  document.querySelector(`.${cleanTargetId}-section`) ||
+                  document.querySelector(`#${cleanTargetId}-container section`) ||
+                  document.querySelector(`#${cleanTargetId}-container > *:first-child`);
                 if (altElement) {
                   // Give it the correct ID if missing
                   if (!altElement.id) {

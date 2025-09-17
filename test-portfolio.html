@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <!-- Include the portfolio component -->
+    <div id="portfolio-container">
+        <!-- Portfolio component will be loaded here -->
+    </div>
+
+    <script>
+        // Load the portfolio component
+        fetch('./components/portfolio.html')
+            .then(response => response.text())
+            .then(html => {
+                // Extract the body content from the portfolio component
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                const section = doc.querySelector('section');
+                const modal = doc.querySelector('#projectModal');
+                const style = doc.querySelector('style');
+                const script = doc.querySelector('script');
+                
+                // Add the components to the page
+                if (section) document.getElementById('portfolio-container').appendChild(section);
+                if (modal) document.body.appendChild(modal);
+                if (style) document.head.appendChild(style);
+                if (script) {
+                    const newScript = document.createElement('script');
+                    newScript.textContent = script.textContent;
+                    document.body.appendChild(newScript);
+                }
+            });
+    </script>
+</body>
+</html>
