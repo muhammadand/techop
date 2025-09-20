@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Blog - TechOp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center space-x-2">
+                    <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="Logo" class="w-8 h-8">
+                    <span class="text-blue-600 font-bold text-xl">TechOp</span>
+                </a>
+
+                <!-- Navigation Links -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-600 hover:text-blue-600 transition-colors">Home</a>
+                    <a href="index.html#layanan" class="text-gray-600 hover:text-blue-600 transition-colors">Layanan</a>
+                    <a href="index.html#portofolio" class="text-gray-600 hover:text-blue-600 transition-colors">Portfolio</a>
+                    <a href="index.html#tentang" class="text-gray-600 hover:text-blue-600 transition-colors">Tentang</a>
+                    <a href="index.html#blog" class="text-blue-600 font-semibold">Blog</a>
+                    <a href="index.html#kontak" class="text-gray-600 hover:text-blue-600 transition-colors">Kontak</a>
+                </div>
+
+                <!-- Back Button -->
+                <a href="index.html#blog" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                    <i class="fas fa-arrow-left mr-2"></i>
+                    Kembali ke Blog
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Loading indicator -->
+    <div id="loading" class="text-center py-10" style="display: none;">
+        <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+        <p class="mt-2 text-gray-600">Memuat artikel...</p>
+    </div>
+
+    <!-- Article Not Found -->
+    <div id="articleNotFound" class="max-w-4xl mx-auto px-4 py-16 text-center" style="display: none;">
+        <div class="mb-8">
+            <i class="fas fa-exclamation-triangle text-6xl text-yellow-500 mb-4"></i>
+            <h1 class="text-2xl font-bold text-gray-900 mb-2">Artikel Tidak Ditemukan</h1>
+            <p class="text-gray-600">Maaf, artikel yang Anda cari tidak tersedia.</p>
+        </div>
+        <a href="index.html#blog" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+            <i class="fas fa-arrow-left mr-2"></i>
+            Kembali ke Blog
+        </a>
+    </div>
+
+    <!-- Article Content -->
+    <div id="articleContent" class="max-w-4xl mx-auto px-4 py-8" style="display: none;">
+        <!-- Article Header -->
+        <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+            <div class="mb-6">
+                <div class="flex items-center gap-3 mb-4">
+                    <span id="articleCategory" class="bg-blue-500 text-white text-sm font-semibold px-3 py-2 rounded-full"></span>
+                    <span id="articleReadTime" class="text-gray-500 text-sm">
+                        <i class="fas fa-clock mr-1"></i>
+                        <span></span>
+                    </span>
+                </div>
+                <h1 id="articleTitle" class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight"></h1>
+                <p id="articleExcerpt" class="text-lg text-gray-600 leading-relaxed"></p>
+            </div>
+
+            <!-- Author & Meta Info -->
+            <div class="flex items-center justify-between pb-6 border-b border-gray-200">
+                <div class="flex items-center gap-3">
+                    <div id="articleAuthorAvatar" class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center">
+                        <span class="text-sm font-bold text-gray-600"></span>
+                    </div>
+                    <div>
+                        <p id="articleAuthor" class="font-semibold text-gray-900"></p>
+                        <div class="flex items-center gap-4 text-sm text-gray-500">
+                            <span id="articleDate"></span>
+                            <span>•</span>
+                            <span id="articleViews">
+                                <i class="fas fa-eye mr-1"></i>
+                                <span></span>
+                            </span>
+                            <span>•</span>
+                            <span id="articleLikes">
+                                <i class="fas fa-heart mr-1"></i>
+                                <span></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Share Buttons -->
+                <div class="flex items-center gap-2">
+                    <button class="share-btn p-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition-colors" data-platform="facebook">
+                        <i class="fab fa-facebook-f text-sm"></i>
+                    </button>
+                    <button class="share-btn p-2 bg-sky-500 text-white rounded-full hover:bg-sky-600 transition-colors" data-platform="twitter">
+                        <i class="fab fa-twitter text-sm"></i>
+                    </button>
+                    <button class="share-btn p-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors" data-platform="linkedin">
+                        <i class="fab fa-linkedin-in text-sm"></i>
+                    </button>
+                    <button class="share-btn p-2 bg-green-500 text-white rounded-full hover:bg-green-600 transition-colors" data-platform="whatsapp">
+                        <i class="fab fa-whatsapp text-sm"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Featured Image -->
+        <div id="articleFeaturedImage" class="mb-8 rounded-xl overflow-hidden shadow-lg"></div>
+
+        <!-- Article Body -->
+        <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+            <div id="articleBody" class="prose prose-lg max-w-none">
+                <!-- Article content will be loaded here -->
+            </div>
+        </div>
+
+        <!-- Tags -->
+        <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+            <h4 class="text-lg font-semibold text-gray-900 mb-4">Tags:</h4>
+            <div id="articleTags" class="flex flex-wrap gap-2">
+                <!-- Tags will be loaded here -->
+            </div>
+        </div>
+
+        <!-- Related Articles -->
+        <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+            <h4 class="text-lg font-semibold text-gray-900 mb-6">Artikel Terkait:</h4>
+            <div id="articleRelated" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Related articles will be loaded here -->
+            </div>
+        </div>
+
+        <!-- Article Actions -->
+        <div class="bg-white rounded-xl shadow-lg p-6">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <button class="like-btn flex items-center gap-2 px-4 py-2 bg-gray-100 border border-gray-300 rounded-full hover:bg-gray-200 transition-colors">
+                        <i class="far fa-heart text-red-500"></i>
+                        <span class="like-count text-sm font-medium">0</span>
+                    </button>
+                    <button class="comment-btn flex items-center gap-2 px-4 py-2 bg-gray-100 border border-gray-300 rounded-full hover:bg-gray-200 transition-colors">
+                        <i class="far fa-comment text-blue-500"></i>
+                        <span class="text-sm font-medium">Komentar</span>
+                    </button>
+                </div>
+                <button class="share-article-btn bg-blue-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-blue-700 transition-colors">
+                    <i class="fas fa-share mr-2"></i>
+                    Bagikan Artikel
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .prose h2 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: #1f2937;
+        }
+
+        .prose p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+            color: #374151;
+        }
+
+        .prose ul {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+
+        .prose li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .prose .bg-blue-50,
+        .prose .bg-green-50,
+        .prose .bg-purple-50,
+        .prose .bg-orange-50,
+        .prose .bg-indigo-50,
+        .prose .bg-teal-50,
+        .prose .bg-pink-50 {
+            margin: 1.5rem 0;
+            padding: 1rem;
+            border-radius: 0.5rem;
+        }
+
+        .prose .border-l-4 {
+            border-left-width: 4px;
+        }
+    </style>
+
+    <script>
+        // Blog Articles Database - Same as in blog component
+        const blogArticlesData = {
+            "featured-article": {
+                id: "featured-article",
+                title: "5 Tren Teknologi yang Akan Mengubah Bisnis di 2025",
+                category: "Teknologi",
+                categoryColor: "blue",
+                excerpt: "Pelajari bagaimana AI, IoT, dan teknologi emerging lainnya akan membentuk landscape bisnis digital. Panduan lengkap untuk mempersiapkan bisnis Anda menghadapi revolusi teknologi.",
+                author: "TechOp Team",
+                authorAvatar: "TT",
+                date: "15 Des 2024",
+                readTime: "8 min",
+                views: "2,450",
+                likes: "89",
+                featuredImage: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1200&q=80",
+                tags: ["AI", "IoT", "Digital Transformation", "Business Technology", "Future Tech"],
+                content: `
+                <p class="text-lg text-gray-700 mb-6 font-medium">Dunia teknologi bergerak dengan kecepatan yang mencengangkan. Setiap tahunnya, inovasi-inovasi baru bermunculan dan mengubah cara kita bekerja, berbisnis, dan menjalani kehidupan sehari-hari.</p>
+                
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">1. Artificial Intelligence (AI) Menjadi Mainstream</h2>
+                <p class="text-gray-700 mb-4">Kecerdasan buatan tidak lagi menjadi teknologi masa depan, melainkan sudah menjadi kebutuhan saat ini. Dari chatbot customer service hingga sistem prediksi yang kompleks, AI mengoptimalkan berbagai aspek operasional bisnis.</p>
+                
+                <div class="bg-blue-50 border-l-4 border-blue-500 p-4 my-6">
+                  <p class="text-blue-800"><strong>Pro Tip:</strong> Mulailah dengan mengimplementasikan AI dalam proses yang repetitif dan data-driven di perusahaan Anda.</p>
+                </div>
+                
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">2. Internet of Things (IoT) Ekspansi Masif</h2>
+                <p class="text-gray-700 mb-4">IoT akan mengubah cara kita berinteraksi dengan lingkungan sekitar. Smart cities, smart homes, dan industrial IoT akan menjadi standar baru dalam efisiensi operasional.</p>
+                
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">3. Edge Computing untuk Performa Real-time</h2>
+                <p class="text-gray-700 mb-4">Dengan semakin banyaknya data yang diproses, edge computing memberikan solusi untuk mengurangi latency dan meningkatkan performa aplikasi real-time.</p>
+                
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">4. Blockchain Beyond Cryptocurrency</h2>
+                <p class="text-gray-700 mb-4">Teknologi blockchain mulai diaplikasikan dalam supply chain management, digital identity, dan smart contracts yang akan merevolusi berbagai industri.</p>
+                
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">5. Augmented Reality (AR) dalam Business</h2>
+                <p class="text-gray-700 mb-4">AR tidak hanya untuk gaming, tetapi juga untuk training karyawan, product demonstration, dan customer experience yang immersive.</p>
+                
+                <div class="bg-gradient-to-r from-blue-500 to-purple-600 text-white p-6 rounded-lg my-8">
+                  <h3 class="text-xl font-bold mb-2">Kesimpulan</h3>
+                  <p>Untuk tetap kompetitif di era digital, bisnis harus mulai mengadopsi teknologi-teknologi ini secara bertahap. Mulailah dengan yang paling relevan dengan industri Anda.</p>
+                </div>
+              `,
+                relatedArticles: ["mobile-optimization", "ui-ux-tips", "ecommerce-ai"],
+            },
+            "mobile-optimization": {
+                id: "mobile-optimization",
+                title: "Mengoptimalkan Performa Aplikasi Mobile dengan Latest Framework",
+                category: "Teknologi",
+                categoryColor: "green",
+                excerpt: "Pelajari teknik terbaru untuk meningkatkan performa aplikasi mobile Anda menggunakan framework modern seperti Flutter dan React Native.",
+                author: "Andi Dev",
+                authorAvatar: "AD",
+                date: "12 Des 2024",
+                readTime: "6 min",
+                views: "1,234",
+                likes: "45",
+                featuredImage: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80",
+                tags: ["Mobile Development", "Flutter", "React Native", "Performance", "Optimization"],
+                content: `
+                <p class="text-lg text-gray-700 mb-6 font-medium">Performa aplikasi mobile adalah salah satu faktor krusial yang menentukan kesuksesan sebuah aplikasi. Pengguna modern mengharapkan aplikasi yang responsif, cepat, dan dapat diandalkan.</p>
+                
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Mengapa Performa Mobile Penting?</h2>
+                <p class="text-gray-700 mb-4">Statistik menunjukkan bahwa 53% pengguna akan meninggalkan aplikasi jika loading time lebih dari 3 detik. Hal ini membuat optimasi performa menjadi prioritas utama dalam pengembangan aplikasi mobile.</p>
+                
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Flutter: Framework Google yang Powerful</h2>
+                <p class="text-gray-700 mb-4">Flutter menawarkan performa native dengan development experience yang excellent. Beberapa teknik optimasi Flutter:</p>
+                <ul class="list-disc list-inside text-gray-700 mb-4 ml-4">
+                  <li>Menggunakan const constructor untuk widget yang tidak berubah</li>
+                  <li>Implementasi lazy loading untuk list yang panjang</li>
+                  <li>Optimasi gambar dengan format WebP dan caching</li>
+                  <li>Minimizing widget rebuilds dengan proper state management</li>
+                </ul>
+                
+                <div class="bg-green-50 border-l-4 border-green-500 p-4 my-6">
+                  <p class="text-green-800"><strong>Best Practice:</strong> Gunakan Flutter DevTools untuk profiling dan debugging performa aplikasi Anda.</p>
+                </div>
+                
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">React Native: JavaScript untuk Native Performance</h2>
+                <p class="text-gray-700 mb-4">React Native memungkinkan development cross-platform dengan performa yang mendekati native. Teknik optimasi yang efektif:</p>
+                <ul class="list-disc list-inside text-gray-700 mb-4 ml-4">
+                  <li>Menggunakan FlatList untuk rendering list yang besar</li>
+                  <li>Implementasi Image caching dan lazy loading</li>
+                  <li>Optimasi bundle size dengan code splitting</li>
+                  <li>Menggunakan native modules untuk operasi yang berat</li>
+                </ul>
+                
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Tools untuk Performance Monitoring</h2>
+                <p class="text-gray-700 mb-4">Monitoring performa aplikasi dalam production environment sama pentingnya dengan development. Tools yang direkomendasikan:</p>
+                <ul class="list-disc list-inside text-gray-700 mb-4 ml-4">
+                  <li>Firebase Performance Monitoring</li>
+                  <li>New Relic Mobile</li>
+                  <li>Sentry untuk error tracking</li>
+                  <li>AppDynamics untuk comprehensive monitoring</li>
+                </ul>
+              `,
+                relatedArticles: ["ui-ux-tips", "database-security", "clean-code"],
+            },
+            "ui-ux-tips": {
+                id: "ui-ux-tips",
+                title: "10 Tips UI/UX Design untuk Meningkatkan User Engagement",
+                category: "Tips & Tricks",
+                categoryColor: "purple",
+                excerpt: "Strategi desain yang terbukti efektif untuk menciptakan pengalaman pengguna yang engaging dan meningkatkan konversi.",
+                author: "Sarah Designer",
+                authorAvatar: "SD",
+                date: "10 Des 2024",
+                readTime: "4 min",
+                views: "1,876",
+                likes: "67",
+                featuredImage: "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=1200&q=80",
+                tags: ["UI/UX", "Design", "User Experience", "Engagement", "Conversion"],
+                content: `
+                <p class="text-lg text-gray-700 mb-6 font-medium">User experience yang baik adalah kunci kesuksesan setiap produk digital. Design yang user-centered tidak hanya terlihat menarik, tetapi juga functional dan intuitive.</p>
+                
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">1. Keep It Simple and Clean</h2>
+                <p class="text-gray-700 mb-4">Kesederhanaan adalah kunci. Hindari clutter dan fokus pada elemen yang benar-benar penting. White space adalah teman Anda dalam menciptakan design yang breathable.</p>
+                
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">2. Consistency is Key</h2>
+                <p class="text-gray-700 mb-4">Gunakan design system yang consistent. Dari typography, warna, hingga spacing harus mengikuti pattern yang sama di seluruh aplikasi.</p>
+                
+                <div class="bg-purple-50 border-l-4 border-purple-500 p-4 my-6">
+                  <p class="text-purple-800"><strong>Design Tip:</strong> Buat style guide yang comprehensive sebagai panduan untuk seluruh tim.</p>
+                </div>
+                
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">3. Mobile-First Approach</h2>
+                <p class="text-gray-700 mb-4">Mayoritas pengguna mengakses aplikasi melalui mobile. Design mobile-first memastikan experience yang optimal di semua device.</p>
+                
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">4. Fast Loading and Smooth Animations</h2>
+                <p class="text-gray-700 mb-4">Performa yang cepat dan animasi yang smooth memberikan kesan premium dan profesional pada aplikasi Anda.</p>
+                
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">5. Accessible Design for All</h2>
+                <p class="text-gray-700 mb-4">Pastikan design Anda accessible untuk semua pengguna, termasuk yang memiliki keterbatasan. Gunakan contrast ratio yang tepat dan ukuran font yang readable.</p>
+                
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">6. Clear Call-to-Action</h2>
+                <p class="text-gray-700 mb-4">CTA button harus jelas, menarik, dan mudah diakses. Gunakan warna yang kontras dan copy yang actionable.</p>
+                
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">7. User Feedback and Error Handling</h2>
+                <p class="text-gray-700 mb-4">Berikan feedback yang jelas untuk setiap action pengguna. Error messages harus helpful dan memberikan solusi.</p>
+                
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">8. Testing dengan Real Users</h2>
+                <p class="text-gray-700 mb-4">Lakukan usability testing dengan target user untuk mendapatkan insights yang valuable tentang pengalaman mereka.</p>
+                
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">9. Data-Driven Design Decisions</h2>
+                <p class="text-gray-700 mb-4">Gunakan analytics dan user behavior data untuk membuat keputusan design yang informed dan objective.</p>
+                
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">10. Continuous Iteration</h2>
+                <p class="text-gray-700 mb-4">Design adalah proses yang continuous. Selalu iterate berdasarkan feedback pengguna dan perubahan kebutuhan bisnis.</p>
+              `,
+                relatedArticles: ["mobile-optimization", "ecommerce-ai", "clean-code"],
+            },
+            "ecommerce-ai": {
+                id: "ecommerce-ai",
+                title: "Masa Depan E-commerce: AI dan Personalisasi",
+                category: "Tren Digital",
+                categoryColor: "orange",
+                excerpt: "Bagaimana kecerdasan buatan mengubah cara konsumen berbelanja online dan strategi personalisasi yang efektif.",
+                author: "Mike Business",
+                authorAvatar: "MB",
+                date: "8 Des 2024",
+                readTime: "5 min",
+                views: "2,103",
+                likes: "92",
+                featuredImage: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=80",
+                tags: ["E-commerce", "AI", "Personalization", "Digital Marketing", "Customer Experience"],
+                content: `
+                <p class="text-lg text-gray-700 mb-6 font-medium">E-commerce telah berkembang dari sekadar toko online menjadi ecosystem digital yang sophisticated. AI dan personalisasi kini menjadi differentiator utama dalam kompetisi e-commerce.</p>
+                
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">AI-Powered Product Recommendations</h2>
+                <p class="text-gray-700 mb-4">Sistem rekomendasi yang cerdas dapat meningkatkan conversion rate hingga 300%. Amazon membuktikan bahwa 35% revenue mereka berasal dari recommendation engine.</p>
+                
+                <div class="bg-orange-50 border-l-4 border-orange-500 p-4 my-6">
+                  <p class="text-orange-800"><strong>Business Impact:</strong> E-commerce dengan AI recommendation memiliki average order value 20% lebih tinggi.</p>
+                </div>
+                
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Chatbot dan Virtual Shopping Assistant</h2>
+                <p class="text-gray-700 mb-4">Chatbot AI dapat menangani 80% customer inquiries dan memberikan pengalaman shopping yang personal 24/7. Teknologi NLP yang advanced memungkinkan conversation yang natural.</p>
+                
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Dynamic Pricing Strategy</h2>
+                <p class="text-gray-700 mb-4">AI dapat menganalisis competitor pricing, demand patterns, dan inventory levels untuk menentukan harga optimal secara real-time.</p>
+                
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Predictive Analytics untuk Inventory</h2>
+                <p class="text-gray-700 mb-4">Machine learning dapat memprediksi demand dengan akurasi tinggi, mengurangi overstock dan stockout yang merugikan bisnis.</p>
+                
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Visual Search Technology</h2>
+                <p class="text-gray-700 mb-4">Customer dapat mencari produk menggunakan gambar. Teknologi computer vision memungkinkan search experience yang lebih intuitive.</p>
+                
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Personalized Customer Journey</h2>
+                <p class="text-gray-700 mb-4">Setiap customer memiliki journey yang unik. AI dapat mengcustomize seluruh experience dari homepage hingga checkout process.</p>
+                
+                <div class="bg-gradient-to-r from-orange-500 to-red-600 text-white p-6 rounded-lg my-8">
+                  <h3 class="text-xl font-bold mb-2">Future Outlook</h3>
+                  <p>E-commerce yang tidak mengadopsi AI akan tertinggal. Investasi dalam AI technology adalah investasi untuk sustainability bisnis jangka panjang.</p>
+                </div>
+              `,
+                relatedArticles: ["mobile-optimization", "ui-ux-tips", "case-study-umkm"],
+            },
+            "case-study-umkm": {
+                id: "case-study-umkm",
+                title: "Case Study: Transformasi Digital UMKM dengan Mobile App",
+                category: "Case Study",
+                categoryColor: "indigo",
+                excerpt: "Studi kasus lengkap bagaimana aplikasi mobile membantu UMKM meningkatkan penjualan hingga 300% dalam 6 bulan.",
+                author: "TechOp Team",
+                authorAvatar: "TT",
+                date: "5 Des 2024",
+                readTime: "10 min",
+                views: "3,456",
+                likes: "128",
+                featuredImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+                tags: ["Case Study", "UMKM", "Digital Transformation", "Mobile App", "Business Growth"],
+                content: `
+                <p class="text-lg text-gray-700 mb-6 font-medium">Transformasi digital bukan hanya untuk perusahaan besar. UMKM juga dapat merasakan dampak signifikan dari adopsi teknologi yang tepat. Berikut adalah case study nyata transformasi digital UMKM.</p>
+                
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Background: Toko Batik Tradisional</h2>
+                <p class="text-gray-700 mb-4">Bu Sari memiliki toko batik tradisional di Yogyakarta yang telah berjalan selama 15 tahun. Pandemi COVID-19 membuat penjualan offline turun drastis hingga 70%.</p>
+                
+                <div class="bg-indigo-50 border-l-4 border-indigo-500 p-4 my-6">
+                  <p class="text-indigo-800"><strong>Challenge:</strong> Bagaimana cara menjangkau customer yang lebih luas tanpa menghilangkan identitas tradisional?</p>
+                </div>
+                
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Phase 1: Digital Catalog (Bulan 1-2)</h2>
+                <p class="text-gray-700 mb-4">Langkah pertama adalah membangun mobile app dengan catalog digital yang comprehensive:</p>
+                <ul class="list-disc list-inside text-gray-700 mb-4 ml-4">
+                  <li>High-quality product photography</li>
+                  <li>Detailed product description dengan sejarah motif</li>
+                  <li>Virtual try-on feature menggunakan AR</li>
+                  <li>Multiple payment options</li>
+                </ul>
+                
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Phase 2: Customer Engagement (Bulan 3-4)</h2>
+                <p class="text-gray-700 mb-4">Membangun relationship dengan customer melalui:</p>
+                <ul class="list-disc list-inside text-gray-700 mb-4 ml-4">
+                  <li>Educational content tentang batik</li>
+                  <li>Live streaming proses pembuatan batik</li>
+                  <li>Customer testimonial dan review system</li>
+                  <li>Loyalty program dengan point reward</li>
+                </ul>
+                
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Phase 3: Scale dan Automation (Bulan 5-6)</h2>
+                <p class="text-gray-700 mb-4">Optimasi operasional dengan teknologi:</p>
+                <ul class="list-disc list-inside text-gray-700 mb-4 ml-4">
+                  <li>Inventory management system</li>
+                  <li>Automated customer service dengan chatbot</li>
+                  <li>Analytics dashboard untuk business insights</li>
+                  <li>Integration dengan marketplace besar</li>
+                </ul>
+                
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Results: Transformasi yang Mengagumkan</h2>
+                <p class="text-gray-700 mb-4">Setelah 6 bulan implementasi:</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+                  <div class="bg-green-100 p-4 rounded-lg">
+                    <h4 class="font-bold text-green-800 mb-2">Peningkatan Penjualan</h4>
+                    <p class="text-green-700 text-2xl font-bold">+300%</p>
+                  </div>
+                  <div class="bg-blue-100 p-4 rounded-lg">
+                    <h4 class="font-bold text-blue-800 mb-2">Jangkauan Customer</h4>
+                    <p class="text-blue-700 text-2xl font-bold">+500%</p>
+                  </div>
+                  <div class="bg-purple-100 p-4 rounded-lg">
+                    <h4 class="font-bold text-purple-800 mb-2">Customer Retention</h4>
+                    <p class="text-purple-700 text-2xl font-bold">85%</p>
+                  </div>
+                  <div class="bg-orange-100 p-4 rounded-lg">
+                    <h4 class="font-bold text-orange-800 mb-2">Average Order Value</h4>
+                    <p class="text-orange-700 text-2xl font-bold">+150%</p>
+                  </div>
+                </div>
+                
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Key Success Factors</h2>
+                <p class="text-gray-700 mb-4">Beberapa faktor yang membuat transformasi ini sukses:</p>
+                <ul class="list-disc list-inside text-gray-700 mb-4 ml-4">
+                  <li>Mempertahankan identitas brand tradisional</li>
+                  <li>Fokus pada customer experience</li>
+                  <li>Implementation yang bertahap dan terukur</li>
+                  <li>Continuous learning dan adaptation</li>
+                </ul>
+                
+                <div class="bg-gradient-to-r from-indigo-500 to-purple-600 text-white p-6 rounded-lg my-8">
+                  <h3 class="text-xl font-bold mb-2">Lessons Learned</h3>
+                  <p>Digital transformation bukanlah tentang mengganti tradisi, tetapi tentang memperluas jangkauan dengan cara yang authentic dan meaningful.</p>
+                </div>
+              `,
+                relatedArticles: ["ecommerce-ai", "mobile-optimization", "database-security"],
+            },
+            "database-security": {
+                id: "database-security",
+                title: "Keamanan Database: Best Practice untuk Developer",
+                category: "Teknologi",
+                categoryColor: "teal",
+                excerpt: "Panduan lengkap mengamankan database aplikasi Anda dari berbagai ancaman cyber dan teknik hacking terbaru.",
+                author: "Rizki Security",
+                authorAvatar: "RS",
+                date: "3 Des 2024",
+                readTime: "7 min",
+                views: "1,567",
+                likes: "78",
+                featuredImage: "https://images.unsplash.com/photo-1563206767-5b18f218e8de?auto=format&fit=crop&w=1200&q=80",
+                tags: ["Database", "Security", "Best Practice", "Cyber Security", "Data Protection"],
+                content: `
+                <p class="text-lg text-gray-700 mb-6 font-medium">Keamanan database adalah aspek krusial dalam pengembangan aplikasi modern. Dengan meningkatnya cyber attacks, developer harus memahami best practices untuk melindungi data sensitive.</p>
+                
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Common Database Security Threats</h2>
+                <p class="text-gray-700 mb-4">Sebelum membahas solusi, penting untuk memahami ancaman yang ada:</p>
+                <ul class="list-disc list-inside text-gray-700 mb-4 ml-4">
+                  <li>SQL Injection attacks</li>
+                  <li>Data breaches dan unauthorized access</li>
+                  <li>Insider threats</li>
+                  <li>Malware dan ransomware</li>
+                  <li>DDoS attacks</li>
+                </ul>
+                
+                <div class="bg-teal-50 border-l-4 border-teal-500 p-4 my-6">
+                  <p class="text-teal-800"><strong>Fact:</strong> 95% dari data breaches disebabkan oleh human error dan poor security practices.</p>
+                </div>
+                
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">1. Input Validation dan Sanitization</h2>
+                <p class="text-gray-700 mb-4">Selalu validate dan sanitize input dari user untuk mencegah injection attacks:</p>
+                <ul class="list-disc list-inside text-gray-700 mb-4 ml-4">
+                  <li>Gunakan prepared statements</li>
+                  <li>Implement input validation rules</li>
+                  <li>Escape special characters</li>
+                  <li>Use whitelist approach untuk input validation</li>
+                </ul>
+                
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">2. Authentication dan Authorization</h2>
+                <p class="text-gray-700 mb-4">Implement strong authentication mechanism:</p>
+                <ul class="list-disc list-inside text-gray-700 mb-4 ml-4">
+                  <li>Multi-factor authentication (MFA)</li>
+                  <li>Role-based access control (RBAC)</li>
+                  <li>Principle of least privilege</li>
+                  <li>Regular access review dan audit</li>
+                </ul>
+                
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">3. Data Encryption</h2>
+                <p class="text-gray-700 mb-4">Encrypt data both at rest dan in transit:</p>
+                <ul class="list-disc list-inside text-gray-700 mb-4 ml-4">
+                  <li>Use strong encryption algorithms (AES-256)</li>
+                  <li>Implement TLS/SSL untuk data transmission</li>
+                  <li>Encrypt sensitive fields dalam database</li>
+                  <li>Secure key management practices</li>
+                </ul>
+                
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">4. Regular Security Updates</h2>
+                <p class="text-gray-700 mb-4">Keep your database systems updated:</p>
+                <ul class="list-disc list-inside text-gray-700 mb-4 ml-4">
+                  <li>Apply security patches promptly</li>
+                  <li>Update database software regularly</li>
+                  <li>Monitor security advisories</li>
+                  <li>Test updates dalam staging environment</li>
+                </ul>
+                
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">5. Monitoring dan Auditing</h2>
+                <p class="text-gray-700 mb-4">Implement comprehensive monitoring:</p>
+                <ul class="list-disc list-inside text-gray-700 mb-4 ml-4">
+                  <li>Log semua database activities</li>
+                  <li>Set up real-time alerting</li>
+                  <li>Regular security audits</li>
+                  <li>Penetration testing</li>
+                </ul>
+                
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">6. Backup dan Recovery</h2>
+                <p class="text-gray-700 mb-4">Ensure data availability dan integrity:</p>
+                <ul class="list-disc list-inside text-gray-700 mb-4 ml-4">
+                  <li>Regular automated backups</li>
+                  <li>Test backup restoration process</li>
+                  <li>Off-site backup storage</li>
+                  <li>Disaster recovery planning</li>
+                </ul>
+              `,
+                relatedArticles: ["clean-code", "mobile-optimization", "case-study-umkm"],
+            },
+            "clean-code": {
+                id: "clean-code",
+                title: "Clean Code: 7 Prinsip yang Harus Dikuasai Developer",
+                category: "Tips & Tricks",
+                categoryColor: "pink",
+                excerpt: "Belajar menulis kode yang bersih, mudah dibaca, dan maintainable menggunakan prinsip-prinsip yang digunakan developer profesional.",
+                author: "Lisa Coder",
+                authorAvatar: "LC",
+                date: "1 Des 2024",
+                readTime: "3 min",
+                views: "2,890",
+                likes: "156",
+                featuredImage: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80",
+                tags: ["Clean Code", "Best Practice", "Programming", "Code Quality", "Software Development"],
+                content: `
+                <p class="text-lg text-gray-700 mb-6 font-medium">Clean code adalah investasi terbaik untuk masa depan project Anda. Code yang bersih tidak hanya mudah dibaca, tetapi juga mudah di-maintain dan di-scale.</p>
+                
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">1. Meaningful Names</h2>
+                <p class="text-gray-700 mb-4">Gunakan nama yang descriptive dan meaningful untuk variables, functions, dan classes. Hindari abbreviation yang membingungkan.</p>
+                
+                <div class="bg-pink-50 border-l-4 border-pink-500 p-4 my-6">
+                  <p class="text-pink-800"><strong>Good Practice:</strong> <code class="bg-gray-100 px-2 py-1 rounded">calculateTotalPrice()</code> lebih baik dari <code class="bg-gray-100 px-2 py-1 rounded">calcTP()</code></p>
+                </div>
+                
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">2. Functions Should Be Small</h2>
+                <p class="text-gray-700 mb-4">Function yang baik melakukan satu hal dan melakukannya dengan baik. Idealnya, function tidak lebih dari 20 baris.</p>
+                
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">3. Don't Repeat Yourself (DRY)</h2>
+                <p class="text-gray-700 mb-4">Avoid code duplication. Jika Anda menulis code yang sama lebih dari sekali, extract menjadi function atau module terpisah.</p>
+                
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">4. Comments Explain Why, Not What</h2>
+                <p class="text-gray-700 mb-4">Good code should be self-documenting. Gunakan comments untuk menjelaskan reasoning di balik keputusan, bukan apa yang dilakukan code.</p>
+                
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">5. Consistent Formatting</h2>
+                <p class="text-gray-700 mb-4">Konsistensi dalam formatting membuat code lebih readable. Gunakan linter dan formatter untuk enforce consistency.</p>
+                
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">6. Error Handling</h2>
+                <p class="text-gray-700 mb-4">Handle errors gracefully dan provide meaningful error messages. Jangan ignore exceptions atau return null tanpa handling.</p>
+                
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">7. Write Tests</h2>
+                <p class="text-gray-700 mb-4">Unit tests adalah safety net yang memungkinkan refactoring dengan confidence. Write tests yang comprehensive dan maintainable.</p>
+                
+                <div class="bg-gradient-to-r from-pink-500 to-red-600 text-white p-6 rounded-lg my-8">
+                  <h3 class="text-xl font-bold mb-2">Remember</h3>
+                  <p>Clean code is not written by following rules. It's written by professionals who care deeply about their craft.</p>
+                </div>
+              `,
+                relatedArticles: ["database-security", "mobile-optimization", "ui-ux-tips"],
+            },
+        };
+
+        // Get category color class
+        function getCategoryColorClass(categoryColor) {
+            const colorClasses = {
+                blue: "bg-blue-500",
+                green: "bg-green-500",
+                purple: "bg-purple-500",
+                orange: "bg-orange-500",
+                indigo: "bg-indigo-500",
+                teal: "bg-teal-500",
+                pink: "bg-pink-500",
+            };
+            return colorClasses[categoryColor] || "bg-blue-500";
+        }
+
+        // Get category icon
+        function getCategoryIcon(category) {
+            const icons = {
+                Teknologi: "fas fa-laptop-code",
+                "Tips & Tricks": "fas fa-lightbulb",
+                "Tren Digital": "fas fa-chart-line",
+                "Case Study": "fas fa-clipboard-check",
+            };
+            return icons[category] || "fas fa-newspaper";
+        }
+
+        // Load article from URL parameter
+        function loadArticle() {
+            const loading = document.getElementById('loading');
+            const articleNotFound = document.getElementById('articleNotFound');
+            const articleContent = document.getElementById('articleContent');
+
+            // Show loading
+            loading.style.display = 'block';
+            articleNotFound.style.display = 'none';
+            articleContent.style.display = 'none';
+
+            // Get article ID from URL parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const articleId = urlParams.get('id');
+
+            console.log('Loading article:', articleId);
+
+            // Check if article exists
+            if (!articleId || !blogArticlesData[articleId]) {
+                console.log('Article not found:', articleId);
+                loading.style.display = 'none';
+                articleNotFound.style.display = 'block';
+                return;
+            }
+
+            const article = blogArticlesData[articleId];
+            console.log('Article found:', article.title);
+
+            // Update page title
+            document.title = `${article.title} - TechOp`;
+
+            // Populate article data
+            document.getElementById('articleCategory').textContent = article.category;
+            document.getElementById('articleCategory').className = `${getCategoryColorClass(article.categoryColor)} text-white text-sm font-semibold px-3 py-2 rounded-full`;
+            document.getElementById('articleReadTime').querySelector('span').textContent = article.readTime;
+            document.getElementById('articleTitle').textContent = article.title;
+            document.getElementById('articleExcerpt').textContent = article.excerpt;
+            document.getElementById('articleAuthorAvatar').querySelector('span').textContent = article.authorAvatar;
+            document.getElementById('articleAuthor').textContent = article.author;
+            document.getElementById('articleDate').textContent = article.date;
+            document.getElementById('articleViews').querySelector('span').textContent = article.views;
+            document.getElementById('articleLikes').querySelector('span').textContent = article.likes;
+
+            // Update featured image
+            const featuredImageContainer = document.getElementById('articleFeaturedImage');
+            featuredImageContainer.innerHTML = `
+                <div class="relative h-64 md:h-80">
+                    <img src="${article.featuredImage}" alt="${article.title}" class="w-full h-full object-cover rounded-lg">
+                    <div class="absolute inset-0 bg-black bg-opacity-30 rounded-lg flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <i class="${getCategoryIcon(article.category)} text-4xl mb-2 opacity-80"></i>
+                            <p class="text-sm font-medium opacity-80">${article.category}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Update article body
+            document.getElementById('articleBody').innerHTML = article.content;
+
+            // Update tags
+            const tagsContainer = document.getElementById('articleTags');
+            tagsContainer.innerHTML = '';
+            article.tags.forEach((tag) => {
+                const tagElement = document.createElement('span');
+                tagElement.className = 'bg-gray-100 text-gray-700 px-3 py-2 rounded-full text-sm hover:bg-gray-200 transition-colors';
+                tagElement.textContent = tag;
+                tagsContainer.appendChild(tagElement);
+            });
+
+            // Update related articles
+            const relatedContainer = document.getElementById('articleRelated');
+            relatedContainer.innerHTML = '';
+            article.relatedArticles.forEach((relatedId) => {
+                const relatedArticle = blogArticlesData[relatedId];
+                if (relatedArticle) {
+                    const relatedElement = document.createElement('div');
+                    relatedElement.className = 'bg-gray-50 p-4 rounded-lg hover:bg-gray-100 cursor-pointer transition-colors border border-gray-200 hover:shadow-md';
+                    relatedElement.innerHTML = `
+                        <h5 class="font-semibold text-gray-900 mb-2 hover:text-blue-600 transition-colors">${relatedArticle.title}</h5>
+                        <p class="text-sm text-gray-600 mb-3 leading-relaxed">${relatedArticle.excerpt.substring(0, 120)}...</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2 text-xs text-gray-500">
+                                <span>${relatedArticle.author}</span>
+                                <span>•</span>
+                                <span>${relatedArticle.date}</span>
+                            </div>
+                            <span class="text-xs ${getCategoryColorClass(relatedArticle.categoryColor).replace('bg-', 'bg-').replace('-500', '-100')} ${getCategoryColorClass(relatedArticle.categoryColor).replace('bg-', 'text-').replace('-500', '-600')} px-2 py-1 rounded-full">${relatedArticle.category}</span>
+                        </div>
+                    `;
+                    relatedElement.addEventListener('click', () => {
+                        window.location.href = `blog-detail.html?id=${relatedId}`;
+                    });
+                    relatedContainer.appendChild(relatedElement);
+                }
+            });
+
+            // Update like count
+            document.querySelector('.like-count').textContent = article.likes;
+
+            // Hide loading and show content
+            loading.style.display = 'none';
+            articleContent.style.display = 'block';
+
+            // Smooth scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Social sharing functionality
+        function shareArticle(platform, title, url) {
+            switch (platform) {
+                case 'facebook':
+                    window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+                    break;
+                case 'twitter':
+                    window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`, '_blank');
+                    break;
+                case 'linkedin':
+                    window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank');
+                    break;
+                case 'whatsapp':
+                    window.open(`https://wa.me/?text=${encodeURIComponent(title + ' ' + url)}`, '_blank');
+                    break;
+            }
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('DOM loaded, loading article...');
+            loadArticle();
+
+            // Social share buttons
+            document.addEventListener('click', (e) => {
+                if (e.target.classList.contains('share-btn') || e.target.closest('.share-btn')) {
+                    e.preventDefault();
+                    const button = e.target.classList.contains('share-btn') ? e.target : e.target.closest('.share-btn');
+                    const platform = button.getAttribute('data-platform');
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const articleId = urlParams.get('id');
+                    const article = blogArticlesData[articleId];
+                    
+                    if (article) {
+                        shareArticle(platform, article.title, window.location.href);
+                    }
+                }
+            });
+
+            // Like button functionality
+            document.addEventListener('click', (e) => {
+                if (e.target.classList.contains('like-btn') || e.target.closest('.like-btn')) {
+                    e.preventDefault();
+                    const button = e.target.classList.contains('like-btn') ? e.target : e.target.closest('.like-btn');
+                    const likeIcon = button.querySelector('i');
+                    const likeCount = button.querySelector('.like-count');
+
+                    if (likeIcon.classList.contains('far')) {
+                        // Like the article
+                        likeIcon.classList.remove('far');
+                        likeIcon.classList.add('fas');
+                        likeCount.textContent = parseInt(likeCount.textContent) + 1;
+                        button.classList.add('text-red-500');
+                    } else {
+                        // Unlike the article
+                        likeIcon.classList.remove('fas');
+                        likeIcon.classList.add('far');
+                        likeCount.textContent = parseInt(likeCount.textContent) - 1;
+                        button.classList.remove('text-red-500');
+                    }
+                }
+            });
+
+            // Share article button
+            document.addEventListener('click', (e) => {
+                if (e.target.classList.contains('share-article-btn') || e.target.closest('.share-article-btn')) {
+                    e.preventDefault();
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const articleId = urlParams.get('id');
+                    const article = blogArticlesData[articleId];
+                    
+                    if (article) {
+                        if (navigator.share) {
+                            navigator.share({
+                                title: article.title,
+                                url: window.location.href,
+                            });
+                        } else {
+                            // Fallback: copy to clipboard
+                            navigator.clipboard.writeText(window.location.href).then(() => {
+                                alert('Link artikel berhasil disalin!');
+                            });
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
