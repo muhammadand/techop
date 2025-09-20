@@ -429,7 +429,8 @@
         <p class="text-gray-600 text-sm md:text-base max-w-xl mx-auto mb-12">Bertemu dengan para profesional berpengalaman yang siap mewujudkan visi digital Anda dengan dedikasi dan keahlian terbaik.</p>
 
         <!-- Grid Anggota Tim -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 mt-8 justify-items-center max-w-5xl mx-auto">
+        <!-- Bagian Grid Team yang diupdate -->
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-6 mt-8 justify-items-center max-w-7xl mx-auto">
           <!-- Anggota 1 -->
           <div class="text-center team-card floating-animation group transition-all duration-500" onclick="openModal('wira')">
             <div class="gradient-border mx-auto mb-4 transition-all duration-500">
@@ -520,6 +521,31 @@
             </div>
             <h4 class="text-lg font-bold text-gray-900 mb-1 group-hover:text-pink-600 transition-colors duration-300">Alya Naomi</h4>
             <p class="text-xs font-medium text-gray-500 mb-3">Game Developer</p>
+            <div class="flex justify-center space-x-2">
+              <div class="w-7 h-7 bg-blue-100 rounded-full flex items-center justify-center hover:bg-blue-200 transition-colors duration-300 cursor-pointer">
+                <span class="text-blue-600 text-xs">📧</span>
+              </div>
+              <div class="w-7 h-7 bg-purple-100 rounded-full flex items-center justify-center hover:bg-purple-200 transition-colors duration-300 cursor-pointer">
+                <span class="text-purple-600 text-xs">💼</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Anggota 5 - Wahid (Baru) -->
+          <div class="text-center team-card floating-animation group transition-all duration-500" onclick="openModal('wahid')">
+            <div class="gradient-border mx-auto mb-4 transition-all duration-500">
+              <div class="gradient-border-inner">
+                <div class="w-32 h-32 image-container shadow-xl">
+                  <img src="../assets/img/wahid.jpg" alt="Wahid" class="object-cover w-full h-full team-image" />
+                  <div class="hover-overlay">
+                    <div class="overlay-icon">✨</div>
+                    <div class="overlay-text">Lihat<br />Selengkapnya</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h4 class="text-lg font-bold text-gray-900 mb-1 group-hover:text-orange-600 transition-colors duration-300">Abdul Wahid</h4>
+            <p class="text-xs font-medium text-gray-500 mb-3">Fullstack Web Developer</p>
             <div class="flex justify-center space-x-2">
               <div class="w-7 h-7 bg-blue-100 rounded-full flex items-center justify-center hover:bg-blue-200 transition-colors duration-300 cursor-pointer">
                 <span class="text-blue-600 text-xs">📧</span>
@@ -739,6 +765,51 @@
               text: "Alya memiliki visi kreatif yang luar biasa dalam game development. Setiap game yang dia buat selalu memberikan experience yang unik dan engaging bagi players.",
               author: "David Kim, Game Publisher",
               role: "Senior Game Producer",
+            },
+          ],
+        },
+        wahid: {
+          name: "Abdul Wahid",
+          role: "UI/UX Designer",
+          emoji: "🎨",
+          gradientFrom: "from-orange-600",
+          gradientTo: "to-amber-800",
+          description: "Creative UI/UX designer dengan passion dalam menciptakan user experience yang intuitive dan visually appealing. Expert dalam design thinking, prototyping, dan user research dengan fokus pada human-centered design.",
+          detailedBio:
+            "Wahid adalah UI/UX designer yang telah merancang interface untuk lebih dari 100 aplikasi dan website. Keahliannya mencakup user research, wireframing, prototyping, dan design system. Dia juga berpengalaman dalam design sprint methodology dan design thinking workshops.",
+          experience: "4+ Tahun",
+          projects: "100+ Designs",
+          users: "5M+ Users",
+          platforms: "12+ Platforms",
+          email: "wahid@company.com",
+          phone: "+62 812-3456-7890",
+          dribbble: "dribbble.com/wahiddesign",
+          linkedin: "linkedin.com/in/abdul-wahid-designer",
+          skills: ["Figma", "Adobe XD", "Sketch", "Prototyping", "User Research", "Design System", "Wireframing", "Usability Testing", "Adobe Creative Suite", "InVision", "Zeplin", "Principle"],
+          achievements: [
+            "Merancang design system yang digunakan oleh 50+ produk digital dengan konsistensi 95%",
+            "Meraih Dribbble Popular Shot dengan 10K+ likes untuk design mobile app innovation",
+            "Meningkatkan user engagement hingga 300% melalui redesign UX untuk e-commerce platform",
+            "Memimpin design thinking workshop untuk 200+ peserta di berbagai startup",
+            "Design yang dibuat telah digunakan oleh lebih dari 5 juta users worldwide",
+          ],
+          education: ["Bachelor of Visual Communication Design - Institut Seni Budaya Indonesia (2020)", "UX Design Certificate - Google UX Design Professional (2021)"],
+          certifications: [
+            "Google UX Design Professional Certificate",
+            "Adobe Certified Expert - Photoshop",
+            "Figma Advanced Certification",
+            "Human-Computer Interaction - Coursera",
+            "Design Thinking Fundamentals - IDEO",
+            "User Research Methods - Nielsen Norman Group",
+            "Mobile App Design Certification",
+            "Web Design Principles - Adobe",
+          ],
+          quote: "Design is not just what it looks like and feels like. Design is how it works. Every pixel has a purpose, every interaction tells a story.",
+          testimonials: [
+            {
+              text: "Wahid adalah designer yang luar biasa dengan kemampuan menggabungkan estetika dan functionalitas dengan sempurna. Setiap design-nya selalu user-centered dan innovative.",
+              author: "Lisa Wang, Product Manager",
+              role: "Senior Product Manager",
             },
           ],
         },
