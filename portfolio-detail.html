@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Detail - TechOP</title>
+    <meta name="description" content="Detail portfolio project dari TechOP - solusi teknologi terdepan untuk bisnis Anda">
+    <link rel="icon" type="image/png" href="assets/img/techop.png">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Styles -->
+    <style>
+        @keyframes fadeInScale {
+            0% { opacity: 0; transform: scale(0.9) translateY(20px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        @keyframes slideInUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .animate-fade-in-scale {
+            animation: fadeInScale 0.8s ease-out forwards;
+        }
+
+        .animate-slide-in-up {
+            animation: slideInUp 0.6s ease-out forwards;
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .tech-badge {
+            transition: all 0.3s ease;
+        }
+
+        .tech-badge:hover {
+            transform: scale(1.05);
+        }
+
+        .project-image-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-image-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .project-image-container:hover::before {
+            transform: translateX(100%);
+        }
+
+        .feature-card {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-hover {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-hover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s ease;
+            z-index: -1;
+        }
+
+        .btn-hover:hover::before {
+            left: 100%;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Back Button -->
+    <div class="fixed top-4 left-4 z-50">
+        <a href="index.html" class="bg-white shadow-lg rounded-full p-3 hover:bg-gray-50 transition-colors duration-300 flex items-center justify-center">
+            <i class="fas fa-arrow-left text-gray-700 hover:text-blue-600"></i>
+        </a>
+    </div>
+
+    <!-- Loading State -->
+    <div id="loading" class="min-h-screen flex items-center justify-center">
+        <div class="text-center">
+            <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+            <p class="text-gray-600">Memuat detail portfolio...</p>
+        </div>
+    </div>
+
+    <!-- Portfolio Detail Content -->
+    <div id="portfolio-content" class="hidden">
+        <!-- Hero Section -->
+        <section class="gradient-bg py-20 px-4 relative overflow-hidden">
+            <div class="absolute inset-0 bg-black/20"></div>
+            <div class="relative z-10 max-w-6xl mx-auto text-center text-white">
+                <div class="animate-fade-in-scale">
+                    <span id="portfolio-category" class="inline-block bg-white/20 backdrop-blur text-white text-sm font-semibold px-4 py-2 rounded-full mb-6">
+                        <!-- Category akan diisi oleh JavaScript -->
+                    </span>
+                    <h1 id="portfolio-title" class="text-4xl md:text-5xl font-bold mb-6">
+                        <!-- Title akan diisi oleh JavaScript -->
+                    </h1>
+                    <p id="portfolio-subtitle" class="text-xl text-white/90 max-w-3xl mx-auto mb-8">
+                        <!-- Subtitle akan diisi oleh JavaScript -->
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <button id="live-demo-btn" class="bg-white text-gray-900 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-300 btn-hover">
+                            <i class="fas fa-external-link-alt mr-2"></i>
+                            Live Demo
+                        </button>
+                        <button id="source-code-btn" class="border-2 border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-gray-900 transition-colors duration-300 btn-hover">
+                            <i class="fab fa-github mr-2"></i>
+                            Source Code
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-gray-50 to-transparent"></div>
+        </section>
+
+        <!-- Project Images Section -->
+        <section class="py-16 px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="animate-slide-in-up">
+                    <h2 class="text-3xl font-bold text-gray-900 text-center mb-12">Preview Project</h2>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="project-images">
+                        <!-- Images akan diisi oleh JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Details Section -->
+        <section class="py-16 px-4 bg-white">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid lg:grid-cols-2 gap-12">
+                    <!-- Project Description -->
+                    <div class="animate-slide-in-up">
+                        <h2 class="text-3xl font-bold text-gray-900 mb-6">Deskripsi Project</h2>
+                        <div id="project-description" class="prose prose-lg text-gray-600">
+                            <!-- Description akan diisi oleh JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Project Info -->
+                    <div class="animate-slide-in-up">
+                        <h2 class="text-3xl font-bold text-gray-900 mb-6">Informasi Project</h2>
+                        <div class="space-y-4" id="project-info">
+                            <!-- Project info akan diisi oleh JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technologies Used Section -->
+        <section class="py-16 px-4 bg-gray-50">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center animate-slide-in-up">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-12">Teknologi yang Digunakan</h2>
+                    <div class="flex flex-wrap justify-center gap-4" id="technologies">
+                        <!-- Technologies akan diisi oleh JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="py-16 px-4 bg-white">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center animate-slide-in-up">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-12">Fitur Utama</h2>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="features">
+                        <!-- Features akan diisi oleh JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Other Projects Section -->
+        <section class="py-16 px-4 bg-gray-50">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center animate-slide-in-up">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-12">Project Lainnya</h2>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="other-projects">
+                        <!-- Other projects akan diisi oleh JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact CTA Section -->
+        <section class="gradient-bg py-20 px-4 text-center text-white relative overflow-hidden">
+            <div class="absolute inset-0 bg-black/20"></div>
+            <div class="relative z-10 max-w-4xl mx-auto animate-slide-in-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Tertarik dengan Project Serupa?</h2>
+                <p class="text-xl text-white/90 mb-8">Mari diskusikan kebutuhan project Anda dengan tim ahli kami</p>
+                <a href="index.html#contact" class="inline-block bg-white text-gray-900 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-300 btn-hover">
+                    <i class="fas fa-comment-dots mr-2"></i>
+                    Hubungi Kami Sekarang
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Error State -->
+    <div id="error-state" class="hidden min-h-screen flex items-center justify-center">
+        <div class="text-center">
+            <i class="fas fa-exclamation-triangle text-6xl text-yellow-500 mb-6"></i>
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">Portfolio Tidak Ditemukan</h2>
+            <p class="text-gray-600 mb-6">Maaf, portfolio yang Anda cari tidak tersedia</p>
+            <a href="index.html" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition-colors duration-300">
+                Kembali ke Beranda
+            </a>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="assets/js/portfolio-detail.js"></script>
+</body>
+</html>

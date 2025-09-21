@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bougainville Classification App - Portfolio TechOP</title>
+    <meta name="description" content="Aplikasi mobile untuk klasifikasi tanaman Bougainville menggunakan teknologi AI dan machine learning">
+    <link rel="icon" type="image/png" href="assets/img/techop.png">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Styles -->
+    <style>
+        @keyframes fadeInScale {
+            0% { opacity: 0; transform: scale(0.9) translateY(20px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        @keyframes slideInUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade-in-scale {
+            animation: fadeInScale 0.8s ease-out forwards;
+        }
+
+        .animate-slide-in-up {
+            animation: slideInUp 0.6s ease-out forwards;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .tech-badge {
+            transition: all 0.3s ease;
+        }
+
+        .tech-badge:hover {
+            transform: scale(1.05);
+        }
+
+        .project-image-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-hover {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-hover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s ease;
+            z-index: -1;
+        }
+
+        .btn-hover:hover::before {
+            left: 100%;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Back Button -->
+    <div class="fixed top-4 left-4 z-50">
+        <a href="index.html" class="bg-white shadow-lg rounded-full p-3 hover:bg-gray-50 transition-colors duration-300 flex items-center justify-center">
+            <i class="fas fa-arrow-left text-gray-700 hover:text-blue-600"></i>
+        </a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg py-20 px-4 relative overflow-hidden">
+        <div class="absolute inset-0 bg-black/20"></div>
+        <div class="relative z-10 max-w-6xl mx-auto text-center text-white">
+            <div class="animate-fade-in-scale">
+                <span class="inline-block bg-white/20 backdrop-blur text-white text-sm font-semibold px-4 py-2 rounded-full mb-6">
+                    Mobile Application
+                </span>
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">
+                    Bougainville Classification App
+                </h1>
+                <p class="text-xl text-white/90 max-w-3xl mx-auto mb-8">
+                    Aplikasi mobile untuk klasifikasi tanaman Bougainville menggunakan teknologi AI dan machine learning
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="https://play.google.com/store/apps/details?id=com.techop.bougainville" target="_blank" class="bg-white text-gray-900 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-300 btn-hover">
+                        <i class="fas fa-external-link-alt mr-2"></i>
+                        Live Demo
+                    </a>
+                    <a href="https://github.com/techop/bougainville-classifier" target="_blank" class="border-2 border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-gray-900 transition-colors duration-300 btn-hover">
+                        <i class="fab fa-github mr-2"></i>
+                        Source Code
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-gray-50 to-transparent"></div>
+    </section>
+
+    <!-- Project Images Section -->
+    <section class="py-16 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="animate-slide-in-up">
+                <h2 class="text-3xl font-bold text-gray-900 text-center mb-12">Preview Project</h2>
+                <div class="grid md:grid-cols-2 gap-6 justify-items-center">
+                    <div class="project-image-container animate-slide-in-up">
+                        <img src="assets/img/klasifikasi_bougenville.png" alt="Bougainville Classification App" class="w-full h-64 object-cover rounded-lg">
+                    </div>
+                    <div class="project-image-container animate-slide-in-up">
+                        <img src="assets/img/hp.png" alt="Mobile App Interface" class="w-full h-64 object-cover rounded-lg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Details Section -->
+    <section class="py-16 px-4 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Project Description -->
+                <div class="animate-slide-in-up">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Deskripsi Project</h2>
+                    <div class="prose prose-lg text-gray-600">
+                        <p>Aplikasi mobile inovatif yang menggunakan teknologi kecerdasan buatan untuk mengklasifikasikan berbagai jenis tanaman Bougainville. Aplikasi ini dirancang untuk membantu petani, peneliti, dan pecinta tanaman dalam mengidentifikasi varietas Bougainville dengan akurasi tinggi.</p>
+                        <p>Dengan menggunakan teknologi computer vision dan deep learning, aplikasi ini dapat menganalisis foto tanaman dan memberikan informasi detail tentang jenis, karakteristik, dan cara perawatan tanaman tersebut.</p>
+                        <p>Aplikasi ini telah diuji dengan dataset lebih dari 10.000 gambar dan mencapai tingkat akurasi 95% dalam klasifikasi.</p>
+                    </div>
+                </div>
+
+                <!-- Project Info -->
+                <div class="animate-slide-in-up">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Informasi Project</h2>
+                    <div class="bg-gray-50 p-6 rounded-lg space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="font-semibold text-gray-700">Klien:</span>
+                            <span class="text-gray-900">Universitas Pertanian</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="font-semibold text-gray-700">Durasi:</span>
+                            <span class="text-gray-900">6 Bulan</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="font-semibold text-gray-700">Tim:</span>
+                            <span class="text-gray-900">5 Orang</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="font-semibold text-gray-700">Platform:</span>
+                            <span class="text-gray-900">Android & iOS</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="font-semibold text-gray-700">Status:</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-600 rounded-full text-sm font-semibold">Completed</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies Used Section -->
+    <section class="py-16 px-4 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center animate-slide-in-up">
+                <h2 class="text-3xl font-bold text-gray-900 mb-12">Teknologi yang Digunakan</h2>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <div class="tech-badge bg-blue-100 text-blue-600 px-4 py-2 rounded-full flex items-center gap-2">
+                        <i class="fab fa-flutter"></i>
+                        <span class="font-semibold">Flutter</span>
+                    </div>
+                    <div class="tech-badge bg-blue-100 text-blue-600 px-4 py-2 rounded-full flex items-center gap-2">
+                        <i class="fab fa-dart"></i>
+                        <span class="font-semibold">Dart</span>
+                    </div>
+                    <div class="tech-badge bg-orange-100 text-orange-600 px-4 py-2 rounded-full flex items-center gap-2">
+                        <i class="fas fa-brain"></i>
+                        <span class="font-semibold">TensorFlow</span>
+                    </div>
+                    <div class="tech-badge bg-yellow-100 text-yellow-600 px-4 py-2 rounded-full flex items-center gap-2">
+                        <i class="fab fa-python"></i>
+                        <span class="font-semibold">Python</span>
+                    </div>
+                    <div class="tech-badge bg-orange-100 text-orange-600 px-4 py-2 rounded-full flex items-center gap-2">
+                        <i class="fas fa-fire"></i>
+                        <span class="font-semibold">Firebase</span>
+                    </div>
+                    <div class="tech-badge bg-green-100 text-green-600 px-4 py-2 rounded-full flex items-center gap-2">
+                        <i class="fas fa-cloud"></i>
+                        <span class="font-semibold">Cloud ML</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16 px-4 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center animate-slide-in-up">
+                <h2 class="text-3xl font-bold text-gray-900 mb-12">Fitur Utama</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="feature-card p-6 rounded-xl text-center">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-camera text-blue-600 text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-900 mb-2">AI Image Recognition</h3>
+                        <p class="text-gray-600 text-sm">Teknologi AI untuk mengenali jenis tanaman dari foto</p>
+                    </div>
+                    <div class="feature-card p-6 rounded-xl text-center">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-chart-pie text-blue-600 text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-900 mb-2">Accuracy 95%</h3>
+                        <p class="text-gray-600 text-sm">Tingkat akurasi klasifikasi mencapai 95%</p>
+                    </div>
+                    <div class="feature-card p-6 rounded-xl text-center">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-mobile-alt text-blue-600 text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-900 mb-2">Offline Mode</h3>
+                        <p class="text-gray-600 text-sm">Dapat berfungsi tanpa koneksi internet</p>
+                    </div>
+                    <div class="feature-card p-6 rounded-xl text-center">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-book text-blue-600 text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-900 mb-2">Plant Guide</h3>
+                        <p class="text-gray-600 text-sm">Panduan lengkap perawatan untuk setiap jenis tanaman</p>
+                    </div>
+                    <div class="feature-card p-6 rounded-xl text-center">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-history text-blue-600 text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-900 mb-2">Scan History</h3>
+                        <p class="text-gray-600 text-sm">Riwayat semua scan yang pernah dilakukan</p>
+                    </div>
+                    <div class="feature-card p-6 rounded-xl text-center">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-share-alt text-blue-600 text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-900 mb-2">Share Results</h3>
+                        <p class="text-gray-600 text-sm">Bagikan hasil identifikasi ke media sosial</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Other Projects Section -->
+    <section class="py-16 px-4 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center animate-slide-in-up">
+                <h2 class="text-3xl font-bold text-gray-900 mb-12">Project Lainnya</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <a href="website-korporat.html" class="group">
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
+                            <div class="h-48 overflow-hidden">
+                                <img src="assets/img/web 6.png" alt="Website Korporat" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            </div>
+                            <div class="p-6">
+                                <span class="text-xs px-2 py-1 rounded-full bg-blue-100 text-blue-600 mb-2 inline-block">Website Development</span>
+                                <h3 class="font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">Website Korporat</h3>
+                                <p class="text-gray-600 text-sm">Platform website korporat yang elegan dengan desain modern dan responsif...</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="learning-alphabet.html" class="group">
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
+                            <div class="h-48 overflow-hidden">
+                                <img src="assets/img/Belajar Alfabet.png" alt="Learning Alphabet" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            </div>
+                            <div class="p-6">
+                                <span class="text-xs px-2 py-1 rounded-full bg-blue-100 text-blue-600 mb-2 inline-block">Game Development</span>
+                                <h3 class="font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">Belajar Alfabet Interaktif</h3>
+                                <p class="text-gray-600 text-sm">Game edukasi interaktif untuk anak-anak belajar alfabet dengan cara yang menyenangkan...</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="mindshield-security.html" class="group">
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
+                            <div class="h-48 overflow-hidden">
+                                <img src="assets/img/Mindshield.png" alt="MindShield Security" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            </div>
+                            <div class="p-6">
+                                <span class="text-xs px-2 py-1 rounded-full bg-blue-100 text-blue-600 mb-2 inline-block">UI/UX Design</span>
+                                <h3 class="font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">MindShield Security System</h3>
+                                <p class="text-gray-600 text-sm">Sistem keamanan berbasis AI untuk proteksi mental health dan cybersecurity...</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA Section -->
+    <section class="gradient-bg py-20 px-4 text-center text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-black/20"></div>
+        <div class="relative z-10 max-w-4xl mx-auto animate-slide-in-up">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Tertarik dengan Project Serupa?</h2>
+            <p class="text-xl text-white/90 mb-8">Mari diskusikan kebutuhan project Anda dengan tim ahli kami</p>
+            <a href="index.html#contact" class="inline-block bg-white text-gray-900 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-300 btn-hover">
+                <i class="fas fa-comment-dots mr-2"></i>
+                Hubungi Kami Sekarang
+            </a>
+        </div>
+    </section>
+</body>
+</html>
