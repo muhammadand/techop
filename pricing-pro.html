@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paket Pro - Detail Harga | TechOp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .premium-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-shadow {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        .feature-card {
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        .popular-badge {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-b">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <button onclick="history.back()" class="text-gray-600 hover:text-gray-800 transition-colors">
+                        <i class="fas fa-arrow-left mr-2"></i>
+                        Kembali
+                    </button>
+                    <div class="h-6 border-l border-gray-300"></div>
+                    <h1 class="text-xl font-semibold text-gray-800">Detail Paket Pro</h1>
+                </div>
+                <img src="assets/img/techop.png" alt="TechOp Logo" class="h-8">
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="premium-gradient text-white py-16 relative overflow-hidden">
+        <div class="absolute top-0 right-0 transform translate-x-1/4 -translate-y-1/4 w-96 h-96 bg-white bg-opacity-10 rounded-full"></div>
+        <div class="absolute bottom-0 left-0 transform -translate-x-1/4 translate-y-1/4 w-96 h-96 bg-white bg-opacity-10 rounded-full"></div>
+        
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="inline-flex items-center bg-gradient-to-r from-blue-400 to-purple-400 text-black rounded-full px-6 py-2 mb-6 popular-badge">
+                <i class="fas fa-star mr-2"></i>
+                <span class="font-bold">MOST POPULAR</span>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Paket Pro</h1>
+            <p class="text-xl mb-8 max-w-2xl mx-auto opacity-90">Solusi profesional dengan fitur advanced untuk bisnis yang berkembang pesat dan membutuhkan performa optimal serta dukungan lengkap.</p>
+            
+            <!-- Pricing -->
+            <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-8 max-w-md mx-auto">
+                <div class="text-center">
+                    <div class="text-6xl font-bold mb-2">Rp 8,5jt</div>
+                    <div class="text-lg opacity-80">Sekali bayar</div>
+                    <div class="text-sm opacity-70 mt-2">*Sudah termasuk hosting 1 tahun + domain premium</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Detail -->
+    <section class="py-16">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Fitur Premium Yang Anda Dapatkan</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Paket Pro memberikan solusi lengkap dengan teknologi modern untuk mendukung pertumbuhan bisnis digital Anda.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Feature 1 -->
+                <div class="feature-card bg-white rounded-xl p-6 card-shadow border-l-4 border-purple-500">
+                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-palette text-purple-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Desain Custom Premium</h3>
+                    <p class="text-gray-600 text-sm">Desain website fully custom sesuai branding, dengan UI/UX yang dibuat khusus untuk meningkatkan konversi dan user experience.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="feature-card bg-white rounded-xl p-6 card-shadow border-l-4 border-blue-500">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-tachometer-alt text-blue-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Dashboard Advanced</h3>
+                    <p class="text-gray-600 text-sm">Admin panel dengan analytics real-time, manajemen konten advanced, dan reporting tools untuk monitoring performa website.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="feature-card bg-white rounded-xl p-6 card-shadow border-l-4 border-green-500">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-shield-alt text-green-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Security Enhanced</h3>
+                    <p class="text-gray-600 text-sm">SSL Premium, Web Application Firewall (WAF), malware scanning otomatis, dan backup harian dengan enkripsi end-to-end.</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="feature-card bg-white rounded-xl p-6 card-shadow border-l-4 border-orange-500">
+                    <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-mobile-alt text-orange-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Multi Platform Support</h3>
+                    <p class="text-gray-600 text-sm">Optimasi untuk semua device, PWA (Progressive Web App), dan mobile-first approach untuk performa maksimal di smartphone.</p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="feature-card bg-white rounded-xl p-6 card-shadow border-l-4 border-red-500">
+                    <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-headset text-red-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Priority Support 24/7</h3>
+                    <p class="text-gray-600 text-sm">Dukungan prioritas melalui WhatsApp, email, dan telepon dengan response time maksimal 2 jam, termasuk weekend dan hari libur.</p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="feature-card bg-white rounded-xl p-6 card-shadow border-l-4 border-indigo-500">
+                    <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-credit-card text-indigo-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Payment Gateway Integration</h3>
+                    <p class="text-gray-600 text-sm">Integrasi dengan Midtrans, Xendit, atau payment gateway lainnya untuk memudahkan transaksi online bisnis Anda.</p>
+                </div>
+
+                <!-- Feature 7 -->
+                <div class="feature-card bg-white rounded-xl p-6 card-shadow border-l-4 border-pink-500">
+                    <div class="w-12 h-12 bg-pink-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-search text-pink-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">SEO Optimization</h3>
+                    <p class="text-gray-600 text-sm">On-page SEO, meta tags optimization, sitemap XML, dan integrasi Google Analytics untuk meningkatkan visibilitas di mesin pencari.</p>
+                </div>
+
+                <!-- Feature 8 -->
+                <div class="feature-card bg-white rounded-xl p-6 card-shadow border-l-4 border-yellow-500">
+                    <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-rocket text-yellow-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Performance Optimization</h3>
+                    <p class="text-gray-600 text-sm">CDN integration, image optimization, lazy loading, dan caching untuk memastikan website loading dengan cepat di semua kondisi.</p>
+                </div>
+
+                <!-- Feature 9 -->
+                <div class="feature-card bg-white rounded-xl p-6 card-shadow border-l-4 border-teal-500">
+                    <div class="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-envelope text-teal-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Email Marketing Integration</h3>
+                    <p class="text-gray-600 text-sm">Newsletter subscription, email automation, dan integrasi dengan platform email marketing untuk meningkatkan engagement customer.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="bg-white py-16">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Mengapa Paket Pro?</h2>
+                <p class="text-gray-600">Bandingkan keunggulan Paket Pro dengan paket lainnya</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto overflow-x-auto">
+                <table class="w-full bg-white rounded-xl shadow-lg">
+                    <thead class="premium-gradient text-white">
+                        <tr>
+                            <th class="py-4 px-6 text-left rounded-tl-xl">Fitur</th>
+                            <th class="py-4 px-6 text-center">Basic</th>
+                            <th class="py-4 px-6 text-center bg-blue-600 rounded-tr-xl">Pro ★</th>
+                            <th class="py-4 px-6 text-center">Ultimate</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-sm">
+                        <tr class="border-b border-gray-100">
+                            <td class="py-4 px-6 font-medium">Desain Custom</td>
+                            <td class="py-4 px-6 text-center">Template</td>
+                            <td class="py-4 px-6 text-center bg-blue-50"><i class="fas fa-check text-green-500"></i> Full Custom</td>
+                            <td class="py-4 px-6 text-center"><i class="fas fa-check text-green-500"></i> Full Custom</td>
+                        </tr>
+                        <tr class="border-b border-gray-100">
+                            <td class="py-4 px-6 font-medium">Response Time Support</td>
+                            <td class="py-4 px-6 text-center">24 jam</td>
+                            <td class="py-4 px-6 text-center bg-blue-50"><i class="fas fa-check text-green-500"></i> 2 jam</td>
+                            <td class="py-4 px-6 text-center">1 jam</td>
+                        </tr>
+                        <tr class="border-b border-gray-100">
+                            <td class="py-4 px-6 font-medium">Payment Gateway</td>
+                            <td class="py-4 px-6 text-center">-</td>
+                            <td class="py-4 px-6 text-center bg-blue-50"><i class="fas fa-check text-green-500"></i> Ya</td>
+                            <td class="py-4 px-6 text-center"><i class="fas fa-check text-green-500"></i> Multi Gateway</td>
+                        </tr>
+                        <tr class="border-b border-gray-100">
+                            <td class="py-4 px-6 font-medium">SEO Optimization</td>
+                            <td class="py-4 px-6 text-center">Basic</td>
+                            <td class="py-4 px-6 text-center bg-blue-50"><i class="fas fa-check text-green-500"></i> Advanced</td>
+                            <td class="py-4 px-6 text-center"><i class="fas fa-check text-green-500"></i> Expert</td>
+                        </tr>
+                        <tr>
+                            <td class="py-4 px-6 font-medium">Waktu Pengerjaan</td>
+                            <td class="py-4 px-6 text-center">14-20 hari</td>
+                            <td class="py-4 px-6 text-center bg-blue-50">21-30 hari</td>
+                            <td class="py-4 px-6 text-center">45-60 hari</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Timeline -->
+    <section class="bg-gray-50 py-16">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Proses Pengerjaan</h2>
+                <p class="text-gray-600">Timeline pengerjaan Paket Pro dengan pendekatan profesional</p>
+            </div>
+
+            <div class="max-w-5xl mx-auto">
+                <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
+                    <div class="text-center">
+                        <div class="w-20 h-20 premium-gradient text-white rounded-full flex items-center justify-center mb-4 mx-auto text-xl font-bold">1</div>
+                        <h3 class="font-semibold mb-2">Discovery & Research</h3>
+                        <p class="text-sm text-gray-600">3-5 Hari<br>Analisis kompetitor & target market</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-20 h-20 premium-gradient text-white rounded-full flex items-center justify-center mb-4 mx-auto text-xl font-bold">2</div>
+                        <h3 class="font-semibold mb-2">UI/UX Design</h3>
+                        <p class="text-sm text-gray-600">7-10 Hari<br>Wireframe, mockup & prototype</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-20 h-20 premium-gradient text-white rounded-full flex items-center justify-center mb-4 mx-auto text-xl font-bold">3</div>
+                        <h3 class="font-semibold mb-2">Development</h3>
+                        <p class="text-sm text-gray-600">10-14 Hari<br>Coding, integration & optimization</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-20 h-20 premium-gradient text-white rounded-full flex items-center justify-center mb-4 mx-auto text-xl font-bold">4</div>
+                        <h3 class="font-semibold mb-2">Testing & QA</h3>
+                        <p class="text-sm text-gray-600">3-5 Hari<br>Cross-browser & device testing</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-20 h-20 premium-gradient text-white rounded-full flex items-center justify-center mb-4 mx-auto text-xl font-bold">5</div>
+                        <h3 class="font-semibold mb-2">Launch & Training</h3>
+                        <p class="text-sm text-gray-600">2-3 Hari<br>Go-live & admin training</p>
+                    </div>
+                </div>
+                <div class="text-center mt-8">
+                    <div class="inline-flex items-center bg-blue-100 text-blue-800 px-6 py-3 rounded-full">
+                        <i class="fas fa-clock mr-2"></i>
+                        <span class="font-bold">Total: 25-37 Hari Kerja</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="premium-gradient text-white py-16">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-4">Tingkatkan Bisnis Anda ke Level Professional</h2>
+            <p class="text-xl mb-8 opacity-90">Konsultasi gratis dengan tim ahli untuk mendiskusikan kebutuhan spesifik proyek Anda</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://wa.me/6285155902333?text=Halo%20TechOp%2C%20saya%20tertarik%20dengan%20Paket%20Pro%20untuk%20website%20profesional%20bisnis%20saya" target="_blank" 
+                   class="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors inline-flex items-center justify-center">
+                    <i class="fab fa-whatsapp mr-3 text-2xl"></i>
+                    Konsultasi WhatsApp
+                </a>
+                <a href="mailto:hello@techop.id?subject=Konsultasi%20Paket%20Pro&body=Halo%20TechOp%2C%20saya%20tertarik%20dengan%20Paket%20Pro.%20Mohon%20jadwalkan%20konsultasi." 
+                   class="bg-white bg-opacity-20 backdrop-blur-sm hover:bg-opacity-30 text-white px-8 py-4 rounded-full font-bold text-lg transition-all inline-flex items-center justify-center">
+                    <i class="fas fa-calendar-alt mr-3"></i>
+                    Jadwalkan Meeting
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2024 TechOp. Semua hak cipta dilindungi.</p>
+        </div>
+    </footer>
+</body>
+</html>

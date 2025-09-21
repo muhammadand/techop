@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FAQ</title>
     <script src="https://cdn.tailwindcss.com"></script>
-  </head>
+    </head>
   <body>
     <section id="faq" class="bg-gray-50 py-20 px-4 md:px-8 lg:px-16">
       <div class="max-w-6xl mx-auto">
@@ -473,7 +473,7 @@
     <script>
       // FAQ Functionality - Menggunakan fungsi yang dapat dipanggil ulang
       function initializeFAQComponent() {
-        console.log('🔧 Initializing FAQ Component...');
+        console.log('ðŸ”§ Initializing FAQ Component...');
 
         // Selectors dengan fallback
         const faqItems = document.querySelectorAll('.faq-item');
@@ -481,7 +481,7 @@
         const searchInput = document.getElementById('faqSearch');
 
         if (faqItems.length === 0) {
-          console.warn('⚠️ FAQ items not found');
+          console.warn('âš ï¸ FAQ items not found');
           return false;
         }
 
@@ -639,7 +639,7 @@
         }
 
         // Event Listeners - Re-attach
-        console.log(`📎 Attaching event listeners to ${faqItems.length} FAQ items`);
+        console.log(`ðŸ“Ž Attaching event listeners to ${faqItems.length} FAQ items`);
         faqItems.forEach((item, index) => {
           const question = item.querySelector('.faq-question');
           if (question) {
@@ -690,7 +690,7 @@
         // Initialize - Show all FAQs
         filterFAQs('all');
 
-        console.log('✅ FAQ Component initialized successfully!');
+        console.log('… FAQ Component initialized successfully!');
         return true;
       }
 
@@ -707,3 +707,6 @@
     </script>
   </body>
 </html>
+
+
+

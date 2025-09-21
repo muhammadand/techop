@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paket Basic - Detail Harga | TechOp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-shadow {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        .feature-card {
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-b">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <button onclick="history.back()" class="text-gray-600 hover:text-gray-800 transition-colors">
+                        <i class="fas fa-arrow-left mr-2"></i>
+                        Kembali
+                    </button>
+                    <div class="h-6 border-l border-gray-300"></div>
+                    <h1 class="text-xl font-semibold text-gray-800">Detail Paket Basic</h1>
+                </div>
+                <img src="assets/img/techop.png" alt="TechOp Logo" class="h-8">
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-16">
+        <div class="container mx-auto px-6 text-center">
+            <div class="inline-flex items-center bg-white bg-opacity-20 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
+                <span class="text-sm font-medium">Paket Entry Level</span>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Paket Basic</h1>
+            <p class="text-xl mb-8 max-w-2xl mx-auto opacity-90">Solusi dasar untuk memulai kehadiran digital bisnis Anda dengan fitur-fitur essential yang mudah digunakan dan terpercaya.</p>
+            
+            <!-- Pricing -->
+            <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-8 max-w-md mx-auto">
+                <div class="text-center">
+                    <div class="text-6xl font-bold mb-2">Rp 2,5jt</div>
+                    <div class="text-lg opacity-80">Sekali bayar</div>
+                    <div class="text-sm opacity-70 mt-2">*Sudah termasuk hosting 1 tahun</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Detail -->
+    <section class="py-16">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Apa Yang Anda Dapatkan</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Paket Basic memberikan fondasi solid untuk website bisnis Anda dengan semua fitur essential yang diperlukan.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Feature 1 -->
+                <div class="feature-card bg-white rounded-xl p-6 card-shadow">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-desktop text-blue-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Desain Website Standard</h3>
+                    <p class="text-gray-600 text-sm">Template modern yang sudah teruji dengan layout professional dan user-friendly untuk berbagai jenis bisnis.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="feature-card bg-white rounded-xl p-6 card-shadow">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-mobile-alt text-green-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Responsive Mobile</h3>
+                    <p class="text-gray-600 text-sm">Website otomatis menyesuaikan tampilan di semua perangkat - desktop, tablet, dan smartphone.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="feature-card bg-white rounded-xl p-6 card-shadow">
+                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-shield-alt text-purple-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Keamanan Basic</h3>
+                    <p class="text-gray-600 text-sm">SSL Certificate, firewall dasar, dan backup otomatis mingguan untuk melindungi data website Anda.</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="feature-card bg-white rounded-xl p-6 card-shadow">
+                    <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-paint-brush text-orange-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Template Modern</h3>
+                    <p class="text-gray-600 text-sm">Pilihan dari 10+ template modern yang dapat disesuaikan dengan branding dan warna perusahaan Anda.</p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="feature-card bg-white rounded-xl p-6 card-shadow">
+                    <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-envelope text-red-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Support Email</h3>
+                    <p class="text-gray-600 text-sm">Dukungan teknis via email dengan response time maksimal 24 jam untuk semua pertanyaan Anda.</p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="feature-card bg-white rounded-xl p-6 card-shadow">
+                    <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-server text-indigo-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Hosting 1 Tahun</h3>
+                    <p class="text-gray-600 text-sm">Hosting berkualitas dengan uptime 99.9%, bandwidth unlimited, dan storage 5GB untuk website Anda.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Timeline -->
+    <section class="bg-white py-16">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Proses Pengerjaan</h2>
+                <p class="text-gray-600">Timeline pengerjaan Paket Basic dari konsultasi hingga website live</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0 md:space-x-4">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-blue-500 text-white rounded-full flex items-center justify-center mb-4 text-xl font-bold">1</div>
+                        <h3 class="font-semibold mb-2">Konsultasi & Brief</h3>
+                        <p class="text-sm text-gray-600">1-2 Hari</p>
+                    </div>
+                    <div class="hidden md:block flex-1 h-0.5 bg-gray-300"></div>
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-green-500 text-white rounded-full flex items-center justify-center mb-4 text-xl font-bold">2</div>
+                        <h3 class="font-semibold mb-2">Desain & Mockup</h3>
+                        <p class="text-sm text-gray-600">3-5 Hari</p>
+                    </div>
+                    <div class="hidden md:block flex-1 h-0.5 bg-gray-300"></div>
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-purple-500 text-white rounded-full flex items-center justify-center mb-4 text-xl font-bold">3</div>
+                        <h3 class="font-semibold mb-2">Development</h3>
+                        <p class="text-sm text-gray-600">7-10 Hari</p>
+                    </div>
+                    <div class="hidden md:block flex-1 h-0.5 bg-gray-300"></div>
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-orange-500 text-white rounded-full flex items-center justify-center mb-4 text-xl font-bold">4</div>
+                        <h3 class="font-semibold mb-2">Testing & Launch</h3>
+                        <p class="text-sm text-gray-600">2-3 Hari</p>
+                    </div>
+                </div>
+                <div class="text-center mt-8">
+                    <div class="inline-flex items-center bg-green-100 text-green-800 px-4 py-2 rounded-full">
+                        <i class="fas fa-clock mr-2"></i>
+                        <span class="font-medium">Total: 14-20 Hari Kerja</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="gradient-bg text-white py-16">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-4">Siap Memulai Proyek Anda?</h2>
+            <p class="text-xl mb-8 opacity-90">Konsultasi gratis untuk menentukan solusi terbaik bagi bisnis Anda</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://wa.me/6285155902333?text=Halo%20TechOp%2C%20saya%20tertarik%20dengan%20Paket%20Basic%20untuk%20website%20bisnis%20saya" target="_blank" 
+                   class="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-full font-semibold transition-colors inline-flex items-center justify-center">
+                    <i class="fab fa-whatsapp mr-2 text-xl"></i>
+                    Chat WhatsApp
+                </a>
+                <a href="mailto:hello@techop.id?subject=Konsultasi%20Paket%20Basic&body=Halo%20TechOp%2C%20saya%20tertarik%20dengan%20Paket%20Basic.%20Mohon%20info%20lebih%20lanjut." 
+                   class="bg-white bg-opacity-20 backdrop-blur-sm hover:bg-opacity-30 text-white px-8 py-3 rounded-full font-semibold transition-all inline-flex items-center justify-center">
+                    <i class="fas fa-envelope mr-2"></i>
+                    Email Konsultasi
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2024 TechOp. Semua hak cipta dilindungi.</p>
+        </div>
+    </footer>
+</body>
+</html>

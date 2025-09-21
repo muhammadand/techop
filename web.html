@@ -1,17 +1,7 @@
 <!DOCTYPE html>
 <html lang="id">
   <head>
-    <meta charset        async loadComponent(name, containerId, path = 'components/') {
-          try {
-            log(`Loading ${name}...`, "loading");
-            const response = await fetch(`${path}${name}.html`);
-            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-
-            const html = await response.text();
-            const container = document.getElementById(containerId);
-            if (!container) throw new Error(`Container ${containerId} not found`);
-
-            container.innerHTML = html;
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Techop.id - Jasa Web Developer Profesional</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -21,9 +11,12 @@
   </head>
   <body class="bg-white">
     <!-- Loading indicator -->
-    <div id="loading" class="text-center py-10">
-      <div class="loading"></div>
-      <p>Loading components...</p>
+    <div id="loading" class="fixed inset-0 bg-white z-50 flex items-center justify-center">
+      <div class="text-center">
+        <div class="loading mb-4"></div>
+        <p class="text-gray-600 font-medium">Loading components...</p>
+        <div class="text-xs text-gray-400 mt-2">TechOp Web Development</div>
+      </div>
     </div>
 
     <!-- Containers untuk setiap komponen -->
