@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">Team Member - TechOP</title>
+    <meta name="description" content="Meet our talented team members and learn about their expertise in technology solutions.">
+    <link rel="icon" type="image/png" href="assets/img/techop.png">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Styles -->
+    <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes fadeInScale {
+            0% { opacity: 0; transform: scale(0.9) translateY(20px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        @keyframes slideInUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .animated-bg {
+            background: linear-gradient(-45deg, #3b82f6, #8b5cf6, #ec4899, #f59e0b);
+            background-size: 400% 400%;
+            animation: gradientMove 8s ease infinite;
+        }
+
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .skill-badge {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-badge::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        .detail-item {
+            animation: slideInUp 0.6s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .detail-item:nth-child(1) { animation-delay: 0.1s; }
+        .detail-item:nth-child(2) { animation-delay: 0.15s; }
+        .detail-item:nth-child(3) { animation-delay: 0.2s; }
+        .detail-item:nth-child(4) { animation-delay: 0.25s; }
+        .detail-item:nth-child(5) { animation-delay: 0.3s; }
+        .detail-item:nth-child(6) { animation-delay: 0.35s; }
+        .detail-item:nth-child(7) { animation-delay: 0.4s; }
+
+        .stat-card:hover {
+            animation: pulse 2s infinite;
+        }
+
+        .testimonial-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .horizontal-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        @media (min-width: 1024px) {
+            .modal-header {
+                min-height: 300px;
+            }
+
+            .horizontal-content {
+                grid-template-columns: 1fr 2fr;
+            }
+        }
+
+        .loading-shimmer {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+
+        .error-message {
+            background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+            border: 1px solid #fca5a5;
+            color: #dc2626;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-4">
+                    <a href="index.html" class="flex items-center space-x-3">
+                        <img src="assets/img/techop.png" alt="TechOP Logo" class="h-8 w-8">
+                        <span class="text-xl font-bold text-gray-900">TechOP</span>
+                    </a>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600 transition-colors duration-300">Home</a>
+                    <a href="index.html#about" class="text-gray-700 hover:text-blue-600 transition-colors duration-300">About</a>
+                    <a href="index.html#services" class="text-gray-700 hover:text-blue-600 transition-colors duration-300">Services</a>
+                    <a href="index.html#team" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-semibold">Team</a>
+                    <a href="index.html#contact" class="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition-colors duration-300">Contact</a>
+                </div>
+                
+                <div class="md:hidden">
+                    <button class="text-gray-700 hover:text-blue-600">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="min-h-screen">
+        <!-- Loading State -->
+        <div id="loadingContent" class="flex items-center justify-center min-h-screen">
+            <div class="text-center">
+                <div class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mb-4"></div>
+                <p class="text-gray-600">Loading team member details...</p>
+            </div>
+        </div>
+
+        <!-- Error State -->
+        <div id="errorContent" class="hidden min-h-screen flex items-center justify-center px-4">
+            <div class="error-message rounded-2xl p-8 text-center max-w-lg mx-auto">
+                <i class="fas fa-exclamation-triangle text-4xl mb-4"></i>
+                <h2 class="text-2xl font-bold mb-4">Team Member Not Found</h2>
+                <p class="mb-6">The team member you're looking for doesn't exist or has been removed.</p>
+                <a href="index.html#team" class="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition-colors duration-300 inline-flex items-center">
+                    <i class="fas fa-arrow-left mr-2"></i>
+                    Back to Team
+                </a>
+            </div>
+        </div>
+
+        <!-- Team Member Content -->
+        <div id="teamContent" class="hidden">
+            <!-- Dynamic content will be loaded here -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <img src="assets/img/techop.png" alt="TechOP Logo" class="h-8 w-8">
+                        <span class="text-xl font-bold">TechOP</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">
+                        Solusi teknologi terdepan untuk transformasi digital bisnis Anda.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors duration-300">Web Development</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-300">Mobile Apps</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-300">UI/UX Design</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-300">Game Development</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors duration-300">About Us</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-300">Team</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-300">Careers</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p class="text-gray-400 text-sm">
+                    &copy; 2024 TechOP. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Social Share Modal -->
+    <div id="shareModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl p-6 w-full max-w-md">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-bold text-gray-900">Share Team Member</h3>
+                <button onclick="closeShareModal()" class="text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <div class="space-y-3">
+                <button onclick="shareToFacebook()" class="w-full flex items-center justify-center space-x-3 bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors duration-300">
+                    <i class="fab fa-facebook text-xl"></i>
+                    <span>Share on Facebook</span>
+                </button>
+                
+                <button onclick="shareToTwitter()" class="w-full flex items-center justify-center space-x-3 bg-sky-500 text-white py-3 px-4 rounded-lg hover:bg-sky-600 transition-colors duration-300">
+                    <i class="fab fa-twitter text-xl"></i>
+                    <span>Share on Twitter</span>
+                </button>
+                
+                <button onclick="shareToLinkedIn()" class="w-full flex items-center justify-center space-x-3 bg-blue-700 text-white py-3 px-4 rounded-lg hover:bg-blue-800 transition-colors duration-300">
+                    <i class="fab fa-linkedin text-xl"></i>
+                    <span>Share on LinkedIn</span>
+                </button>
+                
+                <button onclick="copyToClipboard()" class="w-full flex items-center justify-center space-x-3 bg-gray-600 text-white py-3 px-4 rounded-lg hover:bg-gray-700 transition-colors duration-300">
+                    <i class="fas fa-copy text-xl"></i>
+                    <span>Copy Link</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="assets/js/team-detail.js"></script>
+</body>
+</html>
