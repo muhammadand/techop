@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -169,26 +169,28 @@
         <!-- Logo -->
         <div class="flex items-center space-x-3">
           <div class="logo-glow">
-            <img src="assets/img/techop.png" alt="techop.id logo" class="w-8 h-8" />
+            <img src="../assets/img/techop.png" alt="techop.id logo" class="w-8 h-8" />
           </div>
-          <a href="../index.html" class="text-blue-600 font-bold text-xl bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent hover:scale-105 transition-transform duration-300"> techop.id </a>
+          <a href="../mobile.html" class="text-blue-600 font-bold text-xl bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent hover:scale-105 transition-transform duration-300"> techop.id </a>
         </div>
 
         <!-- Desktop Menu -->
-        <ul id="navMenu" class="hidden md:flex items-center space-x-1">
-          <li><a href="../index.html" class="nav-link px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700">Beranda</a></li>
-          <li><a href="#layanan" class="nav-link px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700">Layanan</a></li>
-          <li><a href="#portofolio" class="nav-link px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700">Portofolio</a></li>
-          <li><a href="#tentang" class="nav-link px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700">Tentang</a></li>
-          <li><a href="#team" class="nav-link px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700">Team</a></li>
-          <li><a href="#outsourcing" class="nav-link px-5 py-2.5 rounded-full text-sm font-semibold text-gray-700">Outsourcing</a></li>
+        <ul id="navMenu" class="hidden lg:flex items-center space-x-1">
+          <li><a href="../mobile.html" class="nav-link px-4 py-2.5 rounded-full text-sm font-semibold text-gray-700">Beranda</a></li>
+          <li><a href="#layanan" class="nav-link px-4 py-2.5 rounded-full text-sm font-semibold text-gray-700">Layanan</a></li>
+          <li><a href="#portofolio" class="nav-link px-4 py-2.5 rounded-full text-sm font-semibold text-gray-700">Portfolio</a></li>
+          <li><a href="#tentang" class="nav-link px-4 py-2.5 rounded-full text-sm font-semibold text-gray-700">Tentang</a></li>
+          <li><a href="#clients" class="nav-link px-4 py-2.5 rounded-full text-sm font-semibold text-gray-700">Klien</a></li>
+          <li><a href="#testimonials" class="nav-link px-4 py-2.5 rounded-full text-sm font-semibold text-gray-700">Testimoni</a></li>
+          <li><a href="#blog" class="nav-link px-4 py-2.5 rounded-full text-sm font-semibold text-gray-700">Blog</a></li>
+          <li><a href="#faq" class="nav-link px-4 py-2.5 rounded-full text-sm font-semibold text-gray-700">FAQ</a></li>
         </ul>
 
         <!-- Contact Button -->
-        <a href="#kontak" class="hidden md:block contact-btn px-6 py-2.5 rounded-full text-sm font-semibold"> Hubungi Kami </a>
+        <a href="#kontak" class="hidden lg:block contact-btn px-6 py-2.5 rounded-full text-sm font-semibold"> Hubungi Kami </a>
 
         <!-- Mobile Hamburger -->
-        <button id="navToggle" class="md:hidden p-3 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+        <button id="navToggle" class="lg:hidden p-3 rounded-lg hover:bg-gray-100 transition-colors duration-200">
           <div class="w-5 h-4 flex flex-col justify-between">
             <div class="hamburger-line line1 w-full h-0.5 bg-gray-700 rounded-sm"></div>
             <div class="hamburger-line line2 w-full h-0.5 bg-gray-700 rounded-sm"></div>
@@ -198,9 +200,9 @@
       </div>
 
       <!-- Mobile Menu -->
-      <div id="mobileMenu" class="mobile-menu md:hidden hidden">
+      <div id="mobileMenu" class="mobile-menu lg:hidden hidden">
         <div class="px-6 py-4 space-y-1">
-          <a href="#beranda" class="mobile-link block px-4 py-3 rounded-lg text-sm font-semibold text-gray-700">
+          <a href="../mobile.html" class="mobile-link block px-4 py-3 rounded-lg text-sm font-semibold text-gray-700">
             <span class="flex items-center">
               <svg class="w-4 h-4 mr-3 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
@@ -225,7 +227,7 @@
               <svg class="w-4 h-4 mr-3 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd" />
               </svg>
-              Portofolio
+              Portfolio
             </span>
           </a>
           <a href="#tentang" class="mobile-link block px-4 py-3 rounded-lg text-sm font-semibold text-gray-700">
@@ -236,22 +238,43 @@
               Tentang
             </span>
           </a>
-          <a href="#team" class="mobile-link block px-4 py-3 rounded-lg text-sm font-semibold text-gray-700">
+          <a href="#clients" class="mobile-link block px-4 py-3 rounded-lg text-sm font-semibold text-gray-700">
             <span class="flex items-center">
               <svg class="w-4 h-4 mr-3 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z" />
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              Team
+              Klien
             </span>
           </a>
-          <a href="#outsourcing" class="mobile-link block px-4 py-3 rounded-lg text-sm font-semibold text-gray-700">
+          <a href="#testimonials" class="mobile-link block px-4 py-3 rounded-lg text-sm font-semibold text-gray-700">
             <span class="flex items-center">
               <svg class="w-4 h-4 mr-3 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z" />
+                <path fill-rule="evenodd" d="M18 13V5a2 2 0 00-2-2H4a2 2 0 00-2 2v8a2 2 0 002 2h3l3 3 3-3h3a2 2 0 002-2zM5 7a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1zm1 3a1 1 0 100 2h3a1 1 0 100-2H6z" clip-rule="evenodd" />
               </svg>
-              Outsourcing
+              Testimoni
             </span>
           </a>
+          <a href="#blog" class="mobile-link block px-4 py-3 rounded-lg text-sm font-semibold text-gray-700">
+            <span class="flex items-center">
+              <svg class="w-4 h-4 mr-3 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M2 5a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 002 2H4a2 2 0 01-2-2V5zm3 1h6v4H5V6zm6 6H5v2h6v-2z" clip-rule="evenodd" />
+              </svg>
+              Blog
+            </span>
+          </a>
+          <a href="#faq" class="mobile-link block px-4 py-3 rounded-lg text-sm font-semibold text-gray-700">
+            <span class="flex items-center">
+              <svg class="w-4 h-4 mr-3 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+              </svg>
+              FAQ
+            </span>
+          </a>
+          <div class="pt-4 border-t border-gray-200">
+            <a href="#kontak" class="mobile-link contact-btn block px-4 py-3 rounded-lg text-sm font-semibold text-center bg-blue-600 text-white">
+              Hubungi Kami
+            </a>
+          </div>
         </div>
       </div>
     </nav>
@@ -268,7 +291,7 @@
       const Utils = {
         log: (message, type = "info") => {
           if (!CONFIG.debugMode) return;
-          const emoji = { info: "📘", success: "✅", warning: "⚠️", error: "❌" };
+          const emoji = { info: "ðŸ“˜", success: "âœ…", warning: "âš ï¸", error: "âŒ" };
           console.log(`${emoji[type]} ${message}`);
         },
 
@@ -302,7 +325,7 @@
         },
 
         getAllSections() {
-          const sectionIds = ["beranda", "layanan", "portofolio", "tentang", "tim", "outsourcing", "kontak"];
+          const sectionIds = ["beranda", "layanan", "portofolio", "tentang", "clients", "testimonials", "blog", "faq", "kontak"];
           return sectionIds
             .map((id) => ({
               id: id,

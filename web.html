@@ -1,7 +1,17 @@
 <!DOCTYPE html>
 <html lang="id">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset        async loadComponent(name, containerId, path = 'components/') {
+          try {
+            log(`Loading ${name}...`, "loading");
+            const response = await fetch(`${path}${name}.html`);
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+
+            const html = await response.text();
+            const container = document.getElementById(containerId);
+            if (!container) throw new Error(`Container ${containerId} not found`);
+
+            container.innerHTML = html;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Techop.id - Jasa Web Developer Profesional</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -24,7 +34,11 @@
     <div id="about-container"></div>
     <div id="portfolio-container"></div>
     <div id="pricing-container"></div>
+    <div id="clients-container"></div>
+    <div id="testimonials-container"></div>
+    <div id="blog-container"></div>
     <div id="timeline-container"></div>
+    <div id="faq-container"></div>
     <div id="outsourcing-container"></div>
     <div id="team-container"></div>
     <div id="footer-container"></div>
@@ -35,17 +49,21 @@
       const CONFIG = { navbarHeight: 80, scrollOffset: 100, scrollSpeed: 2, autoScrollEnabled: true, debugMode: true };
 
       const components = [
-        { name: "navbar", container: "navbar-container" },
-        { name: "hero", container: "hero-container", sectionId: "beranda" },
-        { name: "services", container: "services-container", sectionId: "layanan" },
-        { name: "about", container: "about-container", sectionId: "tentang" },
-        { name: "portfolio", container: "portfolio-container", sectionId: "portofolio" },
-        { name: "technology", container: "technology-container", sectionId: "teknologi" },
-        { name: "pricing", container: "pricing-container", sectionId: "harga" },
-        { name: "timeline", container: "timeline-container", sectionId: "timeline" },
-        { name: "team", container: "team-container", sectionId: "team" },
-        { name: "outsourcing", container: "outsourcing-container", sectionId: "outsourcing" },
-        { name: "footer", container: "footer-container", sectionId: "kontak" },
+        { name: "navbar", container: "navbar-container", path: "web/" },
+        { name: "hero", container: "hero-container", sectionId: "beranda", path: "web/" },
+        { name: "services", container: "services-container", sectionId: "layanan", path: "web/" },
+        { name: "about", container: "about-container", sectionId: "tentang", path: "web/" },
+        { name: "portfolio", container: "portfolio-container", sectionId: "portofolio", path: "web/" },
+        { name: "technology", container: "technology-container", sectionId: "teknologi", path: "web/" },
+        { name: "pricing", container: "pricing-container", sectionId: "harga", path: "web/" },
+        { name: "clients", container: "clients-container", sectionId: "clients", path: "web/" },
+        { name: "testimonials", container: "testimonials-container", sectionId: "testimonials", path: "web/" },
+        { name: "blog", container: "blog-container", sectionId: "blog", path: "web/" },
+        { name: "timeline", container: "timeline-container", sectionId: "timeline", path: "web/" },
+        { name: "faq", container: "faq-container", sectionId: "faq", path: "web/" },
+        { name: "team", container: "team-container", sectionId: "team", path: "web/" },
+        { name: "outsourcing", container: "outsourcing-container", sectionId: "outsourcing", path: "web/" },
+        { name: "footer", container: "footer-container", sectionId: "kontak", path: "web/" },
       ];
 
       // Utility Functions
@@ -120,6 +138,18 @@
           // Special handling for portfolio component - immediate initialization
           if (name === "portfolio") {
             this.initializePortfolioComponent(container);
+          } else if (name === "faq") {
+            // Special handling for FAQ component
+            setTimeout(() => {
+              if (typeof window.initializeFAQComponent === "function") {
+                try {
+                  window.initializeFAQComponent();
+                  log("FAQ component initialized", "success");
+                } catch (error) {
+                  log(`Error initializing FAQ: ${error.message}`, "error");
+                }
+              }
+            }, 200);
           }
         },
 
@@ -203,7 +233,7 @@
 
         async retryComponent(name, containerId) {
           log(`Retrying ${name}...`, "loading");
-          const success = await this.loadComponent(name, containerId);
+          const success = await this.loadComponent(name, containerId, 'web/');
           if (success) {
             // Initialize immediately
             SectionManager.ensureSectionIds();
@@ -215,7 +245,7 @@
           log("Starting to load all components...", "loading");
           try {
             // Load components in parallel for faster loading
-            const results = await Promise.all(components.map((comp) => this.loadComponent(comp.name, comp.container)));
+            const results = await Promise.all(components.map((comp) => this.loadComponent(comp.name, comp.container, comp.path)));
             const successCount = results.filter(Boolean).length;
             log(`${successCount}/${components.length} components loaded successfully`, "success");
 

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog & News</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <section id="blog" class="bg-white py-20 px-4 md:px-8 lg:px-16">
+      <div class="max-w-7xl mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-16">
+          <span class="inline-block bg-gray-800 text-white text-sm font-semibold px-4 py-1 rounded-full mb-3"> BLOG & INSIGHTS </span>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Artikel & <span class="text-gradient">Insight Terkini</span></h2>
+          <p class="text-gray-600 max-w-2xl mx-auto text-lg">Dapatkan wawasan terbaru tentang teknologi, tips pengembangan, dan tren industri digital dari para ahli TechOp.</p>
+        </div>
+
+        <!-- Category Filter -->
+        <div class="flex flex-wrap justify-center gap-4 mb-12">
+          <button class="blog-filter-btn active" data-category="all">
+            <div class="flex items-center gap-2 px-4 py-2 rounded-full border-2 border-gray-300 transition-all duration-300">
+              <div class="w-2 h-2 bg-blue-500 rounded-full filter-dot"></div>
+              <span class="font-medium text-gray-700">Semua Artikel</span>
+            </div>
+          </button>
+          <button class="blog-filter-btn" data-category="tech">
+            <div class="flex items-center gap-2 px-4 py-2 rounded-full border-2 border-gray-300 transition-all duration-300">
+              <div class="w-2 h-2 bg-gray-300 rounded-full filter-dot"></div>
+              <span class="font-medium text-gray-700">Teknologi</span>
+            </div>
+          </button>
+          <button class="blog-filter-btn" data-category="tips">
+            <div class="flex items-center gap-2 px-4 py-2 rounded-full border-2 border-gray-300 transition-all duration-300">
+              <div class="w-2 h-2 bg-gray-300 rounded-full filter-dot"></div>
+              <span class="font-medium text-gray-700">Tips & Tricks</span>
+            </div>
+          </button>
+          <button class="blog-filter-btn" data-category="trends">
+            <div class="flex items-center gap-2 px-4 py-2 rounded-full border-2 border-gray-300 transition-all duration-300">
+              <div class="w-2 h-2 bg-gray-300 rounded-full filter-dot"></div>
+              <span class="font-medium text-gray-700">Tren Digital</span>
+            </div>
+          </button>
+          <button class="blog-filter-btn" data-category="case-study">
+            <div class="flex items-center gap-2 px-4 py-2 rounded-full border-2 border-gray-300 transition-all duration-300">
+              <div class="w-2 h-2 bg-gray-300 rounded-full filter-dot"></div>
+              <span class="font-medium text-gray-700">Case Study</span>
+            </div>
+          </button>
+        </div>
+
+        <!-- Featured Article -->
+        <div class="mb-16">
+          <div class="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl overflow-hidden shadow-xl">
+            <div class="grid grid-cols-1 lg:grid-cols-2">
+              <!-- Content -->
+              <div class="p-8 md:p-12 text-white flex flex-col justify-center">
+                <div class="inline-flex items-center gap-2 mb-4">
+                  <span class="bg-white bg-opacity-20 text-white text-xs font-semibold px-3 py-1 rounded-full"> FEATURED </span>
+                  <span class="bg-yellow-400 text-gray-900 text-xs font-semibold px-3 py-1 rounded-full"> Teknologi </span>
+                </div>
+                <h3 class="text-2xl md:text-3xl font-bold mb-4">5 Tren Teknologi yang Akan Mengubah Bisnis di 2025</h3>
+                <p class="text-blue-100 mb-6 leading-relaxed">
+                  Pelajari bagaimana AI, IoT, dan teknologi emerging lainnya akan membentuk landscape bisnis digital. Panduan lengkap untuk mempersiapkan bisnis Anda menghadapi revolusi teknologi.
+                </p>
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                      <span class="text-sm font-bold">TT</span>
+                    </div>
+                    <div>
+                      <p class="font-semibold">TechOp Team</p>
+                      <p class="text-blue-200 text-sm">15 Des 2024 • 8 min read</p>
+                    </div>
+                  </div>
+                  <a href="featured-article.html" class="bg-white text-blue-600 px-6 py-2 rounded-full font-semibold hover:bg-blue-50 transition-colors">Baca Artikel</a>
+                </div>
+              </div>
+
+              <!-- Image -->
+              <div class="relative min-h-80 lg:min-h-0 overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                  alt="Technology Trends 2025"
+                  class="w-full h-full object-cover"
+                />
+                <div class="absolute inset-0 bg-gradient-to-br from-blue-600 to-purple-600 opacity-60"></div>
+                <div class="absolute bottom-4 left-4 right-4">
+                  <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-lg p-3">
+                    <div class="flex items-center justify-between text-white text-sm">
+                      <span><i class="fas fa-eye mr-1"></i> 2,450 views</span>
+                      <span><i class="fas fa-heart mr-1"></i> 89 likes</span>
+                      <span><i class="fas fa-comment mr-1"></i> 23 comments</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Blog Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="blogGrid">
+          <!-- Tech Article 1 -->
+          <article class="blog-item fade-in" data-category="tech">
+            <div class="bg-white rounded-xl shadow-lg border overflow-hidden group hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+              <div class="relative h-48 overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+                  alt="Mobile Development"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+                <div class="absolute top-4 left-4">
+                  <span class="bg-green-500 text-white text-xs font-semibold px-3 py-1 rounded-full"> Teknologi </span>
+                </div>
+                <div class="absolute bottom-4 right-4">
+                  <div class="bg-white bg-opacity-80 backdrop-blur-sm rounded-full p-2 text-xs text-gray-700"><i class="fas fa-clock mr-1"></i> 6 min</div>
+                </div>
+              </div>
+              <div class="p-6 flex-1 flex flex-col">
+                <h3 class="font-bold text-gray-900 text-lg mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">Mengoptimalkan Performa Aplikasi Mobile dengan Latest Framework</h3>
+                <p class="text-gray-600 text-sm mb-4 flex-1 line-clamp-3">Pelajari teknik terbaru untuk meningkatkan performa aplikasi mobile Anda menggunakan framework modern seperti Flutter dan React Native.</p>
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
+                      <span class="text-xs font-bold text-gray-600">AD</span>
+                    </div>
+                    <div>
+                      <p class="text-sm font-medium text-gray-900">Andi Dev</p>
+                      <p class="text-xs text-gray-500">12 Des 2024</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-3 text-xs text-gray-500">
+                    <span><i class="fas fa-eye"></i> 1,234</span>
+                    <span><i class="fas fa-heart"></i> 45</span>
+                  </div>
+                </div>
+                <a
+                  href="mobile-optimization.html" 
+                  class="w-full mt-4 bg-gradient-to-r from-green-500 to-blue-500 text-white py-2 px-4 rounded-lg font-semibold hover:from-green-600 hover:to-blue-600 transition-all duration-300 transform hover:scale-105 text-sm inline-flex items-center justify-center"
+                >
+                  <i class="fas fa-book-open mr-2"></i>
+                  Baca Selengkapnya
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Tips Article 1 -->
+          <article class="blog-item fade-in" data-category="tips">
+            <div class="bg-white rounded-xl shadow-lg border overflow-hidden group hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+              <div class="relative h-48 overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1609921212029-bb5a28e60960?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+                  alt="UI/UX Design"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+                <div class="absolute top-4 left-4">
+                  <span class="bg-purple-500 text-white text-xs font-semibold px-3 py-1 rounded-full"> Tips & Tricks </span>
+                </div>
+                <div class="absolute bottom-4 right-4">
+                  <div class="bg-white bg-opacity-80 backdrop-blur-sm rounded-full p-2 text-xs text-gray-700"><i class="fas fa-clock mr-1"></i> 4 min</div>
+                </div>
+              </div>
+              <div class="p-6 flex-1 flex flex-col">
+                <h3 class="font-bold text-gray-900 text-lg mb-3 group-hover:text-purple-600 transition-colors line-clamp-2">10 Tips UI/UX Design untuk Meningkatkan User Engagement</h3>
+                <p class="text-gray-600 text-sm mb-4 flex-1 line-clamp-3">Strategi desain yang terbukti efektif untuk menciptakan pengalaman pengguna yang engaging dan meningkatkan konversi.</p>
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
+                      <span class="text-xs font-bold text-gray-600">SD</span>
+                    </div>
+                    <div>
+                      <p class="text-sm font-medium text-gray-900">Sarah Designer</p>
+                      <p class="text-xs text-gray-500">10 Des 2024</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-3 text-xs text-gray-500">
+                    <span><i class="fas fa-eye"></i> 1,876</span>
+                    <span><i class="fas fa-heart"></i> 67</span>
+                  </div>
+                </div>
+                <a
+                  href="ui-ux-tips.html"
+                  class="w-full mt-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white py-2 px-4 rounded-lg font-semibold hover:from-purple-600 hover:to-pink-600 transition-all duration-300 transform hover:scale-105 text-sm inline-flex items-center justify-center"
+                >
+                  <i class="fas fa-book-open mr-2"></i>
+                  Baca Selengkapnya
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Trends Article 1 -->
+          <article class="blog-item fade-in" data-category="trends">
+            <div class="bg-white rounded-xl shadow-lg border overflow-hidden group hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+              <div class="relative h-48 overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+                  alt="E-commerce Analytics"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+                <div class="absolute top-4 left-4">
+                  <span class="bg-orange-500 text-white text-xs font-semibold px-3 py-1 rounded-full"> Tren Digital </span>
+                </div>
+                <div class="absolute bottom-4 right-4">
+                  <div class="bg-white bg-opacity-80 backdrop-blur-sm rounded-full p-2 text-xs text-gray-700"><i class="fas fa-clock mr-1"></i> 5 min</div>
+                </div>
+              </div>
+              <div class="p-6 flex-1 flex flex-col">
+                <h3 class="font-bold text-gray-900 text-lg mb-3 group-hover:text-orange-600 transition-colors line-clamp-2">Masa Depan E-commerce: AI dan Personalisasi</h3>
+                <p class="text-gray-600 text-sm mb-4 flex-1 line-clamp-3">Bagaimana kecerdasan buatan mengubah cara konsumen berbelanja online dan strategi personalisasi yang efektif.</p>
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
+                      <span class="text-xs font-bold text-gray-600">MB</span>
+                    </div>
+                    <div>
+                      <p class="text-sm font-medium text-gray-900">Mike Business</p>
+                      <p class="text-xs text-gray-500">8 Des 2024</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-3 text-xs text-gray-500">
+                    <span><i class="fas fa-eye"></i> 2,103</span>
+                    <span><i class="fas fa-heart"></i> 92</span>
+                  </div>
+                </div>
+                <a
+                  href="mobile-optimization.html"
+                  class="w-full mt-4 bg-gradient-to-r from-orange-500 to-red-500 text-white py-2 px-4 rounded-lg font-semibold hover:from-orange-600 hover:to-red-600 transition-all duration-300 transform hover:scale-105 text-sm inline-flex items-center justify-center"
+                >
+                  <i class="fas fa-book-open mr-2"></i>
+                  Baca Selengkapnya
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Case Study Article 1 -->
+          <article class="blog-item fade-in" data-category="case-study">
+            <div class="bg-white rounded-xl shadow-lg border overflow-hidden group hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+              <div class="relative h-48 overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+                  alt="Business Case Study"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+                <div class="absolute top-4 left-4">
+                  <span class="bg-indigo-500 text-white text-xs font-semibold px-3 py-1 rounded-full"> Case Study </span>
+                </div>
+                <div class="absolute bottom-4 right-4">
+                  <div class="bg-white bg-opacity-80 backdrop-blur-sm rounded-full p-2 text-xs text-gray-700"><i class="fas fa-clock mr-1"></i> 10 min</div>
+                </div>
+              </div>
+              <div class="p-6 flex-1 flex flex-col">
+                <h3 class="font-bold text-gray-900 text-lg mb-3 group-hover:text-indigo-600 transition-colors line-clamp-2">Case Study: Transformasi Digital UMKM dengan Mobile App</h3>
+                <p class="text-gray-600 text-sm mb-4 flex-1 line-clamp-3">Studi kasus lengkap bagaimana aplikasi mobile membantu UMKM meningkatkan penjualan hingga 300% dalam 6 bulan.</p>
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
+                      <span class="text-xs font-bold text-gray-600">TT</span>
+                    </div>
+                    <div>
+                      <p class="text-sm font-medium text-gray-900">TechOp Team</p>
+                      <p class="text-xs text-gray-500">5 Des 2024</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-3 text-xs text-gray-500">
+                    <span><i class="fas fa-eye"></i> 3,456</span>
+                    <span><i class="fas fa-heart"></i> 128</span>
+                  </div>
+                </div>
+                <a
+                  href="featured-article.html"
+                  class="w-full mt-4 bg-gradient-to-r from-indigo-500 to-blue-600 text-white py-2 px-4 rounded-lg font-semibold hover:from-indigo-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 text-sm inline-flex items-center justify-center"
+                >
+                  <i class="fas fa-book-open mr-2"></i>
+                  Baca Selengkapnya
+                </a>
+              </div>
+            </div>
+          </article>
+
+        <!-- Load More Button -->
+        <div class="text-center mt-16" id="loadMoreSection">
+          <button class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105" id="loadMoreBtn">
+            <i class="fas fa-plus mr-2"></i>
+            Muat Artikel Lainnya
+          </button>
+          <p class="text-gray-500 text-sm mt-3">Menampilkan 6 dari 24 artikel</p>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      .text-gradient {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      
+      .line-clamp-2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      
+      .line-clamp-3 {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      
+      .fade-in {
+        animation: fadeInUp 0.6s ease-out forwards;
+      }
+      
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+
+    <script>
+      // Simple blog filtering functionality
+      document.addEventListener('DOMContentLoaded', function() {
+        const filterButtons = document.querySelectorAll('.blog-filter-btn');
+        const blogItems = document.querySelectorAll('.blog-item');
+        
+        filterButtons.forEach(button => {
+          button.addEventListener('click', function() {
+            const category = this.dataset.category;
+            
+            // Update active button
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Filter blog items
+            blogItems.forEach(item => {
+              if (category === 'all' || item.dataset.category === category) {
+                item.style.display = 'block';
+              } else {
+                item.style.display = 'none';
+              }
+            });
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
